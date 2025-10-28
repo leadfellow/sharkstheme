@@ -1,0 +1,107 @@
+{
+    "key": "group_cta_block",
+    "title": "CTA Block",
+    "fields": [
+        {
+            "key": "field_cta_subheadline",
+            "label": "Subheadline (Small text above)",
+            "name": "subheadline",
+            "type": "text",
+            "instructions": "Small text above main title (e.g., 'POLE KINDEL MILLIST VALIDA?')",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "POLE KINDEL MILLIST VALIDA?"
+        },
+        {
+            "key": "field_cta_title",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "CTA title",
+            "required": 1,
+            "default_value": "Ready to Get Started?",
+            "placeholder": "CTA title..."
+        },
+        {
+            "key": "field_cta_text",
+            "label": "Text",
+            "name": "text",
+            "type": "textarea",
+            "instructions": "Supporting text",
+            "required": 0,
+            "rows": 3,
+            "placeholder": "Supporting text..."
+        },
+        {
+            "key": "field_cta_primary_button_text",
+            "label": "Primary Button Text",
+            "name": "primary_button_text",
+            "type": "text",
+            "instructions": "Primary button text",
+            "required": 0,
+            "placeholder": "Get Started"
+        },
+        {
+            "key": "field_cta_primary_button_url",
+            "label": "Primary Button URL",
+            "name": "primary_button_url",
+            "type": "url",
+            "instructions": "Primary button URL",
+            "required": 0,
+            "placeholder": "https://"
+        },
+        {
+            "key": "field_cta_secondary_button_text",
+            "label": "Secondary Button Text",
+            "name": "secondary_button_text",
+            "type": "text",
+            "instructions": "Secondary button text",
+            "required": 0,
+            "placeholder": "Learn More"
+        },
+        {
+            "key": "field_cta_secondary_button_url",
+            "label": "Secondary Button URL",
+            "name": "secondary_button_url",
+            "type": "url",
+            "instructions": "Secondary button URL",
+            "required": 0,
+            "placeholder": "https://"
+        },
+        {
+            "key": "field_cta_style_variant",
+            "label": "Style Variant",
+            "name": "style_variant",
+            "type": "select",
+            "instructions": "Choose a style variation",
+            "required": 0,
+            "choices": {
+                "default": "Default (Primary)",
+                "accent": "Accent (Orange)",
+                "gradient": "Gradient",
+                "dark": "Dark",
+                "light": "Light",
+                "centered-dark": "Centered Dark (Marketing Sharks)"
+            },
+            "default_value": "default",
+            "allow_null": 0,
+            "multiple": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/cta"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

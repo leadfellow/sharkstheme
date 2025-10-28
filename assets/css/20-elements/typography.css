@@ -1,0 +1,61 @@
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  color: var(--color-text);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+h5 { font-size: var(--fs-h5); }
+h6 { font-size: var(--fs-h6); }
+
+/* Paragraphs */
+p {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-secondary);
+}
+
+/* Lists */
+ul, ol {
+  margin: 0 0 var(--space-2);
+  padding-left: var(--space-3);
+}
+
+li {
+  margin-bottom: var(--space-1);
+}
+
+/* Other elements */
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+small {
+  font-size: var(--fs-small);
+}
+

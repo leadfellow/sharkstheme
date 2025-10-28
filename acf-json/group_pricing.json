@@ -1,0 +1,163 @@
+{
+    "key": "group_pricing_block",
+    "title": "Pricing Block",
+    "fields": [
+        {
+            "key": "field_pricing_section_title",
+            "label": "Section Title",
+            "name": "section_title",
+            "type": "text",
+            "instructions": "Main section title",
+            "required": 0,
+            "default_value": "Choose Your Plan",
+            "placeholder": "Pricing title..."
+        },
+        {
+            "key": "field_pricing_section_text",
+            "label": "Section Text",
+            "name": "section_text",
+            "type": "textarea",
+            "instructions": "Section description",
+            "required": 0,
+            "rows": 3,
+            "placeholder": "Pricing description..."
+        },
+        {
+            "key": "field_pricing_plans",
+            "label": "Pricing Plans",
+            "name": "pricing_plans",
+            "type": "repeater",
+            "instructions": "Add pricing plans",
+            "required": 0,
+            "layout": "block",
+            "button_label": "Add Plan",
+            "sub_fields": [
+                {
+                    "key": "field_plan_name",
+                    "label": "Plan Name",
+                    "name": "plan_name",
+                    "type": "text",
+                    "instructions": "Plan name",
+                    "required": 1,
+                    "placeholder": "Basic, Pro, Enterprise..."
+                },
+                {
+                    "key": "field_plan_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "Plan description",
+                    "required": 0,
+                    "rows": 2,
+                    "placeholder": "Short description..."
+                },
+                {
+                    "key": "field_plan_price",
+                    "label": "Price",
+                    "name": "price",
+                    "type": "number",
+                    "instructions": "Plan price",
+                    "required": 1,
+                    "default_value": 0,
+                    "placeholder": "29"
+                },
+                {
+                    "key": "field_plan_currency",
+                    "label": "Currency",
+                    "name": "currency",
+                    "type": "text",
+                    "instructions": "Currency symbol",
+                    "required": 0,
+                    "default_value": "€",
+                    "placeholder": "€"
+                },
+                {
+                    "key": "field_plan_period",
+                    "label": "Period",
+                    "name": "period",
+                    "type": "text",
+                    "instructions": "Billing period",
+                    "required": 0,
+                    "default_value": "month",
+                    "placeholder": "month, year..."
+                },
+                {
+                    "key": "field_plan_featured",
+                    "label": "Featured Plan",
+                    "name": "featured",
+                    "type": "true_false",
+                    "instructions": "Mark as featured plan",
+                    "required": 0,
+                    "default_value": 0,
+                    "ui": 1
+                },
+                {
+                    "key": "field_plan_features",
+                    "label": "Features",
+                    "name": "features",
+                    "type": "repeater",
+                    "instructions": "Plan features",
+                    "required": 0,
+                    "layout": "table",
+                    "button_label": "Add Feature",
+                    "sub_fields": [
+                        {
+                            "key": "field_feature_text",
+                            "label": "Feature Text",
+                            "name": "feature_text",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "placeholder": "Feature name..."
+                        },
+                        {
+                            "key": "field_feature_disabled",
+                            "label": "Disabled",
+                            "name": "disabled",
+                            "type": "true_false",
+                            "instructions": "Mark as not included",
+                            "required": 0,
+                            "default_value": 0,
+                            "ui": 1
+                        }
+                    ]
+                },
+                {
+                    "key": "field_plan_button_text",
+                    "label": "Button Text",
+                    "name": "button_text",
+                    "type": "text",
+                    "instructions": "CTA button text",
+                    "required": 0,
+                    "default_value": "Get Started",
+                    "placeholder": "Get Started"
+                },
+                {
+                    "key": "field_plan_button_url",
+                    "label": "Button URL",
+                    "name": "button_url",
+                    "type": "url",
+                    "instructions": "CTA button URL",
+                    "required": 0,
+                    "placeholder": "https://"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/pricing"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

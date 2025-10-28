@@ -1,0 +1,116 @@
+{
+    "key": "group_contact_form_block",
+    "title": "Contact Form Block",
+    "fields": [
+        {
+            "key": "field_contact_title",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "Section title",
+            "required": 0,
+            "default_value": "Get In Touch",
+            "placeholder": "Contact title..."
+        },
+        {
+            "key": "field_contact_text",
+            "label": "Text",
+            "name": "text",
+            "type": "textarea",
+            "instructions": "Section description",
+            "required": 0,
+            "rows": 3,
+            "placeholder": "Contact description..."
+        },
+        {
+            "key": "field_contact_cf7_shortcode",
+            "label": "Contact Form 7 Shortcode",
+            "name": "cf7_shortcode",
+            "type": "text",
+            "instructions": "Paste CF7 shortcode here (e.g. [contact-form-7 id=\"123\"])",
+            "required": 0,
+            "placeholder": "[contact-form-7 id=\"123\" title=\"Contact form\"]"
+        },
+        {
+            "key": "field_contact_show_contact_info",
+            "label": "Show Contact Info",
+            "name": "show_contact_info",
+            "type": "true_false",
+            "instructions": "Display contact information alongside form",
+            "required": 0,
+            "default_value": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_contact_email",
+            "label": "Email",
+            "name": "email",
+            "type": "email",
+            "instructions": "Contact email address",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_contact_show_contact_info",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "placeholder": "info@example.com"
+        },
+        {
+            "key": "field_contact_phone",
+            "label": "Phone",
+            "name": "phone",
+            "type": "text",
+            "instructions": "Contact phone number",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_contact_show_contact_info",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "placeholder": "+372 123 4567"
+        },
+        {
+            "key": "field_contact_address",
+            "label": "Address",
+            "name": "address",
+            "type": "textarea",
+            "instructions": "Contact address",
+            "required": 0,
+            "rows": 3,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_contact_show_contact_info",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "placeholder": "123 Main Street, City, Country"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/contact-form"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

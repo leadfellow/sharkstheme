@@ -1,0 +1,205 @@
+/* Contact Form Block */
+.block-contact {
+  padding: clamp(3rem, 8vw, 6rem) 0;
+  background: var(--color-bg);
+}
+
+.block-contact__inner {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .block-contact__inner--two-column {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+  }
+}
+
+.block-contact__content {
+  max-width: 100%;
+}
+
+.block-contact__title {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  margin: 0 0 var(--space-2);
+  color: var(--color-text);
+}
+
+.block-contact__text {
+  font-size: 1.125rem;
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-light);
+  margin: 0 0 var(--space-3);
+}
+
+.block-contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.contact-info-item__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+.contact-info-item__content {
+  flex: 1;
+}
+
+.contact-info-item__label {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-text-light);
+  margin: 0 0 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contact-info-item__value {
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.contact-info-item__value a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contact-info-item__value a:hover {
+  color: var(--color-primary);
+}
+
+.block-contact__form {
+  background: var(--color-bg-light);
+  padding: var(--space-4);
+  border-radius: var(--radius-xl);
+}
+
+/* Contact Form 7 Styling */
+.wpcf7 {
+  max-width: 100%;
+}
+
+.wpcf7 .wpcf7-form p {
+  margin: 0 0 var(--space-3);
+}
+
+.wpcf7 .wpcf7-form label {
+  display: block;
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+}
+
+.wpcf7 .wpcf7-form input[type="text"],
+.wpcf7 .wpcf7-form input[type="email"],
+.wpcf7 .wpcf7-form input[type="url"],
+.wpcf7 .wpcf7-form input[type="tel"],
+.wpcf7 .wpcf7-form input[type="number"],
+.wpcf7 .wpcf7-form input[type="date"],
+.wpcf7 .wpcf7-form textarea,
+.wpcf7 .wpcf7-form select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast);
+}
+
+.wpcf7 .wpcf7-form input[type="text"]:focus,
+.wpcf7 .wpcf7-form input[type="email"]:focus,
+.wpcf7 .wpcf7-form input[type="url"]:focus,
+.wpcf7 .wpcf7-form input[type="tel"]:focus,
+.wpcf7 .wpcf7-form input[type="number"]:focus,
+.wpcf7 .wpcf7-form input[type="date"]:focus,
+.wpcf7 .wpcf7-form textarea:focus,
+.wpcf7 .wpcf7-form select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.wpcf7 .wpcf7-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.wpcf7 .wpcf7-form input[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: 0.875rem 1.75rem;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  background: var(--color-primary);
+  border: 2px solid transparent;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.wpcf7 .wpcf7-form input[type="submit"]:hover {
+  background: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.wpcf7 .wpcf7-form input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Validation messages */
+.wpcf7 .wpcf7-not-valid-tip {
+  color: #dc2626;
+  font-size: var(--fs-small);
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.wpcf7 .wpcf7-response-output {
+  margin: var(--space-3) 0 0;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-body);
+}
+
+.wpcf7 .wpcf7-response-output.wpcf7-validation-errors {
+  background: #fef2f2;
+  border: 2px solid #fecaca;
+  color: #991b1b;
+}
+
+.wpcf7 .wpcf7-response-output.wpcf7-mail-sent-ok {
+  background: #f0fdf4;
+  border: 2px solid #bbf7d0;
+  color: #166534;
+}
+
+/* Spinner */
+.wpcf7 .wpcf7-spinner {
+  margin-left: var(--space-1);
+}
+

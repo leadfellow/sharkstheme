@@ -1,0 +1,90 @@
+{
+    "key": "group_faq_block",
+    "title": "FAQ Block",
+    "fields": [
+        {
+            "key": "field_faq_title",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "Main FAQ title",
+            "required": 1,
+            "default_value": "Frequently Asked Questions",
+            "placeholder": "KORDUMA KIPPUVAD KÜSIMUSED"
+        },
+        {
+            "key": "field_faq_image",
+            "label": "Image (Optional)",
+            "name": "image",
+            "type": "image",
+            "instructions": "Optional image for FAQ section (e.g., laptop mockup)",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_faq_items",
+            "label": "FAQ Items",
+            "name": "faq_items",
+            "type": "repeater",
+            "instructions": "Add FAQ questions and answers",
+            "required": 0,
+            "layout": "block",
+            "button_label": "Add FAQ",
+            "sub_fields": [
+                {
+                    "key": "field_faq_question",
+                    "label": "Question",
+                    "name": "question",
+                    "type": "text",
+                    "instructions": "FAQ question",
+                    "required": 1,
+                    "placeholder": "Enter question..."
+                },
+                {
+                    "key": "field_faq_answer",
+                    "label": "Answer",
+                    "name": "answer",
+                    "type": "textarea",
+                    "instructions": "FAQ answer",
+                    "required": 1,
+                    "rows": 4,
+                    "placeholder": "Enter answer..."
+                }
+            ]
+        },
+        {
+            "key": "field_faq_style_variant",
+            "label": "Style Variant",
+            "name": "style_variant",
+            "type": "select",
+            "instructions": "Choose a style variation",
+            "required": 0,
+            "choices": {
+                "default": "Default",
+                "dark": "Dark Background",
+                "two-column": "Two Column (Marketing Sharks)"
+            },
+            "default_value": "default",
+            "allow_null": 0,
+            "multiple": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/faq"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

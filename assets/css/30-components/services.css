@@ -1,0 +1,38 @@
+/* Services Block */
+.block-services {
+  padding: clamp(3rem, 8vw, 6rem) 0;
+  background: var(--color-bg);
+}
+
+.block-services__header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--space-5);
+}
+
+.block-services__title {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  margin: 0 0 var(--space-2);
+  color: var(--color-text);
+}
+
+.block-services__text {
+  font-size: 1.125rem;
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+/* Alternating layout option */
+.block-services--alternate .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.block-services--alternate .card__icon {
+  margin: 0 auto var(--space-2);
+}
+

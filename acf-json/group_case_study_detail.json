@@ -1,0 +1,70 @@
+{
+    "key": "group_case_study_detail",
+    "title": "Case Study Detail Block",
+    "fields": [
+        {
+            "key": "field_csd_select_case_study",
+            "label": "Select Case Study",
+            "name": "select_case_study",
+            "type": "post_object",
+            "instructions": "Choose a case study to display, or leave empty to use current post",
+            "required": 0,
+            "post_type": [
+                "case_study"
+            ],
+            "taxonomy": "",
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
+        },
+        {
+            "key": "field_csd_show_sections",
+            "label": "Sections to Display",
+            "name": "show_sections",
+            "type": "checkbox",
+            "instructions": "Select which sections to show",
+            "required": 0,
+            "choices": {
+                "hero": "Hero Image",
+                "overview": "Project Overview",
+                "challenge": "The Challenge",
+                "solution": "The Solution",
+                "results": "The Results",
+                "features": "Key Features",
+                "metrics": "Metrics",
+                "technologies": "Technologies",
+                "testimonial": "Testimonial",
+                "gallery": "Gallery"
+            },
+            "default_value": [
+                "hero",
+                "overview",
+                "challenge",
+                "solution",
+                "results",
+                "metrics"
+            ],
+            "allow_custom": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/case-study-detail"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

@@ -1,0 +1,102 @@
+{
+    "key": "group_services_block",
+    "title": "Services Block",
+    "fields": [
+        {
+            "key": "field_services_section_title",
+            "label": "Section Title",
+            "name": "section_title",
+            "type": "text",
+            "instructions": "Main section title",
+            "required": 0,
+            "default_value": "Our Services",
+            "placeholder": "Section title..."
+        },
+        {
+            "key": "field_services_section_text",
+            "label": "Section Text",
+            "name": "section_text",
+            "type": "textarea",
+            "instructions": "Section description",
+            "required": 0,
+            "rows": 3,
+            "placeholder": "Section description..."
+        },
+        {
+            "key": "field_services_services",
+            "label": "Services",
+            "name": "services",
+            "type": "repeater",
+            "instructions": "Add services",
+            "required": 0,
+            "layout": "block",
+            "button_label": "Add Service",
+            "sub_fields": [
+                {
+                    "key": "field_service_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "image",
+                    "instructions": "Service icon",
+                    "required": 0,
+                    "return_format": "id",
+                    "preview_size": "thumbnail",
+                    "library": "all"
+                },
+                {
+                    "key": "field_service_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "Service title",
+                    "required": 1,
+                    "placeholder": "Service name..."
+                },
+                {
+                    "key": "field_service_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "Service description",
+                    "required": 0,
+                    "rows": 3,
+                    "placeholder": "Service description..."
+                },
+                {
+                    "key": "field_service_link_url",
+                    "label": "Link URL",
+                    "name": "link_url",
+                    "type": "url",
+                    "instructions": "Optional link URL",
+                    "required": 0,
+                    "placeholder": "https://"
+                },
+                {
+                    "key": "field_service_link_text",
+                    "label": "Link Text",
+                    "name": "link_text",
+                    "type": "text",
+                    "instructions": "Link text",
+                    "required": 0,
+                    "placeholder": "Learn more"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/services"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "spacing": {
+      "units": ["px", "rem", "%", "vw", "vh"],
+      "blockGap": true,
+      "padding": true,
+      "margin": true
+    },
+    "color": {
+      "custom": true,
+      "customGradient": true,
+      "link": true,
+      "palette": [
+        {
+          "slug": "primary",
+          "name": "Primary",
+          "color": "var(--color-primary)"
+        },
+        {
+          "slug": "secondary",
+          "name": "Secondary",
+          "color": "var(--color-secondary)"
+        },
+        {
+          "slug": "accent",
+          "name": "Accent",
+          "color": "var(--color-accent)"
+        },
+        {
+          "slug": "success",
+          "name": "Success",
+          "color": "var(--color-success)"
+        },
+        {
+          "slug": "text",
+          "name": "Text",
+          "color": "var(--color-text)"
+        },
+        {
+          "slug": "text-light",
+          "name": "Text Light",
+          "color": "var(--color-text-light)"
+        },
+        {
+          "slug": "background",
+          "name": "Background",
+          "color": "var(--color-bg)"
+        },
+        {
+          "slug": "background-light",
+          "name": "Background Light",
+          "color": "var(--color-bg-light)"
+        },
+        {
+          "slug": "background-dark",
+          "name": "Background Dark",
+          "color": "var(--color-bg-dark)"
+        }
+      ]
+    },
+    "typography": {
+      "customFontSize": true,
+      "lineHeight": true,
+      "fontFamilies": [
+        {
+          "slug": "sans",
+          "name": "Inter",
+          "fontFamily": "var(--font-sans)"
+        },
+        {
+          "slug": "heading",
+          "name": "Heading",
+          "fontFamily": "var(--font-heading)"
+        }
+      ],
+      "fontSizes": [
+        {
+          "slug": "tiny",
+          "name": "Tiny",
+          "size": "0.75rem"
+        },
+        {
+          "slug": "small",
+          "name": "Small",
+          "size": "0.875rem"
+        },
+        {
+          "slug": "body",
+          "name": "Body",
+          "size": "1rem"
+        },
+        {
+          "slug": "large",
+          "name": "Large",
+          "size": "1.25rem"
+        },
+        {
+          "slug": "xlarge",
+          "name": "Extra Large",
+          "size": "1.5rem"
+        }
+      ]
+    },
+    "layout": {
+      "contentSize": "1200px",
+      "wideSize": "1400px"
+    }
+  },
+  "styles": {
+    "typography": {
+      "fontFamily": "var(--font-sans)",
+      "fontSize": "var(--fs-body)",
+      "lineHeight": "var(--lh-normal)"
+    },
+    "color": {
+      "text": "var(--color-text)",
+      "background": "var(--color-bg)"
+    },
+    "spacing": {
+      "blockGap": "1.5rem"
+    }
+  }
+}
+

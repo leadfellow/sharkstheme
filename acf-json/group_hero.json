@@ -1,0 +1,116 @@
+{
+    "key": "group_hero_block",
+    "title": "Hero Block",
+    "fields": [
+        {
+            "key": "field_hero_label",
+            "label": "Label (Small text above)",
+            "name": "label",
+            "type": "text",
+            "instructions": "Small label text above headline (e.g. \"Veebiarendus\")",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "(Veebiarendus)"
+        },
+        {
+            "key": "field_hero_headline",
+            "label": "Headline",
+            "name": "headline",
+            "type": "text",
+            "instructions": "Main headline text",
+            "required": 1,
+            "default_value": "Welcome to Our Website",
+            "placeholder": "Your main headline..."
+        },
+        {
+            "key": "field_hero_subheadline",
+            "label": "Subheadline",
+            "name": "subheadline",
+            "type": "textarea",
+            "instructions": "Supporting text below headline",
+            "required": 0,
+            "rows": 3,
+            "placeholder": "Your supporting text..."
+        },
+        {
+            "key": "field_hero_primary_cta_text",
+            "label": "Primary CTA Text",
+            "name": "primary_cta_text",
+            "type": "text",
+            "instructions": "Primary button text",
+            "required": 0,
+            "placeholder": "Get Started"
+        },
+        {
+            "key": "field_hero_primary_cta_url",
+            "label": "Primary CTA URL",
+            "name": "primary_cta_url",
+            "type": "url",
+            "instructions": "Primary button URL",
+            "required": 0,
+            "placeholder": "https://"
+        },
+        {
+            "key": "field_hero_secondary_cta_text",
+            "label": "Secondary CTA Text",
+            "name": "secondary_cta_text",
+            "type": "text",
+            "instructions": "Secondary button text",
+            "required": 0,
+            "placeholder": "Learn More"
+        },
+        {
+            "key": "field_hero_secondary_cta_url",
+            "label": "Secondary CTA URL",
+            "name": "secondary_cta_url",
+            "type": "url",
+            "instructions": "Secondary button URL",
+            "required": 0,
+            "placeholder": "https://"
+        },
+        {
+            "key": "field_hero_media",
+            "label": "Media",
+            "name": "media",
+            "type": "image",
+            "instructions": "Hero image",
+            "required": 0,
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_hero_style_variant",
+            "label": "Style Variant",
+            "name": "style_variant",
+            "type": "select",
+            "instructions": "Choose a style variation",
+            "required": 0,
+            "choices": {
+                "default": "Default",
+                "centered": "Centered",
+                "dark": "Dark Background",
+                "fullscreen": "Fullscreen Dark (Marketing Sharks)"
+            },
+            "default_value": "default",
+            "allow_null": 0,
+            "multiple": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/hero"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

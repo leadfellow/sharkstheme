@@ -72,19 +72,36 @@ if (!defined('ABSPATH')) {
                         'fallback_cb'    => false,
                     ]);
                     ?>
-
-                    <a href="#contact" class="btn btn--primary">
-                        Küsi pakkumist 
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor">
-                            <path d="M1 8h14M9 2l6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
                 </nav>
+                
+                <!-- CTA Button -->
+                <a href="#contact" class="site-cta btn btn--primary">
+                    Küsi pakkumist 
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor">
+                        <path d="M1 8h14M9 2l6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </header>
 
     <script>
+    // Header scroll effect
+    (function() {
+        const header = document.querySelector('.site-header');
+        
+        function handleScroll() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+        
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Check initial state
+    })();
+    
     // Mobile menu toggle
     (function() {
         const toggle = document.querySelector('.site-nav__toggle');

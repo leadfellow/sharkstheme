@@ -48,8 +48,12 @@ add_action('after_setup_theme', function() {
         'assets/css/30-components/cta.css',
         'assets/css/30-components/contact-form.css',
         'assets/css/30-components/case-study.css',
+        'assets/css/30-components/accordion.css',
+        'assets/css/30-components/comparison-table.css',
         'assets/css/30-components/faq.css',
+        'assets/css/30-components/testimonials.css',
         'assets/css/30-components/block-styles.css',
+        'assets/css/30-components/mouse-trail.css',
         'assets/css/40-layout/grid.css',
         'assets/css/40-layout/header.css',
         'assets/css/40-layout/footer.css',
@@ -70,12 +74,29 @@ add_action('after_setup_theme', function() {
  * Enqueue styles and scripts
  */
 add_action('wp_enqueue_scripts', function() {
+    // Google Fonts - Inter (Switzer alternative) and Manrope
+    wp_enqueue_style(
+        'sharks-fonts',
+        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap',
+        [],
+        null
+    );
+    
     // Main stylesheet
     wp_enqueue_style(
         'sharks-site',
         get_stylesheet_directory_uri() . '/assets/css/site.css',
-        [],
+        ['sharks-fonts'],
         SHARKS_VERSION
+    );
+    
+    // Mouse trail effect (desktop only via JS check)
+    wp_enqueue_script(
+        'sharks-mouse-trail',
+        get_stylesheet_directory_uri() . '/assets/js/mouse-trail.js',
+        [],
+        SHARKS_VERSION,
+        true // Load in footer
     );
 }, 10);
 

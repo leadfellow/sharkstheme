@@ -3,98 +3,117 @@
     "title": "Hero Block",
     "fields": [
         {
-            "key": "field_hero_label",
-            "label": "Label (Small text above)",
-            "name": "label",
-            "type": "text",
-            "instructions": "Small label text above headline (e.g. \"Veebiarendus\")",
-            "required": 0,
-            "default_value": "",
-            "placeholder": "(Veebiarendus)"
-        },
-        {
             "key": "field_hero_headline",
-            "label": "Headline",
+            "label": "Main Title (Center)",
             "name": "headline",
             "type": "text",
-            "instructions": "Main headline text",
+            "instructions": "Large main title displayed in the center (e.g., \"KODULEHT\")",
             "required": 1,
-            "default_value": "Welcome to Our Website",
-            "placeholder": "Your main headline..."
+            "default_value": "KODULEHT",
+            "placeholder": "KODULEHT"
         },
         {
-            "key": "field_hero_subheadline",
-            "label": "Subheadline",
-            "name": "subheadline",
+            "key": "field_hero_label",
+            "label": "Label (Small text top-left)",
+            "name": "label",
+            "type": "text",
+            "instructions": "Small label text top-left (e.g., \"VEEBIARENDUS\")",
+            "required": 0,
+            "default_value": "VEEBIARENDUS",
+            "placeholder": "VEEBIARENDUS"
+        },
+        {
+            "key": "field_hero_tagline",
+            "label": "Tagline (Bottom-left)",
+            "name": "tagline",
             "type": "textarea",
-            "instructions": "Supporting text below headline",
+            "instructions": "Tagline text shown at bottom-left (optional)",
             "required": 0,
-            "rows": 3,
-            "placeholder": "Your supporting text..."
+            "default_value": "",
+            "placeholder": "Choose a service, send in your request...",
+            "rows": 3
         },
         {
-            "key": "field_hero_primary_cta_text",
-            "label": "Primary CTA Text",
-            "name": "primary_cta_text",
+            "key": "field_hero_cta_text",
+            "label": "CTA Button Text",
+            "name": "cta_text",
             "type": "text",
-            "instructions": "Primary button text",
+            "instructions": "Call to action button text (optional)",
             "required": 0,
-            "placeholder": "Get Started"
+            "placeholder": "Broneeri aeg konsultatsioonile"
         },
         {
-            "key": "field_hero_primary_cta_url",
-            "label": "Primary CTA URL",
-            "name": "primary_cta_url",
+            "key": "field_hero_cta_url",
+            "label": "CTA Button URL",
+            "name": "cta_url",
             "type": "url",
-            "instructions": "Primary button URL",
+            "instructions": "Call to action button URL (optional)",
             "required": 0,
-            "placeholder": "https://"
+            "placeholder": "#contact"
         },
         {
-            "key": "field_hero_secondary_cta_text",
-            "label": "Secondary CTA Text",
-            "name": "secondary_cta_text",
-            "type": "text",
-            "instructions": "Secondary button text",
+            "key": "field_hero_labels",
+            "label": "Labels (Under Hero)",
+            "name": "labels",
+            "type": "repeater",
+            "instructions": "Add service labels that appear under the hero section",
             "required": 0,
-            "placeholder": "Learn More"
+            "layout": "table",
+            "button_label": "Add Label",
+            "sub_fields": [
+                {
+                    "key": "field_hero_label_text",
+                    "label": "Label Text",
+                    "name": "label_text",
+                    "type": "text",
+                    "required": 1,
+                    "placeholder": "e.g. UX/UI"
+                }
+            ]
         },
         {
-            "key": "field_hero_secondary_cta_url",
-            "label": "Secondary CTA URL",
-            "name": "secondary_cta_url",
-            "type": "url",
-            "instructions": "Secondary button URL",
+            "key": "field_hero_labels_bg_color",
+            "label": "Labels Background Color",
+            "name": "labels_bg_color",
+            "type": "color_picker",
+            "instructions": "Choose background color for labels section",
             "required": 0,
-            "placeholder": "https://"
+            "default_value": "#FF69B4"
         },
         {
-            "key": "field_hero_media",
-            "label": "Media",
-            "name": "media",
-            "type": "image",
-            "instructions": "Hero image",
+            "key": "field_hero_labels_text_color",
+            "label": "Labels Text Color",
+            "name": "labels_text_color",
+            "type": "color_picker",
+            "instructions": "Choose text color for labels",
             "required": 0,
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all"
+            "default_value": "#FFFFFF"
         },
         {
-            "key": "field_hero_style_variant",
-            "label": "Style Variant",
-            "name": "style_variant",
+            "key": "field_hero_background_style",
+            "label": "Background Style",
+            "name": "background_style",
             "type": "select",
-            "instructions": "Choose a style variation",
+            "instructions": "Choose background style",
             "required": 0,
             "choices": {
-                "default": "Default",
-                "centered": "Centered",
-                "dark": "Dark Background",
-                "fullscreen": "Fullscreen Dark (Marketing Sharks)"
+                "dark": "Dark (Default)",
+                "beige": "Beige/Clay",
+                "white": "White"
             },
-            "default_value": "default",
-            "allow_null": 0,
-            "multiple": 0
+            "default_value": "dark",
+            "allow_null": 0
+        },
+        {
+            "key": "field_hero_background_image",
+            "label": "Background Image",
+            "name": "background_image",
+            "type": "image",
+            "instructions": "Optional background image (will overlay on background style)",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all"
         }
     ],
     "location": [
@@ -113,4 +132,3 @@
     "instruction_placement": "label",
     "active": true
 }
-

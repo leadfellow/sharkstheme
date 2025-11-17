@@ -121,12 +121,23 @@ add_action('acf/init', function() {
             'capability'    => 'manage_options',
             'icon_url'      => 'dashicons-admin-customizer',
             'position'      => 59,
-            'autoload'      => true,
-            'update_button' => __('Save Settings', 'sharks2025'),
-            'updated_message' => __('Settings saved! CSS variables updated.', 'sharks2025'),
+            'redirect'      => true, // Redirect to first child
         ]);
 
         // Add sub-pages
+        acf_add_options_sub_page([
+            'page_title'    => __('Design Tokens', 'sharks2025'),
+            'menu_title'    => __('Design Tokens', 'sharks2025'),
+            'parent_slug'   => 'sharks-settings',
+            'menu_slug'     => 'acf-options-design-tokens',
+        ]);
+        
+        acf_add_options_sub_page([
+            'page_title'    => __('Import Figma Tokens', 'sharks2025'),
+            'menu_title'    => __('Figma Import', 'sharks2025'),
+            'parent_slug'   => 'sharks-settings',
+        ]);
+        
         acf_add_options_sub_page([
             'page_title'    => __('Logo Settings', 'sharks2025'),
             'menu_title'    => __('Logo', 'sharks2025'),
@@ -142,18 +153,6 @@ add_action('acf/init', function() {
         acf_add_options_sub_page([
             'page_title'    => __('System Status', 'sharks2025'),
             'menu_title'    => __('System Status', 'sharks2025'),
-            'parent_slug'   => 'sharks-settings',
-        ]);
-        
-        acf_add_options_sub_page([
-            'page_title'    => __('Import Figma Tokens', 'sharks2025'),
-            'menu_title'    => __('Figma Import', 'sharks2025'),
-            'parent_slug'   => 'sharks-settings',
-        ]);
-
-        acf_add_options_sub_page([
-            'page_title'    => __('Preview & Export', 'sharks2025'),
-            'menu_title'    => __('Preview', 'sharks2025'),
             'parent_slug'   => 'sharks-settings',
         ]);
     }
@@ -182,8 +181,9 @@ add_action('acf/init', function() {
                             <li><strong>Figma:</strong> Export your Color/Text Styles as JSON or CSS Variables</li>
                             <li><strong>Upload:</strong> Use the Figma Import tab to upload JSON or paste CSS</li>
                             <li><strong>Or Enter Manually:</strong> Fill in the fields below</li>
-                            <li><strong>Save:</strong> Click "Save Settings" to update your theme</li>
-                        </ol>',
+                            <li><strong>Save:</strong> Click "Update" to save your settings</li>
+                        </ol>
+                        <p><button type="button" class="button button-primary" id="sharks-regenerate-css">🔄 Force Regenerate CSS</button> <span id="sharks-regen-result"></span></p>',
                     'new_lines' => 'wpautop',
                 ],
                 
@@ -500,7 +500,7 @@ add_action('acf/init', function() {
                     [
                         'param' => 'options_page',
                         'operator' => '==',
-                        'value' => 'sharks-settings',
+                        'value' => 'acf-options-design-tokens',
                     ],
                 ],
             ],
@@ -848,17 +848,24 @@ add_action('acf/init', function() {
  * Generate CSS variables file when settings are saved
  */
 add_action('acf/save_post', function($post_id) {
-    // Only run on options pages
-    if ($post_id !== 'options') {
-        return;
+    // Debug log
+    error_log('ACF Save Post ID: ' . print_r($post_id, true));
+    
+    // Run on all options pages to ensure it works
+    if ($post_id === 'options' || 
+        (is_string($post_id) && strpos($post_id, 'options') !== false)) {
+        
+        error_log('Running CSS generation...');
+        
+        // Generate and save CSS
+        $result = sharks_generate_css_variables();
+        
+        error_log('CSS generation result: ' . ($result ? 'SUCCESS' : 'FAILED'));
+        
+        // Also update theme.json colors
+        sharks_update_theme_json();
     }
-    
-    // Generate and save CSS
-    sharks_generate_css_variables();
-    
-    // Also update theme.json colors
-    sharks_update_theme_json();
-});
+}, 20);
 
 /**
  * Generate CSS variables file from ACF options
@@ -934,14 +941,30 @@ function sharks_generate_css_variables() {
     // Save to file
     $file_path = get_stylesheet_directory() . '/assets/css/00-settings/variables.css';
     
+    // Debug logging
+    error_log('CSS Generation Debug:');
+    error_log('File path: ' . $file_path);
+    error_log('File exists: ' . (file_exists($file_path) ? 'YES' : 'NO'));
+    error_log('File writable: ' . (is_writable($file_path) ? 'YES' : 'NO'));
+    error_log('Directory writable: ' . (is_writable(dirname($file_path)) ? 'YES' : 'NO'));
+    error_log('Font sans: ' . $typography['font-sans']);
+    error_log('Font heading: ' . $typography['font-heading']);
+    
     // Create backup
     if (file_exists($file_path)) {
         $backup_path = get_stylesheet_directory() . '/assets/css/00-settings/variables.backup.css';
-        copy($file_path, $backup_path);
+        @copy($file_path, $backup_path);
     }
     
     // Write new file
     $result = file_put_contents($file_path, $css);
+    
+    error_log('Write result: ' . ($result !== false ? 'SUCCESS (' . $result . ' bytes)' : 'FAILED'));
+    
+    if ($result === false) {
+        error_log('ERROR: Failed to write CSS file!');
+        error_log('PHP error: ' . error_get_last()['message']);
+    }
     
     return $result !== false;
 }
@@ -986,6 +1009,204 @@ function sharks_update_theme_json() {
     
     return $result !== false;
 }
+
+/**
+ * AJAX: Import Figma Tokens
+ */
+add_action('wp_ajax_sharks_import_figma', function() {
+    check_ajax_referer('sharks_admin', 'nonce');
+    
+    if (!current_user_can('manage_options')) {
+        wp_send_json_error('Insufficient permissions');
+    }
+    
+    $json = isset($_POST['json']) ? stripslashes($_POST['json']) : '';
+    
+    if (empty($json)) {
+        wp_send_json_error('No JSON data provided');
+    }
+    
+    $tokens = json_decode($json, true);
+    
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        wp_send_json_error('Invalid JSON: ' . json_last_error_msg());
+    }
+    
+    $imported = 0;
+    
+    // Import Colors
+    if (isset($tokens['color'])) {
+        if (isset($tokens['color']['neutral colors'])) {
+            $neutrals = $tokens['color']['neutral colors'];
+            if (isset($neutrals['50']['value'])) {
+                update_field('color_bg', sharks_clean_hex($neutrals['50']['value']), 'option');
+                $imported++;
+            }
+            if (isset($neutrals['100']['value'])) {
+                update_field('color_bg_light', sharks_clean_hex($neutrals['100']['value']), 'option');
+                $imported++;
+            }
+            if (isset($neutrals['600']['value'])) {
+                update_field('color_text_light', sharks_clean_hex($neutrals['600']['value']), 'option');
+                $imported++;
+            }
+            if (isset($neutrals['900']['value'])) {
+                update_field('color_text', sharks_clean_hex($neutrals['900']['value']), 'option');
+                $imported++;
+            }
+        }
+        
+        if (isset($tokens['color']['accent colors'])) {
+            $accents = $tokens['color']['accent colors'];
+            if (isset($accents['lime']['value'])) {
+                update_field('color_primary', sharks_clean_hex($accents['lime']['value']), 'option');
+                $imported++;
+            }
+            if (isset($accents['pink']['value'])) {
+                update_field('color_secondary', sharks_clean_hex($accents['pink']['value']), 'option');
+                $imported++;
+            }
+            if (isset($accents['purple']['value'])) {
+                update_field('color_accent', sharks_clean_hex($accents['purple']['value']), 'option');
+                $imported++;
+            }
+        }
+    }
+    
+    // Import Typography - check both 'font' and 'typography' keys
+    $typographySource = isset($tokens['typography']) ? $tokens['typography'] : (isset($tokens['font']) ? $tokens['font'] : null);
+    
+    if ($typographySource) {
+        // Headings
+        if (isset($typographySource['headings'])) {
+            $h = $typographySource['headings'];
+            
+            if (isset($h['h1 - switzer medium'])) {
+                $h1 = isset($h['h1 - switzer medium']['value']) ? $h['h1 - switzer medium']['value'] : $h['h1 - switzer medium'];
+                
+                if (isset($h1['fontSize'])) {
+                    $fontSize = isset($h1['fontSize']['value']) ? $h1['fontSize']['value'] : $h1['fontSize'];
+                    update_field('fs_h1', sharks_px_to_rem($fontSize), 'option');
+                    $imported++;
+                }
+                
+                if (isset($h1['fontFamily'])) {
+                    $fontFamily = isset($h1['fontFamily']['value']) ? $h1['fontFamily']['value'] : $h1['fontFamily'];
+                    update_field('font_heading', '"' . $fontFamily . '", sans-serif', 'option');
+                    $imported++;
+                }
+            }
+            
+            if (isset($h['h2 - switzer medium'])) {
+                $h2 = isset($h['h2 - switzer medium']['value']) ? $h['h2 - switzer medium']['value'] : $h['h2 - switzer medium'];
+                if (isset($h2['fontSize'])) {
+                    $fontSize = isset($h2['fontSize']['value']) ? $h2['fontSize']['value'] : $h2['fontSize'];
+                    update_field('fs_h2', sharks_px_to_rem($fontSize), 'option');
+                    $imported++;
+                }
+            }
+            
+            if (isset($h['h3 - switzer medium'])) {
+                $h3 = isset($h['h3 - switzer medium']['value']) ? $h['h3 - switzer medium']['value'] : $h['h3 - switzer medium'];
+                if (isset($h3['fontSize'])) {
+                    $fontSize = isset($h3['fontSize']['value']) ? $h3['fontSize']['value'] : $h3['fontSize'];
+                    update_field('fs_h3', sharks_px_to_rem($fontSize), 'option');
+                    $imported++;
+                }
+            }
+        }
+        
+        // Body text
+        if (isset($typographySource['body text']['body m - manrope medium'])) {
+            $body = $typographySource['body text']['body m - manrope medium'];
+            $bodyData = isset($body['value']) ? $body['value'] : $body;
+            
+            if (isset($bodyData['fontSize'])) {
+                $fontSize = isset($bodyData['fontSize']['value']) ? $bodyData['fontSize']['value'] : $bodyData['fontSize'];
+                update_field('fs_body', sharks_px_to_rem($fontSize), 'option');
+                $imported++;
+            }
+            
+            if (isset($bodyData['fontFamily'])) {
+                $fontFamily = isset($bodyData['fontFamily']['value']) ? $bodyData['fontFamily']['value'] : $bodyData['fontFamily'];
+                update_field('font_sans', '"' . $fontFamily . '", sans-serif', 'option');
+                $imported++;
+            }
+            
+            if (isset($bodyData['lineHeight']) && isset($bodyData['fontSize'])) {
+                $lineHeight = isset($bodyData['lineHeight']['value']) ? $bodyData['lineHeight']['value'] : $bodyData['lineHeight'];
+                $fontSizeVal = isset($bodyData['fontSize']['value']) ? $bodyData['fontSize']['value'] : $bodyData['fontSize'];
+                $lh = $lineHeight / $fontSizeVal;
+                update_field('lh_normal', number_format($lh, 2), 'option');
+                $imported++;
+            }
+        }
+    }
+    
+    if ($imported > 0) {
+        // Generate CSS file
+        sharks_generate_css_variables();
+        sharks_update_theme_json();
+        
+        wp_send_json_success("✅ Imported $imported tokens from Figma and generated CSS! Refresh page to see changes.");
+    } else {
+        wp_send_json_error('No tokens found in JSON. Check your JSON format.');
+    }
+});
+
+// Helper: Clean hex color (remove alpha)
+function sharks_clean_hex($hex) {
+    return substr($hex, 0, 7);
+}
+
+// Helper: Convert px to rem with clamp
+function sharks_px_to_rem($px) {
+    $rem = round($px / 16, 2);
+    $minRem = round($rem * 0.7, 2);
+    $vw = round($px / 14.4, 1);
+    return "clamp({$minRem}rem, {$vw}vw, {$rem}rem)";
+}
+
+/**
+ * AJAX: Regenerate CSS
+ */
+add_action('wp_ajax_sharks_regenerate_css', function() {
+    check_ajax_referer('sharks_admin', 'nonce');
+    
+    if (!current_user_can('manage_options')) {
+        wp_send_json_error('Insufficient permissions');
+    }
+    
+    // Get file info
+    $file_path = get_stylesheet_directory() . '/assets/css/00-settings/variables.css';
+    $debug_info = [
+        'path' => $file_path,
+        'exists' => file_exists($file_path) ? 'YES' : 'NO',
+        'writable' => is_writable($file_path) ? 'YES' : 'NO',
+        'dir_writable' => is_writable(dirname($file_path)) ? 'YES' : 'NO',
+        'perms' => file_exists($file_path) ? substr(sprintf('%o', fileperms($file_path)), -4) : 'N/A',
+        'owner' => file_exists($file_path) ? posix_getpwuid(fileowner($file_path))['name'] : 'N/A',
+        'php_user' => posix_getpwuid(posix_geteuid())['name'],
+    ];
+    
+    // Generate CSS
+    $css_result = sharks_generate_css_variables();
+    $json_result = sharks_update_theme_json();
+    
+    if ($css_result) {
+        wp_send_json_success('CSS variables regenerated successfully! Refresh page to see changes.');
+    } else {
+        $error_msg = 'Failed to write CSS file. Debug info: ' . 
+            'Path: ' . $debug_info['path'] . ' | ' .
+            'Exists: ' . $debug_info['exists'] . ' | ' .
+            'Writable: ' . $debug_info['writable'] . ' | ' .
+            'Dir Writable: ' . $debug_info['dir_writable'] . ' | ' .
+            'Perms: ' . $debug_info['perms'] . ' | ' .
+            'Owner: ' . $debug_info['owner'] . ' | ' .
+            'PHP User: ' . $debug_info['php_user'];
+        wp_send_json_error($error_msg);
+    }
+});
 
 /**
  * AJAX: Clear error log
@@ -1039,10 +1260,54 @@ add_action('admin_init', function() {
 add_action('acf/input/admin_footer', function() {
     $screen = get_current_screen();
     
-    if ($screen && strpos($screen->id, 'sharks-settings') !== false) {
+    // Debug: Always show on ACF pages
+    if ($screen && (strpos($screen->id, 'sharks-settings') !== false || strpos($screen->id, 'acf-options') !== false)) {
         ?>
         <script>
+        console.log('Current screen ID:', '<?php echo $screen->id; ?>');
+        </script>
+        <script>
         jQuery(document).ready(function($) {
+            console.log('Sharks admin JS loaded');
+            console.log('Regenerate button exists:', $('#sharks-regenerate-css').length);
+            
+            // Regenerate CSS button
+            $(document).on('click', '#sharks-regenerate-css', function(e) {
+                e.preventDefault();
+                console.log('Regenerate button clicked!');
+                
+                var $button = $(this);
+                var $result = $('#sharks-regen-result');
+                
+                $button.prop('disabled', true).text('⏳ Regenerating...');
+                $result.html('');
+                
+                console.log('Sending AJAX request...');
+                
+                $.ajax({
+                    url: ajaxurl,
+                    type: 'POST',
+                    data: {
+                        action: 'sharks_regenerate_css',
+                        nonce: '<?php echo wp_create_nonce('sharks_admin'); ?>'
+                    },
+                    success: function(response) {
+                        console.log('AJAX response:', response);
+                        if (response.success) {
+                            $result.html('<span style="color: green;">✅ ' + response.data + '</span>');
+                        } else {
+                            $result.html('<span style="color: red;">❌ ' + response.data + '</span>');
+                        }
+                        $button.prop('disabled', false).text('🔄 Force Regenerate CSS');
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('AJAX error:', status, error);
+                        $result.html('<span style="color: red;">❌ Failed to regenerate CSS</span>');
+                        $button.prop('disabled', false).text('🔄 Force Regenerate CSS');
+                    }
+                });
+            });
+            
             // Clear log function
             window.sharksAdminClearLog = function() {
                 $.ajax({
@@ -1070,31 +1335,40 @@ add_action('acf/input/admin_footer', function() {
                 var $button = $(this);
                 var $result = $('#sharks-import-result');
                 var json = $('[name="acf[field_figma_json]"]').val();
-                var css = $('[name="acf[field_figma_css]"]').val();
                 
-                $button.prop('disabled', true).text('Parsing...');
-                $result.html('<p>Processing tokens...</p>');
-                
-                // Simple CSS parser (example)
-                if (css) {
-                    var colors = parseCSSColors(css);
-                    if (colors) {
-                        applyColors(colors);
-                        $result.html('<div class="notice notice-success"><p>✅ Tokens imported! Scroll up to review and click "Save Settings".</p></div>');
-                    }
+                if (!json) {
+                    $result.html('<div class="notice notice-error"><p>❌ Please paste Figma JSON in the textarea above.</p></div>');
+                    return;
                 }
                 
-                // JSON parser
-                if (json) {
-                    try {
-                        var tokens = JSON.parse(json);
-                        parseTokensJSON(tokens, $result);
-                    } catch(e) {
-                        $result.html('<div class="notice notice-error"><p>❌ Invalid JSON: ' + e.message + '</p></div>');
-                    }
-                }
+                $button.prop('disabled', true).text('⏳ Importing...');
+                $result.html('<p>Processing Figma tokens...</p>');
                 
-                $button.prop('disabled', false).text('Parse & Import Tokens');
+                console.log('Sending Figma import request...');
+                
+                $.ajax({
+                    url: ajaxurl,
+                    type: 'POST',
+                    data: {
+                        action: 'sharks_import_figma',
+                        nonce: '<?php echo wp_create_nonce('sharks_admin'); ?>',
+                        json: json
+                    },
+                    success: function(response) {
+                        console.log('Import response:', response);
+                        if (response.success) {
+                            $result.html('<div class="notice notice-success"><p>' + response.data + '</p></div>');
+                        } else {
+                            $result.html('<div class="notice notice-error"><p>❌ ' + response.data + '</p></div>');
+                        }
+                        $button.prop('disabled', false).text('Parse & Import Tokens');
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Import error:', status, error);
+                        $result.html('<div class="notice notice-error"><p>❌ AJAX error: ' + error + '</p></div>');
+                        $button.prop('disabled', false).text('Parse & Import Tokens');
+                    }
+                });
             });
             
             function parseCSSColors(css) {
@@ -1148,33 +1422,63 @@ add_action('acf/input/admin_footer', function() {
                     }
                 }
                 
-                // Parse Typography
-                if (tokens.typography) {
-                    if (tokens.typography.headings) {
-                        var h = tokens.typography.headings;
+                // Parse Typography (check both 'font' and 'typography' keys)
+                var typographySource = tokens.typography || tokens.font;
+                
+                if (typographySource) {
+                    if (typographySource.headings) {
+                        var h = typographySource.headings;
                         if (h['h1 - switzer medium']) {
                             var h1 = h['h1 - switzer medium'];
-                            if (h1.fontSize) { setTextField('fs_h1', pxToRem(h1.fontSize.value)); importedCount++; }
-                            if (h1.fontFamily) { setTextField('font_heading', h1.fontFamily.value); importedCount++; }
+                            var h1Data = h1.value || h1; // Support both nested and flat structure
+                            if (h1Data.fontSize) { 
+                                var fontSize = h1Data.fontSize.value || h1Data.fontSize;
+                                setTextField('fs_h1', pxToRem(fontSize)); 
+                                importedCount++; 
+                            }
+                            if (h1Data.fontFamily) { 
+                                var fontFamily = h1Data.fontFamily.value || h1Data.fontFamily;
+                                setTextField('font_heading', '"' + fontFamily + '", sans-serif'); 
+                                importedCount++; 
+                            }
                         }
-                        if (h['h2 - switzer medium'] && h['h2 - switzer medium'].fontSize) {
-                            setTextField('fs_h2', pxToRem(h['h2 - switzer medium'].fontSize.value));
-                            importedCount++;
+                        if (h['h2 - switzer medium']) {
+                            var h2Data = h['h2 - switzer medium'].value || h['h2 - switzer medium'];
+                            if (h2Data.fontSize) {
+                                var fontSize = h2Data.fontSize.value || h2Data.fontSize;
+                                setTextField('fs_h2', pxToRem(fontSize));
+                                importedCount++;
+                            }
                         }
-                        if (h['h3 - switzer medium'] && h['h3 - switzer medium'].fontSize) {
-                            setTextField('fs_h3', pxToRem(h['h3 - switzer medium'].fontSize.value));
-                            importedCount++;
+                        if (h['h3 - switzer medium']) {
+                            var h3Data = h['h3 - switzer medium'].value || h['h3 - switzer medium'];
+                            if (h3Data.fontSize) {
+                                var fontSize = h3Data.fontSize.value || h3Data.fontSize;
+                                setTextField('fs_h3', pxToRem(fontSize));
+                                importedCount++;
+                            }
                         }
                     }
                     
-                    if (tokens.typography['body text']) {
-                        var body = tokens.typography['body text'];
+                    if (typographySource['body text']) {
+                        var body = typographySource['body text'];
                         if (body['body m - manrope medium']) {
                             var bodyText = body['body m - manrope medium'];
-                            if (bodyText.fontSize) { setTextField('fs_body', pxToRem(bodyText.fontSize.value)); importedCount++; }
-                            if (bodyText.fontFamily) { setTextField('font_sans', bodyText.fontFamily.value); importedCount++; }
-                            if (bodyText.lineHeight) {
-                                var lh = bodyText.lineHeight.value / bodyText.fontSize.value;
+                            var bodyData = bodyText.value || bodyText;
+                            if (bodyData.fontSize) { 
+                                var fontSize = bodyData.fontSize.value || bodyData.fontSize;
+                                setTextField('fs_body', pxToRem(fontSize)); 
+                                importedCount++; 
+                            }
+                            if (bodyData.fontFamily) { 
+                                var fontFamily = bodyData.fontFamily.value || bodyData.fontFamily;
+                                setTextField('font_sans', '"' + fontFamily + '", sans-serif'); 
+                                importedCount++; 
+                            }
+                            if (bodyData.lineHeight) {
+                                var lineHeight = bodyData.lineHeight.value || bodyData.lineHeight;
+                                var fontSizeVal = bodyData.fontSize.value || bodyData.fontSize;
+                                var lh = lineHeight / fontSizeVal;
                                 setTextField('lh_normal', lh.toFixed(2));
                                 importedCount++;
                             }
@@ -1183,7 +1487,7 @@ add_action('acf/input/admin_footer', function() {
                 }
                 
                 if (importedCount > 0) {
-                    $result.html('<div class="notice notice-success"><p>✅ Imported ' + importedCount + ' tokens from Figma! Scroll up to review colors and fonts, then click "Save Settings".</p></div>');
+                    $result.html('<div class="notice notice-success"><p>✅ Imported ' + importedCount + ' tokens from Figma! Now go to <strong>Design Tokens</strong> tab and click <strong>Update</strong> to save.</p></div>');
                 } else {
                     $result.html('<div class="notice notice-warning"><p>⚠️ No tokens found. Check your JSON format.</p></div>');
                 }

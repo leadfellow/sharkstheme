@@ -1,0 +1,188 @@
+{
+    "key": "group_sharks_headings_block",
+    "title": "Sharks Headings Block",
+    "fields": [
+        {
+            "key": "field_sharks_headings_label",
+            "label": "Small Label (Above Heading)",
+            "name": "small_label",
+            "type": "text",
+            "instructions": "Optional small text above the heading (e.g. 'KODULEHE TEGEMINE')",
+            "required": 0,
+            "placeholder": "Enter label text..."
+        },
+        {
+            "key": "field_sharks_headings_parts",
+            "label": "Heading Parts",
+            "name": "heading_parts",
+            "type": "repeater",
+            "instructions": "Add heading parts with different colors and icons",
+            "required": 0,
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Part",
+            "sub_fields": [
+                {
+                    "key": "field_sharks_headings_part_type",
+                    "label": "Part Type",
+                    "name": "part_type",
+                    "type": "select",
+                    "instructions": "Choose text, icon, or line break",
+                    "required": 1,
+                    "choices": {
+                        "text": "Text",
+                        "icon": "Icon",
+                        "line_break": "Line Break"
+                    },
+                    "default_value": "text",
+                    "allow_null": 0
+                },
+                {
+                    "key": "field_sharks_headings_part_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "Text content",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_sharks_headings_part_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ],
+                    "placeholder": "Enter text..."
+                },
+                {
+                    "key": "field_sharks_headings_part_color",
+                    "label": "Text Color",
+                    "name": "color",
+                    "type": "select",
+                    "instructions": "Choose text color",
+                    "required": 0,
+                    "choices": {
+                        "dark": "Dark (Black)",
+                        "light": "Light (Gray)"
+                    },
+                    "default_value": "dark",
+                    "allow_null": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_sharks_headings_part_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "key": "field_sharks_headings_part_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "instructions": "Choose an icon",
+                    "required": 0,
+                    "choices": {
+                        "x": "X (✕)",
+                        "asterisk": "Asterisk (✱)",
+                        "star": "Star (✦)",
+                        "circle": "Circle (●)",
+                        "arrow": "Arrow (→)",
+                        "check": "Check (✓)",
+                        "plus": "Plus (+)"
+                    },
+                    "default_value": "x",
+                    "allow_null": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_sharks_headings_part_type",
+                                "operator": "==",
+                                "value": "icon"
+                            }
+                        ]
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_sharks_headings_tag",
+            "label": "Heading Tag",
+            "name": "heading_tag",
+            "type": "select",
+            "instructions": "Choose HTML heading tag",
+            "required": 0,
+            "choices": {
+                "h1": "H1",
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4"
+            },
+            "default_value": "h2",
+            "allow_null": 0
+        },
+        {
+            "key": "field_sharks_headings_alignment",
+            "label": "Text Alignment",
+            "name": "alignment",
+            "type": "select",
+            "instructions": "Choose text alignment",
+            "required": 0,
+            "choices": {
+                "left": "Left",
+                "center": "Center",
+                "right": "Right"
+            },
+            "default_value": "left",
+            "allow_null": 0
+        },
+        {
+            "key": "field_sharks_headings_description",
+            "label": "Description (Below Heading)",
+            "name": "description",
+            "type": "textarea",
+            "instructions": "Optional paragraph text below the heading",
+            "required": 0,
+            "rows": 4,
+            "placeholder": "Enter description text..."
+        },
+        {
+            "key": "field_sharks_headings_read_more_text",
+            "label": "Read More Link Text",
+            "name": "read_more_text",
+            "type": "text",
+            "instructions": "Optional 'Read more' link text",
+            "required": 0,
+            "placeholder": "Loe edasi"
+        },
+        {
+            "key": "field_sharks_headings_read_more_url",
+            "label": "Read More Link URL",
+            "name": "read_more_url",
+            "type": "url",
+            "instructions": "URL for the read more link",
+            "required": 0,
+            "placeholder": "#"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/sharks-headings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

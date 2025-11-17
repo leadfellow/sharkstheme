@@ -112,6 +112,8 @@
 .block-faq--two-column {
   background: #000000;
   padding: clamp(4rem, 10vw, 8rem) 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .block-faq--two-column .block-faq__inner {
@@ -120,27 +122,40 @@
   grid-template-columns: 0.8fr 1.2fr;
   gap: clamp(3rem, 6vw, 6rem);
   align-items: start;
+  position: relative;
 }
 
 .block-faq--two-column .block-faq__sidebar {
-  position: sticky;
-  top: 100px;
+  position: relative;
 }
 
 .block-faq--two-column .block-faq__title {
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.4);
-  margin: 0 0 var(--space-4);
+  color: rgba(255, 255, 255, 0.1);
+  margin: 0 0 clamp(3rem, 5vw, 4rem);
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
+/* Decorative Images */
 .block-faq--two-column .block-faq__image {
-  margin: var(--space-4) 0 0;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  max-width: 250px;
+  margin: 0;
+  border-radius: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.block-faq--two-column .block-faq__image:first-of-type {
+  bottom: -50px;
+  left: -50px;
+}
+
+.block-faq--two-column .block-faq__image:last-of-type {
+  top: -30px;
+  right: -30px;
 }
 
 .block-faq--two-column .block-faq__image img {
@@ -149,41 +164,55 @@
   display: block;
 }
 
+/* Accordion Styling */
+.block-faq--two-column .block-faq__list {
+  position: relative;
+  z-index: 2;
+  gap: 0;
+}
+
 .block-faq--two-column .block-faq__item {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0;
 }
 
 .block-faq--two-column .block-faq__item:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
   box-shadow: none;
 }
 
 .block-faq--two-column .block-faq__question {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(0.95rem, 1.8vw, 1.125rem);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.7);
-  padding: var(--space-3) var(--space-4);
+  color: rgba(255, 255, 255, 0.5);
+  padding: clamp(1.25rem, 2vw, 1.75rem) 0;
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
 
 .block-faq--two-column .block-faq__question:hover {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .block-faq--two-column .block-faq__item.is-open .block-faq__question {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .block-faq--two-column .block-faq__icon {
   color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem;
+}
+
+.block-faq--two-column .block-faq__item.is-open .block-faq__icon {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .block-faq--two-column .block-faq__answer-inner {
-  padding: 0 var(--space-4) var(--space-4);
+  padding: 0 0 1.5rem;
   color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
 }
 
 /* Responsive */
@@ -197,8 +226,23 @@
     position: static;
   }
   
+  .block-faq--two-column .block-faq__title {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+  
   .block-faq--two-column .block-faq__image {
-    display: none;
+    max-width: 150px;
+  }
+  
+  .block-faq--two-column .block-faq__image:first-of-type {
+    bottom: -30px;
+    left: -20px;
+  }
+  
+  .block-faq--two-column .block-faq__image:last-of-type {
+    top: -20px;
+    right: -20px;
+    max-width: 120px;
   }
 }
 

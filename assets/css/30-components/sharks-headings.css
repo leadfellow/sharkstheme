@@ -1,0 +1,244 @@
+/* Sharks Headings Block */
+.sharks-headings {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  padding-top: 100px;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.sharks-headings__label {
+  font-family: 'Manrope', var(--font-sans);
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #666;
+  margin: 0;
+}
+
+.sharks-headings__title {
+  font-family: 'Switzer', var(--font-sans);
+  font-size: 82px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 110%;
+  letter-spacing: -5%;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+  width: 100%;
+  max-width: 1000px;
+  min-height: 270px;
+}
+
+.sharks-headings__break {
+  display: block;
+  width: 100%;
+  height: 0;
+  line-height: 0;
+}
+
+.sharks-headings__part {
+  display: inline-block;
+}
+
+.sharks-headings__part--dark {
+  color: var(--color-text, #1a1a1a);
+}
+
+.sharks-headings__part--light {
+  color: #b0b0b0;
+}
+
+.sharks-headings__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--color-text, #1a1a1a);
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Description */
+.sharks-headings__description {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 140%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #000000;
+  margin: 0;
+  width: 100%;
+  max-width: 428px;
+}
+
+/* Read More Link */
+.sharks-headings__read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 400;
+  color: #000000;
+  text-decoration: underline;
+  text-transform: none;
+  letter-spacing: 0%;
+  transition: all 0.3s ease;
+}
+
+.sharks-headings__read-more:empty {
+  display: none;
+}
+
+.sharks-headings__read-more:hover {
+  opacity: 0.8;
+}
+
+.sharks-headings__read-more-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #000000;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.sharks-headings__read-more-icon svg {
+  width: 20px;
+  height: 20px;
+  color: #FFFFFF;
+}
+
+.sharks-headings__read-more:hover .sharks-headings__read-more-icon {
+  transform: translateY(4px);
+}
+
+/* Alignment */
+.sharks-headings--left {
+  margin-left: 0;
+  margin-right: auto;
+  align-items: flex-start;
+}
+
+.sharks-headings--left .sharks-headings__label {
+  text-align: left !important;
+}
+
+.sharks-headings--left .sharks-headings__title {
+  justify-content: flex-start;
+  text-align: left !important;
+}
+
+.sharks-headings--left .sharks-headings__description {
+  text-align: left !important;
+}
+
+.sharks-headings--center {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  align-items: center !important;
+  text-align: center;
+}
+
+.sharks-headings--center .sharks-headings__label {
+  text-align: center;
+  width: 100%;
+}
+
+.sharks-headings--center .sharks-headings__title {
+  justify-content: center !important;
+  text-align: center;
+  width: 100%;
+}
+
+.sharks-headings--center .sharks-headings__description {
+  text-align: center;
+  width: 100%;
+}
+
+.sharks-headings--center .sharks-headings__read-more {
+  margin-inline: auto;
+}
+
+.sharks-headings--right {
+  margin-left: auto;
+  margin-right: 0;
+  align-items: flex-end;
+}
+
+.sharks-headings--right .sharks-headings__label {
+  text-align: right !important;
+}
+
+.sharks-headings--right .sharks-headings__title {
+  justify-content: flex-end;
+  text-align: right !important;
+}
+
+.sharks-headings--right .sharks-headings__description {
+  text-align: right !important;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .sharks-headings {
+    max-width: 100%;
+    padding-top: 60px;
+  }
+  
+  .sharks-headings__label {
+    font-size: 16px;
+  }
+  
+  .sharks-headings__title {
+    font-size: 48px;
+    gap: 0.4rem;
+  }
+  
+  .sharks-headings__description {
+    font-size: 16px;
+  }
+  
+  .sharks-headings__icon {
+    font-size: clamp(1.25rem, 5vw, 2rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .sharks-headings {
+    padding-top: 40px;
+    gap: 20px;
+  }
+  
+  .sharks-headings__label {
+    font-size: 14px;
+  }
+  
+  .sharks-headings__title {
+    font-size: 32px;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+  }
+  
+  .sharks-headings__description {
+    font-size: 14px;
+  }
+  
+  .sharks-headings__icon {
+    font-size: clamp(1rem, 6vw, 1.5rem);
+  }
+}
+

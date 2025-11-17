@@ -1,0 +1,228 @@
+/* Why Us Block */
+.block-why-us {
+  padding: clamp(4rem, 10vw, 8rem) 0;
+  background: #e8e4dc;
+}
+
+.block-why-us--light {
+  background: var(--color-bg);
+}
+
+.block-why-us__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  align-items: start;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.block-why-us__title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--color-text);
+}
+
+/* Highlight Box */
+.block-why-us__highlight {
+  background: #ffffff;
+  padding: clamp(2rem, 4vw, 3rem);
+  border-radius: 0;
+  position: relative;
+}
+
+.block-why-us__highlight-close {
+  position: absolute;
+  top: clamp(1.5rem, 3vw, 2rem);
+  right: clamp(1.5rem, 3vw, 2rem);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  padding: 0;
+  font-weight: 300;
+}
+
+.block-why-us__highlight-close:hover {
+  transform: rotate(90deg);
+  opacity: 0.7;
+}
+
+.block-why-us__highlight-title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.5rem;
+  color: #1a1a1a;
+}
+
+.block-why-us__highlight-text {
+  font-size: 1rem;
+  line-height: var(--lh-relaxed);
+  color: #666;
+  margin: 0;
+}
+
+/* Features Grid */
+.block-why-us__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.block-why-us__feature {
+  background: #ffffff;
+  padding: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.block-why-us__feature-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.block-why-us__feature-title {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.block-why-us__feature-text {
+  font-size: 0.95rem;
+  line-height: var(--lh-relaxed);
+  color: #666;
+  margin: 0;
+}
+
+/* CTA Card */
+.block-why-us__cta {
+  background: #1a1a1a;
+  padding: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.block-why-us__cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.block-why-us__cta:hover::before {
+  opacity: 1;
+}
+
+.block-why-us__cta-text {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  margin-bottom: auto;
+}
+
+.block-why-us__cta-icon {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  transition: all var(--transition-base);
+  align-self: flex-end;
+}
+
+.block-why-us__cta:hover .block-why-us__cta-icon {
+  transform: scale(1.1);
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.block-why-us__cta-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .block-why-us__header {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  
+  .block-why-us__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .block-why-us__cta {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .block-why-us {
+    padding: clamp(3rem, 8vw, 4rem) 0;
+  }
+  
+  .block-why-us__title {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+  
+  .block-why-us__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .block-why-us__feature,
+  .block-why-us__highlight {
+    padding: 2rem;
+  }
+  
+  .block-why-us__highlight-close {
+    width: 35px;
+    height: 35px;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.75rem;
+  }
+  
+  .block-why-us__cta-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .block-why-us__cta-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+

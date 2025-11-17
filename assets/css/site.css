@@ -8,8 +8,15 @@
 @import url('./30-components/cta.css');
 @import url('./30-components/contact-form.css');
 @import url('./30-components/case-study.css');
+@import url('./30-components/accordion.css');
+@import url('./30-components/comparison-table.css');
 @import url('./30-components/faq.css');
+@import url('./30-components/testimonials.css');
+@import url('./30-components/why-us.css');
+@import url('./30-components/sharks-headings.css');
+@import url('./30-components/inquiry.css');
 @import url('./30-components/block-styles.css');
+@import url('./30-components/mouse-trail.css');
 @import url('./40-layout/grid.css');
 @import url('./40-layout/header.css');
 @import url('./40-layout/footer.css');
@@ -43,9 +50,10 @@ img {
 
 /* Container */
 .container {
-  width: min(var(--container-max), 92vw);
+  max-width: var(--container-max);
+  width: 100%;
   margin-inline: auto;
-  padding-inline: var(--container-padding);
+  padding-inline: clamp(1rem, 3vw, 2rem);
 }
 
 .container--narrow {
@@ -67,6 +75,22 @@ img {
 
 .section--lg {
   padding: clamp(4rem, 10vw, 8rem) 0;
+}
+
+/* Entry Content - add spacing to Gutenberg blocks */
+.entry-content .wp-block-columns,
+.entry-content .wp-block-group,
+.entry-content .wp-block-cover,
+.entry-content > p,
+.entry-content > h1,
+.entry-content > h2,
+.entry-content > h3,
+.entry-content > h4,
+.entry-content > h5,
+.entry-content > h6,
+.entry-content > ul,
+.entry-content > ol {
+  padding-inline: clamp(1rem, 3vw, 2rem);
 }
 
 /* Utility classes */

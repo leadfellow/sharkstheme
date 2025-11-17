@@ -1,0 +1,83 @@
+{
+    "key": "group_testimonials",
+    "title": "Testimonials Block",
+    "fields": [
+        {
+            "key": "field_testimonials_title",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "default_value": "TAGASISIDE"
+        },
+        {
+            "key": "field_testimonials_subtitle",
+            "label": "Subtitle",
+            "name": "subtitle",
+            "type": "text",
+            "default_value": "not just a words but proof"
+        },
+        {
+            "key": "field_testimonials_items",
+            "label": "Testimonials",
+            "name": "testimonials",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Testimonial",
+            "sub_fields": [
+                {
+                    "key": "field_testimonial_text",
+                    "label": "Testimonial Text",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 5
+                },
+                {
+                    "key": "field_testimonial_author_image",
+                    "label": "Author Image",
+                    "name": "author_image",
+                    "type": "image",
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_testimonial_author_name",
+                    "label": "Author Name",
+                    "name": "author_name",
+                    "type": "text"
+                },
+                {
+                    "key": "field_testimonial_author_position",
+                    "label": "Author Position",
+                    "name": "author_position",
+                    "type": "text"
+                },
+                {
+                    "key": "field_testimonial_author_company",
+                    "label": "Author Company",
+                    "name": "author_company",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_testimonials_style",
+            "label": "Style Variant",
+            "name": "style_variant",
+            "type": "select",
+            "choices": {
+                "default": "Default",
+                "beige": "Beige (Marketing Sharks)"
+            },
+            "default_value": "default"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/testimonials"
+            }
+        ]
+    ]
+}
+

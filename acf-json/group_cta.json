@@ -13,14 +13,78 @@
             "placeholder": "POLE KINDEL MILLIST VALIDA?"
         },
         {
+            "key": "field_cta_use_heading_parts",
+            "label": "Use Heading Parts (Advanced)",
+            "name": "use_heading_parts",
+            "type": "true_false",
+            "instructions": "Enable to create heading with different text colors",
+            "required": 0,
+            "default_value": 0
+        },
+        {
+            "key": "field_cta_heading_parts",
+            "label": "Heading Parts",
+            "name": "heading_parts",
+            "type": "repeater",
+            "instructions": "Add heading parts with different colors",
+            "required": 0,
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Part",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_use_heading_parts",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "sub_fields": [
+                {
+                    "key": "field_cta_heading_part_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "Text content",
+                    "required": 1,
+                    "placeholder": "Enter text..."
+                },
+                {
+                    "key": "field_cta_heading_part_color",
+                    "label": "Text Color",
+                    "name": "color",
+                    "type": "select",
+                    "instructions": "Choose text color",
+                    "required": 0,
+                    "choices": {
+                        "white": "White",
+                        "gray": "Gray (50% opacity)"
+                    },
+                    "default_value": "white",
+                    "allow_null": 0
+                }
+            ]
+        },
+        {
             "key": "field_cta_title",
-            "label": "Title",
+            "label": "Title (Simple)",
             "name": "title",
             "type": "text",
-            "instructions": "CTA title",
-            "required": 1,
+            "instructions": "CTA title (used when 'Use Heading Parts' is disabled)",
+            "required": 0,
             "default_value": "Ready to Get Started?",
-            "placeholder": "CTA title..."
+            "placeholder": "CTA title...",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_use_heading_parts",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ]
         },
         {
             "key": "field_cta_text",
@@ -69,6 +133,15 @@
             "placeholder": "https://"
         },
         {
+            "key": "field_cta_show_icon",
+            "label": "Show Star Icon",
+            "name": "show_icon",
+            "type": "true_false",
+            "instructions": "Show decorative star icon above heading",
+            "required": 0,
+            "default_value": 0
+        },
+        {
             "key": "field_cta_style_variant",
             "label": "Style Variant",
             "name": "style_variant",
@@ -79,7 +152,8 @@
                 "default": "Default (Primary)",
                 "accent": "Accent (Orange)",
                 "gradient": "Gradient",
-                "dark": "Dark",
+                "dark": "Dark (Black with corners)",
+                "dark-pattern": "Dark with Pattern (Star grid background)",
                 "light": "Light",
                 "centered-dark": "Centered Dark (Marketing Sharks)"
             },

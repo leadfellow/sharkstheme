@@ -154,6 +154,42 @@ add_action('acf/init', function() {
         'mode'            => 'preview'
     ]);
 
+    // Accordion Block
+    acf_register_block_type([
+        'name'            => 'accordion',
+        'title'           => __('Accordion', 'sharks2025'),
+        'description'     => __('Expandable accordion with custom content', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/accordion/accordion.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'list-view',
+        'keywords'        => ['accordion', 'collapse', 'expand', 'toggle'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Comparison Table Block
+    acf_register_block_type([
+        'name'            => 'comparison-table',
+        'title'           => __('Comparison Table', 'sharks2025'),
+        'description'     => __('Comparison table with multiple columns and rows', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/comparison-table/comparison-table.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'table-row-before',
+        'keywords'        => ['table', 'comparison', 'compare', 'grid'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
     // FAQ Block
     acf_register_block_type([
         'name'            => 'faq',
@@ -163,6 +199,78 @@ add_action('acf/init', function() {
         'category'        => 'sharks-blocks',
         'icon'            => 'editor-help',
         'keywords'        => ['faq', 'questions', 'accordion', 'help'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Testimonials Block
+    acf_register_block_type([
+        'name'            => 'testimonials',
+        'title'           => __('Testimonials', 'sharks2025'),
+        'description'     => __('Customer testimonials carousel', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/testimonials/testimonials.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'format-quote',
+        'keywords'        => ['testimonials', 'reviews', 'feedback', 'carousel'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Why Us Block
+    acf_register_block_type([
+        'name'            => 'why-us',
+        'title'           => __('Why Us', 'sharks2025'),
+        'description'     => __('Why choose us section with features and highlight box', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/why-us/why-us.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'star-filled',
+        'keywords'        => ['why us', 'features', 'benefits', 'about'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Sharks Headings Block
+    acf_register_block_type([
+        'name'            => 'sharks-headings',
+        'title'           => __('Sharks Headings', 'sharks2025'),
+        'description'     => __('Custom headings with mixed colors and icons', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/sharks-headings/sharks-headings.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'heading',
+        'keywords'        => ['heading', 'title', 'icon', 'text', 'sharks'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Inquiry Block
+    acf_register_block_type([
+        'name'            => 'inquiry',
+        'title'           => __('Inquiry', 'sharks2025'),
+        'description'     => __('Contact inquiry section with Contact Form 7', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/inquiry/inquiry.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'email-alt',
+        'keywords'        => ['inquiry', 'contact', 'form', 'cf7', 'saada päring'],
         'supports'        => [
             'align'   => ['wide', 'full'],
             'anchor'  => true,

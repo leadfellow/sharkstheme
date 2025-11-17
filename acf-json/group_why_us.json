@@ -1,0 +1,136 @@
+{
+    "key": "group_why_us_block",
+    "title": "Why Us Block",
+    "fields": [
+        {
+            "key": "field_why_us_title",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "Main title (e.g., 'MIKS MARKETING SHARKS?')",
+            "required": 1,
+            "default_value": "MIKS MARKETING SHARKS?",
+            "placeholder": "Why choose us?"
+        },
+        {
+            "key": "field_why_us_features",
+            "label": "Features",
+            "name": "features",
+            "type": "repeater",
+            "instructions": "Add feature cards",
+            "required": 0,
+            "min": 2,
+            "max": 4,
+            "layout": "block",
+            "button_label": "Add Feature",
+            "sub_fields": [
+                {
+                    "key": "field_why_us_feature_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "instructions": "Choose an icon",
+                    "required": 0,
+                    "choices": {
+                        "asterisk": "Asterisk (✱)",
+                        "star": "Star (✦)",
+                        "check": "Check (✓)",
+                        "heart": "Heart (♥)",
+                        "diamond": "Diamond (◆)",
+                        "circle": "Circle (●)"
+                    },
+                    "default_value": "asterisk",
+                    "allow_null": 0
+                },
+                {
+                    "key": "field_why_us_feature_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "Feature title",
+                    "required": 1,
+                    "placeholder": "Feature name..."
+                },
+                {
+                    "key": "field_why_us_feature_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "textarea",
+                    "instructions": "Feature description",
+                    "required": 0,
+                    "rows": 3,
+                    "placeholder": "Description..."
+                }
+            ]
+        },
+        {
+            "key": "field_why_us_highlight_title",
+            "label": "Highlight Box Title",
+            "name": "highlight_title",
+            "type": "text",
+            "instructions": "Highlight box title (e.g., 'KVALITEET')",
+            "required": 1,
+            "default_value": "KVALITEET",
+            "placeholder": "Highlight title..."
+        },
+        {
+            "key": "field_why_us_highlight_text",
+            "label": "Highlight Box Text",
+            "name": "highlight_text",
+            "type": "textarea",
+            "instructions": "Highlight box description",
+            "required": 0,
+            "rows": 4,
+            "placeholder": "Description..."
+        },
+        {
+            "key": "field_why_us_cta_text",
+            "label": "CTA Button Text",
+            "name": "cta_text",
+            "type": "text",
+            "instructions": "Call to action button text",
+            "required": 0,
+            "default_value": "KÜSI PAKKUMIST",
+            "placeholder": "Get in touch..."
+        },
+        {
+            "key": "field_why_us_cta_url",
+            "label": "CTA Button URL",
+            "name": "cta_url",
+            "type": "url",
+            "instructions": "Call to action button URL",
+            "required": 0,
+            "placeholder": "https://"
+        },
+        {
+            "key": "field_why_us_background_style",
+            "label": "Background Style",
+            "name": "background_style",
+            "type": "select",
+            "instructions": "Choose background style",
+            "required": 0,
+            "choices": {
+                "default": "Default (Beige/Clay)",
+                "light": "Light (White)"
+            },
+            "default_value": "default",
+            "allow_null": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/why-us"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

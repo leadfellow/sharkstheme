@@ -114,12 +114,16 @@ add_action('enqueue_block_editor_assets', function() {
  */
 add_action('widgets_init', function() {
     // Blog Sidebars (check if enabled in Sharks Settings)
-    $enable_primary = get_field('enable_primary_sidebar', 'option');
-    $enable_secondary = get_field('enable_secondary_sidebar', 'option');
+    $enable_primary = function_exists('get_field') ? get_field('enable_primary_sidebar', 'option') : null;
+    $enable_secondary = function_exists('get_field') ? get_field('enable_secondary_sidebar', 'option') : null;
     
     // Default to true if not set
     if ($enable_primary === null || $enable_primary === '') {
         $enable_primary = true;
+    }
+    
+    if ($enable_secondary === null || $enable_secondary === '') {
+        $enable_secondary = false;
     }
     
     if ($enable_primary) {

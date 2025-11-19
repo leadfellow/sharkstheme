@@ -153,10 +153,10 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 30px 20px;
+  padding: 20px 10px;
   gap: 10px;
-  flex: 1;
-  min-height: 80px;
+  width: 275px;
+  min-height: 65px;
   font-family: 'Manrope', var(--font-sans);
   font-style: normal;
   font-weight: 500;
@@ -226,13 +226,17 @@
 /* Data Cells */
 .comparison-table__cell--data {
   background: transparent;
+  font-family: 'Helvetica', Arial, sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  padding: 30px 20px;
-  align-items: flex-start;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 140%;
+  letter-spacing: 0;
+  padding: 20px 10px;
+  align-items: center;
   justify-content: flex-start;
   text-align: left;
+  vertical-align: middle;
 }
 
 /* Multi-line cell */

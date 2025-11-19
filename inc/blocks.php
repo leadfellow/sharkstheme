@@ -279,6 +279,105 @@ add_action('acf/init', function() {
         ],
         'mode'            => 'preview'
     ]);
+
+    // Consultation Block
+    acf_register_block_type([
+        'name'            => 'consultation',
+        'title'           => __('Consultation', 'sharks2025'),
+        'description'     => __('Consultation CTA with heading, text and button', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/consultation/consultation.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'admin-comments',
+        'keywords'        => ['consultation', 'cta', 'button', 'konsultatsioon'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Ten Steps Block
+    acf_register_block_type([
+        'name'            => 'ten-steps',
+        'title'           => __('10 Steps', 'sharks2025'),
+        'description'     => __('10 steps carousel with navigation arrows', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/ten-steps/ten-steps.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'slides',
+        'keywords'        => ['steps', 'process', 'carousel', '10 sammu'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview',
+        'enqueue_assets'  => function() {
+            wp_enqueue_script(
+                'ten-steps-js',
+                get_template_directory_uri() . '/assets/js/ten-steps.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/ten-steps.js'),
+                true
+            );
+        }
+    ]);
+
+    // Heading Half Block
+    acf_register_block_type([
+        'name'            => 'heading-half',
+        'title'           => __('Heading Half', 'sharks2025'),
+        'description'     => __('Half-width heading with colored words and icons', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/heading-half/heading-half.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'format-aside',
+        'keywords'        => ['heading', 'half', 'icons', 'colors', 'pealkiri'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Select Text Block
+    acf_register_block_type([
+        'name'            => 'select-text',
+        'title'           => __('Select Text (Tabs)', 'sharks2025'),
+        'description'     => __('Tabbed content block with icon and custom backgrounds', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/select-text/select-text.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'table-col-after',
+        'keywords'        => ['select', 'text', 'tabs', 'tabbed', 'toggle', 'icon'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Sharks Heading 2 Block
+    acf_register_block_type([
+        'name'            => 'sharks-heading-2',
+        'title'           => __('Sharks Heading 2', 'sharks2025'),
+        'description'     => __('Advanced heading with colored words, SVG icons and right-aligned paragraphs', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/sharks-heading-2/sharks-heading-2.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'editor-textcolor',
+        'keywords'        => ['heading', 'title', 'svg', 'icon', 'color', 'sharks'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
 });
 
 /**

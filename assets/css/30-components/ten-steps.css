@@ -1,0 +1,291 @@
+/**
+ * 10 Steps Carousel Component
+ * Shows 3 steps at a time with navigation
+ */
+
+.block-ten-steps {
+  background: #000000;
+  padding: 150px 0px;
+  overflow: hidden;
+}
+
+.ten-steps__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 58px;
+}
+
+.ten-steps__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0;
+  gap: 183px;
+  width: 1324px;
+  height: 180px;
+  margin-bottom: 70px;
+}
+
+.ten-steps__heading {
+  font-family: "Switzer", sans-serif;
+  font-size: 82px;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -0.05em;
+  color: #FFFFFF;
+  margin: 0;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Carousel Wrapper */
+.ten-steps__carousel-wrapper {
+  position: relative;
+}
+
+/* Carousel Container */
+.ten-steps__carousel {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  scroll-behavior: smooth;
+  flex-wrap: nowrap;
+  overflow: visible;
+  width: 1382px;
+}
+
+@media (max-width: 767px) {
+  .ten-steps__carousel {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
+/* Step Card */
+.ten-steps__card {
+  background: #000000;
+  border: 1px solid #FFFFFF;
+  padding: 25px;
+  border-radius: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  width: 428px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  flex: none;
+  isolation: isolate;
+}
+
+/* Hover effect - white background, black text */
+.ten-steps__card:hover {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  transform: translateY(-4px);
+}
+
+.ten-steps__card:hover .ten-steps__card-heading {
+  color: #000000;
+}
+
+.ten-steps__card:hover .ten-steps__card-description {
+  color: #000000;
+}
+
+/* Card Inner */
+.ten-steps__card-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0;
+}
+
+/* Step Number */
+.ten-steps__number {
+  position: absolute;
+  top: 25px;
+  left: 349px;
+  width: 79px;
+  height: 81px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 20px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  font-family: "Helvetica", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 140%;
+  text-align: center;
+  color: #000000;
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+
+.ten-steps__card:hover .ten-steps__number {
+  background: #E1FF04;
+  color: #000000;
+}
+
+/* Card Heading */
+.ten-steps__card-heading {
+  font-family: "Switzer", var(--font-heading, sans-serif);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -0.05em;
+  color: #FFFFFF;
+  margin: 0;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  max-width: 324px;
+  flex: none;
+  order: 0;
+  z-index: 0;
+}
+
+/* Card Description */
+.ten-steps__card-description {
+  font-family: "Helvetica", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: #EAE8E3;
+  margin: 0;
+  width: 378px;
+  min-height: 100px;
+  transition: color 0.3s ease;
+  flex: none;
+  order: 1;
+  z-index: 1;
+}
+
+/* Navigation */
+.ten-steps__navigation {
+  display: flex;
+  gap: 26px;
+  justify-content: flex-end;
+  width: 230px;
+  height: 102px;
+  align-items: center;
+  flex: none;
+  order: 1;
+}
+
+.ten-steps__nav-btn {
+  width: 102px;
+  height: 102px;
+  border-radius: 50%;
+  border: 2.75676px solid #757472;
+  background: transparent;
+  color: #757472;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.ten-steps__nav-btn:hover {
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  background: transparent;
+}
+
+.ten-steps__nav-btn--next {
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+
+.ten-steps__nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: #757472;
+  color: #757472;
+}
+
+.ten-steps__nav-btn:disabled:hover {
+  background: transparent;
+  border-color: #757472;
+  color: #757472;
+}
+
+.ten-steps__nav-btn svg {
+  width: 32px;
+  height: 26px;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .block-ten-steps {
+    padding: 3rem 1rem;
+  }
+
+  .ten-steps__container {
+    max-width: 100%;
+  }
+
+  .ten-steps__header {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .ten-steps__heading {
+    font-size: 42px;
+  }
+
+  .ten-steps__carousel {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .ten-steps__card {
+    width: 100%;
+    height: auto;
+    min-height: 280px;
+    padding: 20px;
+  }
+
+  .ten-steps__number {
+    left: auto;
+    right: 20px;
+  }
+
+  .ten-steps__card-heading {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .ten-steps__card-description {
+    width: 100%;
+  }
+
+  .ten-steps__navigation {
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .ten-steps__nav-btn {
+    width: 70px;
+    height: 70px;
+  }
+}
+

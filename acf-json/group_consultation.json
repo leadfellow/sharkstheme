@@ -1,0 +1,80 @@
+{
+    "key": "group_consultation_block",
+    "title": "Consultation Block",
+    "fields": [
+        {
+            "key": "field_consultation_heading",
+            "label": "Heading",
+            "name": "heading",
+            "type": "text",
+            "instructions": "Main heading text (e.g., 'POLE KINDEL MILLIST VALIDA?')",
+            "required": 0,
+            "default_value": "POLE KINDEL MILLIST VALIDA?",
+            "placeholder": "Enter heading..."
+        },
+        {
+            "key": "field_consultation_subtext",
+            "label": "Subtext",
+            "name": "subtext",
+            "type": "text",
+            "instructions": "Text below heading (e.g., 'Tule konsultatsioonile!')",
+            "required": 0,
+            "default_value": "Tule konsultatsioonile!",
+            "placeholder": "Enter subtext..."
+        },
+        {
+            "key": "field_consultation_button_text",
+            "label": "Button Text",
+            "name": "button_text",
+            "type": "text",
+            "instructions": "Text on the button (e.g., 'BRONEERIAEG')",
+            "required": 0,
+            "default_value": "BRONEERIAEG",
+            "placeholder": "Enter button text..."
+        },
+        {
+            "key": "field_consultation_button_url",
+            "label": "Button URL",
+            "name": "button_url",
+            "type": "url",
+            "instructions": "Where the button should link to",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "https://"
+        },
+        {
+            "key": "field_consultation_button_bg_color",
+            "label": "Button Background Color",
+            "name": "button_bg_color",
+            "type": "color_picker",
+            "instructions": "Choose the background color for the button",
+            "required": 0,
+            "default_value": "#000000"
+        },
+        {
+            "key": "field_consultation_background_color",
+            "label": "Block Background Color",
+            "name": "background_color",
+            "type": "color_picker",
+            "instructions": "Choose the background color for the entire block section",
+            "required": 0,
+            "default_value": "#f8f8f8"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/consultation"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

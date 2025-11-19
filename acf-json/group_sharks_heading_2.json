@@ -1,0 +1,188 @@
+{
+    "key": "group_sharks_heading_2_block",
+    "title": "Sharks Heading 2 Block",
+    "fields": [
+        {
+            "key": "field_sh2_small_label",
+            "label": "Small Label (Above Heading)",
+            "name": "small_label",
+            "type": "text",
+            "instructions": "Optional small text above the heading",
+            "required": 0,
+            "placeholder": "Enter label text..."
+        },
+        {
+            "key": "field_sh2_heading_parts",
+            "label": "Heading Parts",
+            "name": "heading_parts",
+            "type": "repeater",
+            "instructions": "Add heading words with custom colors, icons, or line breaks",
+            "required": 0,
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Part",
+            "sub_fields": [
+                {
+                    "key": "field_sh2_part_type",
+                    "label": "Part Type",
+                    "name": "part_type",
+                    "type": "select",
+                    "instructions": "Choose text, icon, or line break",
+                    "required": 1,
+                    "choices": {
+                        "text": "Text (Word)",
+                        "icon": "SVG Icon",
+                        "line_break": "Line Break"
+                    },
+                    "default_value": "text",
+                    "allow_null": 0
+                },
+                {
+                    "key": "field_sh2_part_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "Enter word or text",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_sh2_part_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ],
+                    "placeholder": "Enter text..."
+                },
+                {
+                    "key": "field_sh2_part_color",
+                    "label": "Text Color",
+                    "name": "color",
+                    "type": "color_picker",
+                    "instructions": "Choose custom color for this word",
+                    "required": 0,
+                    "default_value": "#171717",
+                    "enable_opacity": 1,
+                    "return_format": "string",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_sh2_part_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "key": "field_sh2_part_icon_type",
+                    "label": "Icon Type",
+                    "name": "icon_type",
+                    "type": "select",
+                    "instructions": "Choose an SVG icon",
+                    "required": 0,
+                    "choices": {
+                        "x": "X (Cross)",
+                        "asterisk": "Asterisk (Star)",
+                        "star": "Star (Outlined)",
+                        "circle": "Circle (Filled)",
+                        "arrow_right": "Arrow Right",
+                        "check": "Check Mark",
+                        "plus": "Plus",
+                        "diamond": "Diamond",
+                        "square": "Square",
+                        "triangle": "Triangle",
+                        "heart": "Heart",
+                        "lightning": "Lightning",
+                        "chevron_down": "Chevron Down"
+                    },
+                    "default_value": "x",
+                    "allow_null": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_sh2_part_type",
+                                "operator": "==",
+                                "value": "icon"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "key": "field_sh2_part_icon_color",
+                    "label": "Icon Color",
+                    "name": "icon_color",
+                    "type": "color_picker",
+                    "instructions": "Choose custom color for this icon",
+                    "required": 0,
+                    "default_value": "#171717",
+                    "enable_opacity": 1,
+                    "return_format": "string",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_sh2_part_type",
+                                "operator": "==",
+                                "value": "icon"
+                            }
+                        ]
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_sh2_heading_tag",
+            "label": "Heading Tag",
+            "name": "heading_tag",
+            "type": "select",
+            "instructions": "Choose HTML heading tag",
+            "required": 0,
+            "choices": {
+                "h1": "H1",
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4"
+            },
+            "default_value": "h2",
+            "allow_null": 0
+        },
+        {
+            "key": "field_sh2_paragraph_1",
+            "label": "Paragraph 1",
+            "name": "paragraph_1",
+            "type": "textarea",
+            "instructions": "First paragraph (appears below heading, aligned slightly to the right)",
+            "required": 0,
+            "rows": 4,
+            "placeholder": "Enter first paragraph..."
+        },
+        {
+            "key": "field_sh2_paragraph_2",
+            "label": "Paragraph 2",
+            "name": "paragraph_2",
+            "type": "textarea",
+            "instructions": "Second paragraph (appears below first paragraph, aligned slightly to the right)",
+            "required": 0,
+            "rows": 4,
+            "placeholder": "Enter second paragraph..."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/sharks-heading-2"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

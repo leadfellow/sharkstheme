@@ -1,0 +1,152 @@
+{
+    "key": "group_heading_half_block",
+    "title": "Heading Half Block",
+    "fields": [
+        {
+            "key": "field_heading_half_parts",
+            "label": "Heading Parts",
+            "name": "heading_parts",
+            "type": "repeater",
+            "instructions": "Add heading parts with different colors",
+            "required": 0,
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Part",
+            "sub_fields": [
+                {
+                    "key": "field_heading_half_part_type",
+                    "label": "Part Type",
+                    "name": "part_type",
+                    "type": "select",
+                    "instructions": "Choose text or line break",
+                    "required": 1,
+                    "choices": {
+                        "text": "Text",
+                        "line_break": "Line Break"
+                    },
+                    "default_value": "text",
+                    "allow_null": 0
+                },
+                {
+                    "key": "field_heading_half_part_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "Text content",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_heading_half_part_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ],
+                    "placeholder": "Enter text..."
+                },
+                {
+                    "key": "field_heading_half_part_color",
+                    "label": "Text Color",
+                    "name": "color",
+                    "type": "select",
+                    "instructions": "Choose text color",
+                    "required": 0,
+                    "choices": {
+                        "dark": "Dark (Black)",
+                        "light": "Light (Gray)",
+                        "primary": "Primary (Yellow)",
+                        "secondary": "Secondary (Pink)",
+                        "accent": "Accent (Purple)"
+                    },
+                    "default_value": "dark",
+                    "allow_null": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_heading_half_part_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_heading_half_tag",
+            "label": "Heading Tag",
+            "name": "heading_tag",
+            "type": "select",
+            "instructions": "Choose HTML heading tag",
+            "required": 0,
+            "choices": {
+                "h1": "H1",
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4"
+            },
+            "default_value": "h2",
+            "allow_null": 0
+        },
+        {
+            "key": "field_heading_half_icons",
+            "label": "Icons",
+            "name": "icons",
+            "type": "repeater",
+            "instructions": "Add icons to display below the heading",
+            "required": 0,
+            "min": 0,
+            "max": 5,
+            "layout": "table",
+            "button_label": "Add Icon",
+            "sub_fields": [
+                {
+                    "key": "field_heading_half_icon_type",
+                    "label": "Icon Type",
+                    "name": "icon_type",
+                    "type": "select",
+                    "instructions": "Choose an icon",
+                    "required": 1,
+                    "choices": {
+                        "asterisk": "Asterisk",
+                        "star": "Star",
+                        "x": "X",
+                        "circle": "Circle",
+                        "arrow": "Arrow"
+                    },
+                    "default_value": "asterisk",
+                    "allow_null": 0
+                }
+            ]
+        },
+        {
+            "key": "field_heading_half_background",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "color_picker",
+            "instructions": "Choose background color for the block",
+            "required": 0,
+            "default_value": "#f8f8f8",
+            "enable_opacity": 1,
+            "return_format": "string"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/heading-half"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

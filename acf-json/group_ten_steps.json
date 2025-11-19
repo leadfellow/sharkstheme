@@ -1,0 +1,65 @@
+{
+    "key": "group_ten_steps_block",
+    "title": "10 Steps Block",
+    "fields": [
+        {
+            "key": "field_ten_steps_section_heading",
+            "label": "Section Heading",
+            "name": "section_heading",
+            "type": "text",
+            "instructions": "Main section heading (e.g. '10 SAMMU × EDUKAKS × PROJEKTIKS')",
+            "required": 0,
+            "default_value": "10 SAMMU × EDUKAKS × PROJEKTIKS",
+            "placeholder": "Section heading..."
+        },
+        {
+            "key": "field_ten_steps_steps",
+            "label": "Steps",
+            "name": "steps",
+            "type": "repeater",
+            "instructions": "Add up to 10 steps. Each step will show a number, heading, and description.",
+            "required": 1,
+            "layout": "block",
+            "button_label": "Add Step",
+            "min": 1,
+            "max": 10,
+            "sub_fields": [
+                {
+                    "key": "field_step_heading",
+                    "label": "Heading",
+                    "name": "heading",
+                    "type": "text",
+                    "instructions": "Step heading (e.g. 'KOHTUMINE - ANALÜÜS JA STRATEEGIA PÜSTITAMINE')",
+                    "required": 1,
+                    "placeholder": "Step heading..."
+                },
+                {
+                    "key": "field_step_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "Step description",
+                    "required": 0,
+                    "rows": 4,
+                    "placeholder": "Describe this step..."
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/ten-steps"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

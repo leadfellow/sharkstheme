@@ -231,6 +231,121 @@
   text-align: center;
 }
 
+/* Multi-line cell */
+.comparison-table__cell--multi {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  justify-content: flex-start !important;
+}
+
+/* Ensure multi-line cells inherit text color */
+.block-comparison-table--dark .comparison-table__cell--multi {
+  color: #FFFFFF;
+}
+
+.block-comparison-table--light .comparison-table__cell--multi {
+  color: #171717;
+}
+
+.comparison-table__cell--multi .comparison-table__cell-item {
+  margin-bottom: 0;
+}
+
+/* Individual cell item */
+.comparison-table__cell-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Checkmark item (only symbol) */
+.comparison-table__cell-item--check {
+  justify-content: flex-start;
+}
+
+.comparison-table__cell-item--check::before {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: #E1FF04;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Cross item (only symbol) */
+.comparison-table__cell-item--cross {
+  justify-content: flex-start;
+}
+
+.comparison-table__cell-item--cross::before {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: #FF0080;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Checkmark item with text */
+.comparison-table__cell-item--check-text {
+  font-weight: 400;
+  font-size: 16px;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.block-comparison-table--dark .comparison-table__cell-item--check-text {
+  color: #FFFFFF;
+}
+
+.block-comparison-table--light .comparison-table__cell-item--check-text {
+  color: #171717;
+}
+
+.comparison-table__cell-item--check-text::before {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: #E1FF04 !important;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Cross item with text */
+.comparison-table__cell-item--cross-text {
+  font-weight: 400;
+  font-size: 16px;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.block-comparison-table--dark .comparison-table__cell-item--cross-text {
+  color: #FFFFFF;
+}
+
+.block-comparison-table--light .comparison-table__cell-item--cross-text {
+  color: #171717;
+}
+
+.comparison-table__cell-item--cross-text::before {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: #FF0080 !important;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
 /* Checkmark Styling (only symbol) */
 .comparison-table__cell--check {
   text-align: center;

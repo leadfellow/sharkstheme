@@ -89,33 +89,77 @@ if (empty($column_headers) || empty($table_rows)) {
                         <?php 
                         if (!empty($row['cells'])):
                             foreach ($row['cells'] as $cell): 
-                                // Convert + to checkmark and - to cross
                                 $content = $cell['content'];
-                                $cell_class = 'comparison-table__cell comparison-table__cell--data';
+                                // Handle both newlines and <br> tags
+                                $content = str_replace(['<br />', '<br/>', '<br>'], "\n", $content);
+                                $lines = array_filter(array_map('trim', explode("\n", $content)));
                                 
-                                // Check if content starts with + or -
-                                if (trim($content) === '+') {
-                                    // Just a plus sign - show box only
-                                    $content = '';
-                                    $cell_class .= ' comparison-table__cell--check';
-                                } elseif (strpos(trim($content), '+') === 0) {
-                                    // Starts with plus, show text after +
-                                    $content = trim(substr(trim($content), 1));
-                                    $cell_class .= ' comparison-table__cell--check-text';
-                                } elseif (trim($content) === '-') {
-                                    // Just a minus sign - show box only
-                                    $content = '';
-                                    $cell_class .= ' comparison-table__cell--cross';
-                                } elseif (strpos(trim($content), '-') === 0) {
-                                    // Starts with minus, show text after -
-                                    $content = trim(substr(trim($content), 1));
-                                    $cell_class .= ' comparison-table__cell--cross-text';
+                                // Check if content has multiple lines with +/- markers
+                                $hasMultipleMarkers = false;
+                                $markerCount = 0;
+                                foreach ($lines as $line) {
+                                    if (preg_match('/^[+\-]/', $line)) {
+                                        $markerCount++;
+                                    }
                                 }
-                                ?>
-                                <div class="<?php echo esc_attr($cell_class); ?>">
-                                    <?php echo wp_kses_post(nl2br($content)); ?>
-                                </div>
-                            <?php endforeach;
+                                // Only treat as multi-line if there are 2+ lines with markers
+                                $hasMultipleMarkers = $markerCount >= 2;
+                                
+                                if ($hasMultipleMarkers && count($lines) > 0) {
+                                    // Multiple lines with markers - render each separately
+                                    ?>
+                                    <div class="comparison-table__cell comparison-table__cell--data comparison-table__cell--multi">
+                                        <?php foreach ($lines as $line): 
+                                            $line = trim($line);
+                                            if (empty($line)) continue;
+                                            
+                                            $line_class = '';
+                                            $line_content = $line;
+                                            
+                                            if ($line === '+') {
+                                                $line_class = 'comparison-table__cell-item--check';
+                                                $line_content = '';
+                                            } elseif (strpos($line, '+') === 0) {
+                                                $line_class = 'comparison-table__cell-item--check-text';
+                                                $line_content = trim(substr($line, 1));
+                                            } elseif ($line === '-') {
+                                                $line_class = 'comparison-table__cell-item--cross';
+                                                $line_content = '';
+                                            } elseif (strpos($line, '-') === 0) {
+                                                $line_class = 'comparison-table__cell-item--cross-text';
+                                                $line_content = trim(substr($line, 1));
+                                            }
+                                            ?>
+                                            <div class="comparison-table__cell-item <?php echo esc_attr($line_class); ?>">
+                                                <?php echo wp_kses_post($line_content); ?>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+                                    <?php
+                                } else {
+                                    // Single line - original logic
+                                    $cell_class = 'comparison-table__cell comparison-table__cell--data';
+                                    
+                                    if (trim($content) === '+') {
+                                        $content = '';
+                                        $cell_class .= ' comparison-table__cell--check';
+                                    } elseif (strpos(trim($content), '+') === 0) {
+                                        $content = trim(substr(trim($content), 1));
+                                        $cell_class .= ' comparison-table__cell--check-text';
+                                    } elseif (trim($content) === '-') {
+                                        $content = '';
+                                        $cell_class .= ' comparison-table__cell--cross';
+                                    } elseif (strpos(trim($content), '-') === 0) {
+                                        $content = trim(substr(trim($content), 1));
+                                        $cell_class .= ' comparison-table__cell--cross-text';
+                                    }
+                                    ?>
+                                    <div class="<?php echo esc_attr($cell_class); ?>">
+                                        <?php echo wp_kses_post(nl2br($content)); ?>
+                                    </div>
+                                    <?php
+                                }
+                            endforeach;
                         endif;
                         ?>
                     </div>

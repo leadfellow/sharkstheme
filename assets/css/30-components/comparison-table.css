@@ -168,7 +168,7 @@
 
 /* Empty Cell (top-left corner) */
 .comparison-table__cell--empty {
-  flex: 0 0 250px;
+  flex: 0 0 180px;
   background: transparent;
   padding: 30px 20px;
 }
@@ -184,6 +184,9 @@
   letter-spacing: 0.05em;
   flex-direction: column;
   gap: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
 }
 
 /* Header Line 1 - Gray */
@@ -206,11 +209,11 @@
 
 /* Label Cells (left column) */
 .comparison-table__cell--label {
-  flex: 0 0 250px;
+  flex: 0 0 180px;
   background: transparent;
   font-family: 'Switzer', var(--font-heading);
   font-weight: 500;
-  font-size: 26px;
+  font-size: 22px;
   line-height: 110%;
   letter-spacing: -0.05em;
   text-transform: uppercase;
@@ -227,8 +230,9 @@
   font-size: 16px;
   line-height: 24px;
   padding: 30px 20px;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
 }
 
 /* Multi-line cell */
@@ -350,6 +354,7 @@
 .comparison-table__cell--check {
   text-align: center;
   justify-content: center;
+  align-items: center;
   font-size: 0;
 }
 
@@ -366,6 +371,7 @@
 .comparison-table__cell--cross {
   text-align: center;
   justify-content: center;
+  align-items: center;
   font-size: 0;
 }
 

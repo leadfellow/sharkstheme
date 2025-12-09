@@ -39,3 +39,17 @@
   }
 }
 
+/* Gutenberg Columns - Equal Height Support */
+.wp-block-columns {
+  align-items: stretch !important;
+}
+
+.wp-block-column {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.wp-block-column > * {
+  flex-grow: 1;
+}
+

@@ -136,6 +136,24 @@ add_action('acf/init', function() {
         'mode'            => 'preview'
     ]);
 
+    // Case Story Block
+    acf_register_block_type([
+        'name'            => 'case-story',
+        'title'           => __('Case Story', 'sharks2025'),
+        'description'     => __('Flexible case study with 7 cards, stats table and images', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/case-story/case-story.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'media-document',
+        'keywords'        => ['case', 'story', 'success', 'cards', 'stats', 'results'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
     // Case Studies Grid Block
     acf_register_block_type([
         'name'            => 'case-studies-grid',
@@ -163,6 +181,24 @@ add_action('acf/init', function() {
         'category'        => 'sharks-blocks',
         'icon'            => 'list-view',
         'keywords'        => ['accordion', 'collapse', 'expand', 'toggle'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Closed Accordion Block
+    acf_register_block_type([
+        'name'            => 'closed-accordion',
+        'title'           => __('Closed Accordion', 'sharks2025'),
+        'description'     => __('Non-clickable list styled like an accordion', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/closed-accordion/closed-accordion.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'editor-ol',
+        'keywords'        => ['list', 'closed', 'accordion', 'static', 'numbered'],
         'supports'        => [
             'align'   => ['wide', 'full'],
             'anchor'  => true,
@@ -244,6 +280,24 @@ add_action('acf/init', function() {
         'mode'            => 'preview'
     ]);
 
+    // Why That Block
+    acf_register_block_type([
+        'name'            => 'why-that',
+        'title'           => __('Why That', 'sharks2025'),
+        'description'     => __('Why section with title and 3 feature cards with icons', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/why-that/why-that.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'star-half',
+        'keywords'        => ['why', 'features', 'cards', 'benefits', 'reasons'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
     // Sharks Headings Block
     acf_register_block_type([
         'name'            => 'sharks-headings',
@@ -271,6 +325,24 @@ add_action('acf/init', function() {
         'category'        => 'sharks-blocks',
         'icon'            => 'email-alt',
         'keywords'        => ['inquiry', 'contact', 'form', 'cf7', 'saada päring'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Inquiry 2 Block (Static Title)
+    acf_register_block_type([
+        'name'            => 'inquiry-2',
+        'title'           => __('Inquiry 2 (Static)', 'sharks2025'),
+        'description'     => __('Contact inquiry with static title - no scrolling animation', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/inquiry-2/inquiry-2.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'email-alt2',
+        'keywords'        => ['inquiry', 'contact', 'form', 'cf7', 'static', 'saada päring'],
         'supports'        => [
             'align'   => ['wide', 'full'],
             'anchor'  => true,
@@ -375,6 +447,22 @@ add_action('acf/init', function() {
             'anchor'  => true,
             'spacing' => ['padding', 'margin'],
             'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Spacer Block
+    acf_register_block_type([
+        'name'            => 'spacer',
+        'title'           => __('Spacer', 'sharks2025'),
+        'description'     => __('Add vertical spacing with optional background color', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/spacer/spacer.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'minus',
+        'keywords'        => ['spacer', 'spacing', 'gap', 'margin', 'padding'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true
         ],
         'mode'            => 'preview'
     ]);

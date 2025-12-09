@@ -8,18 +8,23 @@
 @import url('./30-components/cta.css');
 @import url('./30-components/contact-form.css');
 @import url('./30-components/case-study.css');
+@import url('./30-components/case-story.css');
 @import url('./30-components/accordion.css');
+@import url('./30-components/closed-accordion.css');
 @import url('./30-components/comparison-table.css');
 @import url('./30-components/faq.css');
 @import url('./30-components/testimonials.css');
 @import url('./30-components/why-us.css');
+@import url('./30-components/why-that.css');
 @import url('./30-components/sharks-headings.css');
 @import url('./30-components/sharks-heading-2.css');
 @import url('./30-components/heading-half.css');
 @import url('./30-components/inquiry.css');
+@import url('./30-components/inquiry-2.css');
 @import url('./30-components/consultation.css');
 @import url('./30-components/ten-steps.css');
 @import url('./30-components/select-text.css');
+@import url('./30-components/spacer.css');
 @import url('./30-components/block-styles.css');
 @import url('./30-components/mouse-trail.css');
 @import url('./40-layout/grid.css');
@@ -39,12 +44,19 @@ html {
 
 body {
   margin: 0;
+  padding: 0;
   font-family: var(--font-sans);
   line-height: var(--lh-normal);
   color: var(--color-text);
   background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#page,
+.site {
+  margin: 0;
+  padding: 0;
 }
 
 img {
@@ -72,15 +84,28 @@ img {
 /* Section spacing */
 .section {
   padding: clamp(3rem, 8vw, 6rem) 0;
+  margin: 0;
 }
 
 .section--sm {
   padding: clamp(2rem, 5vw, 4rem) 0;
+  margin: 0;
 }
 
 .section--lg {
   padding: clamp(4rem, 10vw, 8rem) 0;
+  margin: 0;
 }
+
+/* Remove all spacing between blocks */
+.entry-content {
+  margin: 0 !important;
+  padding: 0 !important;
+  --wp--style--block-gap: 0 !important;
+}
+
+
+
 
 /* Entry Content - add spacing to Gutenberg blocks */
 .entry-content .wp-block-columns,

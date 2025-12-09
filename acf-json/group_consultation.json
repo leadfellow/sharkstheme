@@ -7,30 +7,31 @@
             "label": "Heading",
             "name": "heading",
             "type": "text",
-            "instructions": "Main heading text (e.g., 'POLE KINDEL MILLIST VALIDA?')",
-            "required": 0,
-            "default_value": "POLE KINDEL MILLIST VALIDA?",
-            "placeholder": "Enter heading..."
+            "instructions": "Main heading text",
+            "required": 1,
+            "default_value": "Soovid nõu digiturunduses?",
+            "placeholder": "Soovid nõu digiturunduses?"
         },
         {
-            "key": "field_consultation_subtext",
-            "label": "Subtext",
-            "name": "subtext",
-            "type": "text",
-            "instructions": "Text below heading (e.g., 'Tule konsultatsioonile!')",
+            "key": "field_consultation_description",
+            "label": "Description",
+            "name": "description",
+            "type": "textarea",
+            "instructions": "Description text below heading",
             "required": 0,
-            "default_value": "Tule konsultatsioonile!",
-            "placeholder": "Enter subtext..."
+            "rows": 3,
+            "default_value": "Oleme avatud ka tasuta 30-minutiliseks konsultatsiooniks – broneeri aeg endale sobival hetkel.",
+            "placeholder": "Enter description..."
         },
         {
             "key": "field_consultation_button_text",
             "label": "Button Text",
             "name": "button_text",
             "type": "text",
-            "instructions": "Text on the button (e.g., 'BRONEERIAEG')",
-            "required": 0,
-            "default_value": "BRONEERIAEG",
-            "placeholder": "Enter button text..."
+            "instructions": "Text on the button",
+            "required": 1,
+            "default_value": "Broneeri konsultatsioon",
+            "placeholder": "Broneeri konsultatsioon"
         },
         {
             "key": "field_consultation_button_url",
@@ -39,26 +40,51 @@
             "type": "url",
             "instructions": "Where the button should link to",
             "required": 0,
-            "default_value": "",
+            "default_value": "#",
             "placeholder": "https://"
         },
         {
-            "key": "field_consultation_button_bg_color",
-            "label": "Button Background Color",
-            "name": "button_bg_color",
-            "type": "color_picker",
-            "instructions": "Choose the background color for the button",
-            "required": 0,
-            "default_value": "#000000"
+            "key": "field_consultation_ticker_enabled",
+            "label": "Show Ticker Banner",
+            "name": "ticker_enabled",
+            "type": "true_false",
+            "instructions": "Enable pink ticker banner below",
+            "default_value": 1
         },
         {
-            "key": "field_consultation_background_color",
-            "label": "Block Background Color",
-            "name": "background_color",
+            "key": "field_consultation_ticker_text",
+            "label": "Ticker Text",
+            "name": "ticker_text",
+            "type": "text",
+            "instructions": "Text that scrolls in the ticker banner",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_consultation_ticker_enabled",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "default_value": "Astu turundusteadlik samm ja tule konsultatsioonile",
+            "placeholder": "Astu turundusteadlik samm ja tule konsultatsioonile"
+        },
+        {
+            "key": "field_consultation_ticker_bg_color",
+            "label": "Ticker Background Color",
+            "name": "ticker_bg_color",
             "type": "color_picker",
-            "instructions": "Choose the background color for the entire block section",
-            "required": 0,
-            "default_value": "#f8f8f8"
+            "instructions": "Background color for ticker banner",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_consultation_ticker_enabled",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "default_value": "#f237a6"
         }
     ],
     "location": [
@@ -77,4 +103,3 @@
     "instruction_placement": "label",
     "active": true
 }
-

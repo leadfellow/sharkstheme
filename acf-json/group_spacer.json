@@ -1,0 +1,46 @@
+{
+    "key": "group_spacer",
+    "title": "Spacer",
+    "fields": [
+        {
+            "key": "field_spacer_height",
+            "label": "Height (px)",
+            "name": "spacer_height",
+            "type": "number",
+            "instructions": "Enter height in pixels",
+            "required": 1,
+            "default_value": 50,
+            "min": 0,
+            "max": 500,
+            "step": 10
+        },
+        {
+            "key": "field_spacer_background_color",
+            "label": "Background Color",
+            "name": "spacer_background_color",
+            "type": "color_picker",
+            "instructions": "Optional background color",
+            "required": 0,
+            "default_value": "",
+            "enable_opacity": 0,
+            "return_format": "string"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/spacer"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+
+

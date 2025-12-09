@@ -1,0 +1,136 @@
+/* Closed Accordion Component */
+/* A non-clickable list that looks like an accordion without expandable content */
+
+.block-closed-accordion {
+  padding: var(--space-5) 0;
+  background-color: #F7F7F5 !important; /* Default background, can be overridden via inline style */
+  display: flex;
+  flex-direction: column;
+}
+
+.block-closed-accordion .container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* When inside column, stretch fully */
+.wp-block-column > .block-closed-accordion {
+  flex: 1 !important;
+  box-sizing: border-box;
+}
+
+.wp-block-column .closed-accordion {
+  max-width: 100%;
+}
+
+
+.closed-accordion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 30px;
+  max-width: 988px;
+  margin: 0 auto;
+}
+
+/* Closed Accordion Item */
+.closed-accordion__item {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  width: 100%;
+  flex: none;
+  align-self: stretch;
+}
+
+/* Content (not a button, just a div) */
+.closed-accordion__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  width: 100%;
+}
+
+/* Title Wrapper */
+.closed-accordion__title-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 0px;
+  gap: 50px;
+  flex: 1;
+}
+
+/* Number */
+.closed-accordion__number {
+  font-family: 'Switzer', var(--font-heading);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: #BBBAB6;
+  flex: none;
+  min-width: 60px;
+}
+
+/* Title */
+.closed-accordion__title {
+  font-family: 'Switzer', var(--font-heading);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: #171717;
+  margin: 0;
+  flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .closed-accordion {
+    max-width: 100%;
+    gap: 20px;
+  }
+  
+  .closed-accordion__item {
+    padding: 0px 0px 20px;
+  }
+  
+  .closed-accordion__title-wrapper {
+    gap: 20px;
+  }
+  
+  .closed-accordion__number {
+    font-size: 24px;
+    min-width: 50px;
+  }
+  
+  .closed-accordion__title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .closed-accordion__title-wrapper {
+    gap: 15px;
+  }
+  
+  .closed-accordion__number {
+    font-size: 20px;
+    min-width: 40px;
+  }
+  
+  .closed-accordion__title {
+    font-size: 20px;
+  }
+}

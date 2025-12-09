@@ -1,0 +1,82 @@
+{
+    "key": "group_why_that_block",
+    "title": "Why That Block",
+    "fields": [
+        {
+            "key": "field_why_that_main_title",
+            "label": "Main Title",
+            "name": "main_title",
+            "type": "text",
+            "instructions": "Main heading for the section",
+            "required": 1,
+            "default_value": "Miks on vaja digiturundus-agentuuri?",
+            "placeholder": "Miks on vaja digiturundus-agentuuri?"
+        },
+        {
+            "key": "field_why_that_cards",
+            "label": "Cards",
+            "name": "cards",
+            "type": "repeater",
+            "instructions": "Add up to 3 feature cards",
+            "required": 0,
+            "min": 0,
+            "max": 3,
+            "layout": "block",
+            "button_label": "Add Card",
+            "sub_fields": [
+                {
+                    "key": "field_why_that_card_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "instructions": "Choose an icon for this card",
+                    "required": 1,
+                    "choices": {
+                        "star": "Star (8-point)",
+                        "x": "X (diamond)",
+                        "circles": "Circles (target)",
+                        "target": "Target (concentric)",
+                        "asterisk": "Asterisk"
+                    },
+                    "default_value": "star",
+                    "allow_null": 0
+                },
+                {
+                    "key": "field_why_that_card_title",
+                    "label": "Card Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "Title for this card",
+                    "required": 1,
+                    "placeholder": "Strateegiline fookus"
+                },
+                {
+                    "key": "field_why_that_card_description",
+                    "label": "Card Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "Description text for this card",
+                    "required": 1,
+                    "rows": 3,
+                    "placeholder": "Meie digiturunduse agentuur koondab teadmised ja oskused..."
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/why-that"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

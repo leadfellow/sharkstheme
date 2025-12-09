@@ -1,0 +1,61 @@
+{
+    "key": "group_inquiry_2_block",
+    "title": "Inquiry 2 Block (Static Title)",
+    "fields": [
+        {
+            "key": "field_inquiry_2_title_line_1",
+            "label": "Title Line 1 (Gray)",
+            "name": "title_line_1",
+            "type": "text",
+            "instructions": "First line of title (shown in gray color)",
+            "required": 1,
+            "default_value": "TELLI DIGITURUNDUS DIGIKOGENUD",
+            "placeholder": "TELLI DIGITURUNDUS DIGIKOGENUD"
+        },
+        {
+            "key": "field_inquiry_2_title_line_2",
+            "label": "Title Line 2 (White)",
+            "name": "title_line_2",
+            "type": "text",
+            "instructions": "Second line of title (shown in white color, with icons)",
+            "required": 1,
+            "default_value": "TURUNDUSAGENTUURILT",
+            "placeholder": "TURUNDUSAGENTUURILT"
+        },
+        {
+            "key": "field_inquiry_2_submit_text",
+            "label": "Submit Section Title",
+            "name": "submit_text",
+            "type": "text",
+            "instructions": "Title shown in black submit section (e.g., 'SAADA PÄRING')",
+            "required": 1,
+            "default_value": "SAADA PÄRING",
+            "placeholder": "SAADA PÄRING"
+        },
+        {
+            "key": "field_inquiry_2_cf7_shortcode",
+            "label": "Contact Form 7 Shortcode",
+            "name": "cf7_shortcode",
+            "type": "text",
+            "instructions": "Paste Contact Form 7 shortcode (e.g., [contact-form-7 id=\"123\"])",
+            "required": 1,
+            "placeholder": "[contact-form-7 id=\"123\" title=\"Contact form\"]"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/inquiry-2"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

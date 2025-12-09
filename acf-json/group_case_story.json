@@ -1,0 +1,245 @@
+{
+    "key": "group_case_story_block",
+    "title": "Case Story Block",
+    "fields": [
+        {
+            "key": "field_case_story_main_title",
+            "label": "Main Title",
+            "name": "main_title",
+            "type": "text",
+            "instructions": "Main heading for the case story",
+            "required": 1,
+            "default_value": "RAHVUSVAHELINE EDULUGU",
+            "placeholder": "RAHVUSVAHELINE EDULUGU"
+        },
+        {
+            "key": "field_case_story_subtitle",
+            "label": "Subtitle",
+            "name": "subtitle",
+            "type": "text",
+            "instructions": "Subtitle below main title",
+            "required": 0,
+            "placeholder": "Spordistatistika tööriist Jalgpallis - UK turg"
+        },
+        {
+            "key": "field_case_story_cards",
+            "label": "Cards (01-06)",
+            "name": "cards",
+            "type": "repeater",
+            "instructions": "Add cards 1-6 (card 7 is configured separately below)",
+            "required": 0,
+            "min": 0,
+            "max": 6,
+            "layout": "block",
+            "button_label": "Add Card",
+            "sub_fields": [
+                {
+                    "key": "field_case_story_card_title",
+                    "label": "Card Title",
+                    "name": "title",
+                    "type": "text",
+                    "required": 1,
+                    "placeholder": "Kliendi tüüp"
+                },
+                {
+                    "key": "field_case_story_card_content",
+                    "label": "Card Content",
+                    "name": "content",
+                    "type": "textarea",
+                    "required": 1,
+                    "rows": 3,
+                    "placeholder": "online kasutajapõhine tarkvara (SAAS)"
+                }
+            ]
+        },
+        {
+            "key": "field_case_story_card_7_type",
+            "label": "Card 07 Type",
+            "name": "card_7_type",
+            "type": "select",
+            "instructions": "Choose content type for card 7",
+            "required": 1,
+            "choices": {
+                "table": "Stats Table",
+                "images": "Images"
+            },
+            "default_value": "table",
+            "allow_null": 0
+        },
+        {
+            "key": "field_case_story_card_7_title",
+            "label": "Card 07 Title",
+            "name": "card_7_title",
+            "type": "text",
+            "required": 1,
+            "default_value": "Tulemused",
+            "placeholder": "Tulemused"
+        },
+        {
+            "key": "field_case_story_card_7_description",
+            "label": "Card 07 Description",
+            "name": "card_7_description",
+            "type": "text",
+            "required": 0,
+            "placeholder": "Veebruari kuu statistika võrdlus 1 aastase vahega"
+        },
+        {
+            "key": "field_case_story_stats_table",
+            "label": "Stats Table",
+            "name": "stats_table",
+            "type": "group",
+            "instructions": "Configure stats table (shown when Card 07 Type is 'Stats Table')",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_case_story_card_7_type",
+                        "operator": "==",
+                        "value": "table"
+                    }
+                ]
+            ],
+            "sub_fields": [
+                {
+                    "key": "field_case_story_table_headers",
+                    "label": "Table Headers",
+                    "name": "headers",
+                    "type": "repeater",
+                    "min": 1,
+                    "max": 10,
+                    "layout": "table",
+                    "button_label": "Add Header",
+                    "sub_fields": [
+                        {
+                            "key": "field_case_story_header_text",
+                            "label": "Header Text",
+                            "name": "header_text",
+                            "type": "text",
+                            "required": 1,
+                            "placeholder": "users"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_case_story_table_rows",
+                    "label": "Table Rows",
+                    "name": "rows",
+                    "type": "repeater",
+                    "min": 0,
+                    "layout": "block",
+                    "button_label": "Add Row",
+                    "sub_fields": [
+                        {
+                            "key": "field_case_story_row_cells",
+                            "label": "Cells",
+                            "name": "cells",
+                            "type": "repeater",
+                            "layout": "table",
+                            "button_label": "Add Cell",
+                            "sub_fields": [
+                                {
+                                    "key": "field_case_story_cell_show_legend",
+                                    "label": "Show Legend Box",
+                                    "name": "show_legend",
+                                    "type": "true_false",
+                                    "default_value": 1
+                                },
+                                {
+                                    "key": "field_case_story_cell_text",
+                                    "label": "Cell Text",
+                                    "name": "cell_text",
+                                    "type": "text",
+                                    "required": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_case_story_card_7_images",
+            "label": "Card 07 Images",
+            "name": "card_7_images",
+            "type": "repeater",
+            "instructions": "Add images inside card 7 (shown when Card 07 Type is 'Images')",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_case_story_card_7_type",
+                        "operator": "==",
+                        "value": "images"
+                    }
+                ]
+            ],
+            "min": 0,
+            "max": 2,
+            "layout": "block",
+            "button_label": "Add Image",
+            "sub_fields": [
+                {
+                    "key": "field_case_story_card_image",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "required": 1,
+                    "return_format": "id"
+                }
+            ]
+        },
+        {
+            "key": "field_case_story_images_section",
+            "label": "Images Section (Bottom)",
+            "name": "images_section",
+            "type": "repeater",
+            "instructions": "Add 1-2 images for bottom section",
+            "required": 0,
+            "min": 0,
+            "max": 2,
+            "layout": "block",
+            "button_label": "Add Image",
+            "sub_fields": [
+                {
+                    "key": "field_case_story_image",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "required": 1,
+                    "return_format": "id"
+                },
+                {
+                    "key": "field_case_story_overlay_text",
+                    "label": "Overlay Text",
+                    "name": "overlay_text",
+                    "type": "text",
+                    "instructions": "Text shown in hover overlay circle",
+                    "default_value": "vaata lähemalt",
+                    "placeholder": "vaata lähemalt"
+                }
+            ]
+        },
+        {
+            "key": "field_case_story_hover_color",
+            "label": "Hover Overlay Color",
+            "name": "hover_color",
+            "type": "color_picker",
+            "instructions": "Color for image hover overlay",
+            "default_value": "#F237A6"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/case-story"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

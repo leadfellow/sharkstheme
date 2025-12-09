@@ -1,31 +1,24 @@
 /**
- * Canvas Mouse Trail Effect Styles
- * Minimal CSS for canvas-based trail effect
+ * Fluid Simulation Cursor Effect
+ * WebGL-based fluid dynamics visualization
+ * Reference: https://reactbits.dev/animations/splash-cursor
  */
 
-/* Canvas element styling */
-.mouse-trail-canvas {
+/* Canvas styling */
+#fluid-cursor {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: screen;
+  display: block;
 }
 
-/* Optional: Hide default cursor for more immersive effect */
-/* Uncomment if you want to hide the default cursor completely */
-/*
-@media (pointer: fine) {
-  body {
-    cursor: none;
-  }
-  
-  a, button, input, textarea, select, [role="button"] {
-    cursor: none;
+/* Disable on touch-only devices for performance */
+@media (hover: none) and (pointer: coarse) {
+  #fluid-cursor {
+    display: none;
   }
 }
-*/
-

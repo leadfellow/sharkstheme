@@ -72,6 +72,10 @@
     canvas.style.pointerEvents = 'none';
     canvas.style.zIndex = '9999';
     canvas.style.display = 'block';
+    canvas.style.touchAction = 'none';
+    canvas.style.userSelect = 'none';
+    canvas.style.webkitUserSelect = 'none';
+    canvas.style.webkitTouchCallout = 'none';
     document.body.appendChild(canvas);
     resizeCanvas();
   }
@@ -910,8 +914,10 @@
   // Check both touch support and device type
   const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isSafariMobile = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
   
-  if (!isTouchDevice && !isMobile) {
+  // Only initialize on desktop (no touch, not mobile, not Safari iOS)
+  if (!isTouchDevice && !isMobile && !isSafariMobile) {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', init);
     } else {

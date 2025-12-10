@@ -116,7 +116,8 @@ img {
 .entry-content > .block-content-grey,
 .entry-content > .block-service-cards,
 .entry-content > .block-hero,
-.entry-content > .sharks-headings {
+.entry-content > .sharks-headings,
+.entry-content > .block-case-story {
   margin: 0 !important;
 }
 
@@ -144,7 +145,8 @@ img {
 .entry-content > .block-cta,
 .entry-content > .block-content-grey,
 .entry-content > .block-service-cards,
-.entry-content > .block-hero {
+.entry-content > .block-hero,
+.entry-content > .block-case-story {
   padding-inline: 0 !important;
   margin-left: auto !important;
   margin-right: auto !important;

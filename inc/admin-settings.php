@@ -598,13 +598,25 @@ add_action('acf/init', function() {
                     'new_lines' => 'wpautop',
                 ],
                 
-                // Logo
+                // Logo (Header)
                 [
                     'key' => 'field_site_logo',
-                    'label' => 'Site Logo',
+                    'label' => 'Header Logo',
                     'name' => 'site_logo',
                     'type' => 'image',
-                    'instructions' => 'Upload your site logo',
+                    'instructions' => 'Upload your header logo (appears in navigation)',
+                    'return_format' => 'array',
+                    'preview_size' => 'medium',
+                    'library' => 'all',
+                ],
+                
+                // Footer Logo
+                [
+                    'key' => 'field_footer_logo',
+                    'label' => 'Footer Logo',
+                    'name' => 'footer_logo',
+                    'type' => 'image',
+                    'instructions' => 'Upload your footer logo (leave empty to use header logo)',
                     'return_format' => 'array',
                     'preview_size' => 'medium',
                     'library' => 'all',

@@ -898,21 +898,20 @@
   }
 
   function bindEvents() {
-    // Only enable on desktop devices (no touch support)
-    if (!('ontouchstart' in window)) {
-      window.addEventListener('mousemove', e => {
-        let pointer = pointers[0];
-        let posX = scaleByPixelRatio(e.clientX);
-        let posY = scaleByPixelRatio(e.clientY);
-        updatePointerMoveData(pointer, posX, posY);
-      });
-    }
+    window.addEventListener('mousemove', e => {
+      let pointer = pointers[0];
+      let posX = scaleByPixelRatio(e.clientX);
+      let posY = scaleByPixelRatio(e.clientY);
+      updatePointerMoveData(pointer, posX, posY);
+    });
   }
 
-  // Initialize on DOM ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
+  // Initialize on DOM ready - only on desktop devices (no touch support)
+  if (!('ontouchstart' in window)) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
   }
 })();

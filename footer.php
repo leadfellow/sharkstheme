@@ -44,7 +44,10 @@ if (!defined('ABSPATH')) {
                 <!-- Logo -->
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="site-footer__logo" rel="home">
                     <?php
-                    $logo = get_field('site_logo', 'option');
+                    // Try footer logo first, fallback to header logo
+                    $footer_logo = get_field('footer_logo', 'option');
+                    $logo = $footer_logo && !empty($footer_logo['url']) ? $footer_logo : get_field('site_logo', 'option');
+                    
                     if ($logo && !empty($logo['url'])):
                     ?>
                         <img src="<?php echo esc_url($logo['url']); ?>" 
@@ -58,7 +61,7 @@ if (!defined('ABSPATH')) {
                 <nav class="site-footer__nav" aria-label="Footer Navigation">
                     <?php
                     wp_nav_menu([
-                        'theme_location' => 'primary',
+                        'theme_location' => 'footer',
                         'menu_class'     => 'site-footer__menu',
                         'container'      => false,
                         'fallback_cb'    => false,

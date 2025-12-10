@@ -898,23 +898,15 @@
   }
 
   function bindEvents() {
-    window.addEventListener('mousemove', e => {
-      let pointer = pointers[0];
-      let posX = scaleByPixelRatio(e.clientX);
-      let posY = scaleByPixelRatio(e.clientY);
-      updatePointerMoveData(pointer, posX, posY);
-    });
-
-    window.addEventListener('touchmove', e => {
-      e.preventDefault();
-      const touches = e.targetTouches;
-      let pointer = pointers[0];
-      for (let i = 0; i < touches.length; i++) {
-        let posX = scaleByPixelRatio(touches[i].clientX);
-        let posY = scaleByPixelRatio(touches[i].clientY);
+    // Only enable on desktop devices (no touch support)
+    if (!('ontouchstart' in window)) {
+      window.addEventListener('mousemove', e => {
+        let pointer = pointers[0];
+        let posX = scaleByPixelRatio(e.clientX);
+        let posY = scaleByPixelRatio(e.clientY);
         updatePointerMoveData(pointer, posX, posY);
-      }
-    }, { passive: false });
+      });
+    }
   }
 
   // Initialize on DOM ready

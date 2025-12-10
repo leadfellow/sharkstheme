@@ -137,7 +137,7 @@
                 "center": "Center",
                 "right": "Right"
             },
-            "default_value": "left",
+            "default_value": "center",
             "allow_null": 0
         },
         {

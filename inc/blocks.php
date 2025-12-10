@@ -325,6 +325,42 @@ add_action('acf/init', function() {
         'mode'            => 'preview'
     ]);
 
+    // Content Grey Block
+    acf_register_block_type([
+        'name'            => 'content-grey',
+        'title'           => __('Content Grey', 'sharks2025'),
+        'description'     => __('Two-column content section with heading parts, subtitle, content text, and optional CTA/image', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/content-grey/content-grey.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'columns',
+        'keywords'        => ['content', 'grey', 'heading', 'icons', 'two column', 'cta'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Service Cards Block
+    acf_register_block_type([
+        'name'            => 'service-cards',
+        'title'           => __('Service Cards', 'sharks2025'),
+        'description'     => __('Grid of 4-10 service cards with hover effects, heading parts, and intro text', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/service-cards/service-cards.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'grid-view',
+        'keywords'        => ['service', 'cards', 'grid', 'hover', 'seo'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
     // Inquiry Block
     acf_register_block_type([
         'name'            => 'inquiry',

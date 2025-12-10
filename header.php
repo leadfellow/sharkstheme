@@ -145,35 +145,29 @@ if (!defined('ABSPATH')) {
         }
     })();
     
-    // Dropdown menu toggle on click
+    // Dropdown menu - hover opens, link is clickable
     (function() {
         const menuItems = document.querySelectorAll('.site-nav__menu .menu-item-has-children');
         
+        // Mobile only: toggle on click
         menuItems.forEach(function(item) {
             const link = item.querySelector('a');
             
             if (link) {
                 link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Desktop: Close other dropdowns
-                    if (window.innerWidth > 900) {
-                        menuItems.forEach(function(otherItem) {
-                            if (otherItem !== item) {
-                                otherItem.classList.remove('is-open');
-                            }
-                        });
+                    // Mobile only: prevent default and toggle
+                    if (window.innerWidth <= 900) {
+                        e.preventDefault();
+                        item.classList.toggle('is-open');
                     }
-                    
-                    // Toggle current dropdown
-                    item.classList.toggle('is-open');
+                    // Desktop: link is clickable, hover opens dropdown
                 });
             }
         });
         
-        // Close dropdown when clicking outside (desktop only)
+        // Close dropdown when clicking outside (mobile only)
         document.addEventListener('click', function(e) {
-            if (window.innerWidth > 900 && !e.target.closest('.menu-item-has-children')) {
+            if (window.innerWidth <= 900 && !e.target.closest('.menu-item-has-children')) {
                 menuItems.forEach(function(item) {
                     item.classList.remove('is-open');
                 });

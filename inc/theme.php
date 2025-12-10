@@ -52,6 +52,8 @@ add_action('after_setup_theme', function() {
         'assets/css/30-components/comparison-table.css',
         'assets/css/30-components/faq.css',
         'assets/css/30-components/testimonials.css',
+        'assets/css/30-components/content-grey.css',
+        'assets/css/30-components/service-cards.css',
         'assets/css/30-components/block-styles.css',
         'assets/css/30-components/mouse-trail.css',
         'assets/css/40-layout/grid.css',
@@ -64,9 +66,7 @@ add_action('after_setup_theme', function() {
     // Register navigation menus
     register_nav_menus([
         'primary' => __('Primary Menu', 'sharks2025'),
-        'footer-1' => __('Footer Menu 1', 'sharks2025'),
-        'footer-2' => __('Footer Menu 2', 'sharks2025'),
-        'footer-3' => __('Footer Menu 3', 'sharks2025'),
+        'footer' => __('Footer Menu', 'sharks2025'),
     ]);
 }, 10);
 

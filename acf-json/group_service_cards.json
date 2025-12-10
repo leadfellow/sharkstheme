@@ -1,0 +1,136 @@
+{
+    "key": "group_service_cards_block",
+    "title": "Service Cards Block",
+    "fields": [
+        {
+            "key": "field_service_cards_heading_parts",
+            "label": "Heading Parts",
+            "name": "heading_parts",
+            "type": "repeater",
+            "instructions": "Add heading parts with text, icons, and line breaks",
+            "required": 0,
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Part",
+            "sub_fields": [
+                {
+                    "key": "field_service_cards_part_type",
+                    "label": "Part Type",
+                    "name": "part_type",
+                    "type": "select",
+                    "instructions": "Choose text, icon, or line break",
+                    "required": 1,
+                    "choices": {
+                        "text": "Text",
+                        "icon": "Icon",
+                        "line_break": "Line Break"
+                    },
+                    "default_value": "text",
+                    "allow_null": 0
+                },
+                {
+                    "key": "field_service_cards_part_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "Text content",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_service_cards_part_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ],
+                    "placeholder": "Enter text..."
+                },
+                {
+                    "key": "field_service_cards_part_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "instructions": "Choose an icon",
+                    "required": 0,
+                    "choices": {
+                        "x": "X",
+                        "asterisk": "Asterisk",
+                        "star": "Star",
+                        "circle": "Circle"
+                    },
+                    "default_value": "x",
+                    "allow_null": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_service_cards_part_type",
+                                "operator": "==",
+                                "value": "icon"
+                            }
+                        ]
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_service_cards_intro_text",
+            "label": "Intro Text",
+            "name": "intro_text",
+            "type": "text",
+            "instructions": "Introductory text shown below the heading",
+            "required": 0,
+            "placeholder": "Veebisaidi otsingumootoritele optimeerimiseks..."
+        },
+        {
+            "key": "field_service_cards_cards",
+            "label": "Service Cards",
+            "name": "cards",
+            "type": "repeater",
+            "instructions": "Add 4-10 service cards (2 cards per row)",
+            "required": 0,
+            "min": 4,
+            "max": 10,
+            "layout": "block",
+            "button_label": "Add Card",
+            "sub_fields": [
+                {
+                    "key": "field_service_cards_card_title",
+                    "label": "Card Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "Service title (always visible)",
+                    "required": 1,
+                    "placeholder": "SEO-analüüs"
+                },
+                {
+                    "key": "field_service_cards_card_description",
+                    "label": "Card Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "Service description (shows on hover)",
+                    "required": 0,
+                    "rows": 4,
+                    "placeholder": "Detailed description of the service..."
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/service-cards"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

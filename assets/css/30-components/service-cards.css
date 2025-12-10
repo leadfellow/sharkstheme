@@ -1,0 +1,258 @@
+/* Service Cards Block */
+.block-service-cards {
+  background-color: #000000;
+  padding: 0;
+  margin: 0;
+}
+
+.block-service-cards__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 150px 58px;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+/* Header */
+.block-service-cards__header {
+  display: flex;
+  align-items: center;
+  max-width: 1324px;
+}
+
+.block-service-cards__title {
+  font-family: 'Switzer', var(--font-heading);
+  font-weight: 500;
+  font-size: 82px;
+  line-height: 1.1;
+  letter-spacing: -4.1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.block-service-cards__title-part {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.block-service-cards__title-part:not(:last-child) {
+  margin-right: 30px;
+}
+
+.block-service-cards__title-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.block-service-cards__title-icon:not(:last-child) {
+  margin-right: 30px;
+}
+
+.block-service-cards__title-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.block-service-cards__title-break {
+  display: block;
+  width: 100%;
+  height: 0;
+  line-height: 0;
+}
+
+/* Intro Text */
+.block-service-cards__intro {
+  font-family: var(--font-sans);
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+  color: #ffffff;
+  max-width: 652px;
+  margin: 0;
+}
+
+/* Cards Grid */
+.block-service-cards__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.block-service-cards__row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Individual Card */
+.block-service-cards__card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 42px;
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  position: relative;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+  min-height: 439px;
+}
+
+.block-service-cards__card:hover {
+  background-color: #f7f7f5;
+  border-color: #f7f7f5;
+}
+
+/* Card Number */
+.block-service-cards__card-number {
+  width: fit-content;
+  padding: 25px 20px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.4;
+  text-align: center;
+  background-color: #ffffff;
+  color: #000000;
+  transition: all 0.4s ease;
+}
+
+.block-service-cards__card:hover .block-service-cards__card-number {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Card Content */
+.block-service-cards__card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.block-service-cards__card-title {
+  font-family: 'Switzer', var(--font-heading);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -1.6px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+  transition: color 0.4s ease;
+}
+
+.block-service-cards__card:hover .block-service-cards__card-title {
+  color: #000000;
+}
+
+.block-service-cards__card-description {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.4;
+  color: #000000;
+  margin: 22px 0 0 0;
+  opacity: 0;
+  transition: opacity 0.4s ease, color 0.4s ease;
+}
+
+.block-service-cards__card:hover .block-service-cards__card-description {
+  opacity: 1;
+  color: #000000;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .block-service-cards__title {
+    font-size: 60px;
+    letter-spacing: -3px;
+  }
+  
+  .block-service-cards__intro {
+    font-size: 28px;
+    letter-spacing: -1.4px;
+  }
+}
+
+@media (max-width: 900px) {
+  .block-service-cards__container {
+    padding: 100px 40px;
+    gap: 50px;
+  }
+  
+  .block-service-cards__row {
+    flex-direction: column;
+  }
+  
+  .block-service-cards__title {
+    font-size: 48px;
+    letter-spacing: -2.4px;
+  }
+  
+  .block-service-cards__title-icon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .block-service-cards__intro {
+    font-size: 24px;
+    letter-spacing: -1.2px;
+  }
+  
+  .block-service-cards__card-title {
+    font-size: 28px;
+    letter-spacing: -1.4px;
+  }
+}
+
+@media (max-width: 768px) {
+  .block-service-cards__container {
+    padding: 80px 30px;
+  }
+  
+  .block-service-cards__title {
+    font-size: 42px;
+    letter-spacing: -2.1px;
+  }
+  
+  .block-service-cards__title-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .block-service-cards__intro {
+    font-size: 22px;
+    letter-spacing: -1.1px;
+  }
+  
+  .block-service-cards__card {
+    padding: 30px;
+  }
+  
+  .block-service-cards__card-title {
+    font-size: 26px;
+    letter-spacing: -1.3px;
+  }
+  
+  .block-service-cards__card-description {
+    font-size: 16px;
+  }
+  
+  /* Mobile: show description by default */
+  .block-service-cards__card-description {
+    opacity: 1;
+    max-height: none;
+  }
+}
+

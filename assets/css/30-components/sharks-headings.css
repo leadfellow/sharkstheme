@@ -2,12 +2,13 @@
 .sharks-headings {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 120px 58px;
-  gap: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 58px 120px 58px;
+  gap: 50px;
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sharks-headings__label {
@@ -23,17 +24,21 @@
 }
 
 .sharks-headings__title {
-  font-family: 'Switzer', var(--font-sans);
+  font-family: 'Switzer', var(--font-heading);
   font-size: 82px;
   font-weight: 500;
-  font-style: normal;
-  line-height: 110%;
-  letter-spacing: -0.05em !important;
+  line-height: 1.1;
+  letter-spacing: -4.1px;
   text-align: center;
   text-transform: uppercase;
-  margin: 0;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
   width: 100%;
-  max-width: 1000px;
+  max-width: 100%;
 }
 
 .sharks-headings__break {
@@ -44,15 +49,16 @@
 }
 
 .sharks-headings__part {
-  display: inline-block;
+  display: inline;
+  white-space: nowrap;
 }
 
 .sharks-headings__part--dark {
-  color: var(--color-text, #1a1a1a);
+  color: #000000;
 }
 
 .sharks-headings__part--light {
-  color: #b0b0b0;
+  color: #bbbab6;
 }
 
 .sharks-headings__icon {
@@ -71,35 +77,40 @@
   display: block;
 }
 
+/* Content Wrapper (subtitle + description + read more) */
+.sharks-headings__content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  width: 428px;
+  max-width: 100%;
+}
+
 /* Subtitle */
 .sharks-headings__subtitle {
-  font-family: 'Helvetica', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 36px;
   font-weight: 400;
-  font-style: normal;
-  line-height: 110%;
-  letter-spacing: -0.05em;
+  line-height: 1.1;
+  letter-spacing: -1.8px;
   text-align: center;
   color: #000000;
-  margin: 50px 0 30px 0;
+  margin: 0;
   width: 100%;
-  max-width: 428px;
-  flex: none;
 }
 
 /* Description */
 .sharks-headings__description {
-  font-family: 'Helvetica', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 18px;
   font-weight: 400;
-  font-style: normal;
   line-height: 1.4;
   letter-spacing: 0;
   text-align: center;
   color: #000000;
-  margin: 0 0 30px 0;
+  margin: 0;
   width: 100%;
-  max-width: 428px;
 }
 
 /* Read More Link */
@@ -161,6 +172,13 @@
 .sharks-headings--left .sharks-headings__title {
   justify-content: flex-start;
   text-align: left !important;
+  margin: 0;
+}
+
+.sharks-headings--left .sharks-headings__content-wrapper {
+  align-items: flex-start;
+  width: 428px;
+  max-width: 100%;
 }
 
 .sharks-headings--left .sharks-headings__subtitle {
@@ -172,31 +190,29 @@
 }
 
 .sharks-headings--center {
-  margin-left: auto !important;
-  margin-right: auto !important;
-  align-items: center !important;
-  text-align: center;
+  align-items: center;
 }
 
 .sharks-headings--center .sharks-headings__label {
   text-align: center;
-  width: 100%;
 }
 
 .sharks-headings--center .sharks-headings__title {
-  justify-content: center !important;
+  justify-content: center;
   text-align: center;
-  width: 100%;
+  margin: 0 auto;
+}
+
+.sharks-headings--center .sharks-headings__content-wrapper {
+  align-items: center;
 }
 
 .sharks-headings--center .sharks-headings__subtitle {
   text-align: center;
-  width: 100%;
 }
 
 .sharks-headings--center .sharks-headings__description {
   text-align: center;
-  width: 100%;
 }
 
 .sharks-headings--center .sharks-headings__read-more {
@@ -216,6 +232,13 @@
 .sharks-headings--right .sharks-headings__title {
   justify-content: flex-end;
   text-align: right !important;
+  margin: 0 0 0 auto;
+}
+
+.sharks-headings--right .sharks-headings__content-wrapper {
+  align-items: flex-end;
+  width: 428px;
+  max-width: 100%;
 }
 
 .sharks-headings--right .sharks-headings__subtitle {
@@ -235,8 +258,8 @@
 
 @media (max-width: 900px) {
   .sharks-headings {
-    padding: 60px 30px;
-    gap: 30px;
+    padding: 80px 30px 80px 30px;
+    gap: 40px;
   }
   
   .sharks-headings__label {
@@ -245,14 +268,13 @@
   
   .sharks-headings__title {
     font-size: 48px;
-    gap: 0.4rem;
+    letter-spacing: -2.4px;
+    gap: 20px;
   }
   
   .sharks-headings__subtitle {
     font-size: 28px;
-    letter-spacing: -0.05em;
-    margin-top: 40px;
-    width: 100%;
+    letter-spacing: -1.4px;
   }
   
   .sharks-headings__description {
@@ -269,10 +291,10 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .sharks-headings {
-    padding: 40px 24px;
-    gap: 20px;
+    padding: 60px 24px 60px 24px;
+    gap: 30px;
   }
   
   .sharks-headings__label {
@@ -280,20 +302,22 @@
   }
   
   .sharks-headings__title {
-    font-size: 32px;
-    gap: 0.3rem;
-    flex-wrap: wrap;
+    font-size: 48px;
+    letter-spacing: -2.4px;
+    gap: 20px;
   }
   
-  .sharks-headings__subtitle {
-    font-size: 20px;
-    letter-spacing: -0.05em;
-    margin-top: 30px;
+  .sharks-headings__content-wrapper {
     width: 100%;
   }
   
+  .sharks-headings__subtitle {
+    font-size: 28px;
+    letter-spacing: -1.4px;
+  }
+  
   .sharks-headings__description {
-    font-size: 14px;
+    font-size: 16px;
   }
   
   .sharks-headings__icon {
@@ -302,7 +326,7 @@
   }
   
   .sharks-headings__read-more-text {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 

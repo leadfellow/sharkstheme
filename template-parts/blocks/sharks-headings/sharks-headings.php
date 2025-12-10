@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
 $small_label = get_field('small_label');
 $heading_parts = get_field('heading_parts');
 $heading_tag = get_field('heading_tag') ?: 'h2';
-$alignment = get_field('alignment') ?: 'left';
+$alignment = get_field('alignment') ?: 'center';
 $subtitle = get_field('subtitle');
 $description = get_field('description');
 $read_more_text = get_field('read_more_text');
@@ -82,25 +82,29 @@ $icon_map = [
   echo $tag_close;
   ?>
   
-  <?php if ($subtitle): ?>
-    <p class="sharks-headings__subtitle"><?php echo esc_html($subtitle); ?></p>
-  <?php endif; ?>
-  
-  <?php if ($description): ?>
-    <p class="sharks-headings__description"><?php echo nl2br(esc_html($description)); ?></p>
-  <?php endif; ?>
-  
-  <?php if ($read_more_text && $read_more_url): ?>
-    <a href="<?php echo esc_url($read_more_url); ?>" class="sharks-headings__read-more">
-      <span class="sharks-headings__read-more-text"><?php echo esc_html($read_more_text); ?></span>
-      <span class="sharks-headings__read-more-icon">
-        <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-          <rect fill="black" height="26" width="26"/>
-          <path d="M8.9375 13H17.0625" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
-          <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
-        </svg>
-      </span>
-    </a>
+  <?php if ($subtitle || $description || ($read_more_text && $read_more_url)): ?>
+    <div class="sharks-headings__content-wrapper">
+      <?php if ($subtitle): ?>
+        <p class="sharks-headings__subtitle"><?php echo esc_html($subtitle); ?></p>
+      <?php endif; ?>
+      
+      <?php if ($description): ?>
+        <p class="sharks-headings__description"><?php echo nl2br(esc_html($description)); ?></p>
+      <?php endif; ?>
+      
+      <?php if ($read_more_text && $read_more_url): ?>
+        <a href="<?php echo esc_url($read_more_url); ?>" class="sharks-headings__read-more">
+          <span class="sharks-headings__read-more-text"><?php echo esc_html($read_more_text); ?></span>
+          <span class="sharks-headings__read-more-icon">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+              <rect fill="black" height="26" width="26"/>
+              <path d="M8.9375 13H17.0625" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+              <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+            </svg>
+          </span>
+        </a>
+      <?php endif; ?>
+    </div>
   <?php endif; ?>
 </div>
 

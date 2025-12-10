@@ -43,13 +43,36 @@
             ],
             "sub_fields": [
                 {
+                    "key": "field_cta_heading_part_type",
+                    "label": "Part Type",
+                    "name": "part_type",
+                    "type": "select",
+                    "instructions": "Choose text or line break",
+                    "required": 1,
+                    "choices": {
+                        "text": "Text",
+                        "line_break": "Line Break"
+                    },
+                    "default_value": "text",
+                    "allow_null": 0
+                },
+                {
                     "key": "field_cta_heading_part_text",
                     "label": "Text",
                     "name": "text",
                     "type": "text",
                     "instructions": "Text content",
-                    "required": 1,
-                    "placeholder": "Enter text..."
+                    "required": 0,
+                    "placeholder": "Enter text...",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_cta_heading_part_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ]
                 },
                 {
                     "key": "field_cta_heading_part_color",
@@ -63,7 +86,16 @@
                         "gray": "Gray (50% opacity)"
                     },
                     "default_value": "white",
-                    "allow_null": 0
+                    "allow_null": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_cta_heading_part_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ]
                 }
             ]
         },

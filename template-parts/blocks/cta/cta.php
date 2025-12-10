@@ -82,10 +82,12 @@ $variant_class = $style_variant !== 'default' ? ' block-cta--' . $style_variant 
       <?php if ($use_heading_parts && $heading_parts): ?>
         <h2 class="block-cta__title block-cta__title--parts">
           <?php foreach ($heading_parts as $part): ?>
-            <?php if (!empty($part['text'])): ?>
+            <?php if ($part['part_type'] === 'text' && !empty($part['text'])): ?>
               <span class="block-cta__title-part block-cta__title-part--<?php echo esc_attr($part['color'] ?: 'white'); ?>">
                 <?php echo esc_html($part['text']); ?>
               </span>
+            <?php elseif ($part['part_type'] === 'line_break'): ?>
+              <br class="block-cta__title-break">
             <?php endif; ?>
           <?php endforeach; ?>
         </h2>

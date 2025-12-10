@@ -1,7 +1,7 @@
 /* Why That Block */
 
 .block-why-that {
-    background-color: #f7f7f5;
+    background-color: var(--color-bg-alt);
     overflow-x: hidden;
     padding: 100px 0;
 }
@@ -13,7 +13,6 @@
     height: 923px;
     margin: 0 auto;
     padding: 0;
-    background: #F7F7F5;
 }
 
 /* Main Title */
@@ -31,7 +30,7 @@
     letter-spacing: -0.05em;
     text-transform: uppercase;
     text-align: center;
-    color: #000000;
+    color: var(--color-text);
     margin: 0;
 }
 
@@ -39,12 +38,13 @@
 .block-why-that__card {
     position: absolute;
     width: 428px;
-    background: #000000;
+    background: var(--color-bg-dark);
     padding: 32px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 32px;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Card Positions */
@@ -61,6 +61,45 @@
 .block-why-that__card.card-bottom {
     left: 282px;
     top: 580px;
+}
+
+/* Animation - Cards move away from center on scroll into view */
+.block-why-that.is-animated .block-why-that__card.card-top-left {
+    transform: translate(-40px, 0);
+}
+
+.block-why-that.is-animated .block-why-that__card.card-top-right {
+    transform: translate(40px, 0);
+}
+
+.block-why-that.is-animated .block-why-that__card.card-bottom {
+    transform: translate(0, 40px);
+}
+
+/* Individual card hover - card "escapes" when mouse hovers over it */
+.block-why-that__card.card-top-left:hover {
+    transform: translate(-60px, -15px) scale(1.02);
+}
+
+.block-why-that__card.card-top-right:hover {
+    transform: translate(60px, -15px) scale(1.02);
+}
+
+.block-why-that__card.card-bottom:hover {
+    transform: translate(0, 60px) scale(1.02);
+}
+
+/* When animated AND hovering individual card - combine transforms */
+.block-why-that.is-animated .block-why-that__card.card-top-left:hover {
+    transform: translate(-70px, -15px) scale(1.02);
+}
+
+.block-why-that.is-animated .block-why-that__card.card-top-right:hover {
+    transform: translate(70px, -15px) scale(1.02);
+}
+
+.block-why-that.is-animated .block-why-that__card.card-bottom:hover {
+    transform: translate(0, 70px) scale(1.02);
 }
 
 /* Icon */
@@ -81,7 +120,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    color: #ffffff;
+    color: var(--color-bg);
 }
 
 .block-why-that__card-title {
@@ -92,17 +131,17 @@
     line-height: 110%;
     letter-spacing: -0.05em;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: var(--color-bg);
     margin: 0;
 }
 
 .block-why-that__card-description {
-    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: var(--font-sans);
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 140%;
-    color: #FFFFFF;
+    color: var(--color-bg);
     margin: 0;
     display: flex;
     align-items: center;

@@ -141,11 +141,20 @@
             "allow_null": 0
         },
         {
+            "key": "field_sharks_headings_subtitle",
+            "label": "Subtitle (Between Heading and Description)",
+            "name": "subtitle",
+            "type": "text",
+            "instructions": "Optional medium-sized subtitle between heading and description (e.g. 'Parem nähtavus tagab tiheda liikluse')",
+            "required": 0,
+            "placeholder": "Enter subtitle..."
+        },
+        {
             "key": "field_sharks_headings_description",
-            "label": "Description (Below Heading)",
+            "label": "Description (Below Heading/Subtitle)",
             "name": "description",
             "type": "textarea",
-            "instructions": "Optional paragraph text below the heading",
+            "instructions": "Optional paragraph text below the heading/subtitle",
             "required": 0,
             "rows": 4,
             "placeholder": "Enter description text..."

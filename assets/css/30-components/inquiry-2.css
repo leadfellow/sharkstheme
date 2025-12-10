@@ -364,29 +364,39 @@
 
 /* Form validation messages */
 .block-inquiry-2__form-fields .wpcf7-not-valid-tip {
-    color: #ff6b6b;
+    color: var(--color-error);
     font-size: 0.875rem;
-    margin-top: 0.25rem;
+    font-weight: 400;
+    margin-top: 0.375rem;
+    font-family: var(--font-sans);
 }
 
 .block-inquiry-2__form-fields .wpcf7-response-output {
     margin-top: 1rem;
-    padding: 1rem;
-    border-radius: 4px;
-    font-size: 0.9rem;
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    font-size: var(--fs-body);
+    font-weight: 500;
+    font-family: var(--font-sans);
 }
 
 .block-inquiry-2__form-fields .wpcf7-mail-sent-ok {
-    background: rgba(76, 175, 80, 0.1);
-    border: 1px solid rgba(76, 175, 80, 0.3);
-    color: #4caf50;
+    background: var(--color-success-light);
+    border: 1px solid var(--color-success-border);
+    color: var(--color-success-text);
 }
 
 .block-inquiry-2__form-fields .wpcf7-validation-errors,
 .block-inquiry-2__form-fields .wpcf7-mail-sent-ng {
-    background: rgba(255, 107, 107, 0.1);
-    border: 1px solid rgba(255, 107, 107, 0.3);
-    color: #ff6b6b;
+    background: var(--color-error-light);
+    border: 1px solid var(--color-error-border);
+    color: var(--color-error-text);
+}
+
+/* Invalid input styling */
+.block-inquiry-2__form-fields input.wpcf7-not-valid,
+.block-inquiry-2__form-fields textarea.wpcf7-not-valid {
+    border-bottom-color: var(--color-error) !important;
 }
 
 /* Responsive Design */

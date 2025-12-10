@@ -23,14 +23,24 @@
             "placeholder": "VEEBIARENDUS"
         },
         {
-            "key": "field_hero_tagline",
-            "label": "Tagline (Bottom-left)",
-            "name": "tagline",
-            "type": "textarea",
-            "instructions": "Tagline text shown at bottom-left (optional)",
+            "key": "field_hero_subtitle",
+            "label": "Subtitle (White variant only)",
+            "name": "subtitle",
+            "type": "text",
+            "instructions": "Medium-sized subtitle shown between title and description in white variant (optional)",
             "required": 0,
             "default_value": "",
-            "placeholder": "Choose a service, send in your request...",
+            "placeholder": "Parem nähtavus tagab tiheda liikluse ja kiirendab kasvu"
+        },
+        {
+            "key": "field_hero_tagline",
+            "label": "Tagline / Description",
+            "name": "tagline",
+            "type": "textarea",
+            "instructions": "Tagline/description text (Dark/Beige: bottom-left, White: centered below subtitle)",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "SEO ehk search engine optimisation on digikanalite optimeerimine...",
             "rows": 3
         },
         {
@@ -40,7 +50,7 @@
             "type": "text",
             "instructions": "Call to action button text (optional)",
             "required": 0,
-            "placeholder": "Broneeri aeg konsultatsioonile"
+            "placeholder": "Loe edasi"
         },
         {
             "key": "field_hero_cta_url",

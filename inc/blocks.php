@@ -295,7 +295,16 @@ add_action('acf/init', function() {
             'spacing' => ['padding', 'margin'],
             'color'   => ['background']
         ],
-        'mode'            => 'preview'
+        'mode'            => 'preview',
+        'enqueue_assets'  => function() {
+            wp_enqueue_script(
+                'why-that-js',
+                get_template_directory_uri() . '/assets/js/why-that.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/why-that.js'),
+                true
+            );
+        }
     ]);
 
     // Sharks Headings Block

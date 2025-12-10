@@ -907,7 +907,11 @@
   }
 
   // Initialize on DOM ready - only on desktop devices (no touch support)
-  if (!('ontouchstart' in window)) {
+  // Check both touch support and device type
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  if (!isTouchDevice && !isMobile) {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', init);
     } else {

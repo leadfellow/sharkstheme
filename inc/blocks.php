@@ -547,6 +547,60 @@ add_action('acf/init', function() {
         ],
         'mode'            => 'preview'
     ]);
+
+    // Content with Highlighted Block
+    acf_register_block_type([
+        'name'            => 'content-highlighted',
+        'title'           => __('Content with Highlighted', 'sharks2025'),
+        'description'     => __('Content section with icon and highlighted text in brackets', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/content-highlighted/content-highlighted.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'editor-textcolor',
+        'keywords'        => ['content', 'highlighted', 'text', 'icon', 'brackets', 'color'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Table 2 Block
+    acf_register_block_type([
+        'name'            => 'table-2',
+        'title'           => __('Table 2', 'sharks2025'),
+        'description'     => __('Simple table with customizable colors and flexible columns', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/table-2/table-2.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'table-row-after',
+        'keywords'        => ['table', 'comparison', 'columns', 'rows', 'data'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Two Box CTA Block
+    acf_register_block_type([
+        'name'            => 'two-box-cta',
+        'title'           => __('Two Box CTA', 'sharks2025'),
+        'description'     => __('Two side-by-side cards with icons, features/text and CTA buttons', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/two-box-cta/two-box-cta.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'columns',
+        'keywords'        => ['two', 'box', 'cta', 'cards', 'comparison', 'features'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
 });
 
 /**

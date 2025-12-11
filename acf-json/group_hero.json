@@ -78,8 +78,34 @@
                     "type": "text",
                     "required": 1,
                     "placeholder": "e.g. UX/UI"
+                },
+                {
+                    "key": "field_hero_label_url",
+                    "label": "Link URL (Optional)",
+                    "name": "label_url",
+                    "type": "url",
+                    "instructions": "Optional link for this label",
+                    "required": 0,
+                    "placeholder": "https://"
                 }
             ]
+        },
+        {
+            "key": "field_hero_labels_separator_icon",
+            "label": "Separator Icon",
+            "name": "labels_separator_icon",
+            "type": "select",
+            "instructions": "Choose icon to use as separator between labels",
+            "required": 0,
+            "choices": {
+                "x": "X Icon",
+                "asterisk": "Asterisk",
+                "star": "Star",
+                "plus": "Plus",
+                "dot": "Dot"
+            },
+            "default_value": "asterisk",
+            "allow_null": 0
         },
         {
             "key": "field_hero_labels_bg_color",

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-kaubanduse Platvormide Võrdlus - Table 2 Demo</title>
+  <link rel="stylesheet" href="assets/css/30-components/table-2.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Switzer:wght@500&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica', Arial, sans-serif;
+    }
+
+    :root {
+      --font-sans: 'Helvetica', Arial, sans-serif;
+      --font-heading: 'Switzer', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Example 1: White Background -->
+  <section class="block-table-2" style="background-color: #FFFFFF;">
+    <div class="block-table-2__container">
+      <div class="block-table-2__wrapper">
+        
+        <!-- Header Row -->
+        <div class="block-table-2__row block-table-2__row--header" style="border-bottom: 1px solid #bbbab6;">
+          <div class="block-table-2__cell block-table-2__cell--empty"></div>
+          <div class="block-table-2__cell block-table-2__cell--header" style="color: #000000;">
+            WordPress + WooCommerce
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--header" style="color: #000000;">
+            Shopify
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--header" style="color: #000000;">
+            Magento
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--header" style="color: #000000;">
+            Prestashop
+          </div>
+        </div>
+        
+        <!-- Row: Hind -->
+        <div class="block-table-2__row" style="border-bottom: 1px solid #bbbab6;">
+          <div class="block-table-2__cell block-table-2__cell--label" style="color: #000000;">
+            Hind
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Taskukohane algkulu, hooldus ja uuendused lisakuluga
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Igakuine tasu, tehingutasud<br>mõnel paketil
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Väga kallis, kõrge arendus- ja hoolduskulu
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Mõõdukas, üldiselt odavam kui Magento
+          </div>
+        </div>
+        
+        <!-- Row: Kiirus -->
+        <div class="block-table-2__row" style="border-bottom: 1px solid #bbbab6;">
+          <div class="block-table-2__cell block-table-2__cell--label" style="color: #000000;">
+            Kiirus
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Valmib 3–6 nädalaga, sõltub mahust
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Väga kiire lansseerimine,<br>sobib alustavale ettevõtjale
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Pikk arendusprotsess, mitu kuud kuni aasta
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Mõned nädalad kuni kuu-kaks
+          </div>
+        </div>
+        
+        <!-- Row: Disain -->
+        <div class="block-table-2__row" style="border-bottom: 1px solid #bbbab6;">
+          <div class="block-table-2__cell block-table-2__cell--label" style="color: #000000;">
+            Disain
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Täielikult kohandatav, rätseplahendused
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Valmispõhjad,<br>piiratud kohandatavus
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Täielik disainivabadus, kuid vajab kogenud tiimi
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Kohandatav, ent WordPressiga võrreldes piiratud
+          </div>
+        </div>
+        
+        <!-- Row: Paindlikkus -->
+        <div class="block-table-2__row" style="border-bottom: 1px solid #bbbab6;">
+          <div class="block-table-2__cell block-table-2__cell--label" style="color: #000000;">
+            Paindlikkus
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Väga paindlik, sobib ka e-poodidele ja liidestustele
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Piiratud, sõltub lisapluginate valikust
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Väga skaleeritav, sobib suurtele rahvusvahelistele poodidele
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Piisav väiksemate poodide jaoks
+          </div>
+        </div>
+        
+        <!-- Row: SEO -->
+        <div class="block-table-2__row" style="border-bottom: 1px solid #bbbab6;">
+          <div class="block-table-2__cell block-table-2__cell--label" style="color: #000000;">
+            SEO
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Väga SEO-sõbralik, lai pluginapõhine ökosüsteem<br>(Yoast, RankMath)
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Baastase, sõltub integratsioonidest
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Täielik SEO kontroll ja laiad optimeerimis-võimalused
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Hea baastase,<br>vähem tööriistu kui WordPressil
+          </div>
+        </div>
+        
+        <!-- Row: Sobivus (last row, no border) -->
+        <div class="block-table-2__row">
+          <div class="block-table-2__cell block-table-2__cell--label" style="color: #000000;">
+            Sobivus
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Väikesele ja keskmisele ettevõttele pikaajaliseks kasvuks
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Alustavatele tegijatele, kes vajavad kiiret starti
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Suurtele, keerulistele ja mahukatele projektidele
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #000000;">
+            Väiksematele e-poodidele, WooCommerce'i alternatiiv
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Example 2: Dark Background -->
+  <section class="block-table-2" style="background-color: #000000; margin-top: 80px;">
+    <div class="block-table-2__container">
+      <div class="block-table-2__wrapper">
+        
+        <!-- Header Row -->
+        <div class="block-table-2__row block-table-2__row--header" style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+          <div class="block-table-2__cell block-table-2__cell--empty"></div>
+          <div class="block-table-2__cell block-table-2__cell--header" style="color: #FFFFFF;">
+            Basic
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--header" style="color: #FFFFFF;">
+            Pro
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--header" style="color: #FFFFFF;">
+            Enterprise
+          </div>
+        </div>
+        
+        <!-- Row: Price -->
+        <div class="block-table-2__row" style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+          <div class="block-table-2__cell block-table-2__cell--label" style="color: #FFFFFF;">
+            Price
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #FFFFFF;">
+            €29/month
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #FFFFFF;">
+            €99/month
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #FFFFFF;">
+            Custom pricing
+          </div>
+        </div>
+        
+        <!-- Row: Features -->
+        <div class="block-table-2__row">
+          <div class="block-table-2__cell block-table-2__cell--label" style="color: #FFFFFF;">
+            Features
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #FFFFFF;">
+            Up to 1,000 users
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #FFFFFF;">
+            Up to 10,000 users<br>Priority support
+          </div>
+          <div class="block-table-2__cell block-table-2__cell--data" style="color: #FFFFFF;">
+            Unlimited users<br>Dedicated support<br>Custom integrations
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+

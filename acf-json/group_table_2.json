@@ -1,0 +1,139 @@
+{
+    "key": "group_table_2_block",
+    "title": "Table 2 Block",
+    "fields": [
+        {
+            "key": "field_table_2_background_color",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "color_picker",
+            "instructions": "Choose table background color",
+            "required": 0,
+            "default_value": "#FFFFFF"
+        },
+        {
+            "key": "field_table_2_border_color",
+            "label": "Border Color",
+            "name": "border_color",
+            "type": "color_picker",
+            "instructions": "Choose table border color",
+            "required": 0,
+            "default_value": "#BBBAB6"
+        },
+        {
+            "key": "field_table_2_header_text_color",
+            "label": "Header Text Color",
+            "name": "header_text_color",
+            "type": "color_picker",
+            "instructions": "Choose header text color",
+            "required": 0,
+            "default_value": "#000000"
+        },
+        {
+            "key": "field_table_2_body_text_color",
+            "label": "Body Text Color",
+            "name": "body_text_color",
+            "type": "color_picker",
+            "instructions": "Choose body text color",
+            "required": 0,
+            "default_value": "#000000"
+        },
+        {
+            "key": "field_table_2_label_text_color",
+            "label": "Row Label Text Color",
+            "name": "label_text_color",
+            "type": "color_picker",
+            "instructions": "Choose row label (first column) text color",
+            "required": 0,
+            "default_value": "#000000"
+        },
+        {
+            "key": "field_table_2_column_headers",
+            "label": "Column Headers",
+            "name": "column_headers",
+            "type": "repeater",
+            "instructions": "Add column headers (e.g., WordPress + WooCommerce, Shopify, etc.)",
+            "required": 1,
+            "min": 1,
+            "max": 10,
+            "layout": "table",
+            "button_label": "Add Column",
+            "sub_fields": [
+                {
+                    "key": "field_table_2_column_header_text",
+                    "label": "Header Text",
+                    "name": "header_text",
+                    "type": "text",
+                    "instructions": "Column header text",
+                    "required": 1,
+                    "placeholder": "WordPress + WooCommerce"
+                }
+            ]
+        },
+        {
+            "key": "field_table_2_rows",
+            "label": "Table Rows",
+            "name": "table_rows",
+            "type": "repeater",
+            "instructions": "Add table rows with label and cells",
+            "required": 1,
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Row",
+            "collapsed": "field_table_2_row_label",
+            "sub_fields": [
+                {
+                    "key": "field_table_2_row_label",
+                    "label": "Row Label",
+                    "name": "row_label",
+                    "type": "text",
+                    "instructions": "First column label (e.g., Hind, Kiirus, Disain)",
+                    "required": 1,
+                    "placeholder": "Hind"
+                },
+                {
+                    "key": "field_table_2_row_cells",
+                    "label": "Row Cells",
+                    "name": "row_cells",
+                    "type": "repeater",
+                    "instructions": "Add content for each column",
+                    "required": 1,
+                    "min": 0,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "Add Cell",
+                    "sub_fields": [
+                        {
+                            "key": "field_table_2_cell_content",
+                            "label": "Cell Content",
+                            "name": "cell_content",
+                            "type": "textarea",
+                            "instructions": "Cell text content (supports line breaks)",
+                            "required": 0,
+                            "rows": 3,
+                            "new_lines": "br",
+                            "placeholder": "Enter cell content..."
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/table-2"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

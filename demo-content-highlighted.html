@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content with Highlighted - Demo</title>
+  <link rel="stylesheet" href="assets/css/30-components/content-highlighted.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica', sans-serif;
+    }
+
+    :root {
+      --font-sans: 'Helvetica', Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Example 1: Black background with gray and white text -->
+  <section class="block-content-highlighted" style="background-color: #000000;">
+    <div class="block-content-highlighted__container">
+      <div class="block-content-highlighted__content">
+        
+        <div class="block-content-highlighted__icon-container">
+          <svg fill="none" preserveAspectRatio="none" viewBox="0 0 42 42">
+            <g>
+              <path d="M21.0001 0.000135629L21.0042 20.9795L29.0365 1.59866L21.0118 20.9827L35.8493 6.1509L21.0176 20.9885L40.4016 12.9637L21.0208 20.9961L42.0001 21.0001L21.0208 21.0042L40.4016 29.0365L21.0176 21.0118L35.8493 35.8493L21.0118 21.0176L29.0365 40.4016L21.0042 21.0208L21.0001 42.0001L20.9961 21.0208L12.9637 40.4016L20.9885 21.0176L6.1509 35.8493L20.9827 21.0118L1.59866 29.0365L20.9795 21.0042L0.000135629 21.0001L20.9795 20.9961L1.59866 12.9637L20.9827 20.9885L6.1509 6.1509L20.9885 20.9827L12.9637 1.59866L20.9961 20.9795L21.0001 0.000135629Z" 
+                    stroke="white" 
+                    stroke-width="1.4" />
+            </g>
+          </svg>
+        </div>
+        
+        <div class="block-content-highlighted__text" style="color: #757472;">
+          Tänaseks on turundusmaastikul e-poe nullist arendamine eilne päev. Selleks, et ressurssi otstarbekalt kasutada, spetsialiseerume olemasolevatele lahendustele, mis on võimekad, tõhusad ja kliendi jaoks kohandatavad. 
+          <span class="block-content-highlighted__text-highlight" style="color: #FFFFFF;">Levinumad platvormid on WordPress + WooCommerce, Shopify, Magento ja<br>Prestashop,</span> 
+          mis võimaldavad kiiret ja turvalist arendust. Platvormi valik 
+          <span class="block-content-highlighted__text-highlight" style="color: #FFFFFF;">sõltub <br>e-poe suurusest, arendusvajadustest ja eelarvest.</span>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Example 2: Asterisk icon with custom colors -->
+  <section class="block-content-highlighted" style="background-color: #f5f5f5;">
+    <div class="block-content-highlighted__container">
+      <div class="block-content-highlighted__content">
+        
+        <div class="block-content-highlighted__icon-container">
+          <svg width="42" height="42" viewBox="0 0 42 42" fill="none"><path d="M26.0749 8.68674L31.7549 3.00677L38.9894 10.2413L33.3094 15.9213H41.2567V26.0748H33.9457L39.4105 31.1158L32.4387 38.5639L26.0749 32.7405V41.254H15.9213V33.2535L10.2413 38.9335L3.00781 31.699L8.68778 26.0748H0.645996V15.9213H8.03419L2.62219 10.8651L9.59397 3.41797L15.9213 9.30474V0.645996H26.0749V8.68674Z" fill="#000000"/></svg>
+        </div>
+        
+        <div class="block-content-highlighted__text" style="color: #666666;">
+          See on näidis tekst 
+          <span class="block-content-highlighted__text-highlight" style="color: #ff6b00;">kohandatud värvidega</span> 
+          kus saad määrata 
+          <span class="block-content-highlighted__text-highlight" style="color: #ff6b00;">erinevaid värve</span> 
+          olenevalt vajadusest.
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Example 4: Circle icon -->
+  <section class="block-content-highlighted" style="background-color: #2d2d2d;">
+    <div class="block-content-highlighted__container">
+      <div class="block-content-highlighted__content">
+        
+        <div class="block-content-highlighted__icon-container">
+          <svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="21" r="20" fill="white"/></svg>
+        </div>
+        
+        <div class="block-content-highlighted__text" style="color: #999999;">
+          <span class="block-content-highlighted__text-highlight" style="color: #00d4ff;">Circle</span> ikooni kasutamine 
+          <span class="block-content-highlighted__text-highlight" style="color: #00d4ff;">erineva taustaga</span> 
+          ja värvidega.
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Example 3: Without icon -->
+  <section class="block-content-highlighted" style="background-color: #1a1a1a;">
+    <div class="block-content-highlighted__container">
+      <div class="block-content-highlighted__content">
+        
+        <div class="block-content-highlighted__text" style="color: #888888;">
+          Võid ka kasutada 
+          <span class="block-content-highlighted__text-highlight" style="color: #00ff88;">ilma ikoonita</span> 
+          kui soovid ainult 
+          <span class="block-content-highlighted__text-highlight" style="color: #00ff88;">teksti kuvada</span> 
+          esiletõstmisega.
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+

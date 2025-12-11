@@ -1,0 +1,186 @@
+/* Table 2 Block */
+.block-table-2 {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.block-table-2__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 120px 58px;
+  width: 100%;
+}
+
+.block-table-2__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+/* Row */
+.block-table-2__row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  position: relative;
+}
+
+.block-table-2__row--header {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Cell - Base */
+.block-table-2__cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 10px;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+/* Empty Cell (top-left corner) */
+.block-table-2__cell--empty {
+  width: 224px;
+  padding: 0 10px 20px 0;
+}
+
+/* Header Cells */
+.block-table-2__cell--header {
+  width: 275px;
+  padding: 0 10px 20px 10px;
+  font-family: 'Switzer', var(--font-heading);
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -1.3px;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Label Cells (first column) */
+.block-table-2__cell--label {
+  width: 224px;
+  padding: 20px 10px 20px 0;
+  font-family: 'Switzer', var(--font-heading);
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -1.3px;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Data Cells */
+.block-table-2__cell--data {
+  width: 275px;
+  padding: 20px 10px;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 1440px) {
+  .block-table-2__container {
+    padding: 120px 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .block-table-2__container {
+    padding: 80px 30px;
+    overflow-x: auto;
+  }
+  
+  .block-table-2__wrapper {
+    min-width: 900px;
+  }
+  
+  .block-table-2__cell--header,
+  .block-table-2__cell--label {
+    font-size: 22px;
+    letter-spacing: -1.1px;
+  }
+  
+  .block-table-2__cell--data {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .block-table-2__container {
+    padding: 60px 20px;
+  }
+  
+  .block-table-2__wrapper {
+    min-width: 800px;
+  }
+  
+  .block-table-2__cell--empty {
+    width: 180px;
+  }
+  
+  .block-table-2__cell--label {
+    width: 180px;
+    font-size: 20px;
+    letter-spacing: -1px;
+  }
+  
+  .block-table-2__cell--header {
+    width: 240px;
+    font-size: 20px;
+    letter-spacing: -1px;
+  }
+  
+  .block-table-2__cell--data {
+    width: 240px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .block-table-2__container {
+    padding: 40px 15px;
+  }
+  
+  .block-table-2__wrapper {
+    min-width: 700px;
+  }
+  
+  .block-table-2__cell--empty {
+    width: 150px;
+  }
+  
+  .block-table-2__cell--label {
+    width: 150px;
+    font-size: 18px;
+    letter-spacing: -0.9px;
+  }
+  
+  .block-table-2__cell--header {
+    width: 200px;
+    font-size: 18px;
+    letter-spacing: -0.9px;
+  }
+  
+  .block-table-2__cell--data {
+    width: 200px;
+    font-size: 14px;
+  }
+}
+

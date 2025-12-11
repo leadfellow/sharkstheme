@@ -1,0 +1,113 @@
+/* Content with Highlighted Block */
+.block-content-highlighted {
+  background-color: #000000;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block-content-highlighted__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 120px 58px;
+  width: 100%;
+}
+
+.block-content-highlighted__content {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  align-items: center;
+  width: 100%;
+}
+
+.block-content-highlighted__icon-container {
+  position: relative;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block-content-highlighted__icon-container svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.block-content-highlighted__text {
+  font-family: var(--font-sans);
+  font-size: 36px;
+  line-height: 1.1;
+  text-align: center;
+  letter-spacing: -1.8px;
+  color: #757472;
+  width: 100%;
+}
+
+.block-content-highlighted__text-highlight {
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .block-content-highlighted__container {
+    padding: 80px 40px;
+  }
+  
+  .block-content-highlighted__text {
+    font-size: 28px;
+    letter-spacing: -1.4px;
+  }
+}
+
+@media (max-width: 768px) {
+  .block-content-highlighted {
+    min-height: auto;
+  }
+  
+  .block-content-highlighted__container {
+    padding: 60px 30px;
+  }
+  
+  .block-content-highlighted__content {
+    gap: 32px;
+  }
+  
+  .block-content-highlighted__icon-container {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .block-content-highlighted__text {
+    font-size: 22px;
+    letter-spacing: -1.1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .block-content-highlighted__container {
+    padding: 40px 20px;
+  }
+  
+  .block-content-highlighted__content {
+    gap: 24px;
+  }
+  
+  .block-content-highlighted__icon-container {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .block-content-highlighted__text {
+    font-size: 18px;
+    letter-spacing: -0.9px;
+  }
+}
+

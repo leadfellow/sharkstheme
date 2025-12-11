@@ -29,6 +29,9 @@
 @import url('./30-components/ten-steps.css');
 @import url('./30-components/select-text.css');
 @import url('./30-components/spacer.css');
+@import url('./30-components/content-highlighted.css');
+@import url('./30-components/table-2.css');
+@import url('./30-components/two-box-cta.css');
 @import url('./30-components/block-styles.css');
 @import url('./30-components/mouse-trail.css');
 @import url('./40-layout/grid.css');
@@ -116,6 +119,9 @@ img {
 .entry-content > [data-type^="acf/"],
 .entry-content > .block-cta,
 .entry-content > .block-content-grey,
+.entry-content > .block-content-highlighted,
+.entry-content > .block-table-2,
+.entry-content > .block-two-box-cta,
 .entry-content > .block-service-cards,
 .entry-content > .block-specialist,
 .entry-content > .block-label-bar,
@@ -149,6 +155,9 @@ img {
 .entry-content > .sharks-headings,
 .entry-content > .block-cta,
 .entry-content > .block-content-grey,
+.entry-content > .block-content-highlighted,
+.entry-content > .block-table-2,
+.entry-content > .block-two-box-cta,
 .entry-content > .block-service-cards,
 .entry-content > .block-specialist,
 .entry-content > .block-label-bar,

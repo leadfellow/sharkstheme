@@ -53,29 +53,12 @@
   let baseVertexShader;
 
   function init() {
-    try {
-      createCanvas();
-      initWebGL();
-      
-      // If WebGL failed to initialize, remove canvas and exit
-      if (!gl) {
-        if (canvas && canvas.parentNode) {
-          canvas.parentNode.removeChild(canvas);
-        }
-        return;
-      }
-      
-      createShaders();
-      initFramebuffers();
-      bindEvents();
-      update();
-    } catch (error) {
-      console.warn('Failed to initialize fluid cursor:', error);
-      // Clean up on error
-      if (canvas && canvas.parentNode) {
-        canvas.parentNode.removeChild(canvas);
-      }
-    }
+    createCanvas();
+    initWebGL();
+    createShaders();
+    initFramebuffers();
+    bindEvents();
+    update();
   }
 
   function createCanvas() {
@@ -89,13 +72,10 @@
     canvas.style.pointerEvents = 'none';
     canvas.style.zIndex = '9999';
     canvas.style.display = 'block';
-    canvas.style.touchAction = 'auto'; // Allow normal touch interactions like scrolling
+    canvas.style.touchAction = 'none';
     canvas.style.userSelect = 'none';
     canvas.style.webkitUserSelect = 'none';
     canvas.style.webkitTouchCallout = 'none';
-    canvas.style.webkitTransform = 'translateZ(0)'; // Safari fix
-    canvas.style.transform = 'translateZ(0)'; // Safari fix
-    canvas.style.willChange = 'transform'; // Performance hint
     document.body.appendChild(canvas);
     resizeCanvas();
   }
@@ -106,21 +86,13 @@
       depth: false,
       stencil: false,
       antialias: false,
-      preserveDrawingBuffer: false,
-      powerPreference: 'high-performance', // Better performance on Safari
-      failIfMajorPerformanceCaveat: false // Don't fail on Safari
+      preserveDrawingBuffer: false
     };
 
     gl = canvas.getContext('webgl2', params);
     const isWebGL2 = !!gl;
     if (!isWebGL2) {
       gl = canvas.getContext('webgl', params) || canvas.getContext('experimental-webgl', params);
-    }
-    
-    // Safari WebGL context might be null - check and log
-    if (!gl) {
-      console.warn('WebGL not supported or failed to initialize');
-      return;
     }
 
     let halfFloat;
@@ -930,43 +902,27 @@
   }
 
   function bindEvents() {
-    // Mouse events for desktop
     window.addEventListener('mousemove', e => {
       let pointer = pointers[0];
       let posX = scaleByPixelRatio(e.clientX);
       let posY = scaleByPixelRatio(e.clientY);
       updatePointerMoveData(pointer, posX, posY);
     });
-
-    // Touch events for mobile/tablet - but don't interfere with scrolling
-    let touchActive = false;
-    window.addEventListener('touchstart', e => {
-      // Don't prevent default - allow scrolling
-      touchActive = true;
-    }, { passive: true });
-
-    window.addEventListener('touchmove', e => {
-      if (!touchActive) return;
-      // Don't prevent default - allow scrolling
-      const touch = e.touches[0];
-      let pointer = pointers[0];
-      let posX = scaleByPixelRatio(touch.clientX);
-      let posY = scaleByPixelRatio(touch.clientY);
-      updatePointerMoveData(pointer, posX, posY);
-    }, { passive: true });
-
-    window.addEventListener('touchend', () => {
-      touchActive = false;
-    }, { passive: true });
   }
 
-  // Initialize on DOM ready
-  // Detect mobile devices where we should disable for performance
+  // Initialize on DOM ready - only on desktop devices (no touch support)
+  // Check both touch support and device type
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  const isSmallScreen = window.innerWidth < 768;
+  const isSafariMobile = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
   
-  // Only initialize on desktop or tablets in landscape mode
-  if (!isMobile || (isMobile && !isSmallScreen)) {
+  // Detect ALL Safari browsers (iOS, iPadOS, and macOS)
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) || 
+                   /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+                   (navigator.vendor && navigator.vendor.indexOf('Apple') > -1);
+  
+  // Only initialize on desktop (no touch, not mobile, not ANY Safari)
+  if (!isTouchDevice && !isMobile && !isSafariMobile && !isSafari) {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', init);
     } else {

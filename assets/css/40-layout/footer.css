@@ -11,6 +11,7 @@
   overflow: hidden;
   isolation: isolate;
   height: 622px;
+  margin: 0;
 }
 
 /* Watermark Background */

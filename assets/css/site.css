@@ -160,6 +160,17 @@ img {
   margin-right: auto !important;
 }
 
+/* Remove spacing before footer */
+.site-main,
+#main {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.site-footer {
+  margin-top: 0 !important;
+}
+
 /* Remove padding for columns that contain heading-half */
 .entry-content .wp-block-columns:has(.heading-half),
 .entry-content .wp-block-column:has(.heading-half) {

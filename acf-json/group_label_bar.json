@@ -29,10 +29,10 @@
             "required": 0,
             "choices": {
                 "x": "X Icon",
-                "asterisk": "Asterisk (✱)",
-                "star": "Star (✦)",
-                "plus": "Plus (+)",
-                "dot": "Dot (•)"
+                "asterisk": "Asterisk",
+                "star": "Star",
+                "plus": "Plus",
+                "dot": "Dot"
             },
             "default_value": "x",
             "allow_null": 0

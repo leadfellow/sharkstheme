@@ -119,6 +119,7 @@ img {
 .entry-content > .block-service-cards,
 .entry-content > .block-specialist,
 .entry-content > .block-label-bar,
+.entry-content > .block-testimonials,
 .entry-content > .block-hero,
 .entry-content > .sharks-headings,
 .entry-content > .block-case-story {
@@ -151,6 +152,7 @@ img {
 .entry-content > .block-service-cards,
 .entry-content > .block-specialist,
 .entry-content > .block-label-bar,
+.entry-content > .block-testimonials,
 .entry-content > .block-hero,
 .entry-content > .block-case-story {
   padding-inline: 0 !important;

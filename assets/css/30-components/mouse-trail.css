@@ -14,24 +14,19 @@
   pointer-events: none;
   z-index: 9999;
   display: block;
-  touch-action: none;
+  touch-action: auto; /* Allow normal touch interactions */
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
+  /* Safari-specific fixes */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
-/* Disable on touch-only devices for performance */
-@media (hover: none) and (pointer: coarse) {
+/* Disable on small mobile screens for performance */
+@media (max-width: 767px) {
   #fluid-cursor {
     display: none !important;
-  }
-}
-
-/* Disable on mobile Safari specifically */
-@supports (-webkit-touch-callout: none) {
-  @media (max-width: 1024px) {
-    #fluid-cursor {
-      display: none !important;
-    }
   }
 }

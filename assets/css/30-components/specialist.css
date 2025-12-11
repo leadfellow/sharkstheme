@@ -1,0 +1,284 @@
+/* Specialist Block */
+.block-specialist {
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+}
+
+.block-specialist__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 120px 58px;
+}
+
+.block-specialist__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 40px;
+}
+
+/* Left Column */
+.block-specialist__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 779px;
+  height: 100%;
+  min-height: 666px;
+}
+
+.block-specialist__heading-wrapper {
+  height: 270px;
+  width: 100%;
+  position: relative;
+}
+
+.block-specialist__heading {
+  font-family: 'Switzer', var(--font-heading);
+  font-size: 82px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -4.1px;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 0;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.block-specialist__heading-part {
+  display: inline;
+  white-space: nowrap;
+}
+
+.block-specialist__heading-part--black {
+  color: #000000;
+}
+
+.block-specialist__heading-part--gray {
+  color: #bbbab6;
+}
+
+.block-specialist__heading-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.block-specialist__heading-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.block-specialist__heading-break {
+  display: block;
+  width: 100%;
+  height: 0;
+  line-height: 0;
+}
+
+.block-specialist__bio {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.4;
+  color: #000000;
+  width: 428px;
+  max-width: 100%;
+}
+
+.block-specialist__bio p {
+  margin: 0 0 18px 0;
+}
+
+.block-specialist__bio p:last-child {
+  margin-bottom: 0;
+}
+
+/* Right Column */
+.block-specialist__right {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 428px;
+}
+
+.block-specialist__image {
+  width: 100%;
+  height: 666px;
+  overflow: hidden;
+}
+
+.block-specialist__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.block-specialist__image--placeholder {
+  background-color: #d9d9d9;
+}
+
+.block-specialist__info {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.block-specialist__name-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 204px;
+}
+
+.block-specialist__name {
+  font-family: var(--font-sans);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #000000;
+  margin: 0;
+}
+
+.block-specialist__position {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #000000;
+  margin: 0;
+}
+
+.block-specialist__linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  text-decoration: none;
+  transition: opacity var(--transition-base);
+}
+
+.block-specialist__linkedin:hover {
+  opacity: 0.7;
+}
+
+.block-specialist__linkedin-text {
+  font-family: 'Switzer', var(--font-heading);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+  color: #000000;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-position: from-font;
+  white-space: nowrap;
+}
+
+.block-specialist__linkedin-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  transform: rotate(90deg);
+}
+
+.block-specialist__linkedin-icon svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .block-specialist__content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .block-specialist__left,
+  .block-specialist__right {
+    width: 100%;
+  }
+  
+  .block-specialist__left {
+    min-height: auto;
+    gap: 60px;
+  }
+  
+  .block-specialist__heading {
+    font-size: 60px;
+    letter-spacing: -3px;
+  }
+  
+  .block-specialist__heading-icon {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .block-specialist__container {
+    padding: 80px 30px;
+  }
+  
+  .block-specialist__heading-wrapper {
+    height: auto;
+  }
+  
+  .block-specialist__heading {
+    font-size: 42px;
+    letter-spacing: -2.1px;
+    position: relative;
+  }
+  
+  .block-specialist__heading-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .block-specialist__bio {
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .block-specialist__image {
+    height: 500px;
+  }
+  
+  .block-specialist__info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .block-specialist__name-wrapper {
+    width: 100%;
+  }
+  
+  .block-specialist__name {
+    font-size: 20px;
+  }
+  
+  .block-specialist__position {
+    font-size: 16px;
+  }
+  
+  .block-specialist__linkedin-text {
+    font-size: 18px;
+  }
+}
+

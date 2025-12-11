@@ -361,6 +361,24 @@ add_action('acf/init', function() {
         'mode'            => 'preview'
     ]);
 
+    // Specialist Block
+    acf_register_block_type([
+        'name'            => 'specialist',
+        'title'           => __('Specialist', 'sharks2025'),
+        'description'     => __('Specialist profile with heading parts, bio, image, and LinkedIn link', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/specialist/specialist.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'admin-users',
+        'keywords'        => ['specialist', 'profile', 'team', 'bio', 'linkedin'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
     // Inquiry Block
     acf_register_block_type([
         'name'            => 'inquiry',

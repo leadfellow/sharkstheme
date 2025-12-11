@@ -1,0 +1,89 @@
+{
+    "key": "group_label_bar_block",
+    "title": "Label Bar Block",
+    "fields": [
+        {
+            "key": "field_label_bar_background_color",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "color_picker",
+            "instructions": "Choose background color for the bar",
+            "required": 0,
+            "default_value": "#e1ff04"
+        },
+        {
+            "key": "field_label_bar_text_color",
+            "label": "Text Color",
+            "name": "text_color",
+            "type": "color_picker",
+            "instructions": "Choose text and icon color",
+            "required": 0,
+            "default_value": "#000000"
+        },
+        {
+            "key": "field_label_bar_separator_icon",
+            "label": "Separator Icon",
+            "name": "separator_icon",
+            "type": "select",
+            "instructions": "Choose icon to use as separator between labels",
+            "required": 0,
+            "choices": {
+                "x": "X Icon",
+                "asterisk": "Asterisk (✱)",
+                "star": "Star (✦)",
+                "plus": "Plus (+)",
+                "dot": "Dot (•)"
+            },
+            "default_value": "x",
+            "allow_null": 0
+        },
+        {
+            "key": "field_label_bar_labels",
+            "label": "Labels",
+            "name": "labels",
+            "type": "repeater",
+            "instructions": "Add labels with optional links (separated by X icons)",
+            "required": 0,
+            "min": 1,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Label",
+            "sub_fields": [
+                {
+                    "key": "field_label_bar_label_text",
+                    "label": "Label Text",
+                    "name": "label_text",
+                    "type": "text",
+                    "instructions": "Label text",
+                    "required": 1,
+                    "placeholder": "UX/UI"
+                },
+                {
+                    "key": "field_label_bar_label_url",
+                    "label": "Link URL (Optional)",
+                    "name": "label_url",
+                    "type": "url",
+                    "instructions": "Optional link for this label",
+                    "required": 0,
+                    "placeholder": "https://"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/label-bar"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

@@ -379,6 +379,24 @@ add_action('acf/init', function() {
         'mode'            => 'preview'
     ]);
 
+    // Label Bar Block
+    acf_register_block_type([
+        'name'            => 'label-bar',
+        'title'           => __('Label Bar', 'sharks2025'),
+        'description'     => __('Horizontal bar with labels and X separators, customizable colors and optional links', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/label-bar/label-bar.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'menu',
+        'keywords'        => ['label', 'bar', 'tags', 'services', 'navigation'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
     // Inquiry Block
     acf_register_block_type([
         'name'            => 'inquiry',

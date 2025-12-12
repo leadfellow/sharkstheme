@@ -27,16 +27,21 @@
   }
 }
 
+/* TEST: Temporarily allow Safari desktop - only block mobile Safari with touch */
 /* Disable on ALL Safari browsers (iOS and macOS) */
+/*
 @supports (-webkit-touch-callout: none) {
   #fluid-cursor {
     display: none !important;
   }
 }
+*/
 
 /* Additional Safari-specific detection */
+/*
 @supports (-webkit-hyphens: none) {
   #fluid-cursor {
     display: none !important;
   }
 }
+*/

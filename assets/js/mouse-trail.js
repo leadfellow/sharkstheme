@@ -45,8 +45,6 @@
   let dye, velocity, divergence, curl, pressure;
   let lastUpdateTime = Date.now();
   let colorUpdateTimer = 0.0;
-  let frameCount = 0;
-  let fpsLogTimer = 0;
 
   // Programs
   let copyProgram, clearProgram, splatProgram, advectionProgram;
@@ -55,17 +53,11 @@
   let baseVertexShader;
 
   function init() {
-    // #region agent log
-    console.log('[FLUID-CURSOR] Init started', {timestamp: Date.now()});
-    // #endregion
     createCanvas();
     initWebGL();
     createShaders();
     initFramebuffers();
     bindEvents();
-    // #region agent log
-    console.log('[FLUID-CURSOR] Init completed, starting update loop', {canvasId: canvas.id});
-    // #endregion
     update();
   }
 
@@ -89,13 +81,6 @@
   }
 
   function initWebGL() {
-    // #region agent log
-    console.log('[FLUID-CURSOR] initWebGL entry', {
-      userAgent: navigator.userAgent,
-      vendor: navigator.vendor
-    });
-    // #endregion
-    
     const params = {
       alpha: true,
       depth: false,
@@ -106,17 +91,8 @@
 
     gl = canvas.getContext('webgl2', params);
     const isWebGL2 = !!gl;
-    // #region agent log
-    console.log('[FLUID-CURSOR] WebGL context created', {
-      isWebGL2: isWebGL2,
-      contextExists: !!gl
-    });
-    // #endregion
     if (!isWebGL2) {
       gl = canvas.getContext('webgl', params) || canvas.getContext('experimental-webgl', params);
-      // #region agent log
-      console.log('[FLUID-CURSOR] Fallback to WebGL1', {contextExists: !!gl});
-      // #endregion
     }
 
     let halfFloat;
@@ -125,21 +101,9 @@
     if (isWebGL2) {
       gl.getExtension('EXT_color_buffer_float');
       supportLinearFiltering = gl.getExtension('OES_texture_float_linear');
-      // #region agent log
-      console.log('[FLUID-CURSOR] WebGL2 extensions', {
-        colorBufferFloat: !!gl.getExtension('EXT_color_buffer_float'),
-        linearFiltering: !!supportLinearFiltering
-      });
-      // #endregion
     } else {
       halfFloat = gl.getExtension('OES_texture_half_float');
       supportLinearFiltering = gl.getExtension('OES_texture_half_float_linear');
-      // #region agent log
-      console.log('[FLUID-CURSOR] WebGL1 extensions', {
-        halfFloat: !!halfFloat,
-        linearFiltering: !!supportLinearFiltering
-      });
-      // #endregion
     }
 
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
@@ -165,24 +129,9 @@
       supportLinearFiltering
     };
 
-    // #region agent log
-    console.log('[FLUID-CURSOR] Texture formats resolved', {
-      formatRGBA: !!formatRGBA,
-      formatRG: !!formatRG,
-      formatR: !!formatR,
-      supportLinearFiltering: !!ext.supportLinearFiltering
-    });
-    // #endregion
-
     if (!ext.supportLinearFiltering) {
       config.DYE_RESOLUTION = 256;
       config.SHADING = false;
-      // #region agent log
-      console.log('[FLUID-CURSOR] Linear filtering not supported, using fallback', {
-        newDyeRes: config.DYE_RESOLUTION,
-        shading: config.SHADING
-      });
-      // #endregion
     }
   }
 
@@ -711,21 +660,6 @@
 
   function update() {
     const dt = calcDeltaTime();
-    frameCount++;
-    fpsLogTimer += dt;
-    
-    // #region agent log
-    if (fpsLogTimer >= 2.0) {
-      const fps = frameCount / fpsLogTimer;
-      console.log('[FLUID-CURSOR] Performance check', {
-        fps: fps.toFixed(2),
-        frameCount: frameCount
-      });
-      frameCount = 0;
-      fpsLogTimer = 0;
-    }
-    // #endregion
-    
     if (resizeCanvas()) initFramebuffers();
     updateColors(dt);
     applyInputs();
@@ -987,33 +921,12 @@
                    /iPad|iPhone|iPod/.test(navigator.userAgent) ||
                    (navigator.vendor && navigator.vendor.indexOf('Apple') > -1);
   
-  // #region agent log
-  console.log('[FLUID-CURSOR] Device detection', {
-    isTouchDevice: isTouchDevice,
-    isMobile: isMobile,
-    isSafariMobile: isSafariMobile,
-    isSafari: isSafari,
-    userAgent: navigator.userAgent
-  });
-  // #endregion
-  
-  // TEST: Allow Safari desktop (macOS) to run - only block mobile Safari
-  if (!isTouchDevice && !isMobile && !isSafariMobile) {
-    // #region agent log
-    console.log('[FLUID-CURSOR] Initializing on Safari desktop', {
-      readyState: document.readyState
-    });
-    // #endregion
+  // Only initialize on desktop (no touch, not mobile, not ANY Safari)
+  if (!isTouchDevice && !isMobile && !isSafariMobile && !isSafari) {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', init);
     } else {
       init();
     }
-  } else {
-    // #region agent log
-    console.log('[FLUID-CURSOR] Skipping initialization - device blocked', {
-      reason: isTouchDevice ? 'touch device' : isMobile ? 'mobile' : 'safari mobile'
-    });
-    // #endregion
   }
 })();

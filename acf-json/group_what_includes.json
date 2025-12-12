@@ -1,0 +1,77 @@
+{
+    "key": "group_what_includes_block",
+    "title": "What Includes Block",
+    "fields": [
+        {
+            "key": "field_what_includes_heading",
+            "label": "Heading",
+            "name": "heading",
+            "type": "textarea",
+            "instructions": "Main heading for the block (supports line breaks)",
+            "required": 0,
+            "rows": 3,
+            "default_value": "Mida sisaldab klassikaline WordPressi WooCommerce e-poe lahendus?",
+            "placeholder": "Mida sisaldab..."
+        },
+        {
+            "key": "field_what_includes_background_color",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "color_picker",
+            "instructions": "Section background color",
+            "required": 0,
+            "default_value": "#f7f7f5"
+        },
+        {
+            "key": "field_what_includes_column_split_at",
+            "label": "Column Split At",
+            "name": "column_split_at",
+            "type": "number",
+            "instructions": "Number at which items split into second column (e.g., 9 means first 9 items in left column, rest in right column)",
+            "required": 0,
+            "default_value": 9,
+            "min": 1,
+            "step": 1,
+            "placeholder": "9"
+        },
+        {
+            "key": "field_what_includes_items",
+            "label": "Items",
+            "name": "items",
+            "type": "repeater",
+            "instructions": "Add feature/functionality items",
+            "required": 0,
+            "min": 1,
+            "max": 50,
+            "layout": "table",
+            "button_label": "Add Item",
+            "sub_fields": [
+                {
+                    "key": "field_what_includes_item_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "Item description",
+                    "required": 1,
+                    "placeholder": "Erinevaid maksemeetodeid"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/what-includes"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

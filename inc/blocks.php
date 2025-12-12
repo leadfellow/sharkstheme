@@ -601,6 +601,24 @@ add_action('acf/init', function() {
         ],
         'mode'            => 'preview'
     ]);
+
+    // What Includes Block
+    acf_register_block_type([
+        'name'            => 'what-includes',
+        'title'           => __('What Includes', 'sharks2025'),
+        'description'     => __('Features list with customizable title and column split', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/what-includes/what-includes.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'editor-ul',
+        'keywords'        => ['what', 'includes', 'features', 'list', 'columns'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
 });
 
 /**

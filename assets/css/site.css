@@ -32,6 +32,7 @@
 @import url('./30-components/content-highlighted.css');
 @import url('./30-components/table-2.css');
 @import url('./30-components/two-box-cta.css');
+@import url('./30-components/what-includes.css');
 @import url('./30-components/block-styles.css');
 @import url('./30-components/mouse-trail.css');
 @import url('./40-layout/grid.css');
@@ -122,6 +123,7 @@ img {
 .entry-content > .block-content-highlighted,
 .entry-content > .block-table-2,
 .entry-content > .block-two-box-cta,
+.entry-content > .block-what-includes,
 .entry-content > .block-service-cards,
 .entry-content > .block-specialist,
 .entry-content > .block-label-bar,
@@ -158,6 +160,7 @@ img {
 .entry-content > .block-content-highlighted,
 .entry-content > .block-table-2,
 .entry-content > .block-two-box-cta,
+.entry-content > .block-what-includes,
 .entry-content > .block-service-cards,
 .entry-content > .block-specialist,
 .entry-content > .block-label-bar,

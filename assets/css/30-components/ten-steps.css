@@ -289,3 +289,42 @@
   }
 }
 
+@media (max-width: 480px) {
+  .block-ten-steps {
+    padding: 2.5rem 1rem;
+  }
+  
+  .ten-steps__heading {
+    font-size: 36px;
+    gap: 20px;
+  }
+  
+  .ten-steps__card {
+    min-height: 260px;
+    padding: 18px;
+  }
+  
+  .ten-steps__card-heading {
+    font-size: 28px;
+  }
+  
+  .ten-steps__card-description {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 375px) {
+  .ten-steps__heading {
+    font-size: 32px;
+    gap: 16px;
+  }
+  
+  .ten-steps__card-heading {
+    font-size: 24px;
+  }
+  
+  .ten-steps__card-description {
+    font-size: 15px;
+  }
+}
+

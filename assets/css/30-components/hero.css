@@ -755,6 +755,54 @@
   }
 }
 
+@media (max-width: 480px) {
+  .block-hero--white-wave .block-hero__label,
+  .block-hero--white-wave .block-hero__title {
+    font-size: 36px;
+    letter-spacing: -1.8px;
+  }
+  
+  .block-hero--white-wave .block-hero__title {
+    gap: 12px;
+  }
+  
+  .block-hero--white-wave .block-hero__title-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .block-hero--white-wave .block-hero__subtitle {
+    font-size: 24px;
+    letter-spacing: -1.2px;
+  }
+  
+  .block-hero--white-wave .block-hero__text {
+    font-size: 15px;
+  }
+  
+  .block-hero--white-wave .block-hero__cta-text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 375px) {
+  .block-hero--white-wave .block-hero__label,
+  .block-hero--white-wave .block-hero__title {
+    font-size: 32px;
+    letter-spacing: -1.6px;
+  }
+  
+  .block-hero--white-wave .block-hero__title-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .block-hero--white-wave .block-hero__subtitle {
+    font-size: 22px;
+    letter-spacing: -1.1px;
+  }
+}
+
 @media (max-width: 900px) {
   .block-hero {
     margin-top: -60px;

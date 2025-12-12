@@ -235,3 +235,15 @@
   }
 }
 
+@media (max-width: 375px) {
+  .block-two-box-cta__title {
+    font-size: 28px;
+    letter-spacing: -1.4px;
+  }
+  
+  .block-two-box-cta__feature-text,
+  .block-two-box-cta__description {
+    font-size: 14px;
+  }
+}
+

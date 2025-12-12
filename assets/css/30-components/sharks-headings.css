@@ -330,3 +330,56 @@
   }
 }
 
+@media (max-width: 480px) {
+  .sharks-headings {
+    padding: 50px 20px;
+    gap: 25px;
+  }
+  
+  .sharks-headings__label {
+    font-size: 13px;
+  }
+  
+  .sharks-headings__title {
+    font-size: 36px;
+    letter-spacing: -1.8px;
+    gap: 15px;
+  }
+  
+  .sharks-headings__subtitle {
+    font-size: 24px;
+    letter-spacing: -1.2px;
+  }
+  
+  .sharks-headings__description {
+    font-size: 15px;
+  }
+  
+  .sharks-headings__icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .sharks-headings__read-more-text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 375px) {
+  .sharks-headings__title {
+    font-size: 32px;
+    letter-spacing: -1.6px;
+    gap: 12px;
+  }
+  
+  .sharks-headings__subtitle {
+    font-size: 22px;
+    letter-spacing: -1.1px;
+  }
+  
+  .sharks-headings__icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+

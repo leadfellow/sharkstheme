@@ -256,3 +256,52 @@
   }
 }
 
+@media (max-width: 480px) {
+  .block-service-cards__container {
+    padding: 60px 20px;
+  }
+  
+  .block-service-cards__title {
+    font-size: 36px;
+    letter-spacing: -1.8px;
+  }
+  
+  .block-service-cards__title-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .block-service-cards__intro {
+    font-size: 20px;
+    letter-spacing: -1px;
+  }
+  
+  .block-service-cards__card {
+    padding: 25px;
+  }
+  
+  .block-service-cards__card-title {
+    font-size: 24px;
+    letter-spacing: -1.2px;
+  }
+  
+  .block-service-cards__card-description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 375px) {
+  .block-service-cards__title {
+    font-size: 32px;
+    letter-spacing: -1.6px;
+  }
+  
+  .block-service-cards__intro {
+    font-size: 18px;
+  }
+  
+  .block-service-cards__card-title {
+    font-size: 22px;
+  }
+}
+

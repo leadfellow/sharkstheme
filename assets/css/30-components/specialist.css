@@ -282,4 +282,39 @@
   }
 }
 
+@media (max-width: 480px) {
+  .block-specialist__container {
+    padding: 60px 20px;
+  }
+  
+  .block-specialist__heading {
+    font-size: 36px;
+    letter-spacing: -1.8px;
+  }
+  
+  .block-specialist__heading-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .block-specialist__bio {
+    font-size: 15px;
+  }
+  
+  .block-specialist__image {
+    height: 400px;
+  }
+}
+
+@media (max-width: 375px) {
+  .block-specialist__heading {
+    font-size: 32px;
+    letter-spacing: -1.6px;
+  }
+  
+  .block-specialist__image {
+    height: 350px;
+  }
+}
+
 

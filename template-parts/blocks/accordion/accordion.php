@@ -12,6 +12,11 @@ if (!defined('ABSPATH')) {
 
 // Get block fields
 $accordion_items = get_field('accordion_items');
+$background_color = get_field('background_color') ?: 'transparent';
+$show_numbers = get_field('show_numbers');
+if ($show_numbers === null || $show_numbers === '') {
+    $show_numbers = true; // Default to showing numbers
+}
 
 // Block attributes
 $block_id = 'accordion-' . ($block['id'] ?? uniqid());
@@ -39,7 +44,6 @@ if (empty($accordion_items)) {
 ?>
 
 <section <?php echo $anchor; ?>class="<?php echo esc_attr($class_name); ?>">
-    <div class="container">
         <div class="accordion">
             <?php foreach ($accordion_items as $index => $item): 
                 $number = str_pad($index + 1, 2, '0', STR_PAD_LEFT);
@@ -48,12 +52,14 @@ if (empty($accordion_items)) {
             ?>
                 <div class="accordion__item <?php echo $is_open ? 'is-open' : ''; ?>" data-accordion-item>
                     <button 
-                        class="accordion__header" 
+                        class="accordion__header accordion__header--<?php echo esc_attr($background_color); ?>" 
                         aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>"
                         aria-controls="<?php echo esc_attr($item_id); ?>"
                         data-accordion-trigger>
                         <div class="accordion__title-wrapper">
-                            <span class="accordion__number">(<?php echo esc_html($number); ?>)</span>
+                            <?php if ($show_numbers): ?>
+                                <span class="accordion__number">(<?php echo esc_html($number); ?>)</span>
+                            <?php endif; ?>
                             <h3 class="accordion__title"><?php echo esc_html($item['title']); ?></h3>
                         </div>
                         <div class="accordion__icon" aria-hidden="true">
@@ -74,34 +80,52 @@ if (empty($accordion_items)) {
                 </div>
             <?php endforeach; ?>
         </div>
-    </div>
 </section>
 
 <script>
 (function() {
-    const accordionItems = document.querySelectorAll('[data-accordion-item]');
-    
-    accordionItems.forEach(item => {
-        const trigger = item.querySelector('[data-accordion-trigger]');
-        const content = item.querySelector('.accordion__content');
+    function initAccordion() {
+        const accordionItems = document.querySelectorAll('[data-accordion-item]');
         
-        if (!trigger || !content) return;
-        
-        trigger.addEventListener('click', () => {
-            const isOpen = item.classList.contains('is-open');
+        accordionItems.forEach(item => {
+            const trigger = item.querySelector('[data-accordion-trigger]');
+            const content = item.querySelector('.accordion__content');
             
-            // Toggle current item
-            if (isOpen) {
-                item.classList.remove('is-open');
-                trigger.setAttribute('aria-expanded', 'false');
-                content.style.display = 'none';
-            } else {
-                item.classList.add('is-open');
-                trigger.setAttribute('aria-expanded', 'true');
-                content.style.display = 'block';
-            }
+            if (!trigger || !content) return;
+            
+            // Remove existing listeners by cloning
+            const newTrigger = trigger.cloneNode(true);
+            trigger.parentNode.replaceChild(newTrigger, trigger);
+            
+            newTrigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isOpen = item.classList.contains('is-open');
+                
+                // Toggle current item
+                if (isOpen) {
+                    item.classList.remove('is-open');
+                    newTrigger.setAttribute('aria-expanded', 'false');
+                    content.style.display = 'none';
+                } else {
+                    item.classList.add('is-open');
+                    newTrigger.setAttribute('aria-expanded', 'true');
+                    content.style.display = 'block';
+                }
+            });
         });
-    });
+    }
+    
+    // Initialize on load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAccordion);
+    } else {
+        initAccordion();
+    }
+    
+    // Re-initialize for Gutenberg editor
+    if (window.acf) {
+        window.acf.addAction('render_block_preview/type=accordion', initAccordion);
+    }
 })();
 </script>
 

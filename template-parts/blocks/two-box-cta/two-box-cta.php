@@ -32,8 +32,9 @@ $icon_map = [
 /**
  * Render a single card
  */
-function render_card($card, $icon_map, $card_background_color) {
-    if (empty($card)) return;
+if (!function_exists('render_two_box_cta_card')) {
+    function render_two_box_cta_card($card, $icon_map, $card_background_color) {
+        if (empty($card)) return;
     
     $show_icon = $card['show_icon'] ?? false;
     $icon = $card['icon'] ?? 'star';
@@ -91,6 +92,7 @@ function render_card($card, $icon_map, $card_background_color) {
     </div>
     
     <?php
+    }
 }
 ?>
 
@@ -100,8 +102,8 @@ function render_card($card, $icon_map, $card_background_color) {
     style="background-color: <?php echo esc_attr($section_background_color); ?>;">
     <div class="block-two-box-cta__container">
         <?php 
-        render_card($left_card, $icon_map, $card_background_color);
-        render_card($right_card, $icon_map, $card_background_color);
+        render_two_box_cta_card($left_card, $icon_map, $card_background_color);
+        render_two_box_cta_card($right_card, $icon_map, $card_background_color);
         ?>
     </div>
 </section>

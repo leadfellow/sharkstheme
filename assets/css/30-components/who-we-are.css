@@ -1,0 +1,180 @@
+/* ====================================
+   Who We Are Block
+   ==================================== */
+
+.block-who-we-are {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.block-who-we-are__container {
+  width: 100%;
+  height: 505px;
+  padding: 100px 58px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 50px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Sidebar Title */
+.block-who-we-are__sidebar-title {
+  font-family: 'Manrope', var(--font-sans);
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #000000;
+  white-space: nowrap;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Main Content */
+.block-who-we-are__main-content {
+  width: 652px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.block-who-we-are__content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Heading */
+.block-who-we-are__heading {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+  color: #000000;
+  margin: 0;
+}
+
+/* Description */
+.block-who-we-are__description {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #141414;
+  margin: 0;
+}
+
+/* Read More Link */
+.block-who-we-are__read-more {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  width: fit-content;
+}
+
+.block-who-we-are__read-more:hover {
+  opacity: 0.7;
+}
+
+.block-who-we-are__read-more-text {
+  font-family: 'Switzer', 'Helvetica', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.6px;
+  color: #000000;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-position: from-font;
+  white-space: nowrap;
+}
+
+.block-who-we-are__arrow-icon {
+  width: 26px;
+  height: 26px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.block-who-we-are__arrow-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .block-who-we-are__container {
+    padding: 80px 40px;
+  }
+  
+  .block-who-we-are__main-content {
+    width: 600px;
+  }
+}
+
+@media (max-width: 900px) {
+  .block-who-we-are__container {
+    flex-direction: column;
+    padding: 60px 30px;
+    gap: 40px;
+    min-height: auto;
+  }
+  
+  .block-who-we-are__sidebar-title {
+    white-space: normal;
+  }
+  
+  .block-who-we-are__main-content {
+    width: 100%;
+  }
+  
+  .block-who-we-are__heading {
+    font-size: 28px;
+    letter-spacing: -1.4px;
+  }
+  
+  .block-who-we-are__description {
+    font-size: 16px;
+  }
+  
+  .block-who-we-are__read-more-text {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .block-who-we-are__container {
+    padding: 40px 20px;
+    gap: 30px;
+  }
+  
+  .block-who-we-are__sidebar-title {
+    font-size: 16px;
+  }
+  
+  .block-who-we-are__heading {
+    font-size: 24px;
+    letter-spacing: -1.2px;
+  }
+  
+  .block-who-we-are__description {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  .block-who-we-are__read-more-text {
+    font-size: 16px;
+  }
+  
+  .block-who-we-are__arrow-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+

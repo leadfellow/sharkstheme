@@ -1,0 +1,96 @@
+{
+    "key": "group_frontpage_hero_banner",
+    "title": "Frontpage Hero Banner Block",
+    "fields": [
+        {
+            "key": "field_frontpage_hero_main_title",
+            "label": "Main Title",
+            "name": "main_title",
+            "type": "text",
+            "instructions": "Large uppercase title (e.g., \"HUNGRY FOR YOUR SUCCESS\")",
+            "required": 1,
+            "default_value": "HUNGRY FOR YOUR SUCCESS",
+            "placeholder": "HUNGRY FOR YOUR SUCCESS",
+            "maxlength": 100
+        },
+        {
+            "key": "field_frontpage_hero_description",
+            "label": "Description",
+            "name": "description",
+            "type": "textarea",
+            "instructions": "Description text below the title",
+            "required": 0,
+            "default_value": "Choose a service, send in your request, and your design journey starts tomorrow.",
+            "placeholder": "Choose a service, send in your request, and your design journey starts tomorrow.",
+            "rows": 3,
+            "maxlength": 200
+        },
+        {
+            "key": "field_frontpage_hero_cta_text",
+            "label": "CTA Button Text",
+            "name": "cta_text",
+            "type": "text",
+            "instructions": "Call to action button text",
+            "required": 0,
+            "default_value": "Küsi pakkumist",
+            "placeholder": "Küsi pakkumist"
+        },
+        {
+            "key": "field_frontpage_hero_cta_url",
+            "label": "CTA Button URL",
+            "name": "cta_url",
+            "type": "url",
+            "instructions": "Call to action button URL",
+            "required": 0,
+            "default_value": "#contact",
+            "placeholder": "#contact"
+        },
+        {
+            "key": "field_frontpage_hero_portfolio_text",
+            "label": "Portfolio Button Text",
+            "name": "portfolio_text",
+            "type": "text",
+            "instructions": "Portfolio card button text",
+            "required": 0,
+            "default_value": "Tehtud tööd",
+            "placeholder": "Tehtud tööd"
+        },
+        {
+            "key": "field_frontpage_hero_portfolio_url",
+            "label": "Portfolio Button URL",
+            "name": "portfolio_url",
+            "type": "url",
+            "instructions": "Portfolio card button URL",
+            "required": 0,
+            "default_value": "#portfolio",
+            "placeholder": "#portfolio"
+        },
+        {
+            "key": "field_frontpage_hero_portfolio_image",
+            "label": "Portfolio Image",
+            "name": "portfolio_image",
+            "type": "image",
+            "instructions": "Image for the portfolio card (316x200px recommended)",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/frontpage-hero-banner"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

@@ -1,0 +1,101 @@
+{
+    "key": "group_our_facts",
+    "title": "Our Facts Block",
+    "fields": [
+        {
+            "key": "field_our_facts_hero_title",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "textarea",
+            "instructions": "Large hero title (82px)",
+            "required": 1,
+            "default_value": "Paneme 13+ aastat turunduskogemust sinu äri jaoks tööle.",
+            "placeholder": "Paneme 13+ aastat turunduskogemust sinu äri jaoks tööle.",
+            "rows": 3,
+            "maxlength": 200
+        },
+        {
+            "key": "field_our_facts_description",
+            "label": "Description",
+            "name": "description",
+            "type": "textarea",
+            "instructions": "Description text below title",
+            "required": 0,
+            "default_value": "Meie turunduspaketid võivad järgmiseks käivitada just sinu äri. Marketing Sharksi tugevus on kvaliteetne kollektiiv, kes pingutab ka siis, kui teised alla annavad. Oleme partner, kes lähtub alati kliendist ja pakub tervikliku lahenduse.",
+            "placeholder": "Meie turunduspaketid võivad järgmiseks käivitada...",
+            "rows": 4,
+            "maxlength": 500
+        },
+        {
+            "key": "field_our_facts_cta_text",
+            "label": "CTA Text",
+            "name": "cta_text",
+            "type": "text",
+            "instructions": "Call to action link text",
+            "required": 0,
+            "default_value": "Kas oled koostööks valmis? Hüppa pardale!",
+            "placeholder": "Kas oled koostööks valmis? Hüppa pardale!",
+            "maxlength": 100
+        },
+        {
+            "key": "field_our_facts_cta_url",
+            "label": "CTA URL",
+            "name": "cta_url",
+            "type": "url",
+            "instructions": "Call to action link URL",
+            "required": 0,
+            "default_value": "#",
+            "placeholder": "#contact"
+        },
+        {
+            "key": "field_our_facts_stats",
+            "label": "Statistics",
+            "name": "stats",
+            "type": "repeater",
+            "instructions": "Add statistics cards (recommended: 4 cards)",
+            "required": 0,
+            "layout": "block",
+            "button_label": "Add Stat",
+            "min": 0,
+            "max": 8,
+            "sub_fields": [
+                {
+                    "key": "field_our_facts_stat_number",
+                    "label": "Number",
+                    "name": "number",
+                    "type": "text",
+                    "instructions": "Statistic number (e.g., \"95%\", \"250+\", \"13\")",
+                    "required": 1,
+                    "placeholder": "95%",
+                    "maxlength": 20
+                },
+                {
+                    "key": "field_our_facts_stat_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "text",
+                    "instructions": "Description of the statistic",
+                    "required": 1,
+                    "placeholder": "klientidest soovitavad meid edasi",
+                    "maxlength": 100
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/our-facts"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

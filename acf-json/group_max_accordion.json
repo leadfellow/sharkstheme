@@ -1,0 +1,153 @@
+{
+    "key": "group_max_accordion",
+    "title": "Max Accordion Block",
+    "fields": [
+        {
+            "key": "field_max_accordion_background_color",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "color_picker",
+            "instructions": "Background color for the accordion section",
+            "required": 0,
+            "default_value": "#000000",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_max_accordion_text_color",
+            "label": "Text Color",
+            "name": "text_color",
+            "type": "color_picker",
+            "instructions": "Main text color",
+            "required": 0,
+            "default_value": "#ffffff",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_max_accordion_number_color",
+            "label": "Number Color",
+            "name": "number_color",
+            "type": "color_picker",
+            "instructions": "Color for section numbers",
+            "required": 0,
+            "default_value": "#bbbab6",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_max_accordion_border_color",
+            "label": "Border Color",
+            "name": "border_color",
+            "type": "color_picker",
+            "instructions": "Color for divider borders",
+            "required": 0,
+            "default_value": "#bbbab6",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_max_accordion_items",
+            "label": "Accordion Items",
+            "name": "accordion_items",
+            "type": "repeater",
+            "instructions": "Add accordion sections",
+            "required": 0,
+            "layout": "block",
+            "button_label": "Add Section",
+            "min": 1,
+            "max": 20,
+            "sub_fields": [
+                {
+                    "key": "field_max_accordion_item_number",
+                    "label": "Number",
+                    "name": "number",
+                    "type": "text",
+                    "instructions": "Section number (e.g., \"01\", \"02\")",
+                    "required": 1,
+                    "placeholder": "01",
+                    "maxlength": 10
+                },
+                {
+                    "key": "field_max_accordion_item_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "Section title",
+                    "required": 1,
+                    "placeholder": "Turundus",
+                    "maxlength": 100
+                },
+                {
+                    "key": "field_max_accordion_item_is_expanded",
+                    "label": "Open by Default",
+                    "name": "is_expanded",
+                    "type": "true_false",
+                    "instructions": "Check to have this section open by default",
+                    "required": 0,
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "Yes",
+                    "ui_off_text": "No"
+                },
+                {
+                    "key": "field_max_accordion_item_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "Description text (optional)",
+                    "required": 0,
+                    "rows": 4,
+                    "maxlength": 500
+                },
+                {
+                    "key": "field_max_accordion_item_services",
+                    "label": "Service Links",
+                    "name": "services",
+                    "type": "repeater",
+                    "instructions": "Add service links (will be split into 3 columns automatically)",
+                    "required": 0,
+                    "layout": "table",
+                    "button_label": "Add Service",
+                    "min": 0,
+                    "max": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_max_accordion_service_text",
+                            "label": "Service Name",
+                            "name": "text",
+                            "type": "text",
+                            "required": 1,
+                            "placeholder": "SEO",
+                            "maxlength": 50
+                        },
+                        {
+                            "key": "field_max_accordion_service_url",
+                            "label": "URL",
+                            "name": "url",
+                            "type": "url",
+                            "required": 0,
+                            "placeholder": "#"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/max-accordion"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

@@ -63,25 +63,80 @@
   display: block;
   width: 185px;
   height: 185px;
-  transition: opacity var(--transition-fast);
   flex: none;
   order: 0;
+  position: relative;
 }
 
-.site-footer__logo:hover {
-  opacity: 0.8;
-}
-
-.site-footer__logo img {
+/* Animated logo wrapper */
+.site-footer__logo-animated {
+  position: relative;
   width: 185px;
   height: 185px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Rotating circular text */
+.site-footer__logo-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: rotateText 20s linear infinite;
+  pointer-events: none;
+}
+
+.site-footer__logo-text-path {
+  fill: #FFFFFF;
+  font-family: 'Manrope', var(--font-sans);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Center logo image */
+.site-footer__logo-center {
+  position: relative;
+  z-index: 1;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #000000;
+  transition: transform 0.3s ease;
+}
+
+.site-footer__logo:hover .site-footer__logo-center {
+  transform: scale(1.05);
+}
+
+.site-footer__logo-center img {
+  width: 80px;
+  height: 80px;
   display: block;
+  object-fit: contain;
 }
 
 .site-footer__logo-text {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #fff;
+}
+
+/* Rotation animation */
+@keyframes rotateText {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Footer Navigation */
@@ -322,9 +377,24 @@
     height: 150px;
   }
   
-  .site-footer__logo img {
+  .site-footer__logo-animated {
     width: 150px;
     height: 150px;
+  }
+  
+  .site-footer__logo-center {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .site-footer__logo-center img {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .site-footer__logo-text-path {
+    font-size: 11px;
+    letter-spacing: 2px;
   }
   
   .site-footer__nav {
@@ -363,9 +433,24 @@
     height: 120px;
   }
   
-  .site-footer__logo img {
+  .site-footer__logo-animated {
     width: 120px;
     height: 120px;
+  }
+  
+  .site-footer__logo-center {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .site-footer__logo-center img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .site-footer__logo-text-path {
+    font-size: 9px;
+    letter-spacing: 1.5px;
   }
   
   .site-footer__menu {
@@ -429,9 +514,24 @@
     height: 100px;
   }
   
-  .site-footer__logo img {
+  .site-footer__logo-animated {
     width: 100px;
     height: 100px;
+  }
+  
+  .site-footer__logo-center {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .site-footer__logo-center img {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .site-footer__logo-text-path {
+    font-size: 8px;
+    letter-spacing: 1px;
   }
   
   .site-footer__cta {

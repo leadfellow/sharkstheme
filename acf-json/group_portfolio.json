@@ -1,0 +1,125 @@
+{
+    "key": "group_portfolio",
+    "title": "Portfolio Block",
+    "fields": [
+        {
+            "key": "field_portfolio_categories",
+            "label": "Categories",
+            "name": "categories",
+            "type": "repeater",
+            "instructions": "Add portfolio categories for filtering. First category will be 'All' by default.",
+            "required": 1,
+            "layout": "table",
+            "button_label": "Add Category",
+            "min": 1,
+            "max": 10,
+            "sub_fields": [
+                {
+                    "key": "field_portfolio_category_name",
+                    "label": "Category Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "e.g., 'Kõik tööd', 'Veebilehed', 'Turunduskampaaniad'",
+                    "required": 1,
+                    "placeholder": "Veebilehed",
+                    "maxlength": 50
+                }
+            ]
+        },
+        {
+            "key": "field_portfolio_items",
+            "label": "Portfolio Items",
+            "name": "portfolio_items",
+            "type": "repeater",
+            "instructions": "Add portfolio items. Items will be displayed in rows of 2.",
+            "required": 0,
+            "layout": "block",
+            "button_label": "Add Portfolio Item",
+            "min": 0,
+            "max": 50,
+            "sub_fields": [
+                {
+                    "key": "field_portfolio_item_image",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "Portfolio item image (recommended: 428x428px)",
+                    "required": 1,
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_portfolio_item_yellow_bg",
+                    "label": "Yellow Background",
+                    "name": "yellow_bg",
+                    "type": "true_false",
+                    "instructions": "Add yellow (#e1ff04) background behind image",
+                    "required": 0,
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "Yes",
+                    "ui_off_text": "No"
+                },
+                {
+                    "key": "field_portfolio_item_category",
+                    "label": "Category",
+                    "name": "category",
+                    "type": "select",
+                    "instructions": "Select category for filtering (must match category name exactly)",
+                    "required": 1,
+                    "choices": {
+                        "Kõik tööd": "Kõik tööd",
+                        "Veebilehed": "Veebilehed",
+                        "Turunduskampaaniad": "Turunduskampaaniad",
+                        "SEO ja otsingunähtavus": "SEO ja otsingunähtavus",
+                        "Visuaalid": "Visuaalid"
+                    },
+                    "default_value": "Kõik tööd",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": "Select category"
+                },
+                {
+                    "key": "field_portfolio_item_link",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "url",
+                    "instructions": "Link to portfolio item detail page or external URL",
+                    "required": 0,
+                    "placeholder": "https://example.com"
+                },
+                {
+                    "key": "field_portfolio_item_button_text",
+                    "label": "Button Text",
+                    "name": "button_text",
+                    "type": "text",
+                    "instructions": "Text for the button (default: 'Vaata lähemalt')",
+                    "required": 0,
+                    "default_value": "Vaata lähemalt",
+                    "placeholder": "Vaata lähemalt",
+                    "maxlength": 50
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/portfolio"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

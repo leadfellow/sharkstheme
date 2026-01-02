@@ -1,0 +1,346 @@
+/* ====================================
+   Our Facts Block
+   ==================================== */
+
+.block-our-facts {
+  width: 100%;
+  background-color: #f7f7f5;
+  min-height: 100vh;
+}
+
+.block-our-facts__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 100px 58px;
+  display: flex;
+  flex-direction: column;
+  gap: 62px;
+}
+
+/* Hero Section */
+.block-our-facts__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0px;
+  gap: 22px;
+  isolation: isolate;
+  width: 1324px;
+  height: 435px;
+  position: relative;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.block-our-facts__hero-title {
+  width: 1324px;
+  height: 270px;
+  font-family: 'Switzer', 'Helvetica', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 82px;
+  line-height: 110%;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 0;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  z-index: 0;
+}
+
+.block-our-facts__hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 22px;
+  width: 652px;
+  height: 143px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  z-index: 1;
+}
+
+.block-our-facts__description {
+  width: 652px;
+  height: 75px;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  display: flex;
+  align-items: center;
+  color: #141414;
+  margin: 0;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* CTA Link */
+.block-our-facts__cta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 0px;
+  gap: 8px;
+  width: 404px;
+  height: 46px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.block-our-facts__cta:hover {
+  opacity: 0.7;
+}
+
+.block-our-facts__cta span {
+  width: 370px;
+  height: 26px;
+  font-family: 'Switzer', 'Helvetica', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -0.03em;
+  text-decoration-line: underline;
+  color: #000000;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.block-our-facts__arrow-icon {
+  width: 26px;
+  height: 26px;
+  background: #000000;
+  flex-shrink: 0;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.block-our-facts__arrow-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* X Icon */
+.block-our-facts__x-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 14.76px;
+  position: absolute;
+  width: 62px;
+  height: 62px;
+  left: 819px;
+  top: 14px;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  z-index: 2;
+}
+
+.block-our-facts__x-icon svg {
+  width: 62px;
+  height: 62px;
+  background: #000000;
+  border-radius: 58.534px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* Stats Section */
+.block-our-facts__stats {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 20px;
+  width: 1324px;
+  height: 135px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.block-our-facts__stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 10px;
+  width: 316px;
+  height: 135px;
+  flex: none;
+  flex-grow: 0;
+}
+
+.block-our-facts__stat-number {
+  width: 316px;
+  height: 90px;
+  font-family: 'Switzer', 'Helvetica', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 82px;
+  line-height: 110%;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: #000000;
+  text-align: left;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.block-our-facts__stat-divider {
+  width: 316px;
+  height: 0px;
+  border: 1px solid #BBBAB6;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.block-our-facts__stat-description {
+  width: 316px;
+  height: 25px;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  display: flex;
+  align-items: center;
+  color: #141414;
+  margin: 0;
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .block-our-facts__container {
+    padding: 80px 40px;
+  }
+  
+  .block-our-facts__hero-title {
+    font-size: 72px;
+    letter-spacing: -3.6px;
+  }
+  
+  .block-our-facts__stat-number {
+    font-size: 72px;
+    letter-spacing: -3.6px;
+  }
+}
+
+@media (max-width: 900px) {
+  .block-our-facts__container {
+    padding: 60px 30px;
+    gap: 50px;
+  }
+  
+  .block-our-facts__hero-title {
+    font-size: 56px;
+    letter-spacing: -2.8px;
+  }
+  
+  .block-our-facts__description {
+    font-size: 16px;
+  }
+  
+  .block-our-facts__cta {
+    font-size: 18px;
+  }
+  
+  .block-our-facts__stat-card {
+    width: calc(50% - 10px);
+  }
+  
+  .block-our-facts__stat-number {
+    font-size: 64px;
+    letter-spacing: -3.2px;
+  }
+  
+  .block-our-facts__x-icon {
+    width: 50px;
+    height: 50px;
+    top: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .block-our-facts__container {
+    padding: 50px 24px;
+    gap: 40px;
+  }
+  
+  .block-our-facts__hero-title {
+    font-size: 48px;
+    letter-spacing: -2.4px;
+  }
+  
+  .block-our-facts__description {
+    font-size: 16px;
+  }
+  
+  .block-our-facts__cta {
+    font-size: 18px;
+  }
+  
+  .block-our-facts__arrow-icon {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .block-our-facts__stats {
+    gap: 30px;
+  }
+  
+  .block-our-facts__stat-card {
+    width: calc(50% - 15px);
+  }
+  
+  .block-our-facts__stat-number {
+    font-size: 56px;
+    letter-spacing: -2.8px;
+  }
+  
+  .block-our-facts__stat-description {
+    font-size: 16px;
+  }
+  
+  .block-our-facts__x-icon {
+    width: 40px;
+    height: 40px;
+    top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .block-our-facts__stat-card {
+    width: 100%;
+  }
+}
+

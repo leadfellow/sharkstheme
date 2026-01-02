@@ -41,20 +41,37 @@ if (!defined('ABSPATH')) {
         <div class="site-footer__content">
             <!-- Footer Top: Logo + Nav + CTA -->
             <div class="site-footer__top">
-                <!-- Logo -->
+                <!-- Logo with Rotating Text -->
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="site-footer__logo" rel="home">
-                    <?php
-                    // Try footer logo first, fallback to header logo
-                    $footer_logo = get_field('footer_logo', 'option');
-                    $logo = $footer_logo && !empty($footer_logo['url']) ? $footer_logo : get_field('site_logo', 'option');
-                    
-                    if ($logo && !empty($logo['url'])):
-                    ?>
-                        <img src="<?php echo esc_url($logo['url']); ?>" 
-                             alt="<?php echo esc_attr($logo['alt'] ?: get_bloginfo('name')); ?>">
-                    <?php else: ?>
-                        <span class="site-footer__logo-text"><?php bloginfo('name'); ?></span>
-                    <?php endif; ?>
+                    <div class="site-footer__logo-animated">
+                        <!-- Rotating text circle -->
+                        <svg class="site-footer__logo-circle" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <path id="circlePath" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" />
+                            </defs>
+                            <text class="site-footer__logo-text-path">
+                                <textPath xlink:href="#circlePath" startOffset="0%">
+                                    MARKETING • SHARKS • MARKETING • SHARKS • 
+                                </textPath>
+                            </text>
+                        </svg>
+                        
+                        <!-- Center logo image -->
+                        <div class="site-footer__logo-center">
+                            <?php
+                            // Try footer logo first, fallback to header logo
+                            $footer_logo = get_field('footer_logo', 'option');
+                            $logo = $footer_logo && !empty($footer_logo['url']) ? $footer_logo : get_field('site_logo', 'option');
+                            
+                            if ($logo && !empty($logo['url'])):
+                            ?>
+                                <img src="<?php echo esc_url($logo['url']); ?>" 
+                                     alt="<?php echo esc_attr($logo['alt'] ?: get_bloginfo('name')); ?>">
+                            <?php else: ?>
+                                <span class="site-footer__logo-text"><?php bloginfo('name'); ?></span>
+                            <?php endif; ?>
+                        </div>
+                    </div>
                 </a>
 
                 <!-- Navigation + CTA -->

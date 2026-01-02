@@ -1,0 +1,100 @@
+{
+    "key": "group_who_we_are",
+    "title": "Who We Are Block",
+    "fields": [
+        {
+            "key": "field_who_we_are_sidebar_title",
+            "label": "Sidebar Title",
+            "name": "sidebar_title",
+            "type": "text",
+            "instructions": "Small uppercase title on the left (e.g., \"Kes me oleme\")",
+            "required": 0,
+            "default_value": "Kes me oleme",
+            "placeholder": "Kes me oleme",
+            "maxlength": 50
+        },
+        {
+            "key": "field_who_we_are_heading",
+            "label": "Main Heading",
+            "name": "heading",
+            "type": "textarea",
+            "instructions": "Large heading text",
+            "required": 1,
+            "default_value": "Marketing Sharks on piisavalt suur, et võtta vastu mistahes väljakutse ja piisavalt väike, et klientidest hoolida.",
+            "placeholder": "Marketing Sharks on piisavalt suur...",
+            "rows": 3,
+            "maxlength": 300
+        },
+        {
+            "key": "field_who_we_are_description",
+            "label": "Description",
+            "name": "description",
+            "type": "textarea",
+            "instructions": "Description text below heading",
+            "required": 0,
+            "default_value": "Marketing Sharks on Eestis 2012. aastal asutatud üle-Euroopalise haardega turundusagentuur, mis pakub ettevõtetele ja brändidele tipptasemel digiturunduse teenuseid ning kõrgkvaliteetseid ja innovatiivseid meedialahendusi.",
+            "placeholder": "Marketing Sharks on Eestis 2012. aastal asutatud...",
+            "rows": 4,
+            "maxlength": 500
+        },
+        {
+            "key": "field_who_we_are_read_more_text",
+            "label": "Read More Button Text",
+            "name": "read_more_text",
+            "type": "text",
+            "instructions": "Text for the read more link",
+            "required": 0,
+            "default_value": "Loe edasi",
+            "placeholder": "Loe edasi",
+            "maxlength": 30
+        },
+        {
+            "key": "field_who_we_are_read_more_url",
+            "label": "Read More Button URL",
+            "name": "read_more_url",
+            "type": "url",
+            "instructions": "URL for the read more link",
+            "required": 0,
+            "default_value": "#",
+            "placeholder": "#about"
+        },
+        {
+            "key": "field_who_we_are_background_color",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "color_picker",
+            "instructions": "Background color for the section",
+            "required": 0,
+            "default_value": "#ffffff",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_who_we_are_text_color",
+            "label": "Text Color",
+            "name": "text_color",
+            "type": "color_picker",
+            "instructions": "Text color for all content",
+            "required": 0,
+            "default_value": "#000000",
+            "enable_opacity": 0,
+            "return_format": "string"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/who-we-are"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

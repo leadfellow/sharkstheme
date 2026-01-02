@@ -46,6 +46,31 @@ add_action('acf/init', function() {
         ]
     ]);
 
+    // Frontpage Hero Banner Block
+    acf_register_block_type([
+        'name'            => 'frontpage-hero-banner',
+        'title'           => __('Frontpage Hero Banner', 'sharks2025'),
+        'description'     => __('Large hero banner with title, description, CTA and portfolio card', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/frontpage-hero-banner/frontpage-hero-banner.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'cover-image',
+        'keywords'        => ['hero', 'banner', 'frontpage', 'hungry', 'success'],
+        'supports'        => [
+            'align'   => ['full'],
+            'anchor'  => true
+        ],
+        'mode'            => 'preview',
+        'example'         => [
+            'attributes' => [
+                'mode' => 'preview',
+                'data' => [
+                    'main_title' => 'HUNGRY FOR YOUR SUCCESS',
+                    'description' => 'Choose a service, send in your request, and your design journey starts tomorrow.'
+                ]
+            ]
+        ]
+    ]);
+
     // Services Block
     acf_register_block_type([
         'name'            => 'services',
@@ -618,6 +643,93 @@ add_action('acf/init', function() {
             'color'   => ['background']
         ],
         'mode'            => 'preview'
+    ]);
+
+    // Who We Are Block
+    acf_register_block_type([
+        'name'            => 'who-we-are',
+        'title'           => __('Who We Are', 'sharks2025'),
+        'description'     => __('About section with sidebar title, heading, description and read more link', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/who-we-are/who-we-are.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'groups',
+        'keywords'        => ['who', 'we', 'are', 'about', 'kes', 'me', 'oleme'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Our Facts Block
+    acf_register_block_type([
+        'name'            => 'our-facts',
+        'title'           => __('Our Facts', 'sharks2025'),
+        'description'     => __('Facts section with hero title, description, CTA and statistics cards', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/our-facts/our-facts.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'chart-bar',
+        'keywords'        => ['facts', 'statistics', 'stats', 'numbers', 'achievements'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Max Accordion Block
+    acf_register_block_type([
+        'name'            => 'max-accordion',
+        'title'           => __('Max Accordion', 'sharks2025'),
+        'description'     => __('Expandable accordion with numbered sections, description and service links', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/max-accordion/max-accordion.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'list-view',
+        'keywords'        => ['accordion', 'services', 'expandable', 'collapse', 'sections'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin']
+        ],
+        'mode'            => 'preview',
+        'enqueue_assets'  => function() {
+            wp_enqueue_script(
+                'max-accordion-js',
+                get_template_directory_uri() . '/assets/js/max-accordion.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/max-accordion.js'),
+                true
+            );
+        }
+    ]);
+
+    // Portfolio Block
+    acf_register_block_type([
+        'name'              => 'portfolio',
+        'title'             => __('Portfolio / Tehtud Tööd', 'sharks2025'),
+        'description'       => __('Filterable portfolio grid with categories', 'sharks2025'),
+        'render_template'   => 'template-parts/blocks/portfolio/portfolio.php',
+        'category'          => 'sharks-blocks',
+        'icon'              => 'portfolio',
+        'keywords'          => ['portfolio', 'gallery', 'work', 'tehtud tööd', 'filter'],
+        'supports'          => [
+            'align' => ['wide', 'full'],
+            'mode' => true,
+            'jsx' => true
+        ],
+        'enqueue_assets' => function() {
+            wp_enqueue_script(
+                'portfolio-js',
+                get_template_directory_uri() . '/assets/js/portfolio.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/portfolio.js'),
+                true
+            );
+        }
     ]);
 });
 

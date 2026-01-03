@@ -731,6 +731,78 @@ add_action('acf/init', function() {
             );
         }
     ]);
+
+    // Works5 Block
+    acf_register_block_type([
+        'name'            => 'works5',
+        'title'           => __('Works5', 'sharks2025'),
+        'description'     => __('Display 5 projects with customizable heading and colors (2 large + 3 small)', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/works5/works5.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'images-alt2',
+        'keywords'        => ['works', 'projects', 'portfolio', 'gallery', '5', 'veebiprojektid'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview',
+        'enqueue_assets'  => function() {
+            wp_enqueue_script(
+                'works5-js',
+                get_template_directory_uri() . '/assets/js/works5.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/works5.js'),
+                true
+            );
+        }
+    ]);
+
+    // Works3 Block
+    acf_register_block_type([
+        'name'            => 'works3',
+        'title'           => __('Works3', 'sharks2025'),
+        'description'     => __('Display 3 success story cards with customizable heading and colors', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/works3/works3.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'grid-view',
+        'keywords'        => ['works', 'success', 'stories', 'cards', '3', 'edulood', 'turundus'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview',
+        'enqueue_assets'  => function() {
+            wp_enqueue_script(
+                'works3-js',
+                get_template_directory_uri() . '/assets/js/works3.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/works3.js'),
+                true
+            );
+        }
+    ]);
+
+    // Works1 Block
+    acf_register_block_type([
+        'name'            => 'works1',
+        'title'           => __('Works1', 'sharks2025'),
+        'description'     => __('Display 1 large project image with customizable heading and colors', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/works1/works1.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'format-image',
+        'keywords'        => ['works', 'project', 'image', '1', 'laptop', 'mockup', 'ux', 'ui'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
 });
 
 /**

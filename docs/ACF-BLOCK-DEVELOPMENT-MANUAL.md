@@ -1322,3 +1322,4 @@ if (empty($cards)) {
 **WordPress versioon:** 6.x+
 
 
+

@@ -1,0 +1,299 @@
+/* Works5 Block */
+.block-works5 {
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+}
+
+.block-works5__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 120px 58px;
+}
+
+.block-works5__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 62px;
+}
+
+/* Header Section */
+.block-works5__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 0;
+}
+
+.block-works5__header-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 62px;
+}
+
+.block-works5__heading {
+  font-family: 'Switzer', var(--font-heading);
+  font-size: 82px;
+  line-height: 1.1;
+  letter-spacing: -4.1px;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: left;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.block-works5__heading-part {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.block-works5__heading-part--black {
+  color: #000000;
+}
+
+.block-works5__heading-part--gray {
+  color: #bbbab6;
+}
+
+.block-works5__heading-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.block-works5__heading-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.block-works5__heading-break {
+  display: block;
+  width: 100%;
+  height: 0;
+  line-height: 0;
+}
+
+.block-works5__subtitle {
+  font-family: var(--font-sans);
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+  color: inherit;
+  margin: 0;
+}
+
+.block-works5__header-right {
+  max-width: 428px;
+}
+
+.block-works5__description {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.4;
+  color: inherit;
+}
+
+.block-works5__description p {
+  margin: 0 0 18px 0;
+}
+
+.block-works5__description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Projects Grid */
+.block-works5__projects-large {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.block-works5__projects-small {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.block-works5__project {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.block-works5__project--large {
+  width: 652px;
+}
+
+.block-works5__project--small {
+  width: 428px;
+}
+
+.block-works5__project-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  position: relative;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block-works5__project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.block-works5__project-image--large {
+  height: 652px;
+}
+
+.block-works5__project-image--small {
+  height: 428px;
+}
+
+/* Reduce image opacity on hover when hover color is set */
+.block-works5__project[data-hover-color]:hover .block-works5__project-image {
+  opacity: 0.15;
+}
+
+/* Project Link */
+.block-works5__project-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 0;
+  gap: 8px;
+  width: fit-content;
+  height: 46px;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.block-works5__project-link:hover {
+  opacity: 0.7;
+}
+
+.block-works5__project-link-text {
+  font-family: 'Switzer', var(--font-heading);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -0.03em;
+  text-decoration-line: underline;
+  color: #000000;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  white-space: nowrap;
+}
+
+.block-works5__project-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: #000000;
+  flex-shrink: 0;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  position: relative;
+}
+
+.block-works5__project-link-icon svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+  .block-works5__projects-large,
+  .block-works5__projects-small {
+    flex-wrap: wrap;
+  }
+
+  .block-works5__project--large,
+  .block-works5__project--small {
+    width: 100%;
+    max-width: 652px;
+  }
+
+  .block-works5__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .block-works5__header-right {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .block-works5__container {
+    padding: 60px 24px;
+  }
+
+  .block-works5__wrapper {
+    gap: 40px;
+  }
+
+  .block-works5__header-left {
+    gap: 40px;
+  }
+
+  .block-works5__heading {
+    font-size: 48px;
+    letter-spacing: -2.4px;
+    gap: 20px;
+  }
+
+  .block-works5__heading-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .block-works5__subtitle {
+    font-size: 24px;
+    letter-spacing: -1.2px;
+  }
+
+  .block-works5__description {
+    font-size: 16px;
+  }
+
+  .block-works5__project-image--large {
+    height: 400px;
+  }
+
+  .block-works5__project-image--small {
+    height: 300px;
+  }
+
+  .block-works5__projects-large,
+  .block-works5__projects-small {
+    gap: 16px;
+  }
+}
+

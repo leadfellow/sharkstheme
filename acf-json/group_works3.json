@@ -1,0 +1,346 @@
+{
+    "key": "group_works3_block",
+    "title": "Works3 Block",
+    "fields": [
+        {
+            "key": "field_works3_background_color",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "color_picker",
+            "instructions": "Choose background color for the entire section",
+            "required": 0,
+            "default_value": "#000000"
+        },
+        {
+            "key": "field_works3_text_color",
+            "label": "Text Color",
+            "name": "text_color",
+            "type": "color_picker",
+            "instructions": "Choose text color for the section",
+            "required": 0,
+            "default_value": "#ffffff"
+        },
+        {
+            "key": "field_works3_heading_parts",
+            "label": "Heading Parts",
+            "name": "heading_parts",
+            "type": "repeater",
+            "instructions": "Add heading parts with different colors, icons, and line breaks",
+            "required": 0,
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Part",
+            "sub_fields": [
+                {
+                    "key": "field_works3_part_type",
+                    "label": "Part Type",
+                    "name": "part_type",
+                    "type": "select",
+                    "instructions": "Choose text, icon, or line break",
+                    "required": 1,
+                    "choices": {
+                        "text": "Text",
+                        "icon": "Icon",
+                        "line_break": "Line Break"
+                    },
+                    "default_value": "text",
+                    "allow_null": 0
+                },
+                {
+                    "key": "field_works3_part_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "Text content",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_works3_part_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ],
+                    "placeholder": "Enter text..."
+                },
+                {
+                    "key": "field_works3_part_color",
+                    "label": "Text Color",
+                    "name": "color",
+                    "type": "select",
+                    "instructions": "Choose text color",
+                    "required": 0,
+                    "choices": {
+                        "white": "White",
+                        "gray": "Gray"
+                    },
+                    "default_value": "white",
+                    "allow_null": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_works3_part_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "key": "field_works3_part_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "instructions": "Choose an icon",
+                    "required": 0,
+                    "choices": {
+                        "x": "X",
+                        "asterisk": "Asterisk",
+                        "star": "Star",
+                        "circle": "Circle"
+                    },
+                    "default_value": "x",
+                    "allow_null": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_works3_part_type",
+                                "operator": "==",
+                                "value": "icon"
+                            }
+                        ]
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_works3_description",
+            "label": "Description Text (Right Column)",
+            "name": "description",
+            "type": "textarea",
+            "instructions": "Description text on the right side",
+            "required": 0,
+            "rows": 4,
+            "placeholder": "Enter description text..."
+        },
+        {
+            "key": "field_works3_card_1",
+            "label": "Card 1",
+            "name": "card_1",
+            "type": "group",
+            "instructions": "First card",
+            "required": 0,
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_works3_card_1_service",
+                    "label": "Service",
+                    "name": "service",
+                    "type": "text",
+                    "instructions": "Service name (e.g., SEO)",
+                    "required": 0,
+                    "placeholder": "SEO"
+                },
+                {
+                    "key": "field_works3_card_1_client",
+                    "label": "Client",
+                    "name": "client",
+                    "type": "text",
+                    "instructions": "Client name",
+                    "required": 0,
+                    "placeholder": "Lorem ipsum"
+                },
+                {
+                    "key": "field_works3_card_1_growth_label",
+                    "label": "Growth Label",
+                    "name": "growth_label",
+                    "type": "text",
+                    "instructions": "Growth label (e.g., 'Külastuste kasv:', 'Müügi kasv:')",
+                    "required": 0,
+                    "default_value": "Külastuste kasv:",
+                    "placeholder": "Külastuste kasv:"
+                },
+                {
+                    "key": "field_works3_card_1_growth",
+                    "label": "Growth Value",
+                    "name": "growth",
+                    "type": "text",
+                    "instructions": "Growth percentage (e.g., 7870%)",
+                    "required": 0,
+                    "placeholder": "7870%"
+                },
+                {
+                    "key": "field_works3_card_1_link_text",
+                    "label": "Link Text",
+                    "name": "link_text",
+                    "type": "text",
+                    "instructions": "Link text (e.g., 'Loe lähemalt')",
+                    "required": 0,
+                    "default_value": "Loe lähemalt",
+                    "placeholder": "Loe lähemalt"
+                },
+                {
+                    "key": "field_works3_card_1_link_url",
+                    "label": "Link URL",
+                    "name": "link_url",
+                    "type": "url",
+                    "instructions": "Card link URL",
+                    "required": 0,
+                    "placeholder": "#"
+                }
+            ]
+        },
+        {
+            "key": "field_works3_card_2",
+            "label": "Card 2",
+            "name": "card_2",
+            "type": "group",
+            "instructions": "Second card",
+            "required": 0,
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_works3_card_2_service",
+                    "label": "Service",
+                    "name": "service",
+                    "type": "text",
+                    "instructions": "Service name (e.g., SEO)",
+                    "required": 0,
+                    "placeholder": "SEO"
+                },
+                {
+                    "key": "field_works3_card_2_client",
+                    "label": "Client",
+                    "name": "client",
+                    "type": "text",
+                    "instructions": "Client name",
+                    "required": 0,
+                    "placeholder": "Lorem ipsum"
+                },
+                {
+                    "key": "field_works3_card_2_growth_label",
+                    "label": "Growth Label",
+                    "name": "growth_label",
+                    "type": "text",
+                    "instructions": "Growth label (e.g., 'Külastuste kasv:', 'Müügi kasv:')",
+                    "required": 0,
+                    "default_value": "Külastuste kasv:",
+                    "placeholder": "Külastuste kasv:"
+                },
+                {
+                    "key": "field_works3_card_2_growth",
+                    "label": "Growth Value",
+                    "name": "growth",
+                    "type": "text",
+                    "instructions": "Growth percentage (e.g., 7870%)",
+                    "required": 0,
+                    "placeholder": "7870%"
+                },
+                {
+                    "key": "field_works3_card_2_link_text",
+                    "label": "Link Text",
+                    "name": "link_text",
+                    "type": "text",
+                    "instructions": "Link text (e.g., 'Loe lähemalt')",
+                    "required": 0,
+                    "default_value": "Loe lähemalt",
+                    "placeholder": "Loe lähemalt"
+                },
+                {
+                    "key": "field_works3_card_2_link_url",
+                    "label": "Link URL",
+                    "name": "link_url",
+                    "type": "url",
+                    "instructions": "Card link URL",
+                    "required": 0,
+                    "placeholder": "#"
+                }
+            ]
+        },
+        {
+            "key": "field_works3_card_3",
+            "label": "Card 3",
+            "name": "card_3",
+            "type": "group",
+            "instructions": "Third card",
+            "required": 0,
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_works3_card_3_service",
+                    "label": "Service",
+                    "name": "service",
+                    "type": "text",
+                    "instructions": "Service name (e.g., Täisturundus)",
+                    "required": 0,
+                    "placeholder": "Täisturundus"
+                },
+                {
+                    "key": "field_works3_card_3_client",
+                    "label": "Client",
+                    "name": "client",
+                    "type": "text",
+                    "instructions": "Client name",
+                    "required": 0,
+                    "placeholder": "Lorem ipsum"
+                },
+                {
+                    "key": "field_works3_card_3_growth_label",
+                    "label": "Growth Label",
+                    "name": "growth_label",
+                    "type": "text",
+                    "instructions": "Growth label (e.g., 'Külastuste kasv:', 'Müügi kasv:')",
+                    "required": 0,
+                    "default_value": "Külastuste kasv:",
+                    "placeholder": "Külastuste kasv:"
+                },
+                {
+                    "key": "field_works3_card_3_growth",
+                    "label": "Growth Value",
+                    "name": "growth",
+                    "type": "text",
+                    "instructions": "Growth percentage (e.g., 7870%)",
+                    "required": 0,
+                    "placeholder": "7870%"
+                },
+                {
+                    "key": "field_works3_card_3_link_text",
+                    "label": "Link Text",
+                    "name": "link_text",
+                    "type": "text",
+                    "instructions": "Link text (e.g., 'Loe lähemalt')",
+                    "required": 0,
+                    "default_value": "Loe lähemalt",
+                    "placeholder": "Loe lähemalt"
+                },
+                {
+                    "key": "field_works3_card_3_link_url",
+                    "label": "Link URL",
+                    "name": "link_url",
+                    "type": "url",
+                    "instructions": "Card link URL",
+                    "required": 0,
+                    "placeholder": "#"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/works3"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

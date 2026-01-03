@@ -88,3 +88,4 @@ Large hero banner specifically designed for the frontpage with dramatic title, d
 - Hover effects on CTA and portfolio button
 - Smooth transitions (0.3s ease)
 
+

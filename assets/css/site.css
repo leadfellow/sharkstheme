@@ -38,6 +38,9 @@
 @import url('./30-components/our-facts.css');
 @import url('./30-components/max-accordion.css');
 @import url('./30-components/portfolio.css');
+@import url('./30-components/works5.css');
+@import url('./30-components/works3.css');
+@import url('./30-components/works1.css');
 @import url('./30-components/block-styles.css');
 @import url('./30-components/mouse-trail.css');
 @import url('./40-layout/grid.css');
@@ -135,7 +138,10 @@ img {
 .entry-content > .block-testimonials,
 .entry-content > .block-hero,
 .entry-content > .sharks-headings,
-.entry-content > .block-case-story {
+.entry-content > .block-case-story,
+.entry-content > .block-works5,
+.entry-content > .block-works3,
+.entry-content > .block-works1 {
   margin: 0 !important;
 }
 
@@ -171,7 +177,10 @@ img {
 .entry-content > .block-label-bar,
 .entry-content > .block-testimonials,
 .entry-content > .block-hero,
-.entry-content > .block-case-story {
+.entry-content > .block-case-story,
+.entry-content > .block-works5,
+.entry-content > .block-works3,
+.entry-content > .block-works1 {
   padding-inline: 0 !important;
   margin-left: auto !important;
   margin-right: auto !important;

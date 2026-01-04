@@ -76,27 +76,58 @@
           
           <!-- Main Content -->
           <div class="how-to-start__main-content">
-            <h2 class="how-to-start__main-title">Silm haarab seda, mis on atraktiivne</h2>
-            <div class="how-to-start__text-content">
-              <p>
-                <strong>UX</strong> ehk user experience on kasutajakogemus. Kas koduleht on kliendi jaoks mugav ja loogiline? Tekitab see segadust või kutsub hoopis edasi avastama? Meie eesmärk on luua lehel intuitiivne teekond, kus kasutaja liigub sujuvalt punktist punkti, muretsemata, mis järgmine samm on.
-              </p>
-              <p>
-                <strong>UI </strong>ehk user interface on kasutajaliides. Kui kodulehele on ehituskivid laotud ja müürid juba püsti, on aeg mõelda visuaalsele väljanägemisele. Milline kujundus brändi paremini esindab ja kui värviline peaks olema esmamulje? Kuidas olla omanäoline, jäädes samas maitsekaks?
-              </p>
+            <!-- Tab 1 Content (UX/UI) -->
+            <div class="how-to-start__tab-content how-to-start__tab-content--active" data-tab="0">
+              <h2 class="how-to-start__main-title">Silm haarab seda, mis on atraktiivne</h2>
+              <div class="how-to-start__text-content">
+                <p>
+                  <strong>UX</strong> ehk user experience on kasutajakogemus. Kas koduleht on kliendi jaoks mugav ja loogiline? Tekitab see segadust või kutsub hoopis edasi avastama? Meie eesmärk on luua lehel intuitiivne teekond, kus kasutaja liigub sujuvalt punktist punkti, muretsemata, mis järgmine samm on.
+                </p>
+                <p>
+                  <strong>UI </strong>ehk user interface on kasutajaliides. Kui kodulehele on ehituskivid laotud ja müürid juba püsti, on aeg mõelda visuaalsele väljanägemisele. Milline kujundus brändi paremini esindab ja kui värviline peaks olema esmamulje? Kuidas olla omanäoline, jäädes samas maitsekaks?
+                </p>
+              </div>
+            </div>
+            
+            <!-- Tab 2 Content (Bränding) -->
+            <div class="how-to-start__tab-content" data-tab="1">
+              <h2 class="how-to-start__main-title">Bränding loob identiteedi</h2>
+              <div class="how-to-start__text-content">
+                <p>
+                  <strong>Bränding</strong> on palju enamat kui lihtsalt logo. See on sinu ettevõtte identiteet, mida kliendid mäletavad ja millega nad seostavad. Tugev bränd eristab sind konkurentidest ja loob usaldust.
+                </p>
+                <p>
+                  Hea bränding hõlmab visuaalset identiteeti, tooni ja sõnumit. See on järjepidev kogemus, mis jätab püsiva mulje ja aitab luua emotsionaalse sideme sinu sihtgrupiga.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Tab 3 Content (Graafiline disain) -->
+            <div class="how-to-start__tab-content" data-tab="2">
+              <h2 class="how-to-start__main-title">Graafiline disain räägib visuaalset keelt</h2>
+              <div class="how-to-start__text-content">
+                <p>
+                  <strong>Graafiline disain</strong> toob sinu sõnumi visuaalselt ellu. Olgu selleks sotsiaalmeedia postitus, bänner või trükis, hea disain jätab jälje ja muudab info kergesti seeditavaks.
+                </p>
+                <p>
+                  Kvaliteetne graafiline disain ühendab esteetika ja funktsionaalsuse. See suunab pilku, rõhutab olulist ja loob visuaalse hierarhia, mis aitab sõnumil paremini kohale jõuda.
+                </p>
+              </div>
             </div>
           </div>
           
           <!-- Navigation Tabs -->
           <div class="how-to-start__tabs">
-            <div class="how-to-start__tab how-to-start__tab--active">
+            <div class="how-to-start__tab how-to-start__tab--active" data-tab="0">
               <div class="how-to-start__tab-dot"></div>
               <span class="how-to-start__tab-label">UX/UI</span>
             </div>
-            <div class="how-to-start__tab">
+            <div class="how-to-start__tab" data-tab="1">
+              <div class="how-to-start__tab-dot"></div>
               <span class="how-to-start__tab-label">Bränding</span>
             </div>
-            <div class="how-to-start__tab">
+            <div class="how-to-start__tab" data-tab="2">
+              <div class="how-to-start__tab-dot"></div>
               <span class="how-to-start__tab-label">Graafiline disain</span>
             </div>
           </div>
@@ -105,6 +136,44 @@
       
     </div>
   </div>
+
+  <script>
+    // Tab switching functionality
+    (function() {
+      const tabContainers = document.querySelectorAll('.how-to-start__tabs');
+      
+      tabContainers.forEach(function(tabContainer) {
+        const tabs = tabContainer.querySelectorAll('.how-to-start__tab');
+        const contentContainer = tabContainer.closest('.how-to-start__content-dark').querySelector('.how-to-start__main-content');
+        const contents = contentContainer.querySelectorAll('.how-to-start__tab-content');
+        
+        tabs.forEach(function(tab) {
+          tab.addEventListener('click', function() {
+            const tabIndex = this.getAttribute('data-tab');
+            
+            // Remove active class from all tabs
+            tabs.forEach(function(t) {
+              t.classList.remove('how-to-start__tab--active');
+            });
+            
+            // Add active class to clicked tab
+            this.classList.add('how-to-start__tab--active');
+            
+            // Hide all content
+            contents.forEach(function(content) {
+              content.classList.remove('how-to-start__tab-content--active');
+            });
+            
+            // Show corresponding content
+            const activeContent = contentContainer.querySelector('[data-tab="' + tabIndex + '"]');
+            if (activeContent) {
+              activeContent.classList.add('how-to-start__tab-content--active');
+            }
+          });
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>

@@ -12,9 +12,9 @@ Full-width two-column block with light and dark sections, perfect for showcasing
 
 ### Right Section (Dark)
 - **Top Icon**: Optional star icon at the top
-- **Main Title**: White heading text
-- **Text Content**: Gray text with support for bold formatting
-- **Navigation Tabs**: Up to 5 tabs with active state indicator
+- **Tab Content**: Each tab has its own title and text content
+- **Navigation Tabs**: Up to 5 clickable tabs with active state indicator
+- **Interactive**: Clicking a tab changes the content above
 - **Background**: Black (#000000)
 
 ## ACF Fields
@@ -25,9 +25,11 @@ Full-width two-column block with light and dark sections, perfect for showcasing
 | `left_description` | Textarea | No | Description text for left section |
 | `left_icons` | Repeater | No | Icons for left section (max 5) |
 | `right_top_icon` | True/False | No | Show icon at top of right section |
-| `right_main_title` | Text | No | Main title for right section |
-| `right_text_content` | Textarea | No | Text content (supports `<strong>` tags) |
-| `tabs` | Repeater | No | Navigation tabs (max 5) |
+| `tabs` | Repeater | No | Navigation tabs with content (max 5) |
+| `tabs[].label` | Text | Yes | Tab label text |
+| `tabs[].title` | Text | No | Content title shown when tab is active |
+| `tabs[].content` | Textarea | No | Text content shown when tab is active |
+| `tabs[].is_active` | True/False | No | Is this tab active by default |
 
 ## Usage Example
 
@@ -37,11 +39,20 @@ Use HTML in the left_title field:
 <span class="how-to-start__title-part how-to-start__title-part--light">Millest </span><span class="how-to-start__title-part how-to-start__title-part--dark">alustada?</span>
 ```
 
-### Text Content with Bold
-Use `<strong>` tags in right_text_content:
+### Tab Content with Bold
+Use `<strong>` tags in tab content field:
 ```html
 <strong>UX</strong> ehk user experience on kasutajakogemus...
 ```
+
+### Interactive Tabs
+Each tab can have:
+- **Label**: The text shown on the tab button
+- **Title**: The heading shown when tab is active
+- **Content**: The text content shown when tab is active
+- **Active**: Whether this tab is selected by default
+
+When a user clicks a tab, the content area smoothly switches to show that tab's title and content.
 
 ## Responsive Behavior
 

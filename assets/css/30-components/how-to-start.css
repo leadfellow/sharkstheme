@@ -177,6 +177,12 @@
   gap: 10px;
   align-items: center;
   flex-shrink: 0;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.how-to-start__tab:hover {
+  opacity: 0.8;
 }
 
 .how-to-start__tab-dot {
@@ -184,6 +190,12 @@
   height: 8px;
   background-color: #ffffff;
   flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.how-to-start__tab--active .how-to-start__tab-dot {
+  opacity: 1;
 }
 
 .how-to-start__tab-label {
@@ -194,6 +206,7 @@
   letter-spacing: -0.6px;
   color: #757472;
   white-space: nowrap;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .how-to-start__tab--active .how-to-start__tab-label {
@@ -201,6 +214,15 @@
   text-decoration: underline;
   text-decoration-skip-ink: none;
   text-underline-position: from-font;
+}
+
+/* Tab Content */
+.how-to-start__tab-content {
+  display: none;
+}
+
+.how-to-start__tab-content--active {
+  display: block;
 }
 
 /* Responsive Design */

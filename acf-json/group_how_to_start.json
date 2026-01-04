@@ -85,11 +85,11 @@
             "label": "Navigation Tabs",
             "name": "tabs",
             "type": "repeater",
-            "instructions": "Add navigation tabs (max 5)",
+            "instructions": "Add navigation tabs with content (max 5)",
             "required": 0,
             "min": 0,
             "max": 5,
-            "layout": "table",
+            "layout": "block",
             "button_label": "Add Tab",
             "sub_fields": [
                 {
@@ -102,11 +102,30 @@
                     "placeholder": "UX/UI"
                 },
                 {
+                    "key": "field_how_to_start_tab_title",
+                    "label": "Content Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "Title shown when this tab is active",
+                    "required": 0,
+                    "placeholder": "Silm haarab seda, mis on atraktiivne"
+                },
+                {
+                    "key": "field_how_to_start_tab_content",
+                    "label": "Content Text",
+                    "name": "content",
+                    "type": "textarea",
+                    "instructions": "Text content shown when this tab is active. Use <strong> for bold text.",
+                    "required": 0,
+                    "rows": 6,
+                    "placeholder": "Enter content..."
+                },
+                {
                     "key": "field_how_to_start_tab_active",
-                    "label": "Active",
+                    "label": "Active by Default",
                     "name": "is_active",
                     "type": "true_false",
-                    "instructions": "Is this tab active?",
+                    "instructions": "Is this tab active by default?",
                     "required": 0,
                     "default_value": 0,
                     "ui": 1

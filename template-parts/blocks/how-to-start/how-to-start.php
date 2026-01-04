@@ -15,8 +15,6 @@ $left_title = get_field('left_title');
 $left_description = get_field('left_description');
 $left_icons = get_field('left_icons');
 $right_top_icon = get_field('right_top_icon');
-$right_main_title = get_field('right_main_title');
-$right_text_content = get_field('right_text_content');
 $tabs = get_field('tabs');
 
 // Block attributes
@@ -92,43 +90,65 @@ $icon_map = [
                 
                 <!-- Main Content -->
                 <div class="how-to-start__main-content">
-                    <?php if ($right_main_title): ?>
-                        <h3 class="how-to-start__main-title"><?php echo esc_html($right_main_title); ?></h3>
+                    <?php if ($tabs): ?>
+                        <?php foreach ($tabs as $index => $tab): ?>
+                            <div class="how-to-start__tab-content <?php echo $tab['is_active'] ? 'how-to-start__tab-content--active' : ''; ?>" data-tab="<?php echo $index; ?>">
+                                <?php if (!empty($tab['title'])): ?>
+                                    <h3 class="how-to-start__main-title"><?php echo esc_html($tab['title']); ?></h3>
+                                <?php endif; ?>
+                                
+                                <div class="how-to-start__text-content">
+                                    <?php if (!empty($tab['content'])): ?>
+                                        <?php echo wpautop($tab['content']); ?>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
                     <?php else: ?>
-                        <h3 class="how-to-start__main-title">Silm haarab seda, mis on atraktiivne</h3>
+                        <!-- Default content -->
+                        <div class="how-to-start__tab-content how-to-start__tab-content--active" data-tab="0">
+                            <h3 class="how-to-start__main-title">Silm haarab seda, mis on atraktiivne</h3>
+                            <div class="how-to-start__text-content">
+                                <p><strong>UX</strong> ehk user experience on kasutajakogemus. Kas koduleht on kliendi jaoks mugav ja loogiline? Tekitab see segadust või kutsub hoopis edasi avastama? Meie eesmärk on luua lehel intuitiivne teekond, kus kasutaja liigub sujuvalt punktist punkti, muretsemata, mis järgmine samm on.</p>
+                                <p><strong>UI </strong>ehk user interface on kasutajaliides. Kui kodulehele on ehituskivid laotud ja müürid juba püsti, on aeg mõelda visuaalsele väljanägemisele. Milline kujundus brändi paremini esindab ja kui värviline peaks olema esmamulje? Kuidas olla omanäoline, jäädes samas maitsekaks?</p>
+                            </div>
+                        </div>
+                        <div class="how-to-start__tab-content" data-tab="1">
+                            <h3 class="how-to-start__main-title">Bränding loob identiteedi</h3>
+                            <div class="how-to-start__text-content">
+                                <p>Bränding on palju enamat kui lihtsalt logo. See on sinu ettevõtte identiteet, mida kliendid mäletavad ja millega nad seostavad.</p>
+                            </div>
+                        </div>
+                        <div class="how-to-start__tab-content" data-tab="2">
+                            <h3 class="how-to-start__main-title">Graafiline disain räägib visuaalset keelt</h3>
+                            <div class="how-to-start__text-content">
+                                <p>Graafiline disain toob sinu sõnumi visuaalselt ellu. Olgu selleks sotsiaalmeedia postitus, bänner või trükis, hea disain jätab jälje.</p>
+                            </div>
+                        </div>
                     <?php endif; ?>
-                    
-                    <div class="how-to-start__text-content">
-                        <?php if ($right_text_content): ?>
-                            <?php echo wpautop($right_text_content); ?>
-                        <?php else: ?>
-                            <p><strong>UX</strong> ehk user experience on kasutajakogemus. Kas koduleht on kliendi jaoks mugav ja loogiline? Tekitab see segadust või kutsub hoopis edasi avastama? Meie eesmärk on luua lehel intuitiivne teekond, kus kasutaja liigub sujuvalt punktist punkti, muretsemata, mis järgmine samm on.</p>
-                            <p><strong>UI </strong>ehk user interface on kasutajaliides. Kui kodulehele on ehituskivid laotud ja müürid juba püsti, on aeg mõelda visuaalsele väljanägemisele. Milline kujundus brändi paremini esindab ja kui värviline peaks olema esmamulje? Kuidas olla omanäoline, jäädes samas maitsekaks?</p>
-                        <?php endif; ?>
-                    </div>
                 </div>
                 
                 <!-- Navigation Tabs -->
                 <div class="how-to-start__tabs">
                     <?php if ($tabs): ?>
                         <?php foreach ($tabs as $index => $tab): ?>
-                            <div class="how-to-start__tab <?php echo $tab['is_active'] ? 'how-to-start__tab--active' : ''; ?>">
-                                <?php if ($tab['is_active']): ?>
-                                    <div class="how-to-start__tab-dot"></div>
-                                <?php endif; ?>
+                            <div class="how-to-start__tab <?php echo $tab['is_active'] ? 'how-to-start__tab--active' : ''; ?>" data-tab="<?php echo $index; ?>">
+                                <div class="how-to-start__tab-dot"></div>
                                 <span class="how-to-start__tab-label"><?php echo esc_html($tab['label']); ?></span>
                             </div>
                         <?php endforeach; ?>
                     <?php else: ?>
                         <!-- Default tabs -->
-                        <div class="how-to-start__tab how-to-start__tab--active">
+                        <div class="how-to-start__tab how-to-start__tab--active" data-tab="0">
                             <div class="how-to-start__tab-dot"></div>
                             <span class="how-to-start__tab-label">UX/UI</span>
                         </div>
-                        <div class="how-to-start__tab">
+                        <div class="how-to-start__tab" data-tab="1">
+                            <div class="how-to-start__tab-dot"></div>
                             <span class="how-to-start__tab-label">Bränding</span>
                         </div>
-                        <div class="how-to-start__tab">
+                        <div class="how-to-start__tab" data-tab="2">
+                            <div class="how-to-start__tab-dot"></div>
                             <span class="how-to-start__tab-label">Graafiline disain</span>
                         </div>
                     <?php endif; ?>
@@ -139,4 +159,42 @@ $icon_map = [
         
     </div>
 </div>
+
+<script>
+(function() {
+    // Tab switching functionality
+    const tabContainers = document.querySelectorAll('.how-to-start__tabs');
+    
+    tabContainers.forEach(function(tabContainer) {
+        const tabs = tabContainer.querySelectorAll('.how-to-start__tab');
+        const contentContainer = tabContainer.closest('.how-to-start__content-dark').querySelector('.how-to-start__main-content');
+        const contents = contentContainer.querySelectorAll('.how-to-start__tab-content');
+        
+        tabs.forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                const tabIndex = this.getAttribute('data-tab');
+                
+                // Remove active class from all tabs
+                tabs.forEach(function(t) {
+                    t.classList.remove('how-to-start__tab--active');
+                });
+                
+                // Add active class to clicked tab
+                this.classList.add('how-to-start__tab--active');
+                
+                // Hide all content
+                contents.forEach(function(content) {
+                    content.classList.remove('how-to-start__tab-content--active');
+                });
+                
+                // Show corresponding content
+                const activeContent = contentContainer.querySelector('[data-tab="' + tabIndex + '"]');
+                if (activeContent) {
+                    activeContent.classList.add('how-to-start__tab-content--active');
+                }
+            });
+        });
+    });
+})();
+</script>
 

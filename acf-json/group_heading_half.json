@@ -3,6 +3,20 @@
     "title": "Heading Half Block",
     "fields": [
         {
+            "key": "field_heading_half_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"heading\", \"pealkiri\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #heading",
+            "required": 0,
+            "placeholder": "nt. heading, pealkiri",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_heading_half_parts",
             "label": "Heading Parts",
             "name": "heading_parts",

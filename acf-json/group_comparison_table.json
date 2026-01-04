@@ -3,6 +3,20 @@
     "title": "Comparison Table",
     "fields": [
         {
+            "key": "field_comparison_table_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"comparison\", \"tabel\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #comparison",
+            "required": 0,
+            "placeholder": "nt. comparison, tabel",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_comparison_title",
             "label": "Title Line 1",
             "name": "table_title",

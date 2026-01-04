@@ -3,6 +3,20 @@
     "title": "Case Story Block",
     "fields": [
         {
+            "key": "field_case_story_block_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"story\", \"edulugu\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #story",
+            "required": 0,
+            "placeholder": "nt. story, edulugu",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_case_story_main_title",
             "label": "Main Title",
             "name": "main_title",

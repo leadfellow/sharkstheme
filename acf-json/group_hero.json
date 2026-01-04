@@ -3,6 +3,20 @@
     "title": "Hero Block",
     "fields": [
         {
+            "key": "field_hero_block_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"hero\", \"contact\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #hero",
+            "required": 0,
+            "placeholder": "nt. hero, contact, services",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_hero_headline",
             "label": "Main Title (Center)",
             "name": "headline",
@@ -53,13 +67,100 @@
             "placeholder": "Loe edasi"
         },
         {
+            "key": "field_hero_cta_type",
+            "label": "CTA Button Type",
+            "name": "cta_type",
+            "type": "select",
+            "instructions": "Choose button action type",
+            "required": 0,
+            "choices": {
+                "link": "Link (Navigate to URL)",
+                "modal": "Modal (Open popup)",
+                "calendly": "Calendly (Open in new window)"
+            },
+            "default_value": "link",
+            "allow_null": 0
+        },
+        {
             "key": "field_hero_cta_url",
             "label": "CTA Button URL",
             "name": "cta_url",
             "type": "url",
-            "instructions": "Call to action button URL (optional)",
+            "instructions": "Call to action button URL (or Calendly link)",
             "required": 0,
-            "placeholder": "#contact"
+            "placeholder": "#contact",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_hero_cta_type",
+                        "operator": "==",
+                        "value": "link"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_hero_cta_type",
+                        "operator": "==",
+                        "value": "calendly"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_hero_modal_title",
+            "label": "Modal Title",
+            "name": "modal_title",
+            "type": "text",
+            "instructions": "Title shown in the modal popup",
+            "required": 0,
+            "placeholder": "Contact Us",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_hero_cta_type",
+                        "operator": "==",
+                        "value": "modal"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_hero_modal_description",
+            "label": "Modal Description",
+            "name": "modal_description",
+            "type": "textarea",
+            "instructions": "Optional description shown below modal title",
+            "required": 0,
+            "rows": 2,
+            "placeholder": "Fill out the form below...",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_hero_cta_type",
+                        "operator": "==",
+                        "value": "modal"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_hero_modal_content",
+            "label": "Modal Content",
+            "name": "modal_content",
+            "type": "textarea",
+            "instructions": "Content shown in the modal. You can use:\n- Contact Form 7 shortcode: [contact-form-7 id=\"123\"]\n- HTML content\n- Text",
+            "required": 0,
+            "rows": 4,
+            "placeholder": "[contact-form-7 id=\"123\" title=\"Contact form\"]",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_hero_cta_type",
+                        "operator": "==",
+                        "value": "modal"
+                    }
+                ]
+            ]
         },
         {
             "key": "field_hero_labels",

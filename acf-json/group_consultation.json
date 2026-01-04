@@ -3,6 +3,20 @@
     "title": "Consultation Block",
     "fields": [
         {
+            "key": "field_consultation_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"consultation\", \"konsultatsioon\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #consultation",
+            "required": 0,
+            "placeholder": "nt. consultation, konsultatsioon",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_consultation_heading",
             "label": "Heading",
             "name": "heading",

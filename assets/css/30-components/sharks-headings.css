@@ -88,7 +88,7 @@
   flex-direction: column;
   gap: 30px;
   align-items: center;
-  width: 428px;
+  width: 496px;
   max-width: 100%;
 }
 
@@ -181,7 +181,7 @@
 
 .sharks-headings--left .sharks-headings__content-wrapper {
   align-items: flex-start;
-  width: 428px;
+  width: 496px;
   max-width: 100%;
 }
 
@@ -239,7 +239,7 @@
 
 .sharks-headings--right .sharks-headings__content-wrapper {
   align-items: flex-end;
-  width: 428px;
+  width: 496px;
   max-width: 100%;
 }
 

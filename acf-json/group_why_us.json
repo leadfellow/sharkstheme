@@ -3,6 +3,20 @@
     "title": "Why Us Block",
     "fields": [
         {
+            "key": "field_why_us_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"why-us\", \"miks-meie\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #why-us",
+            "required": 0,
+            "placeholder": "nt. why-us, miks-meie",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_why_us_title",
             "label": "Title",
             "name": "title",

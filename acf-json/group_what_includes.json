@@ -3,6 +3,20 @@
     "title": "What Includes Block",
     "fields": [
         {
+            "key": "field_what_includes_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"includes\", \"sisaldab\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #includes",
+            "required": 0,
+            "placeholder": "nt. includes, sisaldab",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_what_includes_heading",
             "label": "Heading",
             "name": "heading",

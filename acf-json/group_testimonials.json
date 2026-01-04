@@ -3,6 +3,20 @@
     "title": "Testimonials Block",
     "fields": [
         {
+            "key": "field_testimonials_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"testimonials\", \"tagasiside\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #testimonials",
+            "required": 0,
+            "placeholder": "nt. testimonials, tagasiside",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_testimonials_title",
             "label": "Title",
             "name": "title",

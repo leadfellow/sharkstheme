@@ -3,6 +3,20 @@
     "title": "Max Accordion Block",
     "fields": [
         {
+            "key": "field_max_accordion_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"accordion\", \"teenused\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #accordion",
+            "required": 0,
+            "placeholder": "nt. accordion, teenused",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_max_accordion_background_color",
             "label": "Background Color",
             "name": "background_color",

@@ -3,6 +3,20 @@
     "title": "Why That Block",
     "fields": [
         {
+            "key": "field_why_that_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"why-that\", \"miks\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #why-that",
+            "required": 0,
+            "placeholder": "nt. why-that, miks",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_why_that_main_title",
             "label": "Main Title",
             "name": "main_title",

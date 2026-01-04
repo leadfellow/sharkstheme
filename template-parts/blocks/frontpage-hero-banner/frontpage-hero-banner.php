@@ -15,9 +15,17 @@ if (!defined('ABSPATH')) {
 $main_title = get_field('main_title') ?: 'HUNGRY FOR YOUR SUCCESS';
 $description = get_field('description') ?: 'Choose a service, send in your request, and your design journey starts tomorrow.';
 $cta_text = get_field('cta_text') ?: 'Küsi pakkumist';
+$cta_type = get_field('cta_type') ?: 'link';
 $cta_url = get_field('cta_url') ?: '#contact';
+$cta_modal_title = get_field('cta_modal_title');
+$cta_modal_description = get_field('cta_modal_description');
+$cta_modal_content = get_field('cta_modal_content');
 $portfolio_text = get_field('portfolio_text') ?: 'Tehtud tööd';
+$portfolio_type = get_field('portfolio_type') ?: 'link';
 $portfolio_url = get_field('portfolio_url') ?: '#portfolio';
+$portfolio_modal_title = get_field('portfolio_modal_title');
+$portfolio_modal_description = get_field('portfolio_modal_description');
+$portfolio_modal_content = get_field('portfolio_modal_content');
 $portfolio_image = get_field('portfolio_image');
 
 // Block attributes
@@ -47,7 +55,18 @@ if (!empty($block['className'])) {
     <!-- Container -->
     <div class="block-frontpage-hero-banner__container">
         <!-- Main Title -->
-        <h1 class="block-frontpage-hero-banner__title"><?php echo esc_html($main_title); ?></h1>
+        <h1 class="block-frontpage-hero-banner__title" data-text="<?php echo esc_attr($main_title); ?>">
+            <?php 
+            // Split title into words and wrap each in a span
+            $words = explode(' ', $main_title);
+            foreach ($words as $index => $word) {
+                echo '<span class="word" data-index="' . $index . '">' . esc_html($word) . '</span>';
+                if ($index < count($words) - 1) {
+                    echo ' ';
+                }
+            }
+            ?>
+        </h1>
 
         <!-- Bottom Section -->
         <div class="block-frontpage-hero-banner__bottom">
@@ -57,16 +76,49 @@ if (!empty($block['className'])) {
                     <?php echo esc_html($description); ?>
                 </p>
                 
-                <a href="<?php echo esc_url($cta_url); ?>" class="block-frontpage-hero-banner__cta">
-                    <span class="block-frontpage-hero-banner__cta-text"><?php echo esc_html($cta_text); ?></span>
-                    <div class="block-frontpage-hero-banner__cta-icon">
-                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="26" height="26" fill="white"/>
-                            <path d="M8.9375 13H17.0625" stroke="black" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="black" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                </a>
+                <?php if ($cta_type === 'modal'): ?>
+                    <?php
+                    // Process shortcodes in modal content
+                    $processed_cta_content = do_shortcode($cta_modal_content);
+                    ?>
+                    <a href="#" 
+                       class="block-frontpage-hero-banner__cta"
+                       data-modal-trigger
+                       data-modal-title="<?php echo esc_attr($cta_modal_title); ?>"
+                       data-modal-description="<?php echo esc_attr($cta_modal_description); ?>"
+                       data-modal-content="<?php echo esc_attr($processed_cta_content); ?>">
+                        <span class="block-frontpage-hero-banner__cta-text"><?php echo esc_html($cta_text); ?></span>
+                        <div class="block-frontpage-hero-banner__cta-icon">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="26" height="26" fill="white"/>
+                                <path d="M8.9375 13H17.0625" stroke="black" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="black" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </a>
+                <?php elseif ($cta_type === 'calendly'): ?>
+                    <a href="<?php echo esc_url($cta_url); ?>" target="_blank" rel="noopener noreferrer" class="block-frontpage-hero-banner__cta">
+                        <span class="block-frontpage-hero-banner__cta-text"><?php echo esc_html($cta_text); ?></span>
+                        <div class="block-frontpage-hero-banner__cta-icon">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="26" height="26" fill="white"/>
+                                <path d="M8.9375 13H17.0625" stroke="black" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="black" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </a>
+                <?php else: ?>
+                    <a href="<?php echo esc_url($cta_url); ?>" class="block-frontpage-hero-banner__cta">
+                        <span class="block-frontpage-hero-banner__cta-text"><?php echo esc_html($cta_text); ?></span>
+                        <div class="block-frontpage-hero-banner__cta-icon">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="26" height="26" fill="white"/>
+                                <path d="M8.9375 13H17.0625" stroke="black" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="black" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </a>
+                <?php endif; ?>
             </div>
 
             <!-- Right Section: Portfolio Card -->
@@ -81,19 +133,54 @@ if (!empty($block['className'])) {
                     <?php endif; ?>
                 </div>
                 
-                <a href="<?php echo esc_url($portfolio_url); ?>" class="block-frontpage-hero-banner__portfolio-button">
-                    <span class="block-frontpage-hero-banner__portfolio-text"><?php echo esc_html($portfolio_text); ?></span>
-                    <div class="block-frontpage-hero-banner__portfolio-icon">
-                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="26" height="26" fill="black"/>
-                            <path d="M8.9375 13H17.0625" stroke="white" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                </a>
+                <?php if ($portfolio_type === 'modal'): ?>
+                    <?php
+                    // Process shortcodes in modal content
+                    $processed_portfolio_content = do_shortcode($portfolio_modal_content);
+                    ?>
+                    <a href="#" 
+                       class="block-frontpage-hero-banner__portfolio-button"
+                       data-modal-trigger
+                       data-modal-title="<?php echo esc_attr($portfolio_modal_title); ?>"
+                       data-modal-description="<?php echo esc_attr($portfolio_modal_description); ?>"
+                       data-modal-content="<?php echo esc_attr($processed_portfolio_content); ?>">
+                        <span class="block-frontpage-hero-banner__portfolio-text"><?php echo esc_html($portfolio_text); ?></span>
+                        <div class="block-frontpage-hero-banner__portfolio-icon">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="26" height="26" fill="black"/>
+                                <path d="M8.9375 13H17.0625" stroke="white" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </a>
+                <?php elseif ($portfolio_type === 'calendly'): ?>
+                    <a href="<?php echo esc_url($portfolio_url); ?>" target="_blank" rel="noopener noreferrer" class="block-frontpage-hero-banner__portfolio-button">
+                        <span class="block-frontpage-hero-banner__portfolio-text"><?php echo esc_html($portfolio_text); ?></span>
+                        <div class="block-frontpage-hero-banner__portfolio-icon">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="26" height="26" fill="black"/>
+                                <path d="M8.9375 13H17.0625" stroke="white" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </a>
+                <?php else: ?>
+                    <a href="<?php echo esc_url($portfolio_url); ?>" class="block-frontpage-hero-banner__portfolio-button">
+                        <span class="block-frontpage-hero-banner__portfolio-text"><?php echo esc_html($portfolio_text); ?></span>
+                        <div class="block-frontpage-hero-banner__portfolio-icon">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="26" height="26" fill="black"/>
+                                <path d="M8.9375 13H17.0625" stroke="white" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </div>
 </section>
+
+
 
 

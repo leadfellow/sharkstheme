@@ -3,6 +3,20 @@
     "title": "10 Steps Block",
     "fields": [
         {
+            "key": "field_ten_steps_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"steps\", \"sammud\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #steps",
+            "required": 0,
+            "placeholder": "nt. steps, sammud",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_ten_steps_section_heading",
             "label": "Section Heading",
             "name": "section_heading",

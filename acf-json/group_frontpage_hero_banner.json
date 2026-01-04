@@ -3,6 +3,20 @@
     "title": "Frontpage Hero Banner Block",
     "fields": [
         {
+            "key": "field_frontpage_hero_banner_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"hero\", \"contact\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #hero",
+            "required": 0,
+            "placeholder": "nt. hero, contact, services",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_frontpage_hero_main_title",
             "label": "Main Title",
             "name": "main_title",
@@ -36,14 +50,101 @@
             "placeholder": "Küsi pakkumist"
         },
         {
+            "key": "field_frontpage_hero_cta_type",
+            "label": "CTA Button Type",
+            "name": "cta_type",
+            "type": "select",
+            "instructions": "Choose button action type",
+            "required": 0,
+            "choices": {
+                "link": "Link (Navigate to URL)",
+                "modal": "Modal (Open popup)",
+                "calendly": "Calendly (Open in new window)"
+            },
+            "default_value": "link",
+            "allow_null": 0
+        },
+        {
             "key": "field_frontpage_hero_cta_url",
             "label": "CTA Button URL",
             "name": "cta_url",
             "type": "url",
-            "instructions": "Call to action button URL",
+            "instructions": "Call to action button URL (or Calendly link)",
             "required": 0,
             "default_value": "#contact",
-            "placeholder": "#contact"
+            "placeholder": "#contact",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_frontpage_hero_cta_type",
+                        "operator": "==",
+                        "value": "link"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_frontpage_hero_cta_type",
+                        "operator": "==",
+                        "value": "calendly"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_frontpage_hero_cta_modal_title",
+            "label": "Modal Title",
+            "name": "cta_modal_title",
+            "type": "text",
+            "instructions": "Title shown in the modal popup",
+            "required": 0,
+            "placeholder": "Contact Us",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_frontpage_hero_cta_type",
+                        "operator": "==",
+                        "value": "modal"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_frontpage_hero_cta_modal_description",
+            "label": "Modal Description",
+            "name": "cta_modal_description",
+            "type": "textarea",
+            "instructions": "Optional description shown below modal title",
+            "required": 0,
+            "rows": 2,
+            "placeholder": "Fill out the form below...",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_frontpage_hero_cta_type",
+                        "operator": "==",
+                        "value": "modal"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_frontpage_hero_cta_modal_content",
+            "label": "Modal Content",
+            "name": "cta_modal_content",
+            "type": "textarea",
+            "instructions": "Content shown in the modal. You can use:\n- Contact Form 7 shortcode: [contact-form-7 id=\"123\"]\n- HTML content\n- Text",
+            "required": 0,
+            "rows": 4,
+            "placeholder": "[contact-form-7 id=\"123\" title=\"Contact form\"]",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_frontpage_hero_cta_type",
+                        "operator": "==",
+                        "value": "modal"
+                    }
+                ]
+            ]
         },
         {
             "key": "field_frontpage_hero_portfolio_text",
@@ -56,14 +157,101 @@
             "placeholder": "Tehtud tööd"
         },
         {
+            "key": "field_frontpage_hero_portfolio_type",
+            "label": "Portfolio Button Type",
+            "name": "portfolio_type",
+            "type": "select",
+            "instructions": "Choose button action type",
+            "required": 0,
+            "choices": {
+                "link": "Link (Navigate to URL)",
+                "modal": "Modal (Open popup)",
+                "calendly": "Calendly (Open in new window)"
+            },
+            "default_value": "link",
+            "allow_null": 0
+        },
+        {
             "key": "field_frontpage_hero_portfolio_url",
             "label": "Portfolio Button URL",
             "name": "portfolio_url",
             "type": "url",
-            "instructions": "Portfolio card button URL",
+            "instructions": "Portfolio card button URL (or Calendly link)",
             "required": 0,
             "default_value": "#portfolio",
-            "placeholder": "#portfolio"
+            "placeholder": "#portfolio",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_frontpage_hero_portfolio_type",
+                        "operator": "==",
+                        "value": "link"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_frontpage_hero_portfolio_type",
+                        "operator": "==",
+                        "value": "calendly"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_frontpage_hero_portfolio_modal_title",
+            "label": "Modal Title",
+            "name": "portfolio_modal_title",
+            "type": "text",
+            "instructions": "Title shown in the modal popup",
+            "required": 0,
+            "placeholder": "Our Portfolio",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_frontpage_hero_portfolio_type",
+                        "operator": "==",
+                        "value": "modal"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_frontpage_hero_portfolio_modal_description",
+            "label": "Modal Description",
+            "name": "portfolio_modal_description",
+            "type": "textarea",
+            "instructions": "Optional description shown below modal title",
+            "required": 0,
+            "rows": 2,
+            "placeholder": "Check out our work...",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_frontpage_hero_portfolio_type",
+                        "operator": "==",
+                        "value": "modal"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_frontpage_hero_portfolio_modal_content",
+            "label": "Modal Content",
+            "name": "portfolio_modal_content",
+            "type": "textarea",
+            "instructions": "Content shown in the modal. You can use:\n- Contact Form 7 shortcode: [contact-form-7 id=\"123\"]\n- HTML content\n- Text",
+            "required": 0,
+            "rows": 4,
+            "placeholder": "[contact-form-7 id=\"123\" title=\"Contact form\"]",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_frontpage_hero_portfolio_type",
+                        "operator": "==",
+                        "value": "modal"
+                    }
+                ]
+            ]
         },
         {
             "key": "field_frontpage_hero_portfolio_image",
@@ -93,5 +281,7 @@
     "instruction_placement": "label",
     "active": true
 }
+
+
 
 

@@ -3,6 +3,20 @@
     "title": "Sharks Headings Block",
     "fields": [
         {
+            "key": "field_sharks_headings_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"heading\", \"pealkiri\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #heading",
+            "required": 0,
+            "placeholder": "nt. heading, pealkiri",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_sharks_headings_label",
             "label": "Small Label (Above Heading)",
             "name": "small_label",

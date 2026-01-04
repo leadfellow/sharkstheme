@@ -3,6 +3,20 @@
     "title": "FAQ Block",
     "fields": [
         {
+            "key": "field_faq_block_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"faq\", \"kysimused\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #faq",
+            "required": 0,
+            "placeholder": "nt. faq, kysimused",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_faq_title",
             "label": "Title",
             "name": "title",

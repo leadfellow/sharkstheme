@@ -3,6 +3,20 @@
     "title": "Inquiry Block",
     "fields": [
         {
+            "key": "field_inquiry_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"inquiry\", \"kontakt\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #inquiry",
+            "required": 0,
+            "placeholder": "nt. inquiry, kontakt",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_inquiry_title",
             "label": "Header Title (Scrolling)",
             "name": "title",

@@ -61,6 +61,7 @@ add_action('after_setup_theme', function() {
         'assets/css/30-components/works1.css',
         'assets/css/30-components/block-styles.css',
         'assets/css/30-components/mouse-trail.css',
+        'assets/css/30-components/modal.css',
         'assets/css/40-layout/grid.css',
         'assets/css/40-layout/header.css',
         'assets/css/40-layout/footer.css',
@@ -93,6 +94,15 @@ add_action('wp_enqueue_scripts', function() {
         get_stylesheet_directory_uri() . '/assets/css/site.css',
         ['sharks-fonts'],
         SHARKS_VERSION
+    );
+    
+    // Modal component
+    wp_enqueue_script(
+        'sharks-modal',
+        get_stylesheet_directory_uri() . '/assets/js/modal.js',
+        [],
+        SHARKS_VERSION,
+        true // Load in footer
     );
     
     // Mouse trail effect (desktop only via JS check)

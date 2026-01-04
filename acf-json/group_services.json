@@ -3,6 +3,20 @@
     "title": "Services Block",
     "fields": [
         {
+            "key": "field_services_block_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"services\", \"teenused\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #services",
+            "required": 0,
+            "placeholder": "nt. services, teenused",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_services_section_title",
             "label": "Section Title",
             "name": "section_title",

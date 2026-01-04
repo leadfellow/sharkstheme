@@ -3,6 +3,20 @@
     "title": "Closed Accordion",
     "fields": [
         {
+            "key": "field_closed_accordion_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"list\", \"nimekiri\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #list",
+            "required": 0,
+            "placeholder": "nt. list, nimekiri",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_closed_accordion_items",
             "label": "List Items",
             "name": "closed_accordion_items",

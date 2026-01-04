@@ -3,6 +3,20 @@
     "title": "Case Study Detail Block",
     "fields": [
         {
+            "key": "field_case_study_detail_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"case-study\", \"projekt\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #case-study",
+            "required": 0,
+            "placeholder": "nt. case-study, projekt",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_csd_select_case_study",
             "label": "Select Case Study",
             "name": "select_case_study",

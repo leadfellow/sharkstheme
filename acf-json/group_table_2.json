@@ -3,6 +3,20 @@
     "title": "Table 2 Block",
     "fields": [
         {
+            "key": "field_table_2_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"table\", \"tabel\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #table",
+            "required": 0,
+            "placeholder": "nt. table, tabel",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_table_2_background_color",
             "label": "Background Color",
             "name": "background_color",

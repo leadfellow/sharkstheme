@@ -3,6 +3,20 @@
     "title": "Pricing Block",
     "fields": [
         {
+            "key": "field_pricing_block_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"pricing\", \"hinnad\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #pricing",
+            "required": 0,
+            "placeholder": "nt. pricing, hinnad",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_pricing_section_title",
             "label": "Section Title",
             "name": "section_title",

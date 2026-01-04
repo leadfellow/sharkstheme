@@ -3,6 +3,20 @@
     "title": "Spacer",
     "fields": [
         {
+            "key": "field_spacer_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"spacer\", \"vahe\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #spacer",
+            "required": 0,
+            "placeholder": "nt. spacer, vahe",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_spacer_height",
             "label": "Height (px)",
             "name": "spacer_height",

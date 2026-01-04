@@ -16,13 +16,17 @@ $headline = get_field('headline') ?: 'KODULEHT';
 $subtitle = get_field('subtitle') ?: '';
 $tagline = get_field('tagline') ?: 'Vali teenus, saada päring ja sinu disainiprojekt algab juba homme. Lihtne, kiire ja professionaalne lahendus.';
 $cta_text = get_field('cta_text') ?: 'Broneeri aeg konsultatsioonile';
+$cta_type = get_field('cta_type') ?: 'link';
 $cta_url = get_field('cta_url') ?: '#contact';
+$modal_title = get_field('modal_title');
+$modal_description = get_field('modal_description');
+$modal_content = get_field('modal_content');
 $background_style = get_field('background_style') ?: 'dark';
 $background_image = get_field('background_image');
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'hero-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'hero');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // Background style classes
@@ -80,17 +84,50 @@ if ($background_image && !empty($background_image['url'])) {
             <p class="block-hero__text"><?php echo esc_html($tagline); ?></p>
           <?php endif; ?>
           
-          <?php if ($cta_text && $cta_url): ?>
-            <a href="<?php echo esc_url($cta_url); ?>" class="block-hero__cta">
-              <span class="block-hero__cta-text"><?php echo esc_html($cta_text); ?></span>
-              <div class="block-hero__cta-icon">
-                <svg width="26" height="26" fill="none" viewBox="0 0 26 26">
-                  <rect fill="black" height="26" width="26"/>
-                  <path d="M8.9375 13H17.0625" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
-                  <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
-                </svg>
-              </div>
-            </a>
+          <?php if ($cta_text): ?>
+            <?php if ($cta_type === 'modal'): ?>
+              <?php
+              // Process shortcodes in modal content (White variant)
+              $processed_modal_content_white = do_shortcode($modal_content);
+              ?>
+              <a href="#" 
+                 class="block-hero__cta"
+                 data-modal-trigger
+                 data-modal-title="<?php echo esc_attr($modal_title); ?>"
+                 data-modal-description="<?php echo esc_attr($modal_description); ?>"
+                 data-modal-content="<?php echo esc_attr($processed_modal_content_white); ?>">
+                <span class="block-hero__cta-text"><?php echo esc_html($cta_text); ?></span>
+                <div class="block-hero__cta-icon">
+                  <svg width="26" height="26" fill="none" viewBox="0 0 26 26">
+                    <rect fill="black" height="26" width="26"/>
+                    <path d="M8.9375 13H17.0625" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                    <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                  </svg>
+                </div>
+              </a>
+            <?php elseif ($cta_type === 'calendly' && $cta_url): ?>
+              <a href="<?php echo esc_url($cta_url); ?>" target="_blank" rel="noopener noreferrer" class="block-hero__cta">
+                <span class="block-hero__cta-text"><?php echo esc_html($cta_text); ?></span>
+                <div class="block-hero__cta-icon">
+                  <svg width="26" height="26" fill="none" viewBox="0 0 26 26">
+                    <rect fill="black" height="26" width="26"/>
+                    <path d="M8.9375 13H17.0625" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                    <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                  </svg>
+                </div>
+              </a>
+            <?php elseif ($cta_url): ?>
+              <a href="<?php echo esc_url($cta_url); ?>" class="block-hero__cta">
+                <span class="block-hero__cta-text"><?php echo esc_html($cta_text); ?></span>
+                <div class="block-hero__cta-icon">
+                  <svg width="26" height="26" fill="none" viewBox="0 0 26 26">
+                    <rect fill="black" height="26" width="26"/>
+                    <path d="M8.9375 13H17.0625" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                    <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                  </svg>
+                </div>
+              </a>
+            <?php endif; ?>
           <?php endif; ?>
         </div>
       </div>
@@ -114,13 +151,44 @@ if ($background_image && !empty($background_image['url'])) {
             <p class="block-hero__tagline"><?php echo esc_html($tagline); ?></p>
           <?php endif; ?>
           
-          <?php if ($cta_text && $cta_url): ?>
-            <a href="<?php echo esc_url($cta_url); ?>" class="block-hero__cta">
-              <?php echo esc_html($cta_text); ?>
-              <svg class="block-hero__cta-icon" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 13H21M21 13L13 5M21 13L13 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
+          <?php if ($cta_text): ?>
+            <?php if ($cta_type === 'modal'): ?>
+              <?php
+              // Process shortcodes in modal content (Dark/Beige variant)
+              $processed_modal_content_dark = do_shortcode($modal_content);
+              ?>
+              <a href="#" 
+                 class="block-hero__cta"
+                 data-modal-trigger
+                 data-modal-title="<?php echo esc_attr($modal_title); ?>"
+                 data-modal-description="<?php echo esc_attr($modal_description); ?>"
+                 data-modal-content="<?php echo esc_attr($processed_modal_content_dark); ?>">
+                <?php echo esc_html($cta_text); ?>
+                <svg class="block-hero__cta-icon" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="26" height="26" fill="white"/>
+                  <path d="M8.9375 13H17.0625" stroke="black" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="black" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            <?php elseif ($cta_type === 'calendly' && $cta_url): ?>
+              <a href="<?php echo esc_url($cta_url); ?>" target="_blank" rel="noopener noreferrer" class="block-hero__cta">
+                <?php echo esc_html($cta_text); ?>
+                <svg class="block-hero__cta-icon" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="26" height="26" fill="white"/>
+                  <path d="M8.9375 13H17.0625" stroke="black" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="black" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            <?php elseif ($cta_url): ?>
+              <a href="<?php echo esc_url($cta_url); ?>" class="block-hero__cta">
+                <?php echo esc_html($cta_text); ?>
+                <svg class="block-hero__cta-icon" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="26" height="26" fill="white"/>
+                  <path d="M8.9375 13H17.0625" stroke="black" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="black" stroke-width="1.15104" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            <?php endif; ?>
           <?php endif; ?>
         </div>
       </div>

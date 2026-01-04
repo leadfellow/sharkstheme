@@ -3,6 +3,20 @@
     "title": "Contact Form Block",
     "fields": [
         {
+            "key": "field_contact_form_block_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"contact\", \"kontakt\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #contact",
+            "required": 0,
+            "placeholder": "nt. contact, kontakt",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_contact_title",
             "label": "Title",
             "name": "title",

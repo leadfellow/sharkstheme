@@ -3,6 +3,20 @@
     "title": "Select Text Block (Tabs)",
     "fields": [
         {
+            "key": "field_select_text_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"tabs\", \"valikud\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #tabs",
+            "required": 0,
+            "placeholder": "nt. tabs, valikud",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_select_text_tabs",
             "label": "Tabs",
             "name": "tabs",

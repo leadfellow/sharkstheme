@@ -17,15 +17,23 @@ $heading_parts = get_field('heading_parts');
 $title = get_field('title') ?: 'Ready to Take Your Business to the Next Level?';
 $text = get_field('text') ?: 'Join thousands of satisfied clients who have transformed their business with our solutions. Get started today and see results in days, not months.';
 $primary_button_text = get_field('primary_button_text');
+$primary_button_type = get_field('primary_button_type') ?: 'link';
 $primary_button_url = get_field('primary_button_url');
+$primary_modal_title = get_field('primary_modal_title');
+$primary_modal_description = get_field('primary_modal_description');
+$primary_modal_content = get_field('primary_modal_content');
 $secondary_button_text = get_field('secondary_button_text');
+$secondary_button_type = get_field('secondary_button_type') ?: 'link';
 $secondary_button_url = get_field('secondary_button_url');
+$secondary_modal_title = get_field('secondary_modal_title');
+$secondary_modal_description = get_field('secondary_modal_description');
+$secondary_modal_content = get_field('secondary_modal_content');
 $show_icon = get_field('show_icon');
 $style_variant = get_field('style_variant') ?: 'default';
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'cta-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'cta');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // Style variant class
@@ -101,21 +109,69 @@ $variant_class = $style_variant !== 'default' ? ' block-cta--' . $style_variant 
       
       <?php if ($primary_button_text || $secondary_button_text): ?>
         <div class="block-cta__buttons">
-          <?php if ($primary_button_text && $primary_button_url): ?>
-            <a href="<?php echo esc_url($primary_button_url); ?>" class="btn btn--accent btn--lg<?php echo $style_variant === 'dark-pattern' ? ' btn--cta-white' : ''; ?>">
-              <?php echo esc_html($primary_button_text); ?>
-              <?php if ($style_variant === 'dark-pattern'): ?>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              <?php endif; ?>
-            </a>
+          <?php if ($primary_button_text): ?>
+            <?php if ($primary_button_type === 'modal'): ?>
+              <?php
+              // Process shortcodes in modal content
+              $processed_content = do_shortcode($primary_modal_content);
+              ?>
+              <a href="#" 
+                 class="btn btn--accent btn--lg<?php echo $style_variant === 'dark-pattern' ? ' btn--cta-white' : ''; ?>"
+                 data-modal-trigger
+                 data-modal-title="<?php echo esc_attr($primary_modal_title); ?>"
+                 data-modal-description="<?php echo esc_attr($primary_modal_description); ?>"
+                 data-modal-content="<?php echo esc_attr($processed_content); ?>">
+                <?php echo esc_html($primary_button_text); ?>
+                <?php if ($style_variant === 'dark-pattern'): ?>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                <?php endif; ?>
+              </a>
+            <?php elseif ($primary_button_type === 'calendly' && $primary_button_url): ?>
+              <a href="<?php echo esc_url($primary_button_url); ?>" target="_blank" rel="noopener noreferrer" class="btn btn--accent btn--lg<?php echo $style_variant === 'dark-pattern' ? ' btn--cta-white' : ''; ?>">
+                <?php echo esc_html($primary_button_text); ?>
+                <?php if ($style_variant === 'dark-pattern'): ?>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                <?php endif; ?>
+              </a>
+            <?php elseif ($primary_button_url): ?>
+              <a href="<?php echo esc_url($primary_button_url); ?>" class="btn btn--accent btn--lg<?php echo $style_variant === 'dark-pattern' ? ' btn--cta-white' : ''; ?>">
+                <?php echo esc_html($primary_button_text); ?>
+                <?php if ($style_variant === 'dark-pattern'): ?>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                <?php endif; ?>
+              </a>
+            <?php endif; ?>
           <?php endif; ?>
           
-          <?php if ($secondary_button_text && $secondary_button_url): ?>
-            <a href="<?php echo esc_url($secondary_button_url); ?>" class="btn btn--ghost btn--lg">
-              <?php echo esc_html($secondary_button_text); ?>
-            </a>
+          <?php if ($secondary_button_text): ?>
+            <?php if ($secondary_button_type === 'modal'): ?>
+              <?php
+              // Process shortcodes in modal content
+              $processed_secondary_content = do_shortcode($secondary_modal_content);
+              ?>
+              <a href="#" 
+                 class="btn btn--ghost btn--lg"
+                 data-modal-trigger
+                 data-modal-title="<?php echo esc_attr($secondary_modal_title); ?>"
+                 data-modal-description="<?php echo esc_attr($secondary_modal_description); ?>"
+                 data-modal-content="<?php echo esc_attr($processed_secondary_content); ?>">
+                <?php echo esc_html($secondary_button_text); ?>
+              </a>
+            <?php elseif ($secondary_button_type === 'calendly' && $secondary_button_url): ?>
+              <a href="<?php echo esc_url($secondary_button_url); ?>" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg">
+                <?php echo esc_html($secondary_button_text); ?>
+              </a>
+            <?php elseif ($secondary_button_url): ?>
+              <a href="<?php echo esc_url($secondary_button_url); ?>" class="btn btn--ghost btn--lg">
+                <?php echo esc_html($secondary_button_text); ?>
+              </a>
+            <?php endif; ?>
           <?php endif; ?>
         </div>
       <?php endif; ?>

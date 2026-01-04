@@ -3,6 +3,20 @@
     "title": "Two Box CTA Block",
     "fields": [
         {
+            "key": "field_two_box_cta_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"cta\", \"boxes\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #cta",
+            "required": 0,
+            "placeholder": "nt. cta, boxes",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_two_box_cta_background_color",
             "label": "Section Background Color",
             "name": "section_background_color",

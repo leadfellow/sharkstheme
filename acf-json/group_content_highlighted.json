@@ -3,6 +3,20 @@
     "title": "Content with Highlighted Block",
     "fields": [
         {
+            "key": "field_content_highlighted_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"content\", \"sisu\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #content",
+            "required": 0,
+            "placeholder": "nt. content, sisu",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_content_highlighted_show_icon",
             "label": "Show Icon",
             "name": "show_icon",

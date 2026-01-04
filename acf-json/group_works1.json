@@ -3,6 +3,20 @@
     "title": "Works1 Block",
     "fields": [
         {
+            "key": "field_works1_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"work\", \"projekt\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #work",
+            "required": 0,
+            "placeholder": "nt. work, projekt",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_works1_background_color",
             "label": "Background Color",
             "name": "background_color",
@@ -172,4 +186,6 @@
     "instruction_placement": "label",
     "active": true
 }
+
+
 

@@ -3,6 +3,20 @@
     "title": "Who We Are Block",
     "fields": [
         {
+            "key": "field_who_we_are_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"about\", \"meist\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #about",
+            "required": 0,
+            "placeholder": "nt. about, meist",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_who_we_are_sidebar_title",
             "label": "Sidebar Title",
             "name": "sidebar_title",

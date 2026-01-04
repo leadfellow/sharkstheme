@@ -3,6 +3,20 @@
     "title": "Label Bar Block",
     "fields": [
         {
+            "key": "field_label_bar_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"labels\", \"sildid\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #labels",
+            "required": 0,
+            "placeholder": "nt. labels, sildid",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_label_bar_background_color",
             "label": "Background Color",
             "name": "background_color",

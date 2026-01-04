@@ -3,6 +3,20 @@
     "title": "Our Facts Block",
     "fields": [
         {
+            "key": "field_our_facts_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"facts\", \"faktid\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #facts",
+            "required": 0,
+            "placeholder": "nt. facts, faktid",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_our_facts_hero_title",
             "label": "Hero Title",
             "name": "hero_title",
@@ -98,5 +112,7 @@
     "instruction_placement": "label",
     "active": true
 }
+
+
 
 

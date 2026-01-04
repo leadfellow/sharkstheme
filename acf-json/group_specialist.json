@@ -3,6 +3,20 @@
     "title": "Specialist Block",
     "fields": [
         {
+            "key": "field_specialist_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"specialist\", \"meeskond\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #specialist",
+            "required": 0,
+            "placeholder": "nt. specialist, meeskond",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_specialist_heading_parts",
             "label": "Heading Parts",
             "name": "heading_parts",

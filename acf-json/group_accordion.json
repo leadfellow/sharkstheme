@@ -3,6 +3,20 @@
     "title": "Accordion",
     "fields": [
         {
+            "key": "field_accordion_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"faq\", \"accordion\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #faq",
+            "required": 0,
+            "placeholder": "nt. faq, accordion",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_accordion_background_color",
             "label": "Background Color",
             "name": "background_color",

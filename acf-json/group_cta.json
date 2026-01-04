@@ -3,6 +3,20 @@
     "title": "CTA Block",
     "fields": [
         {
+            "key": "field_cta_block_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"cta\", \"contact\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #cta",
+            "required": 0,
+            "placeholder": "nt. cta, contact, action",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_cta_subheadline",
             "label": "Subheadline (Small text above)",
             "name": "subheadline",
@@ -138,13 +152,100 @@
             "placeholder": "Get Started"
         },
         {
+            "key": "field_cta_primary_button_type",
+            "label": "Primary Button Type",
+            "name": "primary_button_type",
+            "type": "select",
+            "instructions": "Choose button action type",
+            "required": 0,
+            "choices": {
+                "link": "Link (Navigate to URL)",
+                "modal": "Modal (Open popup)",
+                "calendly": "Calendly (Open in new window)"
+            },
+            "default_value": "link",
+            "allow_null": 0
+        },
+        {
             "key": "field_cta_primary_button_url",
             "label": "Primary Button URL",
             "name": "primary_button_url",
             "type": "url",
-            "instructions": "Primary button URL",
+            "instructions": "Primary button URL (or Calendly link)",
             "required": 0,
-            "placeholder": "https://"
+            "placeholder": "https://",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_primary_button_type",
+                        "operator": "==",
+                        "value": "link"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_cta_primary_button_type",
+                        "operator": "==",
+                        "value": "calendly"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_cta_primary_modal_title",
+            "label": "Modal Title",
+            "name": "primary_modal_title",
+            "type": "text",
+            "instructions": "Title shown in the modal popup",
+            "required": 0,
+            "placeholder": "Contact Us",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_primary_button_type",
+                        "operator": "==",
+                        "value": "modal"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_cta_primary_modal_description",
+            "label": "Modal Description",
+            "name": "primary_modal_description",
+            "type": "textarea",
+            "instructions": "Optional description shown below modal title",
+            "required": 0,
+            "rows": 2,
+            "placeholder": "Fill out the form below...",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_primary_button_type",
+                        "operator": "==",
+                        "value": "modal"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_cta_primary_modal_content",
+            "label": "Modal Content",
+            "name": "primary_modal_content",
+            "type": "textarea",
+            "instructions": "Content shown in the modal. You can use:\n- Contact Form 7 shortcode: [contact-form-7 id=\"123\"]\n- HTML content\n- Text",
+            "required": 0,
+            "rows": 4,
+            "placeholder": "[contact-form-7 id=\"123\" title=\"Contact form\"]",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_primary_button_type",
+                        "operator": "==",
+                        "value": "modal"
+                    }
+                ]
+            ]
         },
         {
             "key": "field_cta_secondary_button_text",
@@ -156,13 +257,100 @@
             "placeholder": "Learn More"
         },
         {
+            "key": "field_cta_secondary_button_type",
+            "label": "Secondary Button Type",
+            "name": "secondary_button_type",
+            "type": "select",
+            "instructions": "Choose button action type",
+            "required": 0,
+            "choices": {
+                "link": "Link (Navigate to URL)",
+                "modal": "Modal (Open popup)",
+                "calendly": "Calendly (Open in new window)"
+            },
+            "default_value": "link",
+            "allow_null": 0
+        },
+        {
             "key": "field_cta_secondary_button_url",
             "label": "Secondary Button URL",
             "name": "secondary_button_url",
             "type": "url",
-            "instructions": "Secondary button URL",
+            "instructions": "Secondary button URL (or Calendly link)",
             "required": 0,
-            "placeholder": "https://"
+            "placeholder": "https://",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_secondary_button_type",
+                        "operator": "==",
+                        "value": "link"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_cta_secondary_button_type",
+                        "operator": "==",
+                        "value": "calendly"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_cta_secondary_modal_title",
+            "label": "Modal Title",
+            "name": "secondary_modal_title",
+            "type": "text",
+            "instructions": "Title shown in the modal popup",
+            "required": 0,
+            "placeholder": "Learn More",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_secondary_button_type",
+                        "operator": "==",
+                        "value": "modal"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_cta_secondary_modal_description",
+            "label": "Modal Description",
+            "name": "secondary_modal_description",
+            "type": "textarea",
+            "instructions": "Optional description shown below modal title",
+            "required": 0,
+            "rows": 2,
+            "placeholder": "More information...",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_secondary_button_type",
+                        "operator": "==",
+                        "value": "modal"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_cta_secondary_modal_content",
+            "label": "Modal Content",
+            "name": "secondary_modal_content",
+            "type": "textarea",
+            "instructions": "Content shown in the modal. You can use:\n- Contact Form 7 shortcode: [contact-form-7 id=\"123\"]\n- HTML content\n- Text",
+            "required": 0,
+            "rows": 4,
+            "placeholder": "[contact-form-7 id=\"123\" title=\"Contact form\"]",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_secondary_button_type",
+                        "operator": "==",
+                        "value": "modal"
+                    }
+                ]
+            ]
         },
         {
             "key": "field_cta_show_icon",

@@ -3,6 +3,20 @@
     "title": "Case Studies Grid Block",
     "fields": [
         {
+            "key": "field_case_studies_grid_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"portfolio\", \"tood\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #portfolio",
+            "required": 0,
+            "placeholder": "nt. portfolio, tood",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_csg_title",
             "label": "Section Title",
             "name": "section_title",

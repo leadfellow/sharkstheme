@@ -68,7 +68,16 @@ add_action('acf/init', function() {
                     'description' => 'Choose a service, send in your request, and your design journey starts tomorrow.'
                 ]
             ]
-        ]
+        ],
+        'enqueue_assets' => function() {
+            wp_enqueue_script(
+                'sharks-hero-title-color-wave',
+                get_template_directory_uri() . '/assets/js/hero-title-color-wave.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/hero-title-color-wave.js'),
+                true // Load in footer
+            );
+        }
     ]);
 
     // Services Block
@@ -818,3 +827,35 @@ add_filter('block_categories_all', function($categories) {
     
     return $categories;
 }, 10, 1);
+
+/**
+ * Helper function to get block anchor
+ * 
+ * @param array $block Block data
+ * @param string $default_prefix Default prefix for auto-generated anchor
+ * @return string Clean anchor ID
+ */
+function sharks_get_block_anchor($block, $default_prefix = 'block') {
+    $anchor = '';
+    
+    // 1. Try to get custom anchor from ACF field
+    $custom_anchor = get_field('block_anchor');
+    if (!empty($custom_anchor)) {
+        $anchor = $custom_anchor;
+    }
+    // 2. Try to get from block attributes (Gutenberg Advanced)
+    elseif (!empty($block['anchor'])) {
+        $anchor = $block['anchor'];
+    }
+    // 3. Generate default anchor
+    else {
+        $anchor = $default_prefix . '-' . $block['id'];
+    }
+    
+    // Clean the anchor
+    $anchor = strtolower(trim($anchor));
+    $anchor = str_replace('#', '', $anchor);
+    $anchor = preg_replace('/[^a-z0-9\-_]/', '-', $anchor);
+    
+    return $anchor;
+}

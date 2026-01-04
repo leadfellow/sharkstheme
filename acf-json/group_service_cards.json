@@ -3,6 +3,20 @@
     "title": "Service Cards Block",
     "fields": [
         {
+            "key": "field_service_cards_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"services\", \"teenused\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #services",
+            "required": 0,
+            "placeholder": "nt. services, teenused",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_service_cards_heading_parts",
             "label": "Heading Parts",
             "name": "heading_parts",

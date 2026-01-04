@@ -62,14 +62,42 @@
             "max": 6,
             "sub_fields": [
                 {
-                    "key": "field_1vs2_card_icon",
-                    "label": "Icon SVG",
-                    "name": "icon_svg",
-                    "type": "textarea",
-                    "instructions": "Paste SVG code for the icon",
+                    "key": "field_1vs2_card_icon_type",
+                    "label": "Icon",
+                    "name": "icon_type",
+                    "type": "select",
+                    "instructions": "Choose an icon for this card",
                     "required": 1,
+                    "choices": {
+                        "x": "X Icon (Koduleht)",
+                        "star": "Star Icon (E-pood)",
+                        "plus": "Plus Icon (Veebiarendus)",
+                        "custom": "Custom SVG"
+                    },
+                    "default_value": "x",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_1vs2_card_icon_custom",
+                    "label": "Custom Icon SVG",
+                    "name": "icon_custom",
+                    "type": "textarea",
+                    "instructions": "Paste custom SVG code (only if 'Custom SVG' is selected above)",
+                    "required": 0,
                     "placeholder": "<svg viewBox=\"0 0 42 42\" fill=\"none\">...</svg>",
-                    "rows": 4
+                    "rows": 4,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_1vs2_card_icon_type",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ]
                 },
                 {
                     "key": "field_1vs2_card_label",

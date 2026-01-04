@@ -73,6 +73,13 @@
   flex: 1;
   min-width: 0;
   height: 428px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.block-1vs2__card:hover {
+  background-color: #ffffff;
 }
 
 .block-1vs2__card-border {
@@ -80,6 +87,11 @@
   inset: 0;
   border: 1px solid white;
   pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+
+.block-1vs2__card:hover .block-1vs2__card-border {
+  border-color: #ffffff;
 }
 
 .block-1vs2__card-content {
@@ -96,6 +108,12 @@
   width: 42px;
   height: 42px;
   flex-shrink: 0;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.block-1vs2__card:hover .block-1vs2__card-icon {
+  color: #000000;
 }
 
 .block-1vs2__card-icon svg {
@@ -120,6 +138,12 @@
   font-style: normal;
   width: 100%;
   margin: 0;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.block-1vs2__card:hover .block-1vs2__card-label {
+  color: #000000;
 }
 
 .block-1vs2__card-description {
@@ -131,6 +155,12 @@
   font-style: normal;
   width: 100%;
   margin: 0;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.block-1vs2__card:hover .block-1vs2__card-description {
+  color: #000000;
 }
 
 /* Links Section */

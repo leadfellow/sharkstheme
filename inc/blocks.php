@@ -854,6 +854,32 @@ add_action('acf/init', function() {
         ],
         'mode'            => 'preview'
     ]);
+
+    // Technology & Platforms Block
+    acf_register_block_type([
+        'name'            => 'tech-platforms',
+        'title'           => __('Technology & Platforms', 'sharks2025'),
+        'description'     => __('Technology comparison table with filtering', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/tech-platforms/tech-platforms.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'editor-table',
+        'keywords'        => ['technology', 'platforms', 'table', 'comparison', 'filter', 'tehnoloogia'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin']
+        ],
+        'mode'            => 'preview',
+        'enqueue_assets'  => function() {
+            wp_enqueue_script(
+                'tech-platforms-js',
+                get_template_directory_uri() . '/assets/js/tech-platforms.js',
+                [],
+                SHARKS_VERSION,
+                true
+            );
+        }
+    ]);
 });
 
 /**

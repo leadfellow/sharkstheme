@@ -41,6 +41,7 @@ add_action('after_setup_theme', function() {
         'assets/css/00-settings/variables.css',
         'assets/css/20-elements/typography.css',
         'assets/css/30-components/1vs2.css',
+        'assets/css/30-components/tech-platforms.css',
         'assets/css/30-components/button.css',
         'assets/css/30-components/hero.css',
         'assets/css/30-components/card.css',

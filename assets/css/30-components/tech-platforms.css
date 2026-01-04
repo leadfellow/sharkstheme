@@ -1,0 +1,193 @@
+/* ====================================
+   Technology & Platforms Block
+   ==================================== */
+
+.block-tech-platforms {
+  width: 100%;
+  background-color: #FEFBF6;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+.block-tech-platforms__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.block-tech-platforms__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.block-tech-platforms__icon {
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+}
+
+.block-tech-platforms__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.block-tech-platforms__title {
+  font-family: 'Switzer', 'Helvetica', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #000000;
+  margin: 0;
+}
+
+/* Filters */
+.block-tech-platforms__filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.block-tech-platforms__filter-btn {
+  padding: 12px 24px;
+  border: 2px solid #000000;
+  background-color: transparent;
+  border-radius: 8px;
+  font-family: 'Switzer', 'Helvetica', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #000000;
+}
+
+.block-tech-platforms__filter-btn:hover {
+  background-color: #000000;
+  color: #FEFBF6;
+}
+
+.block-tech-platforms__filter-btn.active {
+  background-color: #000000;
+  color: #FEFBF6;
+}
+
+/* Table Container */
+.block-tech-platforms__table-container {
+  background-color: #000000;
+  border-radius: 12px;
+  padding: 32px;
+  overflow-x: auto;
+}
+
+/* Table */
+.block-tech-platforms__table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #FEFBF6;
+}
+
+.block-tech-platforms__table thead th {
+  font-family: 'Switzer', 'Helvetica', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: left;
+  padding: 16px;
+  border-bottom: 2px solid #FEFBF6;
+}
+
+.block-tech-platforms__table tbody td {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 20px 16px;
+  border-bottom: 1px solid #333333;
+  vertical-align: top;
+}
+
+.block-tech-platforms__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.block-tech-platforms__platform-name {
+  font-weight: 700;
+}
+
+/* Lists */
+.block-tech-platforms__table ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.block-tech-platforms__table ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+
+.block-tech-platforms__table ul li:last-child {
+  margin-bottom: 0;
+}
+
+.block-tech-platforms__table ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #FEFBF6;
+}
+
+/* Row visibility for filtering */
+.block-tech-platforms__row {
+  transition: opacity 0.3s ease;
+}
+
+.block-tech-platforms__row.hidden {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .block-tech-platforms__title {
+    font-size: 32px;
+  }
+
+  .block-tech-platforms__header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .block-tech-platforms__icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .block-tech-platforms__table-container {
+    padding: 20px;
+  }
+
+  .block-tech-platforms__table thead th {
+    font-size: 14px;
+    padding: 12px 8px;
+  }
+
+  .block-tech-platforms__table tbody td {
+    font-size: 14px;
+    padding: 16px 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .block-tech-platforms__table {
+    font-size: 12px;
+  }
+
+  .block-tech-platforms__filter-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+

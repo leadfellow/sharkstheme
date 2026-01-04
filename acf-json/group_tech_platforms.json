@@ -1,0 +1,155 @@
+{
+    "key": "group_tech_platforms",
+    "title": "Technology & Platforms Block",
+    "fields": [
+        {
+            "key": "field_tech_platforms_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"tehnoloogia\"). Kasuta ainult väiketähti, numbreid ja kriipse.",
+            "required": 0,
+            "placeholder": "nt. tehnoloogia",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_tech_platforms_title",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "Main title",
+            "required": 1,
+            "default_value": "TEHNOLOOGIA & PLATVORMID",
+            "placeholder": "TEHNOLOOGIA & PLATVORMID",
+            "maxlength": 100
+        },
+        {
+            "key": "field_tech_platforms_show_icons",
+            "label": "Show Icons",
+            "name": "show_icons",
+            "type": "true_false",
+            "instructions": "Show decorative icons next to title",
+            "required": 0,
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_tech_platforms_filters",
+            "label": "Filter Buttons",
+            "name": "filters",
+            "type": "repeater",
+            "instructions": "Add filter buttons (e.g., Koduleht, E-pood, Mõlemale)",
+            "required": 0,
+            "layout": "table",
+            "button_label": "Add Filter",
+            "min": 0,
+            "max": 10,
+            "sub_fields": [
+                {
+                    "key": "field_tech_platforms_filter_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "Filter button label",
+                    "required": 1,
+                    "placeholder": "Koduleht",
+                    "maxlength": 50
+                },
+                {
+                    "key": "field_tech_platforms_filter_value",
+                    "label": "Value",
+                    "name": "value",
+                    "type": "text",
+                    "instructions": "Filter value (lowercase, no spaces)",
+                    "required": 1,
+                    "placeholder": "koduleht",
+                    "maxlength": 50
+                }
+            ]
+        },
+        {
+            "key": "field_tech_platforms_platforms",
+            "label": "Platforms",
+            "name": "platforms",
+            "type": "repeater",
+            "instructions": "Add platforms/technologies",
+            "required": 0,
+            "layout": "block",
+            "button_label": "Add Platform",
+            "min": 0,
+            "max": 20,
+            "sub_fields": [
+                {
+                    "key": "field_tech_platforms_platform_name",
+                    "label": "Platform Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "Platform name (e.g., WordPress, Framer)",
+                    "required": 1,
+                    "placeholder": "WordPress",
+                    "maxlength": 100
+                },
+                {
+                    "key": "field_tech_platforms_platform_category",
+                    "label": "Category",
+                    "name": "category",
+                    "type": "text",
+                    "instructions": "Category for filtering (e.g., koduleht, epood, molemale)",
+                    "required": 1,
+                    "placeholder": "koduleht",
+                    "maxlength": 50
+                },
+                {
+                    "key": "field_tech_platforms_platform_suitability",
+                    "label": "Sobivus (Suitability)",
+                    "name": "suitability",
+                    "type": "textarea",
+                    "instructions": "One point per line",
+                    "required": 0,
+                    "placeholder": "Ideaalne blogidele\nSobib e-poodidele",
+                    "rows": 4
+                },
+                {
+                    "key": "field_tech_platforms_platform_strengths",
+                    "label": "Tugevused (Strengths)",
+                    "name": "strengths",
+                    "type": "textarea",
+                    "instructions": "One point per line",
+                    "required": 0,
+                    "placeholder": "Tohutult palju teemasid\nOdav hostingu lahendus",
+                    "rows": 4
+                },
+                {
+                    "key": "field_tech_platforms_platform_limitations",
+                    "label": "Piirangud (Limitations)",
+                    "name": "limitations",
+                    "type": "textarea",
+                    "instructions": "One point per line",
+                    "required": 0,
+                    "placeholder": "Vajab rohkem hooldust\nVõib olla aeglasem",
+                    "rows": 4
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/tech-platforms"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

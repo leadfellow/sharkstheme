@@ -19,6 +19,23 @@ add_action('acf/init', function() {
         return;
     }
 
+    // 1vs2 Block (Comparison Block)
+    acf_register_block_type([
+        'name'            => '1vs2',
+        'title'           => __('1vs2 Comparison', 'sharks2025'),
+        'description'     => __('Comparison block with cards (e.g., Koduleht vs E-pood)', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/1vs2/1vs2.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'columns',
+        'keywords'        => ['comparison', 'vs', 'versus', 'cards', 'koduleht', 'e-pood'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin']
+        ],
+        'mode'            => 'preview'
+    ]);
+
     // Hero Block
     acf_register_block_type([
         'name'            => 'hero',
@@ -703,7 +720,16 @@ add_action('acf/init', function() {
             'spacing' => ['padding', 'margin'],
             'color'   => ['background']
         ],
-        'mode'            => 'preview'
+        'mode'            => 'preview',
+        'enqueue_assets'  => function() {
+            wp_enqueue_script(
+                'our-facts-counter-js',
+                get_template_directory_uri() . '/assets/js/our-facts-counter.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/our-facts-counter.js'),
+                true
+            );
+        }
     ]);
 
     // Max Accordion Block

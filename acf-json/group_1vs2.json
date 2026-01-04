@@ -1,0 +1,147 @@
+{
+    "key": "group_1vs2",
+    "title": "1vs2 Block",
+    "fields": [
+        {
+            "key": "field_1vs2_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"koduleht-vs-epood\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #koduleht-vs-epood",
+            "required": 0,
+            "placeholder": "nt. koduleht-vs-epood",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_1vs2_title",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "Main title (e.g., \"Koduleht vs E-pood\")",
+            "required": 1,
+            "default_value": "Koduleht vs E-pood",
+            "placeholder": "Koduleht vs E-pood",
+            "maxlength": 100
+        },
+        {
+            "key": "field_1vs2_title_highlight",
+            "label": "Title Highlight Word",
+            "name": "title_highlight",
+            "type": "text",
+            "instructions": "Word to highlight in gray (e.g., \"vs\")",
+            "required": 0,
+            "default_value": "vs",
+            "placeholder": "vs",
+            "maxlength": 20
+        },
+        {
+            "key": "field_1vs2_subtitle",
+            "label": "Subtitle",
+            "name": "subtitle",
+            "type": "text",
+            "instructions": "Subtitle below title",
+            "required": 0,
+            "default_value": "Või hoopis kombineeritud lahendus?",
+            "placeholder": "Või hoopis kombineeritud lahendus?",
+            "maxlength": 200
+        },
+        {
+            "key": "field_1vs2_cards",
+            "label": "Cards",
+            "name": "cards",
+            "type": "repeater",
+            "instructions": "Add comparison cards (recommended: 3 cards)",
+            "required": 0,
+            "layout": "block",
+            "button_label": "Add Card",
+            "min": 0,
+            "max": 6,
+            "sub_fields": [
+                {
+                    "key": "field_1vs2_card_icon",
+                    "label": "Icon SVG",
+                    "name": "icon_svg",
+                    "type": "textarea",
+                    "instructions": "Paste SVG code for the icon",
+                    "required": 1,
+                    "placeholder": "<svg viewBox=\"0 0 42 42\" fill=\"none\">...</svg>",
+                    "rows": 4
+                },
+                {
+                    "key": "field_1vs2_card_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "Card label (small text)",
+                    "required": 1,
+                    "placeholder": "koduleht",
+                    "maxlength": 50
+                },
+                {
+                    "key": "field_1vs2_card_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "text",
+                    "instructions": "Card description (large text)",
+                    "required": 1,
+                    "placeholder": "brändi nägu ja mainekujundaja",
+                    "maxlength": 100
+                }
+            ]
+        },
+        {
+            "key": "field_1vs2_links",
+            "label": "Links",
+            "name": "links",
+            "type": "repeater",
+            "instructions": "Add CTA links (recommended: 2 links)",
+            "required": 0,
+            "layout": "block",
+            "button_label": "Add Link",
+            "min": 0,
+            "max": 4,
+            "sub_fields": [
+                {
+                    "key": "field_1vs2_link_text",
+                    "label": "Link Text",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "Link text",
+                    "required": 1,
+                    "placeholder": "Vaata kodulehtede arendust",
+                    "maxlength": 100
+                },
+                {
+                    "key": "field_1vs2_link_url",
+                    "label": "Link URL",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "Link URL",
+                    "required": 1,
+                    "placeholder": "#",
+                    "default_value": "#"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/1vs2"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

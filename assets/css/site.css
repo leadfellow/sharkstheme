@@ -1,5 +1,6 @@
 @import url('./00-settings/variables.css');
 @import url('./20-elements/typography.css');
+@import url('./30-components/1vs2.css');
 @import url('./30-components/button.css');
 @import url('./30-components/hero.css');
 @import url('./30-components/frontpage-hero-banner.css');

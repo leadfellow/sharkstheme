@@ -133,7 +133,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf/1vs2"
+                "value": "acf/comparison-1vs2"
             }
         ]
     ],

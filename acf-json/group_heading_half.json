@@ -105,6 +105,15 @@
             "allow_null": 0
         },
         {
+            "key": "field_heading_half_description",
+            "label": "Description (optional)",
+            "name": "description",
+            "type": "text",
+            "instructions": "Optional description text below the heading",
+            "required": 0,
+            "placeholder": "Enter description text..."
+        },
+        {
             "key": "field_heading_half_icons",
             "label": "Icons",
             "name": "icons",

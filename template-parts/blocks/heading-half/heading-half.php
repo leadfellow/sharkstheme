@@ -13,6 +13,7 @@ if (!defined('ABSPATH')) {
 // Get ACF fields
 $heading_parts = get_field('heading_parts');
 $heading_tag = get_field('heading_tag') ?: 'h2';
+$description = get_field('description');
 $icons = get_field('icons');
 $background_color = get_field('background_color') ?: 'transparent';
 
@@ -40,34 +41,39 @@ $icon_map = [
 <div id="<?php echo esc_attr($anchor); ?>" class="heading-half<?php echo esc_attr($align_class . $class_name); ?>"<?php echo $background_style; ?>>
     <div class="heading-half__container">
         <div class="heading-half__content">
-            <?php 
-            $tag_open = '<' . esc_attr($heading_tag) . ' class="heading-half__title">';
-            $tag_close = '</' . esc_attr($heading_tag) . '>';
-            
-            echo $tag_open;
-            
-            if ($heading_parts): 
-                foreach ($heading_parts as $part):
-                    if ($part['part_type'] === 'text'):
-                        $color_class = !empty($part['color']) ? ' heading-half__part--' . $part['color'] : '';
-                        ?>
-                        <span class="heading-half__part<?php echo esc_attr($color_class); ?>">
-                            <?php echo esc_html($part['text']); ?>
-                        </span>
-                    <?php elseif ($part['part_type'] === 'line_break'): ?>
-                        <br class="heading-half__break">
-                    <?php endif;
-                endforeach;
-            else: 
-                // Default placeholder
+            <div class="heading-half__hero-text">
+                <?php 
+                $tag_open = '<' . esc_attr($heading_tag) . ' class="heading-half__title">';
+                $tag_close = '</' . esc_attr($heading_tag) . '>';
+                
+                echo $tag_open;
+                
+                if ($heading_parts): 
+                    foreach ($heading_parts as $part):
+                        if ($part['part_type'] === 'text'):
+                            $color_class = !empty($part['color']) ? ' heading-half__part--' . $part['color'] : '';
+                            ?>
+                            <span class="heading-half__part<?php echo esc_attr($color_class); ?>">
+                                <?php echo esc_html($part['text']); ?>
+                            </span>
+                        <?php elseif ($part['part_type'] === 'line_break'): ?>
+                            <br class="heading-half__break">
+                        <?php endif;
+                    endforeach;
+                else: 
+                    // Default placeholder
+                    ?>
+                    <span class="heading-half__part heading-half__part--light">Millest </span>
+                    <span class="heading-half__part heading-half__part--dark">alustada?</span>
+                <?php endif;
+                
+                echo $tag_close;
                 ?>
-                <span class="heading-half__part heading-half__part--light">MIDAPEAD TEADMA</span>
-                <br class="heading-half__break">
-                <span class="heading-half__part heading-half__part--dark">ENNE KODULEHE TELLIMIST?</span>
-            <?php endif;
-            
-            echo $tag_close;
-            ?>
+                
+                <?php if ($description): ?>
+                    <p class="heading-half__description"><?php echo esc_html($description); ?></p>
+                <?php endif; ?>
+            </div>
             
             <?php if ($icons): ?>
                 <div class="heading-half__icons">

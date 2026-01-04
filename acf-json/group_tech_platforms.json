@@ -28,6 +28,17 @@
             "maxlength": 100
         },
         {
+            "key": "field_tech_platforms_subtitle",
+            "label": "Subtitle",
+            "name": "subtitle",
+            "type": "text",
+            "instructions": "Subtitle below title (optional)",
+            "required": 0,
+            "default_value": "WordPress, WooCommerce, Shopify, Laravel, Node.js, Framer. Milline valida?",
+            "placeholder": "WordPress, WooCommerce, Shopify...",
+            "maxlength": 200
+        },
+        {
             "key": "field_tech_platforms_show_icons",
             "label": "Show Icons",
             "name": "show_icons",

@@ -13,6 +13,7 @@ if (!defined('ABSPATH')) {
 
 // Get ACF fields
 $title = get_field('title') ?: 'TEHNOLOOGIA & PLATVORMID';
+$subtitle = get_field('subtitle') ?: 'WordPress, WooCommerce, Shopify, Laravel, Node.js, Framer. Milline valida?';
 $show_icons = get_field('show_icons');
 $filters = get_field('filters');
 $platforms = get_field('platforms');
@@ -101,6 +102,13 @@ function tech_platforms_textarea_to_list($text) {
                 </div>
             <?php endif; ?>
         </div>
+
+        <!-- Subtitle -->
+        <?php if (!empty($subtitle)): ?>
+            <p class="block-tech-platforms__subtitle">
+                <?php echo esc_html($subtitle); ?>
+            </p>
+        <?php endif; ?>
 
         <!-- Filters -->
         <?php if (!empty($filters)): ?>

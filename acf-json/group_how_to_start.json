@@ -1,0 +1,133 @@
+{
+    "key": "group_how_to_start_block",
+    "title": "How to Start Block",
+    "fields": [
+        {
+            "key": "field_how_to_start_left_title",
+            "label": "Left Title",
+            "name": "left_title",
+            "type": "textarea",
+            "instructions": "Title for left section. Use HTML for colors: <span class=\"how-to-start__title-part how-to-start__title-part--light\">Light text</span>",
+            "required": 0,
+            "rows": 3,
+            "placeholder": "Millest alustada?"
+        },
+        {
+            "key": "field_how_to_start_left_description",
+            "label": "Left Description",
+            "name": "left_description",
+            "type": "textarea",
+            "instructions": "Description text for left section",
+            "required": 0,
+            "rows": 3,
+            "placeholder": "Meie disainiteenus keskendub..."
+        },
+        {
+            "key": "field_how_to_start_left_icons",
+            "label": "Left Icons",
+            "name": "left_icons",
+            "type": "repeater",
+            "instructions": "Add icons for left section (max 5)",
+            "required": 0,
+            "min": 0,
+            "max": 5,
+            "layout": "table",
+            "button_label": "Add Icon",
+            "sub_fields": [
+                {
+                    "key": "field_how_to_start_left_icon_type",
+                    "label": "Icon Type",
+                    "name": "icon_type",
+                    "type": "select",
+                    "instructions": "Choose an icon",
+                    "required": 1,
+                    "choices": {
+                        "asterisk": "Asterisk",
+                        "star": "Star",
+                        "x": "X"
+                    },
+                    "default_value": "asterisk",
+                    "allow_null": 0
+                }
+            ]
+        },
+        {
+            "key": "field_how_to_start_right_top_icon",
+            "label": "Right Top Icon",
+            "name": "right_top_icon",
+            "type": "true_false",
+            "instructions": "Show icon at top of right section",
+            "required": 0,
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_how_to_start_right_main_title",
+            "label": "Right Main Title",
+            "name": "right_main_title",
+            "type": "text",
+            "instructions": "Main title for right section",
+            "required": 0,
+            "placeholder": "Silm haarab seda, mis on atraktiivne"
+        },
+        {
+            "key": "field_how_to_start_right_text_content",
+            "label": "Right Text Content",
+            "name": "right_text_content",
+            "type": "textarea",
+            "instructions": "Text content for right section. Use <strong> for bold text.",
+            "required": 0,
+            "rows": 8,
+            "placeholder": "Enter text content..."
+        },
+        {
+            "key": "field_how_to_start_tabs",
+            "label": "Navigation Tabs",
+            "name": "tabs",
+            "type": "repeater",
+            "instructions": "Add navigation tabs (max 5)",
+            "required": 0,
+            "min": 0,
+            "max": 5,
+            "layout": "table",
+            "button_label": "Add Tab",
+            "sub_fields": [
+                {
+                    "key": "field_how_to_start_tab_label",
+                    "label": "Tab Label",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "Tab label text",
+                    "required": 1,
+                    "placeholder": "UX/UI"
+                },
+                {
+                    "key": "field_how_to_start_tab_active",
+                    "label": "Active",
+                    "name": "is_active",
+                    "type": "true_false",
+                    "instructions": "Is this tab active?",
+                    "required": 0,
+                    "default_value": 0,
+                    "ui": 1
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/how-to-start"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}
+

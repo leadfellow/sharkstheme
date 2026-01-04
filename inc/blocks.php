@@ -600,6 +600,22 @@ add_action('acf/init', function() {
         'mode'            => 'preview'
     ]);
 
+    // How to Start Block
+    acf_register_block_type([
+        'name'            => 'how-to-start',
+        'title'           => __('How to Start', 'sharks2025'),
+        'description'     => __('Two-column section with light and dark sides, icons, and tabs', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/how-to-start/how-to-start.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'columns',
+        'keywords'        => ['how', 'start', 'two-column', 'split', 'tabs', 'icons'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true
+        ],
+        'mode'            => 'preview'
+    ]);
+
     // Table 2 Block
     acf_register_block_type([
         'name'            => 'table-2',

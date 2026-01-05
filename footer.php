@@ -152,6 +152,91 @@ if (!defined('ABSPATH')) {
 
 <?php wp_footer(); ?>
 
+<!-- Modal for Header CTA -->
+<?php
+$cta_type = get_field('header_cta_type', 'option') ?: 'link';
+if ($cta_type === 'modal'):
+    $modal_title = get_field('header_cta_modal_title', 'option');
+    $modal_content = get_field('header_cta_modal_content', 'option');
+?>
+<div id="header-cta-modal" class="sharks-modal" style="display: none;">
+    <div class="sharks-modal__overlay"></div>
+    <div class="sharks-modal__container">
+        <div class="sharks-modal__content">
+            <button class="sharks-modal__close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M18 6L6 18M6 6l12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <?php if ($modal_title): ?>
+                <h2 class="sharks-modal__title"><?php echo esc_html($modal_title); ?></h2>
+            <?php endif; ?>
+            <div class="sharks-modal__body">
+                <?php echo wp_kses_post($modal_content); ?>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+<!-- Contact Form 7 Modal -->
+<?php
+if ($cta_type === 'contact_form'):
+    $cf7_shortcode = get_field('header_cta_cf7_shortcode', 'option');
+    $cf7_title = get_field('header_cta_cf7_title', 'option');
+?>
+<div id="header-cf7-modal" class="sharks-modal" style="display: none;">
+    <div class="sharks-modal__overlay"></div>
+    <div class="sharks-modal__container">
+        <div class="sharks-modal__content">
+            <button class="sharks-modal__close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M18 6L6 18M6 6l12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <?php if ($cf7_title): ?>
+                <h2 class="sharks-modal__title"><?php echo esc_html($cf7_title); ?></h2>
+            <?php endif; ?>
+            <div class="sharks-modal__body">
+                <?php 
+                if ($cf7_shortcode && function_exists('do_shortcode')) {
+                    echo do_shortcode($cf7_shortcode);
+                } else {
+                    echo '<p>Please add Contact Form 7 shortcode in Sharks Settings → Header CTA.</p>';
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+<!-- Calendly Modal -->
+<?php
+if ($cta_type === 'calendly'):
+    $calendly_url = get_field('header_cta_calendly_url', 'option');
+    $calendly_inline = get_field('header_cta_calendly_inline', 'option');
+    if ($calendly_inline && $calendly_url):
+?>
+<div id="calendly-modal" class="sharks-modal sharks-modal--calendly" style="display: none;">
+    <div class="sharks-modal__overlay"></div>
+    <div class="sharks-modal__container sharks-modal__container--large">
+        <div class="sharks-modal__content">
+            <button class="sharks-modal__close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M18 6L6 18M6 6l12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="sharks-modal__body sharks-modal__body--calendly">
+                <div class="calendly-inline-widget" data-url="<?php echo esc_url($calendly_url); ?>" style="min-width:320px;height:700px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Calendly widget script -->
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<?php endif; endif; ?>
+
 <script>
 // Simple mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
@@ -185,6 +270,70 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Modal functionality
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => modal.classList.add('is-active'), 10);
+        }
+    }
+    
+    function closeModal(modal) {
+        if (modal) {
+            modal.classList.remove('is-active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }, 300);
+        }
+    }
+    
+    // Header CTA Modal
+    const ctaButton = document.querySelector('[data-modal="header-cta"]');
+    if (ctaButton) {
+        ctaButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('header-cta-modal');
+        });
+    }
+    
+    // Contact Form 7 Modal
+    const cf7Button = document.querySelector('[data-modal="header-cf7"]');
+    if (cf7Button) {
+        cf7Button.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('header-cf7-modal');
+        });
+    }
+    
+    // Calendly Modal
+    const calendlyButton = document.querySelector('[data-calendly]');
+    if (calendlyButton) {
+        calendlyButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('calendly-modal');
+        });
+    }
+    
+    // Close modal buttons
+    document.querySelectorAll('.sharks-modal__close, .sharks-modal__overlay').forEach(function(el) {
+        el.addEventListener('click', function() {
+            const modal = this.closest('.sharks-modal');
+            closeModal(modal);
+        });
+    });
+    
+    // Close modal on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.sharks-modal.is-active').forEach(function(modal) {
+                closeModal(modal);
+            });
+        }
+    });
 });
 </script>
 

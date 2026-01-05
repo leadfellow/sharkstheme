@@ -237,6 +237,7 @@
 
   .ten-steps__container {
     max-width: 100%;
+    padding: 0 24px;
   }
 
   .ten-steps__header {
@@ -266,6 +267,10 @@
   .ten-steps__number {
     left: auto;
     right: 20px;
+    width: 40px;
+    height: 40px;
+    padding: 10px 8px;
+    font-size: 14px;
   }
 
   .ten-steps__card-heading {
@@ -294,6 +299,10 @@
     padding: 2.5rem 1rem;
   }
   
+  .ten-steps__container {
+    padding: 0 20px;
+  }
+  
   .ten-steps__heading {
     font-size: 36px;
     gap: 20px;
@@ -302,6 +311,14 @@
   .ten-steps__card {
     min-height: 260px;
     padding: 18px;
+  }
+  
+  .ten-steps__number {
+    width: 35px;
+    height: 35px;
+    padding: 8px 6px;
+    font-size: 12px;
+    right: 18px;
   }
   
   .ten-steps__card-heading {
@@ -317,6 +334,14 @@
   .ten-steps__heading {
     font-size: 32px;
     gap: 16px;
+  }
+  
+  .ten-steps__number {
+    width: 30px;
+    height: 30px;
+    padding: 6px 5px;
+    font-size: 11px;
+    right: 16px;
   }
   
   .ten-steps__card-heading {

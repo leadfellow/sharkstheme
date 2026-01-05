@@ -244,14 +244,68 @@
     padding: 80px 40px;
   }
   
+  .block-our-facts__hero {
+    width: auto;
+    height: auto;
+  }
+  
   .block-our-facts__hero-title {
+    width: 100%;
+    height: auto;
     font-size: 72px;
     letter-spacing: -3.6px;
   }
   
+  .block-our-facts__hero-content {
+    width: 100%;
+    max-width: 652px;
+    height: auto;
+  }
+  
+  .block-our-facts__description {
+    width: 100%;
+    height: auto;
+  }
+  
+  .block-our-facts__cta {
+    width: auto;
+    height: auto;
+  }
+  
+  .block-our-facts__cta span {
+    width: auto;
+    height: auto;
+  }
+  
+  .block-our-facts__stats {
+    width: 100%;
+    height: auto;
+  }
+  
+  .block-our-facts__stat-card {
+    width: auto;
+    height: auto;
+  }
+  
   .block-our-facts__stat-number {
+    width: 100%;
+    height: auto;
     font-size: 72px;
     letter-spacing: -3.6px;
+  }
+  
+  .block-our-facts__stat-divider {
+    width: 100%;
+  }
+  
+  .block-our-facts__stat-description {
+    width: 100%;
+    height: auto;
+  }
+  
+  .block-our-facts__x-icon {
+    left: auto;
+    right: 0;
   }
 }
 
@@ -270,8 +324,12 @@
     font-size: 16px;
   }
   
-  .block-our-facts__cta {
+  .block-our-facts__cta span {
     font-size: 18px;
+  }
+  
+  .block-our-facts__stats {
+    flex-wrap: wrap;
   }
   
   .block-our-facts__stat-card {
@@ -288,25 +346,30 @@
     height: 50px;
     top: 12px;
   }
+  
+  .block-our-facts__x-icon svg {
+    width: 50px;
+    height: 50px;
+  }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .block-our-facts__container {
     padding: 50px 24px;
     gap: 40px;
   }
   
   .block-our-facts__hero-title {
-    font-size: 48px;
-    letter-spacing: -2.4px;
+    font-size: 42px;
+    letter-spacing: -2.1px;
   }
   
   .block-our-facts__description {
     font-size: 16px;
   }
   
-  .block-our-facts__cta {
-    font-size: 18px;
+  .block-our-facts__cta span {
+    font-size: 16px;
   }
   
   .block-our-facts__arrow-icon {
@@ -315,11 +378,12 @@
   }
   
   .block-our-facts__stats {
+    flex-direction: column;
     gap: 30px;
   }
   
   .block-our-facts__stat-card {
-    width: calc(50% - 15px);
+    width: 100%;
   }
   
   .block-our-facts__stat-number {
@@ -335,12 +399,12 @@
     width: 40px;
     height: 40px;
     top: 10px;
+    right: 0;
   }
-}
-
-@media (max-width: 480px) {
-  .block-our-facts__stat-card {
-    width: 100%;
+  
+  .block-our-facts__x-icon svg {
+    width: 40px;
+    height: 40px;
   }
 }
 

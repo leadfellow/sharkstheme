@@ -285,5 +285,67 @@
     width: 48px;
     height: 48px;
   }
+  
+  .how-to-start__tabs {
+    gap: 8px 20px;
+  }
+  
+  .how-to-start__tab-label {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-to-start__title {
+    font-size: 32px;
+    letter-spacing: -1.6px;
+  }
+  
+  .how-to-start__description,
+  .how-to-start__main-title {
+    font-size: 18px;
+    letter-spacing: -0.9px;
+  }
+  
+  .how-to-start__text-content p {
+    font-size: 15px;
+  }
+  
+  .how-to-start__content-light,
+  .how-to-start__content-dark {
+    padding: 40px 20px;
+    min-height: 80vh;
+  }
+  
+  .how-to-start__section {
+    min-height: 80vh;
+  }
+  
+  .how-to-start__icons {
+    gap: 15px;
+  }
+  
+  .how-to-start__icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .how-to-start__top-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .how-to-start__tabs {
+    gap: 6px 15px;
+  }
+  
+  .how-to-start__tab-label {
+    font-size: 16px;
+  }
+  
+  .how-to-start__tab-dot {
+    width: 6px;
+    height: 6px;
+  }
 }
 

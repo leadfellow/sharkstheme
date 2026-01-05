@@ -208,6 +208,19 @@
   .block-max-accordion {
     padding: 80px 40px;
   }
+  
+  .block-max-accordion__item {
+    width: 100%;
+  }
+  
+  .block-max-accordion__header-content-wrapper {
+    max-width: 100%;
+  }
+  
+  .block-max-accordion__item.is-expanded .block-max-accordion__content {
+    width: 100%;
+    max-width: 665px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -217,10 +230,14 @@
   }
   
   .block-max-accordion__content-wrapper {
-    display: block;
+    max-width: 100%;
   }
   
   .block-max-accordion__description {
+    max-width: 100%;
+  }
+  
+  .block-max-accordion__item.is-expanded .block-max-accordion__content {
     max-width: 100%;
   }
 }
@@ -232,8 +249,25 @@
 }
 
 @media (max-width: 768px) {
+  .block-max-accordion {
+    padding: 50px 24px;
+  }
+  
+  .block-max-accordion__header {
+    padding: 0 0 20px 0;
+    flex-wrap: wrap;
+  }
+  
+  .block-max-accordion__header-content-wrapper {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding-right: 50px;
+  }
+  
   .block-max-accordion__header-title-wrapper {
     gap: 20px;
+    width: 100%;
   }
   
   .block-max-accordion__number,
@@ -246,6 +280,16 @@
     width: 50px;
   }
   
+  .block-max-accordion__title {
+    white-space: normal;
+    flex: 1;
+  }
+  
+  .block-max-accordion__item.is-expanded .block-max-accordion__content {
+    width: 100%;
+    padding-top: 10px;
+  }
+  
   .block-max-accordion__description {
     max-width: 100%;
   }
@@ -256,29 +300,109 @@
   
   .block-max-accordion__service-link {
     font-size: 18px;
+    white-space: normal;
   }
   
-  .block-max-accordion__header {
-    padding: 0 15px 20px 15px;
-  }
-  
-  .block-max-accordion__content {
-    padding: 0 15px 20px 15px;
-    padding-left: 15px;
+  .block-max-accordion__icon-wrapper {
+    right: 0;
   }
 }
 
 @media (max-width: 640px) {
   .block-max-accordion {
-    padding: 50px 20px;
+    padding: 40px 20px;
   }
   
+  .block-max-accordion__header-content-wrapper {
+    padding-right: 40px;
+  }
+  
+  .block-max-accordion__header-title-wrapper {
+    gap: 15px;
+  }
+  
+  .block-max-accordion__number,
   .block-max-accordion__title {
-    white-space: normal;
+    font-size: 20px;
+    letter-spacing: -1px;
+  }
+  
+  .block-max-accordion__number {
+    width: 40px;
+  }
+  
+  .block-max-accordion__description p {
+    font-size: 15px;
+  }
+  
+  .block-max-accordion__service-link {
+    font-size: 16px;
+    line-height: 22px;
   }
   
   .block-max-accordion__services-grid {
     gap: 15px;
+  }
+  
+  .block-max-accordion__icon-wrapper {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .block-max-accordion {
+    padding: 30px 16px;
+  }
+  
+  .block-max-accordion__header {
+    padding: 0 0 16px 0;
+  }
+  
+  .block-max-accordion__header-content-wrapper {
+    gap: 16px;
+    padding-right: 36px;
+  }
+  
+  .block-max-accordion__header-title-wrapper {
+    gap: 12px;
+  }
+  
+  .block-max-accordion__number,
+  .block-max-accordion__title {
+    font-size: 18px;
+    letter-spacing: -0.9px;
+  }
+  
+  .block-max-accordion__number {
+    width: 35px;
+  }
+  
+  .block-max-accordion__description p {
+    font-size: 14px;
+  }
+  
+  .block-max-accordion__service-link {
+    font-size: 15px;
+    line-height: 20px;
+  }
+  
+  .block-max-accordion__arrow-icon {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .block-max-accordion__icon-wrapper {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .block-max-accordion__item.is-expanded .block-max-accordion__content {
+    gap: 30px;
+  }
+  
+  .block-max-accordion__content-wrapper {
+    gap: 30px;
   }
 }
 

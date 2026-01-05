@@ -75,8 +75,49 @@ if (!defined('ABSPATH')) {
                 </nav>
                 
                 <!-- CTA Button -->
-                <a href="#contact" class="site-cta btn btn--primary">
-                    Küsi pakkumist 
+                <?php
+                // Get CTA settings from Sharks Settings
+                $cta_type = get_field('header_cta_type', 'option') ?: 'link';
+                $cta_text = get_field('header_cta_text', 'option') ?: 'Küsi pakkumist';
+                $cta_link = get_field('header_cta_link', 'option') ?: '#contact';
+                $cta_modal_title = get_field('header_cta_modal_title', 'option');
+                $cta_modal_content = get_field('header_cta_modal_content', 'option');
+                $cta_cf7_shortcode = get_field('header_cta_cf7_shortcode', 'option');
+                $cta_cf7_title = get_field('header_cta_cf7_title', 'option');
+                $cta_calendly_url = get_field('header_cta_calendly_url', 'option');
+                $cta_calendly_inline = get_field('header_cta_calendly_inline', 'option');
+                
+                // Determine href and data attributes
+                $href = '#';
+                $data_attrs = '';
+                $onclick = '';
+                
+                switch ($cta_type) {
+                    case 'modal':
+                        $href = '#';
+                        $data_attrs = ' data-modal="header-cta"';
+                        break;
+                    case 'contact_form':
+                        $href = '#';
+                        $data_attrs = ' data-modal="header-cf7"';
+                        break;
+                    case 'calendly':
+                        if ($cta_calendly_inline) {
+                            $href = '#';
+                            $data_attrs = ' data-calendly="' . esc_url($cta_calendly_url) . '"';
+                        } else {
+                            $href = esc_url($cta_calendly_url);
+                            $data_attrs = ' target="_blank" rel="noopener"';
+                        }
+                        break;
+                    case 'link':
+                    default:
+                        $href = esc_url($cta_link);
+                        break;
+                }
+                ?>
+                <a href="<?php echo $href; ?>" class="site-cta btn btn--primary"<?php echo $data_attrs; ?>>
+                    <?php echo esc_html($cta_text); ?> 
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor">
                         <path d="M1 8h14M9 2l6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>

@@ -151,6 +151,12 @@ add_action('acf/init', function() {
         ]);
         
         acf_add_options_sub_page([
+            'page_title'    => __('Header CTA', 'sharks2025'),
+            'menu_title'    => __('Header CTA', 'sharks2025'),
+            'parent_slug'   => 'sharks-settings',
+        ]);
+        
+        acf_add_options_sub_page([
             'page_title'    => __('System Status', 'sharks2025'),
             'menu_title'    => __('System Status', 'sharks2025'),
             'parent_slug'   => 'sharks-settings',
@@ -817,6 +823,212 @@ add_action('acf/init', function() {
                         'param' => 'options_page',
                         'operator' => '==',
                         'value' => 'acf-options-blog-settings',
+                    ],
+                ],
+            ],
+            'menu_order' => 0,
+            'position' => 'normal',
+            'style' => 'seamless',
+        ]);
+        
+        // Header CTA Settings Group
+        acf_add_local_field_group([
+            'key' => 'group_header_cta',
+            'title' => 'Header CTA Button Settings',
+            'fields' => [
+                // Instructions
+                [
+                    'key' => 'field_header_cta_instructions',
+                    'label' => 'How to Configure',
+                    'name' => '',
+                    'type' => 'message',
+                    'message' => '<h3>🎯 Header CTA Button</h3>
+                        <p>Configure the "Küsi pakkumist" button in the header. You can choose between:</p>
+                        <ul>
+                            <li><strong>Link:</strong> Direct link to a page or section (e.g., #contact, /contact-us)</li>
+                            <li><strong>Modal:</strong> Open a popup with custom content (WYSIWYG editor)</li>
+                            <li><strong>Contact Form 7:</strong> Open Contact Form 7 in a popup (just paste shortcode)</li>
+                            <li><strong>Calendly:</strong> Open Calendly booking widget</li>
+                        </ul>',
+                    'new_lines' => 'wpautop',
+                ],
+                
+                // CTA Type
+                [
+                    'key' => 'field_header_cta_type',
+                    'label' => 'CTA Type',
+                    'name' => 'header_cta_type',
+                    'type' => 'select',
+                    'instructions' => 'Choose how the CTA button should work',
+                    'choices' => [
+                        'link' => 'Link (Default)',
+                        'modal' => 'Modal Popup',
+                        'contact_form' => 'Contact Form 7',
+                        'calendly' => 'Calendly',
+                    ],
+                    'default_value' => 'link',
+                    'allow_null' => 0,
+                    'multiple' => 0,
+                    'ui' => 1,
+                    'return_format' => 'value',
+                ],
+                
+                // CTA Text
+                [
+                    'key' => 'field_header_cta_text',
+                    'label' => 'Button Text',
+                    'name' => 'header_cta_text',
+                    'type' => 'text',
+                    'instructions' => 'Text displayed on the button',
+                    'default_value' => 'Küsi pakkumist',
+                    'placeholder' => 'Küsi pakkumist',
+                ],
+                
+                // Link URL (conditional)
+                [
+                    'key' => 'field_header_cta_link',
+                    'label' => 'Link URL',
+                    'name' => 'header_cta_link',
+                    'type' => 'text',
+                    'instructions' => 'Enter URL or anchor (e.g., #contact, /contact-us, https://example.com)',
+                    'default_value' => '#contact',
+                    'placeholder' => '#contact',
+                    'conditional_logic' => [
+                        [
+                            [
+                                'field' => 'field_header_cta_type',
+                                'operator' => '==',
+                                'value' => 'link',
+                            ],
+                        ],
+                    ],
+                ],
+                
+                // Modal Content (conditional)
+                [
+                    'key' => 'field_header_cta_modal_title',
+                    'label' => 'Modal Title',
+                    'name' => 'header_cta_modal_title',
+                    'type' => 'text',
+                    'instructions' => 'Title shown in the modal popup',
+                    'default_value' => 'Küsi pakkumist',
+                    'placeholder' => 'Küsi pakkumist',
+                    'conditional_logic' => [
+                        [
+                            [
+                                'field' => 'field_header_cta_type',
+                                'operator' => '==',
+                                'value' => 'modal',
+                            ],
+                        ],
+                    ],
+                ],
+                
+                [
+                    'key' => 'field_header_cta_modal_content',
+                    'label' => 'Modal Content',
+                    'name' => 'header_cta_modal_content',
+                    'type' => 'wysiwyg',
+                    'instructions' => 'Content to display in the modal. You can add Contact Form 7 shortcode here.',
+                    'tabs' => 'all',
+                    'toolbar' => 'full',
+                    'media_upload' => 1,
+                    'delay' => 0,
+                    'conditional_logic' => [
+                        [
+                            [
+                                'field' => 'field_header_cta_type',
+                                'operator' => '==',
+                                'value' => 'modal',
+                            ],
+                        ],
+                    ],
+                ],
+                
+                // Contact Form 7 Shortcode (conditional)
+                [
+                    'key' => 'field_header_cta_cf7_shortcode',
+                    'label' => 'Contact Form 7 Shortcode',
+                    'name' => 'header_cta_cf7_shortcode',
+                    'type' => 'text',
+                    'instructions' => 'Paste your Contact Form 7 shortcode here (e.g., [contact-form-7 id="123" title="Contact form"])',
+                    'placeholder' => '[contact-form-7 id="123" title="Contact form"]',
+                    'conditional_logic' => [
+                        [
+                            [
+                                'field' => 'field_header_cta_type',
+                                'operator' => '==',
+                                'value' => 'contact_form',
+                            ],
+                        ],
+                    ],
+                ],
+                
+                [
+                    'key' => 'field_header_cta_cf7_title',
+                    'label' => 'Form Modal Title',
+                    'name' => 'header_cta_cf7_title',
+                    'type' => 'text',
+                    'instructions' => 'Optional title shown above the form in modal',
+                    'default_value' => 'Küsi pakkumist',
+                    'placeholder' => 'Küsi pakkumist',
+                    'conditional_logic' => [
+                        [
+                            [
+                                'field' => 'field_header_cta_type',
+                                'operator' => '==',
+                                'value' => 'contact_form',
+                            ],
+                        ],
+                    ],
+                ],
+                
+                // Calendly URL (conditional)
+                [
+                    'key' => 'field_header_cta_calendly_url',
+                    'label' => 'Calendly URL',
+                    'name' => 'header_cta_calendly_url',
+                    'type' => 'url',
+                    'instructions' => 'Your Calendly booking page URL (e.g., https://calendly.com/your-username/30min)',
+                    'placeholder' => 'https://calendly.com/your-username/30min',
+                    'conditional_logic' => [
+                        [
+                            [
+                                'field' => 'field_header_cta_type',
+                                'operator' => '==',
+                                'value' => 'calendly',
+                            ],
+                        ],
+                    ],
+                ],
+                
+                // Calendly Options
+                [
+                    'key' => 'field_header_cta_calendly_inline',
+                    'label' => 'Calendly Display Mode',
+                    'name' => 'header_cta_calendly_inline',
+                    'type' => 'true_false',
+                    'instructions' => 'Enable to show Calendly in a modal popup instead of opening in new tab',
+                    'message' => 'Show in modal popup',
+                    'default_value' => 1,
+                    'ui' => 1,
+                    'conditional_logic' => [
+                        [
+                            [
+                                'field' => 'field_header_cta_type',
+                                'operator' => '==',
+                                'value' => 'calendly',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'location' => [
+                [
+                    [
+                        'param' => 'options_page',
+                        'operator' => '==',
+                        'value' => 'acf-options-header-cta',
                     ],
                 ],
             ],

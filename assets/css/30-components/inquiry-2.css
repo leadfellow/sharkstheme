@@ -177,10 +177,11 @@
 
 /* Submit Section */
 .block-inquiry-2__submit-section {
-    flex: 1;
+    flex: 0 1 auto;
+    max-width: 450px;
     background-color: #000;
     height: 260px;
-    min-width: 0;
+    min-width: 280px;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -473,6 +474,7 @@
 
     .block-inquiry-2__submit-section {
         width: 100%;
+        max-width: 100%;
         height: 200px;
     }
 

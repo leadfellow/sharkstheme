@@ -271,27 +271,34 @@
   
   .block-testimonials__inner {
     gap: 40px;
+    padding: 0 20px;
   }
   
   .block-testimonials__header {
     flex-direction: column;
     gap: 20px;
     align-items: flex-start;
+    padding-left: 0;
   }
   
   .block-testimonials__title-wrapper {
     position: static;
     transform: none;
+    align-items: flex-start;
+    padding-left: 0;
   }
   
   .block-testimonials__title {
     font-size: clamp(36px, 8vw, 52px);
     white-space: normal;
+    text-align: left;
+    padding-left: 0;
   }
   
   .block-testimonials__subtitle {
     margin-left: 0;
     text-align: left;
+    padding-left: 0;
   }
   
   .block-testimonials__counter,
@@ -306,6 +313,8 @@
   
   .block-testimonials__text {
     font-size: clamp(24px, 5vw, 32px);
+    text-align: left;
+    padding: 0 20px;
   }
   
   .block-testimonials__nav {
@@ -335,8 +344,16 @@
     gap: 30px;
   }
   
+  .block-testimonials__inner {
+    padding: 0 10px;
+  }
+  
   .block-testimonials__title {
     font-size: clamp(28px, 10vw, 42px);
+  }
+  
+  .block-testimonials__text {
+    padding: 0 10px;
   }
   
   .block-testimonials__slides-wrapper {

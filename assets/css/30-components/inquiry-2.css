@@ -95,6 +95,7 @@
 .block-inquiry-2__form-wrapper {
     background-color: #fff;
     width: 100%;
+    overflow: hidden;
 }
 
 .block-inquiry-2__form-container {
@@ -247,7 +248,9 @@
     display: flex;
     gap: 20px;
     width: 100%;
+    max-width: 100%;
     height: 65px;
+    overflow: hidden;
 }
 
 .block-inquiry-2__form-fields .inquiry-col {
@@ -257,27 +260,33 @@
     height: 65px;
     display: flex;
     align-items: flex-start;
+    overflow: hidden;
+    max-width: 100%;
 }
 
 /* Full width field wrapper */
 .block-inquiry-2__form-fields .inquiry-full {
     width: 100%;
+    max-width: 100%;
     border-bottom: 1px solid #BBBAB6;
     padding: 20px 10px;
     height: 65px;
     min-height: 65px;
+    overflow: hidden;
 }
 
 /* Field wrapper with border bottom */
 .block-inquiry-2__form-fields label {
     display: flex;
     width: 100%;
+    max-width: 100%;
     font-family: 'Helvetica', Arial, sans-serif;
     font-size: 0;
     color: transparent;
     position: relative;
     flex: 1;
     align-items: flex-start;
+    overflow: hidden;
 }
 
 .block-inquiry-2__form-fields label > * {
@@ -289,6 +298,8 @@
     display: flex;
     flex: 1;
     width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .block-inquiry-2__form-fields input[type="text"],
@@ -316,10 +327,12 @@
     opacity: 1 !important;
     outline: none !important;
     width: 100% !important;
+    max-width: 100% !important;
     height: 25px !important;
     box-shadow: none !important;
     position: relative !important;
     z-index: 10 !important;
+    box-sizing: border-box !important;
 }
 
 .block-inquiry-2__form-fields input:focus,
@@ -365,33 +378,41 @@
 
 /* Form validation messages */
 .block-inquiry-2__form-fields .wpcf7-not-valid-tip {
-    color: var(--color-error);
+    color: #dc2626;
     font-size: 0.875rem;
     font-weight: 400;
     margin-top: 0.375rem;
     font-family: var(--font-sans);
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 .block-inquiry-2__form-fields .wpcf7-response-output {
     margin-top: 1rem;
-    padding: var(--space-3);
-    border-radius: var(--radius-lg);
-    font-size: var(--fs-body);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
     font-weight: 500;
     font-family: var(--font-sans);
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 .block-inquiry-2__form-fields .wpcf7-mail-sent-ok {
-    background: var(--color-success-light);
-    border: 1px solid var(--color-success-border);
-    color: var(--color-success-text);
+    background: #d1fae5;
+    border: 1px solid #6ee7b7;
+    color: #065f46;
 }
 
 .block-inquiry-2__form-fields .wpcf7-validation-errors,
 .block-inquiry-2__form-fields .wpcf7-mail-sent-ng {
-    background: var(--color-error-light);
-    border: 1px solid var(--color-error-border);
-    color: var(--color-error-text);
+    background: #fee2e2;
+    border: 1px solid #fca5a5;
+    color: #991b1b;
 }
 
 /* Invalid input styling */
@@ -459,32 +480,183 @@
 
     .block-inquiry-2__form-content > div {
         flex-direction: column;
-        gap: 30px;
+        gap: 0;
     }
-
+    
+    /* Mobile Form Layout - Each field on its own line */
+    .block-inquiry-2__form-fields .wpcf7-form {
+        flex-direction: column;
+        gap: 0;
+    }
+    
     .block-inquiry-2__form-fields .inquiry-row {
         flex-direction: column;
-        gap: 30px;
+        gap: 0;
         height: auto;
     }
 
     .block-inquiry-2__form-fields .inquiry-col {
         width: 100%;
     }
+    
+    .block-inquiry-2__form-fields .inquiry-full {
+        width: 100%;
+    }
 
+    /* Submit Section - Full width with white background */
     .block-inquiry-2__submit-section {
         width: 100%;
         max-width: 100%;
-        height: 200px;
+        background: #FFFFFF;
+        border-top: 1px solid #BBBAB6;
+        height: auto;
+        min-height: 100px;
+        position: relative;
+        margin-top: 0;
     }
 
     .block-inquiry-2__submit-content {
-        height: 200px;
+        height: auto;
+        min-height: 100px;
+        padding: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-
+    
+    .block-inquiry-2__submit-content > div {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+    }
+    
+    /* Hide submit text on mobile */
     .block-inquiry-2__submit-text {
+        display: none;
+    }
+    
+    /* Centered circular button */
+    .block-inquiry-2__arrow-icon {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        background: #000000;
+        border: none;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+    
+    .block-inquiry-2__arrow-icon:hover {
+        background: #333333;
+        transform: scale(1.05);
+    }
+    
+    .block-inquiry-2__arrow-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 640px) {
+    .block-inquiry-2__wrapper {
+        padding: 40px 20px;
+    }
+    
+    .block-inquiry-2__title-line-1 p,
+    .block-inquiry-2__title-line-2 p {
+        font-size: 32px;
+        letter-spacing: -1.6px;
+    }
+    
+    .block-inquiry-2__title-line-2 {
+        gap: 15px;
+    }
+    
+    .block-inquiry-2__icon-x,
+    .block-inquiry-2__icon-asterisk {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .block-inquiry-2__form-content {
+        padding: 20px;
+    }
+    
+    .block-inquiry-2__submit-content {
+        padding: 20px;
+        min-height: 90px;
+    }
+    
+    .block-inquiry-2__arrow-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .block-inquiry-2__arrow-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .block-inquiry-2__wrapper {
+        padding: 30px 16px;
+    }
+    
+    .block-inquiry-2__title-line-1 p,
+    .block-inquiry-2__title-line-2 p {
         font-size: 28px;
         letter-spacing: -1.4px;
+    }
+    
+    .block-inquiry-2__title-line-2 {
+        gap: 12px;
+    }
+    
+    .block-inquiry-2__icon-x,
+    .block-inquiry-2__icon-asterisk {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .block-inquiry-2__form-content {
+        padding: 16px;
+    }
+    
+    .block-inquiry-2__form-fields input[type="text"],
+    .block-inquiry-2__form-fields input[type="email"],
+    .block-inquiry-2__form-fields input[type="tel"],
+    .block-inquiry-2__form-fields textarea,
+    .block-inquiry-2__form-fields .wpcf7-text,
+    .block-inquiry-2__form-fields .wpcf7-email,
+    .block-inquiry-2__form-fields .wpcf7-tel,
+    .block-inquiry-2__form-fields .wpcf7-textarea,
+    .block-inquiry-2__form-fields input,
+    .block-inquiry-2__form-fields textarea {
+        font-size: 16px !important;
+    }
+    
+    .block-inquiry-2__submit-content {
+        padding: 16px;
+        min-height: 80px;
+    }
+    
+    .block-inquiry-2__arrow-icon {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .block-inquiry-2__arrow-icon svg {
+        width: 24px;
+        height: 24px;
     }
 }
 

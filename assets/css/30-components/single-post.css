@@ -1,0 +1,508 @@
+/* Single Post */
+.single-post {
+    margin: 0;
+    padding: 0;
+}
+
+/* Post Header */
+.single-post-header {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 152px 58px 0;
+}
+
+/* Post Title */
+.single-post-title {
+    font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 82px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -4.1px;
+    text-transform: uppercase;
+    margin: 0 0 62px 0;
+    color: #000;
+}
+
+/* Meta Row */
+.single-post-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 22px;
+}
+
+/* Post Meta */
+.single-post-meta {
+    display: flex;
+    gap: 42px;
+}
+
+.single-post-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.single-post-meta-label {
+    font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -1.3px;
+    text-transform: uppercase;
+    color: #BBBAB6;
+}
+
+.single-post-meta-value {
+    font-size: 18px;
+    line-height: 1.4;
+    color: #000;
+}
+
+/* Share Buttons */
+.single-post-share {
+    display: flex;
+    gap: 16px;
+}
+
+.single-post-share-btn {
+    width: 52px;
+    height: 52px;
+    background: #000;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.single-post-share-btn:hover {
+    background: #F237A6;
+    transform: scale(1.05);
+}
+
+.single-post-share-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Hero Image */
+.single-post-hero-image {
+    width: 100%;
+    height: 635px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.single-post-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Post Content */
+.single-post-content {
+    max-width: 652px;
+    margin: 0 auto;
+    padding: 120px 58px 80px;
+    background: #fff;
+}
+
+.single-post-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    color: #333 !important;
+}
+
+.single-post-content * {
+    color: #333;
+}
+
+.single-post-content h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin: 48px 0 24px 0;
+    color: #000 !important;
+}
+
+.single-post-content h3 {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 36px 0 20px 0;
+    color: #000 !important;
+}
+
+.single-post-content h4 {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 28px 0 16px 0;
+    color: #000 !important;
+}
+
+.single-post-content ul,
+.single-post-content ol {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    padding-left: 28px;
+    color: #333;
+}
+
+.single-post-content li {
+    margin-bottom: 12px;
+    color: #333 !important;
+}
+
+.single-post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 32px 0;
+}
+
+.single-post-content blockquote {
+    border-left: 4px solid #f237a6;
+    padding-left: 24px;
+    margin: 32px 0;
+    font-size: 20px;
+    font-style: italic;
+    color: #666 !important;
+}
+
+.single-post-content blockquote * {
+    color: #666 !important;
+}
+
+.single-post-content a {
+    color: #f237a6;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.single-post-content a:hover {
+    color: #000;
+}
+
+/* Post Tags */
+.single-post-tags {
+    max-width: 652px;
+    margin: 0 auto;
+    padding: 0 58px 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.tags-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #666;
+}
+
+.single-post-tags a {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #f5f5f5;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.single-post-tags a:hover {
+    background: #f237a6;
+    color: white;
+}
+
+/* Related Posts */
+.related-posts {
+    background: #F7F7F5;
+    padding: 120px 0;
+}
+
+.related-posts-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 58px;
+}
+
+.related-posts-header {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 62px;
+}
+
+.related-posts-title {
+    font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 82px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -4.1px;
+    text-transform: uppercase;
+    margin: 0;
+    color: #000;
+}
+
+.related-posts-icon {
+    width: 62px;
+    height: 62px;
+    flex-shrink: 0;
+}
+
+.related-posts-grid {
+    display: flex;
+    gap: 20px;
+}
+
+/* Related Post Card */
+.related-post-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.related-post-image {
+    width: 100%;
+    height: 428px;
+    display: block;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.related-post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+.related-post-card:hover .related-post-image img {
+    transform: scale(1.05);
+}
+
+.related-post-category {
+    font-size: 18px;
+    font-weight: 700;
+    color: #F237A6;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.related-post-title {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -1.8px;
+    color: #000;
+    margin: 0 0 10px 0;
+    transition: color 0.3s ease;
+}
+
+.related-post-card:hover .related-post-title {
+    color: #F237A6;
+}
+
+.related-post-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: underline;
+    font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.6px;
+    color: #000;
+    padding: 10px 0;
+    text-decoration-skip-ink: none;
+    text-underline-position: from-font;
+    transition: color 0.3s ease;
+}
+
+.related-post-card:hover .related-post-link {
+    color: #F237A6;
+}
+
+.related-arrow-icon {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.related-post-card:hover .related-arrow-icon {
+    transform: translateX(4px);
+}
+
+.related-arrow-icon .arrow-bg {
+    transition: fill 0.3s ease;
+}
+
+.related-post-card:hover .related-arrow-icon .arrow-bg {
+    fill: #F237A6;
+}
+
+/* Responsive */
+@media (max-width: 920px) {
+    .single-post-header {
+        padding: 100px 20px 0;
+    }
+
+    .single-post-title {
+        font-size: 48px;
+        letter-spacing: -2.4px;
+        margin-bottom: 40px;
+    }
+
+    .single-post-meta {
+        gap: 30px;
+    }
+
+    .single-post-meta-label {
+        font-size: 20px;
+        letter-spacing: -1px;
+    }
+
+    .single-post-meta-value {
+        font-size: 16px;
+    }
+
+    .single-post-hero-image {
+        height: 400px;
+    }
+
+    .single-post-content {
+        padding: 80px 20px 60px;
+    }
+    
+    .single-post-tags {
+        padding: 0 20px 60px;
+    }
+
+    .single-post-tags {
+        padding: 0 20px 60px;
+    }
+
+    .related-posts {
+        padding: 80px 0;
+    }
+
+    .related-posts-container {
+        padding: 0 20px;
+    }
+
+    .related-posts-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 40px;
+    }
+
+    .related-posts-title {
+        font-size: 48px;
+        letter-spacing: -2.4px;
+    }
+
+    .related-posts-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .related-posts-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .single-post-header {
+        padding: 60px 20px 0;
+    }
+
+    .single-post-title {
+        font-size: 36px;
+        letter-spacing: -1.8px;
+        margin-bottom: 30px;
+    }
+
+    .single-post-meta-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .single-post-meta {
+        gap: 20px;
+    }
+
+    .single-post-meta-label {
+        font-size: 16px;
+        letter-spacing: -0.8px;
+    }
+
+    .single-post-meta-value {
+        font-size: 14px;
+    }
+
+    .single-post-share-btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    .single-post-hero-image {
+        height: 300px;
+    }
+
+    .single-post-content p {
+        font-size: 16px;
+    }
+
+    .single-post-content h2 {
+        font-size: 28px;
+    }
+
+    .single-post-content h3 {
+        font-size: 22px;
+    }
+
+    .related-posts-title {
+        font-size: 36px;
+        letter-spacing: -1.8px;
+    }
+
+    .related-posts-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .related-post-card {
+        width: 100%;
+    }
+
+    .related-post-image {
+        height: auto;
+        aspect-ratio: 1;
+    }
+
+    .related-post-title {
+        font-size: 28px;
+        letter-spacing: -1.4px;
+    }
+
+    .related-post-link {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,99 @@
+{
+    "key": "group_why_sharks_block",
+    "title": "Why Sharks Block",
+    "fields": [
+        {
+            "key": "field_why_sharks_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"why-sharks\", \"meist\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #why-sharks",
+            "required": 0,
+            "placeholder": "nt. why-sharks, meist",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_why_sharks_section_title",
+            "label": "Section Title",
+            "name": "section_title",
+            "type": "text",
+            "instructions": "Small uppercase title (e.g., 'meist')",
+            "required": 0,
+            "default_value": "meist",
+            "placeholder": "meist"
+        },
+        {
+            "key": "field_why_sharks_main_heading_line1",
+            "label": "Main Heading - Line 1",
+            "name": "main_heading_line1",
+            "type": "text",
+            "instructions": "First line of the main heading",
+            "required": 1,
+            "default_value": "Marketing Sharks on piisavalt suur,",
+            "placeholder": "Marketing Sharks on piisavalt suur,"
+        },
+        {
+            "key": "field_why_sharks_main_heading_line2",
+            "label": "Main Heading - Line 2",
+            "name": "main_heading_line2",
+            "type": "text",
+            "instructions": "Second line of the main heading",
+            "required": 1,
+            "default_value": "et võtta vastu mistahes väljakutse ja piisavalt väike, et klientidest hoolida.",
+            "placeholder": "et võtta vastu mistahes väljakutse ja piisavalt väike, et klientidest hoolida."
+        },
+        {
+            "key": "field_why_sharks_description",
+            "label": "Description",
+            "name": "description",
+            "type": "textarea",
+            "instructions": "Description text below the heading",
+            "required": 0,
+            "rows": 4,
+            "default_value": "Hea koostöö üheks aluseks on ühiste eesmärkide seadmine ning selle elluviimine. Mõtleme kliendiga kaasa ja lähtume tema eesmärkidest. Uurides klientidelt tagasisidet siis paljud kliendid valivad Marketing Sharksi, sest:",
+            "placeholder": "Hea koostöö üheks aluseks on ühiste eesmärkide seadmine..."
+        },
+        {
+            "key": "field_why_sharks_cards",
+            "label": "Reason Cards",
+            "name": "cards",
+            "type": "repeater",
+            "instructions": "Add up to 5 reason cards. Cards will be automatically numbered (01, 02, etc.)",
+            "required": 0,
+            "min": 0,
+            "max": 5,
+            "layout": "block",
+            "button_label": "Add Card",
+            "sub_fields": [
+                {
+                    "key": "field_why_sharks_card_text",
+                    "label": "Card Text",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "Reason text for this card",
+                    "required": 1,
+                    "placeholder": "lähtume kliendist ja tema vajadustest"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/why-sharks"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

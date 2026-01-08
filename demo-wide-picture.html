@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wide Picture Block Demo - Sharks 2025</title>
+    <link rel="stylesheet" href="assets/css/00-settings/variables.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+            line-height: 1.6;
+            color: var(--color-text, #1a1a1a);
+            background: var(--color-bg, #ffffff);
+        }
+
+        .demo-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .demo-header h1 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .demo-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .demo-section {
+            padding: 3rem 0;
+        }
+
+        .demo-section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            padding: 0 2rem;
+        }
+
+        .demo-section-desc {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+            padding: 0 2rem;
+        }
+
+        .demo-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+            margin: 4rem 0;
+        }
+
+        /* Import Wide Picture styles */
+        @import url('./assets/css/30-components/wide-picture.css');
+
+        /* Demo-specific overrides */
+        .demo-container {
+            max-width: 100%;
+            background: #f9fafb;
+        }
+
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 2rem auto;
+            max-width: 1440px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .code-block code {
+            color: #94a3b8;
+        }
+
+        .demo-note {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.5rem;
+            margin: 2rem auto;
+            max-width: 1440px;
+            border-radius: 4px;
+        }
+
+        .demo-note strong {
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <header class="demo-header">
+        <h1>🖼️ Wide Picture Block</h1>
+        <p>Full-width image component with customizable spacing and styling</p>
+    </header>
+
+    <main>
+        <!-- Example 1: Default -->
+        <section class="demo-section">
+            <h2 class="demo-section-title">Default Style</h2>
+            <p class="demo-section-desc">Medium spacing, no border radius, no shadow</p>
+            
+            <div class="block-wide-picture spacing-top-medium spacing-bottom-medium radius-none">
+                <div class="block-wide-picture__container">
+                    <figure class="block-wide-picture__figure">
+                        <img 
+                            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=600&fit=crop" 
+                            alt="Developer workspace with laptop and code"
+                            class="block-wide-picture__image"
+                        />
+                        <figcaption class="block-wide-picture__caption">
+                            A modern developer workspace
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <code>
+&lt;div class="block-wide-picture spacing-top-medium spacing-bottom-medium radius-none"&gt;<br>
+&nbsp;&nbsp;&lt;div class="block-wide-picture__container"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;figure class="block-wide-picture__figure"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="..." alt="..." class="block-wide-picture__image" /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;figcaption class="block-wide-picture__caption"&gt;Caption&lt;/figcaption&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/figure&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&lt;/div&gt;
+                </code>
+            </div>
+        </section>
+
+        <div class="demo-divider"></div>
+
+        <!-- Example 2: With Border Radius -->
+        <section class="demo-section">
+            <h2 class="demo-section-title">Medium Border Radius</h2>
+            <p class="demo-section-desc">Rounded corners for a softer look</p>
+            
+            <div class="block-wide-picture spacing-top-medium spacing-bottom-medium radius-medium">
+                <div class="block-wide-picture__container">
+                    <figure class="block-wide-picture__figure">
+                        <img 
+                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop" 
+                            alt="Business analytics dashboard"
+                            class="block-wide-picture__image"
+                        />
+                        <figcaption class="block-wide-picture__caption">
+                            Analytics dashboard with real-time data
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <div class="demo-divider"></div>
+
+        <!-- Example 3: With Shadow -->
+        <section class="demo-section">
+            <h2 class="demo-section-title">With Shadow Effect</h2>
+            <p class="demo-section-desc">Large border radius + shadow for elevated appearance</p>
+            
+            <div class="block-wide-picture spacing-top-medium spacing-bottom-medium radius-large has-shadow">
+                <div class="block-wide-picture__container">
+                    <figure class="block-wide-picture__figure">
+                        <img 
+                            src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=600&fit=crop" 
+                            alt="Team collaboration meeting"
+                            class="block-wide-picture__image"
+                        />
+                        <figcaption class="block-wide-picture__caption">
+                            Team collaboration in modern office space
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <div class="demo-divider"></div>
+
+        <!-- Example 4: Minimal Spacing -->
+        <section class="demo-section">
+            <h2 class="demo-section-title">Minimal Spacing</h2>
+            <p class="demo-section-desc">Small spacing for compact layouts</p>
+            
+            <div class="block-wide-picture spacing-top-small spacing-bottom-small radius-small">
+                <div class="block-wide-picture__container">
+                    <figure class="block-wide-picture__figure">
+                        <img 
+                            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=600&fit=crop" 
+                            alt="Team working together"
+                            class="block-wide-picture__image"
+                        />
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <div class="demo-divider"></div>
+
+        <!-- Example 5: Large Spacing -->
+        <section class="demo-section">
+            <h2 class="demo-section-title">Large Spacing</h2>
+            <p class="demo-section-desc">Extra breathing room for hero sections</p>
+            
+            <div class="block-wide-picture spacing-top-large spacing-bottom-large radius-medium has-shadow">
+                <div class="block-wide-picture__container">
+                    <figure class="block-wide-picture__figure">
+                        <img 
+                            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop" 
+                            alt="Creative workspace"
+                            class="block-wide-picture__image"
+                        />
+                        <figcaption class="block-wide-picture__caption">
+                            Modern creative workspace with natural lighting
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <div class="demo-divider"></div>
+
+        <!-- Configuration Options -->
+        <section class="demo-section" style="background: #f9fafb; padding: 3rem 2rem;">
+            <h2 class="demo-section-title">Configuration Options</h2>
+            
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <h3 style="margin-bottom: 1rem; color: #667eea;">📏 Spacing</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb;">
+                                <strong>None:</strong> 0
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb;">
+                                <strong>Small:</strong> 2rem
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb;">
+                                <strong>Medium:</strong> 4rem (default)
+                            </li>
+                            <li style="padding: 0.5rem 0;">
+                                <strong>Large:</strong> 6rem
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <h3 style="margin-bottom: 1rem; color: #667eea;">🔲 Border Radius</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb;">
+                                <strong>None:</strong> 0 (default)
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb;">
+                                <strong>Small:</strong> 8px
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb;">
+                                <strong>Medium:</strong> 16px
+                            </li>
+                            <li style="padding: 0.5rem 0;">
+                                <strong>Large:</strong> 24px
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <h3 style="margin-bottom: 1rem; color: #667eea;">✨ Effects</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb;">
+                                <strong>Shadow:</strong> Yes/No
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb;">
+                                <strong>Caption:</strong> Optional
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb;">
+                                <strong>Alt Text:</strong> Custom
+                            </li>
+                            <li style="padding: 0.5rem 0;">
+                                <strong>Lazy Load:</strong> Enabled
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="demo-note">
+            <strong>Note:</strong> This block is optimized for performance with responsive images (srcset), lazy loading, and semantic HTML. Perfect for portfolio showcases, blog posts, case studies, and product photography.
+        </div>
+
+    </main>
+
+    <footer style="background: #1e293b; color: white; padding: 2rem; text-align: center; margin-top: 4rem;">
+        <p>Wide Picture Block - Sharks 2025 Theme</p>
+        <p style="opacity: 0.7; margin-top: 0.5rem;">Full-width image component with customizable styling</p>
+    </footer>
+
+</body>
+</html>

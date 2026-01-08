@@ -19,10 +19,13 @@
 @import url('./30-components/testimonials.css');
 @import url('./30-components/why-us.css');
 @import url('./30-components/why-that.css');
+@import url('./30-components/why-sharks.css');
+@import url('./30-components/why-we.css');
 @import url('./30-components/sharks-headings.css');
 @import url('./30-components/content-grey.css');
 @import url('./30-components/service-cards.css');
 @import url('./30-components/specialist.css');
+@import url('./30-components/team.css');
 @import url('./30-components/label-bar.css');
 @import url('./30-components/sharks-heading-2.css');
 @import url('./30-components/heading-half.css');
@@ -32,6 +35,7 @@
 @import url('./30-components/ten-steps.css');
 @import url('./30-components/select-text.css');
 @import url('./30-components/spacer.css');
+@import url('./30-components/wide-picture.css');
 @import url('./30-components/content-highlighted.css');
 @import url('./30-components/how-to-start.css');
 @import url('./30-components/table-2.css');
@@ -44,6 +48,8 @@
 @import url('./30-components/works5.css');
 @import url('./30-components/works3.css');
 @import url('./30-components/works1.css');
+@import url('./30-components/blog-posts.css');
+@import url('./30-components/single-post.css');
 @import url('./30-components/block-styles.css');
 @import url('./30-components/mouse-trail.css');
 @import url('./30-components/modal.css');
@@ -138,6 +144,7 @@ img {
 .entry-content > .block-what-includes,
 .entry-content > .block-service-cards,
 .entry-content > .block-specialist,
+.entry-content > .block-team,
 .entry-content > .block-label-bar,
 .entry-content > .block-testimonials,
 .entry-content > .block-hero,
@@ -145,7 +152,8 @@ img {
 .entry-content > .block-case-story,
 .entry-content > .block-works5,
 .entry-content > .block-works3,
-.entry-content > .block-works1 {
+.entry-content > .block-works1,
+.entry-content > .block-wide-picture {
   margin: 0 !important;
 }
 
@@ -178,13 +186,15 @@ img {
 .entry-content > .block-what-includes,
 .entry-content > .block-service-cards,
 .entry-content > .block-specialist,
+.entry-content > .block-team,
 .entry-content > .block-label-bar,
 .entry-content > .block-testimonials,
 .entry-content > .block-hero,
 .entry-content > .block-case-story,
 .entry-content > .block-works5,
 .entry-content > .block-works3,
-.entry-content > .block-works1 {
+.entry-content > .block-works1,
+.entry-content > .block-wide-picture {
   padding-inline: 0 !important;
   margin-left: auto !important;
   margin-right: auto !important;

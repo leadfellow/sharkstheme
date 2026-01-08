@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts Demo - Sharks 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Blog Posts Block */
+        .blog-posts-block {
+            --hover-color: #f237a6;
+        }
+
+        .blog-posts-container {
+            padding: 120px 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-left: clamp(20px, 4vw, 58px);
+            padding-right: clamp(20px, 4vw, 58px);
+        }
+
+        /* Navigation */
+        .blog-nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px 40px;
+            margin-bottom: 62px;
+        }
+
+        .blog-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .blog-nav-item.active::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: black;
+            flex-shrink: 0;
+        }
+
+        .blog-nav-item a {
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: -0.6px;
+            line-height: normal;
+            text-decoration: none;
+            color: #bbbab6;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .blog-nav-item a:hover {
+            color: var(--hover-color);
+        }
+
+        .blog-nav-item.active a {
+            color: black;
+            text-decoration: underline;
+            text-decoration-skip-ink: none;
+            text-underline-position: from-font;
+        }
+
+        /* Grid */
+        .blog-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 428px);
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Zigzag pattern */
+        /* Row 1: Post 1, Post 2, empty */
+        .blog-post-card:nth-child(6n+1) {
+            grid-column: 1;
+        }
+
+        .blog-post-card:nth-child(6n+2) {
+            grid-column: 2;
+        }
+
+        /* Row 2: empty, Post 3, Post 4 */
+        .blog-post-card:nth-child(6n+3) {
+            grid-column: 2;
+        }
+
+        .blog-post-card:nth-child(6n+4) {
+            grid-column: 3;
+        }
+
+        /* Row 3: Post 5, Post 6, empty */
+        .blog-post-card:nth-child(6n+5) {
+            grid-column: 1;
+        }
+
+        .blog-post-card:nth-child(6n+6) {
+            grid-column: 2;
+        }
+
+        .blog-posts-row {
+            display: contents;
+        }
+
+        /* Post Card */
+        .blog-post-card {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .blog-post-image {
+            width: 428px;
+            height: 428px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.4s ease;
+        }
+
+        .blog-post-card:hover .blog-post-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-post-category {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--hover-color);
+            line-height: 1.4;
+        }
+
+        .blog-post-title {
+            font-size: 36px;
+            font-weight: 400;
+            color: black;
+            line-height: 1.1;
+            letter-spacing: -1.8px;
+            transition: color 0.3s ease;
+        }
+
+        .blog-post-card:hover .blog-post-title {
+            color: var(--hover-color);
+        }
+
+        .blog-post-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 0;
+            text-decoration: none;
+            color: black;
+        }
+
+        .blog-post-link-text {
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: -0.6px;
+            text-decoration: underline;
+            text-decoration-skip-ink: none;
+            text-underline-position: from-font;
+            transition: color 0.3s ease;
+        }
+
+        .blog-post-card:hover .blog-post-link-text {
+            color: var(--hover-color);
+        }
+
+        .blog-arrow-icon {
+            width: 26px;
+            height: 26px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-post-card:hover .blog-arrow-icon {
+            transform: translateX(4px);
+        }
+
+        .blog-arrow-icon .arrow-bg {
+            transition: fill 0.3s ease;
+        }
+
+        .blog-post-card:hover .blog-arrow-icon .arrow-bg {
+            fill: var(--hover-color);
+        }
+
+        /* Load More Button */
+        .blog-load-more-container {
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .blog-load-more {
+            padding: 16px 40px;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: -0.6px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .blog-load-more:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-2px);
+        }
+
+        /* Color Switcher */
+        .color-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+
+        .color-switcher h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .color-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .color-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .color-btn.active {
+            border-color: black;
+            border-width: 3px;
+        }
+
+        /* Responsive */
+        @media (max-width: 920px) {
+            .blog-posts-row {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .blog-posts-container {
+                padding: 60px 20px;
+                max-width: 100%;
+            }
+
+            .color-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-post-card {
+                width: 100%;
+                max-width: 428px;
+            }
+
+            .blog-post-image {
+                height: auto;
+                aspect-ratio: 1;
+            }
+
+            .blog-post-title {
+                font-size: 28px;
+            }
+
+            .blog-nav {
+                gap: 10px 20px;
+            }
+
+            .blog-nav-item a {
+                font-size: 16px;
+            }
+
+            .blog-post-link-text {
+                font-size: 16px;
+            }
+
+            .blog-load-more {
+                padding: 14px 32px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Color Switcher -->
+    <div class="color-switcher">
+        <h3>Hover Color</h3>
+        <div class="color-options">
+            <button class="color-btn active" style="background-color: #f237a6;" data-color="#f237a6" title="Pink"></button>
+            <button class="color-btn" style="background-color: #3b82f6;" data-color="#3b82f6" title="Blue"></button>
+            <button class="color-btn" style="background-color: #10b981;" data-color="#10b981" title="Green"></button>
+            <button class="color-btn" style="background-color: #f59e0b;" data-color="#f59e0b" title="Orange"></button>
+            <button class="color-btn" style="background-color: #8b5cf6;" data-color="#8b5cf6" title="Purple"></button>
+        </div>
+    </div>
+
+    <div class="blog-posts-block" data-loading-type="infinite" data-hover-color="#f237a6">
+        <div class="blog-posts-container">
+            
+            <!-- Category Navigation -->
+            <nav class="blog-nav">
+                <div class="blog-nav-item active">
+                    <a href="#" data-category="all">Kõik postitused</a>
+                </div>
+                <div class="blog-nav-item">
+                    <a href="#" data-category="design">Graafiline disain</a>
+                </div>
+                <div class="blog-nav-item">
+                    <a href="#" data-category="development">Veebiarendus</a>
+                </div>
+                <div class="blog-nav-item">
+                    <a href="#" data-category="marketing">Turundus</a>
+                </div>
+                <div class="blog-nav-item">
+                    <a href="#" data-category="other">Muu</a>
+                </div>
+            </nav>
+
+            <!-- Posts Grid -->
+            <div class="blog-posts-grid">
+                <!-- Row 1 -->
+                <div class="blog-posts-row">
+                    <article class="blog-post-card">
+                        <div class="blog-post-image">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=800&fit=crop" alt="AI Marketing">
+                        </div>
+                        <span class="blog-post-category">Turundus</span>
+                        <h2 class="blog-post-title">Mis on AI turundus lihtsas keeles</h2>
+                        <a href="#" class="blog-post-link">
+                            <span class="blog-post-link-text">Vaata lähemalt</span>
+                            <svg class="blog-arrow-icon" fill="none" viewBox="0 0 26 26">
+                                <rect class="arrow-bg" fill="black" width="26" height="26"/>
+                                <path d="M8.9375 13H17.0625" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                                <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="blog-post-card">
+                        <div class="blog-post-image">
+                            <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&h=800&fit=crop" alt="SEO Analysis">
+                        </div>
+                        <span class="blog-post-category">Graafiline disain</span>
+                        <h2 class="blog-post-title">SEO analüüs - miks seda vaja on?</h2>
+                        <a href="#" class="blog-post-link">
+                            <span class="blog-post-link-text">Vaata lähemalt</span>
+                            <svg class="blog-arrow-icon" fill="none" viewBox="0 0 26 26">
+                                <rect class="arrow-bg" fill="black" width="26" height="26"/>
+                                <path d="M8.9375 13H17.0625" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                                <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                            </svg>
+                        </a>
+                    </article>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="blog-posts-row">
+                    <article class="blog-post-card">
+                        <div class="blog-post-image">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=800&fit=crop" alt="Dropshipping">
+                        </div>
+                        <span class="blog-post-category">Turundus</span>
+                        <h2 class="blog-post-title">Mis on dropshipping?</h2>
+                        <a href="#" class="blog-post-link">
+                            <span class="blog-post-link-text">Vaata lähemalt</span>
+                            <svg class="blog-arrow-icon" fill="none" viewBox="0 0 26 26">
+                                <rect class="arrow-bg" fill="black" width="26" height="26"/>
+                                <path d="M8.9375 13H17.0625" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                                <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="blog-post-card">
+                        <div class="blog-post-image">
+                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=800&fit=crop" alt="Web Design">
+                        </div>
+                        <span class="blog-post-category">Veebiarendus</span>
+                        <h2 class="blog-post-title">Kuidas luua kaasaegne veebileht?</h2>
+                        <a href="#" class="blog-post-link">
+                            <span class="blog-post-link-text">Vaata lähemalt</span>
+                            <svg class="blog-arrow-icon" fill="none" viewBox="0 0 26 26">
+                                <rect class="arrow-bg" fill="black" width="26" height="26"/>
+                                <path d="M8.9375 13H17.0625" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                                <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                            </svg>
+                        </a>
+                    </article>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="blog-posts-row">
+                    <article class="blog-post-card">
+                        <div class="blog-post-image">
+                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=800&fit=crop" alt="Minimalism">
+                        </div>
+                        <span class="blog-post-category">Graafiline disain</span>
+                        <h2 class="blog-post-title">Minimalism disainis - miks see töötab?</h2>
+                        <a href="#" class="blog-post-link">
+                            <span class="blog-post-link-text">Vaata lähemalt</span>
+                            <svg class="blog-arrow-icon" fill="none" viewBox="0 0 26 26">
+                                <rect class="arrow-bg" fill="black" width="26" height="26"/>
+                                <path d="M8.9375 13H17.0625" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                                <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="blog-post-card">
+                        <div class="blog-post-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=800&fit=crop" alt="Analytics">
+                        </div>
+                        <span class="blog-post-category">Muu</span>
+                        <h2 class="blog-post-title">Google Analytics 4 - täielik juhend</h2>
+                        <a href="#" class="blog-post-link">
+                            <span class="blog-post-link-text">Vaata lähemalt</span>
+                            <svg class="blog-arrow-icon" fill="none" viewBox="0 0 26 26">
+                                <rect class="arrow-bg" fill="black" width="26" height="26"/>
+                                <path d="M8.9375 13H17.0625" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                                <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104"/>
+                            </svg>
+                        </a>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="blog-load-more-container">
+                <button class="blog-load-more">
+                    <span class="load-more-text">Laadi veel</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Color switcher functionality
+        const colorButtons = document.querySelectorAll('.color-btn');
+        const blogBlock = document.querySelector('.blog-posts-block');
+
+        colorButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const color = btn.dataset.color;
+                
+                // Update active state
+                colorButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Update CSS variable
+                blogBlock.style.setProperty('--hover-color', color);
+            });
+        });
+
+        // Category filter demo
+        const navItems = document.querySelectorAll('.blog-nav-item');
+        navItems.forEach(item => {
+            item.querySelector('a').addEventListener('click', (e) => {
+                e.preventDefault();
+                navItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+
+        // Load more demo
+        const loadMoreBtn = document.querySelector('.blog-load-more');
+        loadMoreBtn.addEventListener('click', () => {
+            alert('WordPress-is laetakse AJAX-iga juurde uued postitused!');
+        });
+    </script>
+</body>
+</html>

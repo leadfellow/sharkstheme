@@ -176,11 +176,42 @@ sharks2025/
    └─ contact-form/contact-form.php
 ```
 
+## 📚 Documentation
+
+### For Developers
+
+Comprehensive guides for building ACF-based WordPress projects with Figma integration:
+
+- **[📖 Developer Guides Overview](docs/README-DEVELOPER-GUIDES.md)** - Start here! Guide to all documentation
+- **[⚡ Quick Start Guide](docs/FIGMA-TO-WORDPRESS-QUICKSTART.md)** - Create your first ACF block in 30 minutes
+- **[📘 Complete Developer Guide](docs/DEVELOPER-GUIDE-ACF-FIGMA.md)** - Full workflow from Figma to WordPress
+- **[🤖 AI + Figma Make Guide](docs/FIGMA-MAKE-AI-PROMPTS.md)** - Use AI assistants (ChatGPT, Claude, Cursor) with Figma exports
+- **[🎓 ACF Block Development Manual](docs/ACF-BLOCK-DEVELOPMENT-MANUAL.md)** - Deep dive into ACF blocks
+- **[🎨 Figma Import Guide](docs/FIGMA-IMPORT-GUIDE.md)** - Design tokens import workflow
+- **[📐 ACF + Gutenberg Build Rule](docs/ACF-GUTENBERG-BUILD-RULE.md)** - Architecture and best practices
+
+### For Users
+
+- **[🧭 Blocks & Patterns Guide](docs/BLOCKS-PATTERNS-GUIDE.md)** - How to find and use ACF blocks in Gutenberg
+- **[🚀 Setup Guide](docs/SETUP-GUIDE.md)** - Initial theme setup
+- **[📦 Dummy Content](docs/DUMMY-CONTENT.md)** - Sample content for testing
+
+### Quick Links
+
+**New to ACF blocks?** → Start with [Quick Start Guide](docs/FIGMA-TO-WORDPRESS-QUICKSTART.md)
+
+**Using AI tools?** → Check [AI + Figma Make Guide](docs/FIGMA-MAKE-AI-PROMPTS.md)
+
+**Need reference?** → See [Complete Developer Guide](docs/DEVELOPER-GUIDE-ACF-FIGMA.md)
+
+**Troubleshooting?** → All guides have troubleshooting sections
+
 ## Support
 
 For issues and questions, please refer to:
 - [ACF Documentation](https://www.advancedcustomfields.com/resources/)
 - [WordPress Block Editor Handbook](https://developer.wordpress.org/block-editor/)
+- [Project Documentation](docs/README-DEVELOPER-GUIDES.md)
 
 ## License
 
@@ -189,4 +220,6 @@ GPL v2 or later
 ## Credits
 
 Built with ❤️ following the ACF + Gutenberg Build Rule
+
+**Stack:** WordPress, ACF Pro, Gutenberg, CSS Custom Properties, BEM Methodology
 

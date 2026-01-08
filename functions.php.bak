@@ -151,8 +151,13 @@ function sharks_filter_blog_posts() {
     ob_start();
     
     if ($query->have_posts()) {
+        $post_index = 0;
         while ($query->have_posts()) {
             $query->the_post();
+            
+            if ($post_index % 2 === 0) {
+                echo '<div class="blog-posts-row">';
+            }
             
             $categories = get_the_category();
             $category_name = !empty($categories) ? $categories[0]->name : 'Muu';
@@ -181,6 +186,11 @@ function sharks_filter_blog_posts() {
             </article>
             
             <?php
+            $post_index++;
+            
+            if ($post_index % 2 === 0 || $post_index === $query->post_count) {
+                echo '</div>';
+            }
         }
     } else {
         echo '<p class="blog-no-posts">Postitusi ei leitud.</p>';
@@ -195,3 +205,4 @@ function sharks_filter_blog_posts() {
         'max_pages' => $query->max_num_pages
     ));
 }
+

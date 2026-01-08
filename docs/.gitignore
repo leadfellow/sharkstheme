@@ -1,0 +1,9 @@
+# Jututoa andmefail
+chat-data.json
+
+# Paroolifail (turvalisuse huvides)
+.htpasswd
+
+# Sisselogimise katsed
+login-attempts.json
+

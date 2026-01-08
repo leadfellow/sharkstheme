@@ -1,0 +1,132 @@
+{
+    "key": "group_wide_picture",
+    "title": "Wide Picture",
+    "fields": [
+        {
+            "key": "field_wide_picture_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"pilt\", \"gallery\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #pilt",
+            "required": 0,
+            "placeholder": "nt. pilt, gallery",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_wide_picture_image",
+            "label": "Picture",
+            "name": "wide_picture_image",
+            "type": "image",
+            "instructions": "Vali pilt, mis kuvatakse content ala laiuselt",
+            "required": 1,
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_wide_picture_alt_text",
+            "label": "Alt Text (Optional)",
+            "name": "wide_picture_alt_text",
+            "type": "text",
+            "instructions": "Alternatiivne tekst pildi jaoks (accessibility). Kui tühi, kasutatakse pildi enda alt teksti.",
+            "required": 0,
+            "placeholder": "Kirjelda pilti"
+        },
+        {
+            "key": "field_wide_picture_caption",
+            "label": "Caption (Optional)",
+            "name": "wide_picture_caption",
+            "type": "textarea",
+            "instructions": "Valikuline allkiri pildi alla",
+            "required": 0,
+            "rows": 2,
+            "placeholder": "Pildi allkiri või kirjeldus"
+        },
+        {
+            "key": "field_wide_picture_spacing_top",
+            "label": "Top Spacing",
+            "name": "wide_picture_spacing_top",
+            "type": "select",
+            "instructions": "Vahe ploki kohal",
+            "required": 0,
+            "choices": {
+                "none": "None (0)",
+                "small": "Small (2rem)",
+                "medium": "Medium (4rem)",
+                "large": "Large (6rem)"
+            },
+            "default_value": "medium",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_wide_picture_spacing_bottom",
+            "label": "Bottom Spacing",
+            "name": "wide_picture_spacing_bottom",
+            "type": "select",
+            "instructions": "Vahe ploki all",
+            "required": 0,
+            "choices": {
+                "none": "None (0)",
+                "small": "Small (2rem)",
+                "medium": "Medium (4rem)",
+                "large": "Large (6rem)"
+            },
+            "default_value": "medium",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_wide_picture_border_radius",
+            "label": "Border Radius",
+            "name": "wide_picture_border_radius",
+            "type": "select",
+            "instructions": "Pildi nurkade ümardus",
+            "required": 0,
+            "choices": {
+                "none": "None (0)",
+                "small": "Small (8px)",
+                "medium": "Medium (16px)",
+                "large": "Large (24px)"
+            },
+            "default_value": "none",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_wide_picture_shadow",
+            "label": "Shadow",
+            "name": "wide_picture_shadow",
+            "type": "true_false",
+            "instructions": "Lisa pildile vari",
+            "required": 0,
+            "default_value": 0,
+            "ui": 1,
+            "wrapper": {
+                "width": "50"
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/wide-picture"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

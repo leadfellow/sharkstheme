@@ -1,0 +1,3734 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACF Blokid: Figma → WordPress Juhend</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px 60px;
+            max-width: 100%;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #0066CC;
+            border-bottom: 3px solid #0066CC;
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #0066CC;
+            margin-top: 40px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e5e5e5;
+        }
+        h3 {
+            color: #00A3E0;
+            margin-top: 30px;
+        }
+        .step {
+            background: #f8f9fa;
+            border-left: 4px solid #0066CC;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .step-number {
+            display: inline-block;
+            background: #0066CC;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "Courier New", monospace;
+            color: #d63384;
+        }
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .tip {
+            background: #d1ecf1;
+            border-left: 4px solid #0dcaf0;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e5e5;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+        .header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .header-content h1 {
+            margin: 0;
+        }
+        .header-content p {
+            margin: 10px 0 0 0;
+        }
+        .last-updated {
+            text-align: right;
+            font-size: 0.9em;
+            color: #666;
+            min-width: 180px;
+            padding-left: 20px;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.8em; }
+            .header-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .last-updated {
+                margin-top: 15px;
+                text-align: left;
+                padding-left: 0;
+                min-width: auto;
+            }
+        }
+        @media (min-width: 1400px) {
+            .container { padding: 60px 120px; }
+        }
+        @media (min-width: 1920px) {
+            .container { padding: 80px 200px; }
+        }
+        /* Chat Room Styles */
+        .chat-form {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .chat-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .chat-input:focus {
+            outline: none;
+            border-color: #0066CC;
+        }
+        .chat-textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            resize: vertical;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        .chat-textarea:focus {
+            outline: none;
+            border-color: #0066CC;
+        }
+        .chat-submit {
+            background: #0066CC;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .chat-submit:hover {
+            background: #0052a3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,102,204,0.3);
+        }
+        .chat-submit:active {
+            transform: translateY(0);
+        }
+        .comment-card {
+            background: white;
+            border: 2px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+        .comment-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: #0066CC;
+        }
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .comment-author {
+            color: #0066CC;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        .comment-time {
+            color: #666;
+            font-size: 0.85em;
+        }
+        .comment-text {
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+            word-wrap: break-word;
+        }
+        .tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid #0066CC;
+            margin: 30px 0 0 0;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .tab-button {
+            padding: 15px 30px;
+            background: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s ease;
+            border-top: 3px solid transparent;
+        }
+        .tab-button:hover {
+            background: #e5e5e5;
+            color: #0066CC;
+        }
+        .tab-button.active {
+            background: white;
+            color: #0066CC;
+            border-top: 3px solid #0066CC;
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            .tabs {
+                flex-wrap: wrap;
+            }
+            .tab-button {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-wrapper">
+            <div class="header-content">
+                <h1>🚀 ACF Blokid: Figma → WordPress</h1>
+                <p><strong>Automaatne workflow:</strong> Cursor genereerib kõik failid (PHP, CSS, ACF JSON) - käsitsi ACF seadistamine EI OLE VAJA!</p>
+            </div>
+            <div class="last-updated">
+                <strong>Viimati uuendatud:</strong><br>
+                05.01.2026
+            </div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'main-guide')">📖 Põhijuhend</button>
+            <button class="tab-button" onclick="openTab(event, 'ubuntu-help')">🐧 Ubuntu Help</button>
+            <button class="tab-button" onclick="openTab(event, 'git-tutorial')">🔀 Git Tutorial</button>
+            <button class="tab-button" onclick="openTab(event, 'tips-tricks')">💡 Tips & Tricks</button>
+            <button class="tab-button" onclick="openTab(event, 'cursor-hacks')">⚡ Cursor Hacks</button>
+            <button class="tab-button" onclick="openTab(event, 'chat-room')">💬 Jututuba</button>
+        </div>
+
+        <!-- Main Guide Tab -->
+        <div id="main-guide" class="tab-content active">
+        
+        <div class="toc" style="background: #f0f8ff; padding: 20px; border-radius: 8px; margin: 30px 0;">
+            <h2 style="margin-top: 0; border: none;">📋 Sisukord</h2>
+            <ul style="list-style: none; padding-left: 0;">
+                <li style="margin: 10px 0;"><a href="#step1" style="color: #0066CC; text-decoration: none; font-weight: 500;">📦 1. WordPress Seadistamine</a></li>
+                <li style="margin: 10px 0;"><a href="#structure" style="color: #0066CC; text-decoration: none; font-weight: 500;">📁 Teema Struktuur</a></li>
+                <li style="margin: 10px 0;"><a href="#step2" style="color: #0066CC; text-decoration: none; font-weight: 500;">🎨 2. Figma → Cursor Workflow</a></li>
+                <li style="margin: 10px 0;"><a href="#step3" style="color: #0066CC; text-decoration: none; font-weight: 500;">🔧 3. ACF Element Cursor'is</a></li>
+                <li style="margin: 10px 0;"><a href="#step4" style="color: #0066CC; text-decoration: none; font-weight: 500;">✅ 4. Testimine</a></li>
+                <li style="margin: 10px 0;"><a href="#faq" style="color: #0066CC; text-decoration: none; font-weight: 500;">❓ 5. KKK</a></li>
+            </ul>
+        </div>
+
+        <h2 id="step1">📦 1. SAMM: WordPress Seadistamine</h2>
+
+        <div class="step">
+            <h3><span class="step-number">1</span> Installi WordPress</h3>
+            <p>Kasuta LocalWP, XAMPP või hostingu autoinstaller'it</p>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">2</span> Installi ACF Pro Plugin</h3>
+            <ul>
+                <li>Mine: <strong>Plugins → Add New → Upload Plugin</strong></li>
+                <li>Lae üles: <code>advanced-custom-fields-pro.zip</code></li>
+                <li>Vajuta: <strong>Install Now → Activate</strong></li>
+            </ul>
+            <div class="tip">
+                💡 <strong>Marketing Sharksis:</strong> ACF Pro litsents on olemas! Küsi Tannu käest ZIP faili ja litsentsi võtit.<br>
+                Kui ei leia, kirjuta: <strong>tannu@marketingharks.ee</strong>
+            </div>
+            <div class="warning">
+                ⚠️ <strong>Oluline:</strong> ACF Pro on tasuline (~$49/aastas). Ilma selleta ACF blokid ei tööta!<br>
+                Uus litsents: <a href="https://www.advancedcustomfields.com/" target="_blank">advancedcustomfields.com</a>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">3</span> Genereeri Teema Struktuur Cursor'iga</h3>
+            
+            <div class="success">
+                ✨ <strong>Cursor teeb selle automaatselt!</strong> Kopeeri see prompt Cursor'ile:
+            </div>
+
+            <pre><code>Loo mulle WordPress teema struktuur kausta wp-content/themes/minu-teema
+
+GENEREERI järgmised failid:
+
+1. style.css:
+/*
+Theme Name: [Projekti Nimi] Theme
+Description: Marketing Sharks custom made template
+Version: 1.0.0
+Author: Marketing Sharks
+Author URI: https://marketingsharks.ee
+Text Domain: [projekti-nimi]
+*/
+
+2. functions.php:
+&lt;?php
+// Laadi CSS
+add_action('wp_enqueue_scripts', function() {
+    wp_enqueue_style('main', get_stylesheet_uri());
+});
+
+// ACF Local JSON - salvestab field group'id JSON failidesse
+add_filter('acf/settings/save_json', function($path) {
+    return get_stylesheet_directory() . '/acf-json';
+});
+
+// ACF Local JSON - laeb field group'id JSON failidest
+add_filter('acf/settings/load_json', function($paths) {
+    unset($paths[0]);
+    $paths[] = get_stylesheet_directory() . '/acf-json';
+    return $paths;
+});
+
+3. index.php (tühi fail, WordPress nõuab):
+&lt;?php
+// Silence is golden
+
+4. Loo kaustad:
+- acf-json/
+- template-parts/blocks/
+
+STRUKTUUR:
+minu-teema/
+├── style.css
+├── functions.php
+├── index.php
+├── acf-json/
+└── template-parts/
+    └── blocks/
+
+Loo kõik failid ja kaustad korraga.</code></pre>
+
+            <div class="tip">
+                💡 <strong>Cursor genereerib:</strong>
+                <ul>
+                    <li>✅ Kõik 3 põhifaili</li>
+                    <li>✅ ACF Local JSON seadistused</li>
+                    <li>✅ Vajalikud kaustad</li>
+                    <li>✅ Õige struktuur</li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                ⚠️ <strong>Pärast genereerimist:</strong> Aktiveeri teema WordPressis:<br>
+                <strong>Appearance → Themes → Minu Teema → Activate</strong>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">4</span> Aktiveeri Teema</h3>
+            <p>WordPress Admin → <strong>Appearance → Themes</strong> → Aktiveeri "Minu Teema"</p>
+        </div>
+
+        <div class="success">
+            ✅ <strong>WordPress on valmis!</strong> ACF Local JSON on seadistatud - kõik field group'id salvestatakse automaatselt JSON failidena!
+        </div>
+
+        <h2 id="structure">📁 LISA: Täielik Teema Struktuur</h2>
+
+        <div class="step">
+            <h3>Täielik Directory Struktuur (Näide)</h3>
+            <p>Nii näeb välja täielik WordPress teema koos ACF blokkidega:</p>
+            <pre><code>wp-content/themes/minu-teema/
+│
+├── 📄 style.css                          # Teema metadata (KOHUSTUSLIK)
+├── 📄 functions.php                      # Peamine konfiguratsioon
+├── 📄 index.php                          # WordPress nõuab (võib olla tühi)
+├── 📄 header.php                         # Saidi header (valikuline)
+├── 📄 footer.php                         # Saidi footer (valikuline)
+├── 📄 page.php                           # Lehtede template (valikuline)
+├── 📄 single.php                         # Postide template (valikuline)
+├── 📄 front-page.php                     # Avalehe template (valikuline)
+│
+├── 📁 acf-json/                          # ⭐ ACF JSON failid
+│   ├── group_hero_banner.json            # Hero Banner field group
+│   ├── group_card_grid.json              # Card Grid field group
+│   ├── group_testimonials.json           # Testimonials field group
+│   ├── group_cta.json                    # CTA field group
+│   └── group_contact_form.json           # Contact Form field group
+│
+├── 📁 template-parts/                    # ⭐ Template osad
+│   └── blocks/                           # ACF blokide template'id
+│       ├── hero-banner/
+│       │   └── hero-banner.php           # Hero Banner template
+│       ├── card-grid/
+│       │   └── card-grid.php             # Card Grid template
+│       ├── testimonials/
+│       │   └── testimonials.php          # Testimonials template
+│       ├── cta/
+│       │   └── cta.php                   # CTA template
+│       └── contact-form/
+│           └── contact-form.php          # Contact Form template
+│
+├── 📁 assets/                            # (valikuline) Staatilised failid
+│   ├── css/
+│   │   ├── style.css                     # Peamine CSS
+│   │   └── blocks.css                    # Blokide CSS
+│   ├── js/
+│   │   ├── main.js                       # Peamine JS
+│   │   └── blocks.js                     # Blokide JS
+│   └── images/
+│       ├── logo.svg
+│       └── placeholder.jpg
+│
+├── 📁 inc/                               # (valikuline) PHP funktsioonid
+│   ├── blocks.php                        # Blokide registreerimine
+│   ├── theme-setup.php                   # Teema seadistused
+│   └── enqueue.php                       # CSS/JS laadimine
+│
+└── 📄 screenshot.png                     # Teema screenshot (valikuline)</code></pre>
+        </div>
+
+        <div class="step">
+            <h3>Minimaalne Struktuur (Alustamiseks)</h3>
+            <p>Kui tahad alustada võimalikult lihtsalt, siis piisab sellest:</p>
+            <pre><code>minu-teema/
+├── style.css              # Teema metadata
+├── functions.php          # ACF Local JSON + registreerimine
+├── index.php              # Tühi fail (WordPress nõuab)
+├── acf-json/              # ACF JSON failid
+└── template-parts/
+    └── blocks/            # Blokide template'id</code></pre>
+            
+            <div class="success">
+                ✅ <strong>Piisab sellest!</strong> Ülejäänud failid on valikulised.
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>Failitüübid Selgitatud</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Fail/Kaust</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Kohustuslik?</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Kirjeldus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>style.css</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">✅ JAH</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Teema metadata (Theme Name, Version, jne)</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>functions.php</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">✅ JAH</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">ACF Local JSON, blokide registreerimine</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>index.php</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">✅ JAH</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">WordPress nõuab (võib olla tühi)</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>acf-json/</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">✅ JAH</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">ACF field group JSON failid</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>template-parts/blocks/</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">✅ JAH</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">ACF blokide PHP template'id</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>header.php</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">⚪ Ei</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Saidi header (logo, menüü)</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>footer.php</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">⚪ Ei</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Saidi footer</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>assets/</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">⚪ Ei</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">CSS, JS, pildid (võid panna ka juurkausta)</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>inc/</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">⚪ Ei</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">PHP funktsioonid (organiseerimiseks)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="step">
+            <h3>Näidis: 3 Blokiga Projekt (Reaalne Struktuur)</h3>
+            <p>Praktiline näide projektist, kus on 3 ACF blokki koos organiseeritud CSS ja JS failidega:</p>
+            <pre><code>sharks2025/
+│
+├── style.css
+├── functions.php
+├── index.php
+├── header.php
+├── footer.php
+│
+├── acf-json/
+│   ├── group_hero_banner.json        # 1. blokk
+│   ├── group_services.json           # 2. blokk
+│   └── group_contact_form.json       # 3. blokk
+│
+├── template-parts/
+│   └── blocks/
+│       ├── hero-banner/
+│       │   └── hero-banner.php       # 1. blokk template
+│       ├── services/
+│       │   └── services.php          # 2. blokk template
+│       └── contact-form/
+│           └── contact-form.php      # 3. blokk template
+│
+└── assets/
+    ├── css/
+    │   ├── 10-settings/
+    │   │   ├── variables.css         # CSS muutujad (värvid, fondid, spacing)
+    │   │   └── mixins.css            # CSS mixins
+    │   ├── 20-elements/
+    │   │   ├── typography.css        # h1, h2, p, a
+    │   │   ├── buttons.css           # Nupud
+    │   │   └── forms.css             # Vormid
+    │   ├── 30-components/
+    │   │   ├── hero-banner.css       # Hero Banner blokk
+    │   │   ├── services.css          # Services blokk
+    │   │   └── contact-form.css      # Contact Form blokk
+    │   └── 40-utilities/
+    │       ├── responsive.css        # Media queries
+    │       └── helpers.css           # Utility klassid
+    └── js/
+        ├── main.js                   # Peamine JavaScript
+        ├── hero-banner.js            # Hero Banner funktsioonid
+        ├── services.js               # Services funktsioonid
+        └── contact-form.js           # Contact Form validatsioon</code></pre>
+            
+            <p><strong>functions.php sisaldab:</strong></p>
+            <pre><code>&lt;?php
+// Laadi CSS failid õiges järjekorras
+add_action('wp_enqueue_scripts', function() {
+    // 1. Settings (muutujad)
+    wp_enqueue_style('variables', get_template_directory_uri() . '/assets/css/10-settings/variables.css');
+    
+    // 2. Elements (põhielemendid)
+    wp_enqueue_style('typography', get_template_directory_uri() . '/assets/css/20-elements/typography.css');
+    wp_enqueue_style('buttons', get_template_directory_uri() . '/assets/css/20-elements/buttons.css');
+    wp_enqueue_style('forms', get_template_directory_uri() . '/assets/css/20-elements/forms.css');
+    
+    // 3. Components (blokid)
+    wp_enqueue_style('hero-banner', get_template_directory_uri() . '/assets/css/30-components/hero-banner.css');
+    wp_enqueue_style('services', get_template_directory_uri() . '/assets/css/30-components/services.css');
+    wp_enqueue_style('contact-form', get_template_directory_uri() . '/assets/css/30-components/contact-form.css');
+    
+    // 4. Utilities (responsive, helpers)
+    wp_enqueue_style('responsive', get_template_directory_uri() . '/assets/css/40-utilities/responsive.css');
+    wp_enqueue_style('helpers', get_template_directory_uri() . '/assets/css/40-utilities/helpers.css');
+    
+    // JavaScript failid
+    wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/js/main.js', [], '1.0', true);
+    wp_enqueue_script('hero-banner-js', get_template_directory_uri() . '/assets/js/hero-banner.js', ['jquery'], '1.0', true);
+    wp_enqueue_script('services-js', get_template_directory_uri() . '/assets/js/services.js', ['jquery'], '1.0', true);
+    wp_enqueue_script('contact-form-js', get_template_directory_uri() . '/assets/js/contact-form.js', ['jquery'], '1.0', true);
+});
+
+// ACF Local JSON
+add_filter('acf/settings/save_json', function($path) {
+    return get_stylesheet_directory() . '/acf-json';
+});
+
+add_filter('acf/settings/load_json', function($paths) {
+    unset($paths[0]);
+    $paths[] = get_stylesheet_directory() . '/acf-json';
+    return $paths;
+});
+
+// Registreeri blokid
+add_action('acf/init', function() {
+    if (!function_exists('acf_register_block_type')) return;
+    
+    // 1. Hero Banner
+    acf_register_block_type([
+        'name' => 'hero-banner',
+        'title' => 'Hero Banner',
+        'render_template' => 'template-parts/blocks/hero-banner/hero-banner.php',
+        'category' => 'layout',
+        'icon' => 'cover-image',
+        'enqueue_style' => get_template_directory_uri() . '/assets/css/30-components/hero-banner.css',
+        'enqueue_script' => get_template_directory_uri() . '/assets/js/hero-banner.js',
+    ]);
+    
+    // 2. Services
+    acf_register_block_type([
+        'name' => 'services',
+        'title' => 'Services',
+        'render_template' => 'template-parts/blocks/services/services.php',
+        'category' => 'layout',
+        'icon' => 'grid-view',
+        'enqueue_style' => get_template_directory_uri() . '/assets/css/30-components/services.css',
+        'enqueue_script' => get_template_directory_uri() . '/assets/js/services.js',
+    ]);
+    
+    // 3. Contact Form
+    acf_register_block_type([
+        'name' => 'contact-form',
+        'title' => 'Contact Form',
+        'render_template' => 'template-parts/blocks/contact-form/contact-form.php',
+        'category' => 'layout',
+        'icon' => 'email',
+        'enqueue_style' => get_template_directory_uri() . '/assets/css/30-components/contact-form.css',
+        'enqueue_script' => get_template_directory_uri() . '/assets/js/contact-form.js',
+    ]);
+});</code></pre>
+
+            <p><strong>assets/css/10-settings/variables.css näide:</strong></p>
+            <pre><code>/* CSS Muutujad */
+:root {
+    /* Värvid */
+    --color-primary: #0066CC;
+    --color-secondary: #00A3E0;
+    --color-text: #1a1a1a;
+    --color-background: #ffffff;
+    --color-gray-light: #f5f5f5;
+    --color-gray-dark: #333333;
+    
+    /* Fondid */
+    --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-heading: "Helvetica Neue", Arial, sans-serif;
+    --font-size-base: 16px;
+    
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+    --spacing-xxl: 80px;
+    
+    /* Breakpoints */
+    --breakpoint-mobile: 768px;
+    --breakpoint-tablet: 1024px;
+    --breakpoint-desktop: 1440px;
+}</code></pre>
+
+            <p><strong>assets/css/30-components/hero-banner.css näide:</strong></p>
+            <pre><code>/* Hero Banner Block */
+.block-hero-banner {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--color-primary);
+    color: white;
+    text-align: center;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-banner__content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-banner__title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-banner__subtitle {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.9;
+}
+
+.hero-banner__button {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: white;
+    color: var(--color-primary);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: transform 0.3s;
+}
+
+.hero-banner__button:hover {
+    transform: translateY(-2px);
+}</code></pre>
+
+            <p><strong>assets/css/30-components/services.css näide:</strong></p>
+            <pre><code>/* Services Block */
+.block-services {
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.services__title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card__icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: var(--spacing-md);
+}
+
+.service-card__title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-card__description {
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+}</code></pre>
+
+            <div class="tip">
+                <h4>💡 Miks see struktuur on parem?</h4>
+                <ul>
+                    <li><strong>10-settings/</strong> - Muutujad ja seadistused (laetakse esimesena)</li>
+                    <li><strong>20-elements/</strong> - Põhielemendid (h1, p, button, form)</li>
+                    <li><strong>30-components/</strong> - ACF blokid (iga blokk oma failis)</li>
+                    <li><strong>40-utilities/</strong> - Responsive ja utility klassid (laetakse viimasena)</li>
+                    <li>Numbrid tagavad õige laadimise järjekorra</li>
+                    <li>Iga blokil oma CSS ja JS fail - lihtsam hallata</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tip">
+            <h3>💡 Näpunäited Struktuuri Kohta</h3>
+            <ul>
+                <li><strong>acf-json/</strong> - Pane Git'i! See on oluline meeskonnatöö jaoks</li>
+                <li><strong>Iga blokk oma kaustas</strong> - Lihtsam hallata ja leida</li>
+                <li><strong>JSON fail = field group</strong> - Üks JSON fail = üks blokk</li>
+                <li><strong>Nimetamine:</strong> Kasuta kebab-case (hero-banner, card-grid)</li>
+                <li><strong>Minimaalne alguses:</strong> Alusta 5 failiga, lisa hiljem juurde</li>
+            </ul>
+        </div>
+
+        <h2 id="step2">🎨 2. SAMM: Figma → Cursor Workflow</h2>
+
+        <div class="step">
+            <h3><span class="step-number">1</span> Ava Figma Design</h3>
+            <p>Ava oma Figma fail ja leia komponent, mida tahad WordPressi tuua (nt Hero banner, Card grid, jne)</p>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">2</span> Kasuta Figma Make</h3>
+            <ol>
+                <li>Vali komponent Figmas</li>
+                <li>Parem klikk → <strong>Plugins → Figma Make</strong></li>
+                <li>Vali: <strong>HTML + CSS</strong></li>
+                <li>Vajuta: <strong>Generate</strong></li>
+                <li>Kopeeri genereeritud HTML ja CSS</li>
+            </ol>
+            
+            <div class="tip">
+                💡 <strong>Alternatiiv:</strong> Kui Figma Make ei ole, kasuta <strong>Dev Mode → Inspect</strong> ja kopeeri CSS käsitsi
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">3</span> Ava Cursor</h3>
+            <p>Ava oma teema kaust Cursor'is:</p>
+            <pre><code>File → Open Folder → vali: wp-content/themes/minu-teema</code></pre>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">4</span> Prompti Cursor AI'd (TÄIELIK AUTOMAATIKA!)</h3>
+            <p>Vajuta <code>Ctrl + K</code> (või <code>Cmd + K</code> Mac'is) ja kasuta seda prompti:</p>
+
+            <pre><code>Tee mulle täielik ACF block nimega "hero-banner" selle Figma disaini põhjal.
+
+FIGMA HTML:
+[kleebi siia Figma Make HTML]
+
+FIGMA CSS:
+[kleebi siia Figma Make CSS]
+
+GENEREERI KÕIK FAILID:
+
+1. REGISTREERING (functions.php):
+   - Lisa acf_register_block_type() kood
+   - Block name: hero-banner
+   - Category: layout
+   - Icon: cover-image
+
+2. PHP TEMPLATE (template-parts/blocks/hero-banner/hero-banner.php):
+   - Kasuta get_field() ACF väljadele
+   - Lisa dummy data kui väljad tühjad
+   - Kasuta esc_html(), esc_attr(), esc_url()
+   - Block attributes: anchor, className, align
+
+3. ACF JSON FAIL (acf-json/group_hero_banner.json):
+   - Loo täielik ACF field group JSON
+   - Location: Block == acf/hero-banner
+   - Väljad mida tahan muuta:
+     * pealkiri (text, required, default: "Tere tulemast")
+     * alapealkiri (textarea)
+     * nupu_tekst (text, default: "Võta ühendust")
+     * nupu_link (url, default: "#contact")
+     * taustapilt (image)
+     * block_anchor (text, placeholder: "hero", instructions: "Ankru nimi linkimiseks")
+
+4. CSS (style.css):
+   - Puhasta Figma CSS
+   - Lisa .block-hero-banner klassid
+   - Responsive (@media)
+   - Hover efektid
+
+OLULINE:
+- ACF JSON peab olema TÄIELIK ja VALID JSON
+- Kasuta "key" formaadis: "field_hero_banner_pealkiri"
+- Kasuta "group_hero_banner" group key'na
+- Lisa default_value kõigile väljadele</code></pre>
+
+            <div class="success">
+                ✅ <strong>Cursor genereerib KÕIK 4 faili automaatselt!</strong> Ei pea käsitsi WordPressis ACF'd seadistama!
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">5</span> Cursor Genereerib Failid</h3>
+            <p>Cursor loob automaatselt:</p>
+            <ul>
+                <li>✅ <code>functions.php</code> - block'i registreering</li>
+                <li>✅ <code>template-parts/blocks/hero-banner/hero-banner.php</code> - template</li>
+                <li>✅ <code>acf-json/group_hero_banner.json</code> - <strong>ACF field group JSON!</strong></li>
+                <li>✅ <code>style.css</code> - stiilid</li>
+            </ul>
+            
+            <div class="tip">
+                💡 <strong>Võti:</strong> ACF JSON fail sisaldab KÕIKI field group seadistusi. WordPress laeb selle automaatselt!
+            </div>
+        </div>
+
+        <h2 id="step3">⚙️ 3. SAMM: ACF JSON Sünkroniseerimine</h2>
+
+        <div class="step">
+            <h3><span class="step-number">1</span> Mine WordPressis</h3>
+            <p><strong>Custom Fields</strong> (menüüs)</p>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">2</span> Sünkroniseeri JSON</h3>
+            <p>Kui näed <strong>"Sync available"</strong> teadet:</p>
+            <ol>
+                <li>Kliki <strong>"Sync available"</strong> tab'il</li>
+                <li>Näed: <strong>"Hero Banner Block"</strong></li>
+                <li>Kliki <strong>"Sync"</strong></li>
+            </ol>
+            
+            <div class="success">
+                ✅ <strong>Valmis!</strong> ACF field group on nüüd WordPressis ilma käsitsi seadistamiseta!
+            </div>
+            
+            <div class="tip">
+                💡 <strong>Kui "Sync available" ei ilmu:</strong> Field group on juba sünkroniseeritud või JSON fail on vigane. Kontrolli JSON syntax'it.
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">3</span> Kontrolli Field Group'i</h3>
+            <p>Mine: <strong>Custom Fields → Field Groups</strong></p>
+            <p>Peaksid nägema: <strong>"Hero Banner Block"</strong></p>
+            <p>Kliki sellel ja vaata üle väljad:</p>
+            <ul>
+                <li>✅ Pealkiri (text)</li>
+                <li>✅ Alapealkiri (textarea)</li>
+                <li>✅ Nupu Tekst (text)</li>
+                <li>✅ Nupu Link (url)</li>
+                <li>✅ Taustapilt (image)</li>
+                <li>✅ Block Anchor (text)</li>
+            </ul>
+        </div>
+
+        <h2 id="step4">✨ 4. SAMM: Kasutamine Gutenberg'is</h2>
+
+        <div class="step">
+            <h3><span class="step-number">1</span> Loo Uus Leht</h3>
+            <p><strong>Pages → Add New</strong></p>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">2</span> Lisa Block</h3>
+            <ol>
+                <li>Vajuta <strong>+</strong> (Add Block)</li>
+                <li>Otsi: <strong>"Hero Banner"</strong></li>
+                <li>Kliki blokile</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">3</span> Täida Väljad</h3>
+            <p>Parem paneel näitab ACF välju (AUTOMAATSELT!):</p>
+            <ul>
+                <li><strong>Pealkiri:</strong> Tere tulemast!</li>
+                <li><strong>Alapealkiri:</strong> Me loome imelisi veebilehti</li>
+                <li><strong>Nupu Tekst:</strong> Võta ühendust</li>
+                <li><strong>Nupu Link:</strong> #contact</li>
+                <li><strong>Taustapilt:</strong> Lae üles pilt</li>
+                <li><strong>Block Anchor:</strong> hero (valikuline)</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">4</span> Publish</h3>
+            <p>Vajuta <strong>Publish</strong> ja vaata tulemust!</p>
+        </div>
+
+        <div class="success">
+            🎉 <strong>Valmis!</strong> Sinu esimene ACF block töötab - ilma käsitsi ACF seadistamiseta!
+        </div>
+
+        <h2>🔄 5. SAMM: Järgmised Blokid (Sama Lihtne!)</h2>
+
+        <div class="tip">
+            💡 <strong>Näpunäide:</strong> Vaata alati olemasolevaid blokke enne uue loomist! Kasuta sarnast struktuuri ja nimetamist.
+        </div>
+
+        <div class="step">
+            <h3>🎯 Näide 1: Testimonials (Klientide Arvustused)</h3>
+            <p><strong>Cursor prompt (vaata olemasolevaid blokke!):</strong></p>
+            <pre><code>Loo mulle ACF element "testimonials" (klientide arvustused).
+
+VAATA OLEMASOLEVAID BLOKKE ja tee sarnaselt!
+
+Soovin hallata WordPressis:
+- Sektsiooni pealkiri (text, vaikimisi "Mida meie kliendid ütlevad")
+- Arvustusi (repeater, min 1, max 10):
+  * Kliendi nimi (text, kohustuslik)
+  * Kliendi amet (text, näiteks "Tegevjuht")
+  * Kliendi firma (text)
+  * Avatar/foto (image, 80x80px)
+  * Arvustuse tekst (textarea, kohustuslik)
+  * Link (url, valikuline)
+
+Disain:
+- Kaardid grid'is
+- 3 kaarti reas desktop'is, 2 tablet'is, 1 mobile'is
+- Ümmargune avatar
+- Hall taust (#f5f5f5)
+
+Genereeri kõik vajalikud failid (vaata projekti struktuuri).</code></pre>
+
+            <div class="success">
+                <h4>✅ Cursor genereerib:</h4>
+                <ul>
+                    <li><strong>functions.php:</strong> Block registreering koos enqueue_style ja enqueue_script</li>
+                    <li><strong>testimonials.php:</strong> PHP template koos get_field() ja foreach loop'iga</li>
+                    <li><strong>group_testimonials.json:</strong> Täielik ACF JSON koos repeater väljadega</li>
+                    <li><strong>testimonials.css:</strong> Grid layout + responsive + hover efektid</li>
+                    <li><strong>testimonials.js:</strong> Carousel funktsioonid (kui küsisid)</li>
+                </ul>
+            </div>
+
+            <p><strong>ACF JSON näide (Cursor genereerib automaatselt):</strong></p>
+            <pre><code>{
+  "key": "group_testimonials",
+  "title": "Testimonials Block",
+  "fields": [
+    {
+      "key": "field_testimonials_title",
+      "name": "section_title",
+      "label": "Sektsiooni pealkiri",
+      "type": "text",
+      "default_value": "Mida meie kliendid ütlevad",
+      "required": 0
+    },
+    {
+      "key": "field_testimonials_items",
+      "name": "testimonials",
+      "label": "Arvustused",
+      "type": "repeater",
+      "min": 1,
+      "max": 10,
+      "layout": "block",
+      "button_label": "Lisa arvustus",
+      "sub_fields": [
+        {
+          "key": "field_testimonial_name",
+          "name": "client_name",
+          "label": "Kliendi nimi",
+          "type": "text",
+          "required": 1,
+          "placeholder": "Mari Maasikas"
+        },
+        {
+          "key": "field_testimonial_position",
+          "name": "client_position",
+          "label": "Amet",
+          "type": "text",
+          "placeholder": "Tegevjuht"
+        },
+        {
+          "key": "field_testimonial_company",
+          "name": "client_company",
+          "label": "Firma",
+          "type": "text",
+          "placeholder": "Firma OÜ"
+        },
+        {
+          "key": "field_testimonial_avatar",
+          "name": "client_avatar",
+          "label": "Avatar/Foto",
+          "type": "image",
+          "return_format": "array",
+          "preview_size": "thumbnail"
+        },
+        {
+          "key": "field_testimonial_text",
+          "name": "testimonial_text",
+          "label": "Arvustuse tekst",
+          "type": "textarea",
+          "rows": 4,
+          "required": 1
+        },
+        {
+          "key": "field_testimonial_link",
+          "name": "client_link",
+          "label": "Link (valikuline)",
+          "type": "url",
+          "placeholder": "https://example.com"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [{
+      "param": "block",
+      "operator": "==",
+      "value": "acf/testimonials"
+    }]
+  ]
+}</code></pre>
+        </div>
+
+        <div class="step">
+            <h3>🎯 Näide 2: Card Grid (Teenuste Kaardid)</h3>
+            <p><strong>Cursor prompt:</strong></p>
+            <pre><code>Loo mulle ACF element "service-cards" (teenuste kaardid).
+
+VAATA OLEMASOLEVAID BLOKKE ja tee sarnaselt!
+
+Soovin hallata WordPressis:
+- Sektsiooni pealkiri (text)
+- Sektsiooni alapealkiri (textarea, 2 rida)
+- Kaarte (repeater, min 3, max 12):
+  * Ikoon (image, 64x64px)
+  * Kaardi pealkiri (text, kohustuslik)
+  * Kaardi kirjeldus (textarea, 3 rida)
+  * Lingi URL (url)
+  * Lingi tekst (text, vaikimisi "Loe edasi")
+  * Kaardi värv (color_picker, vaikimisi #0066CC)
+
+Disain:
+- Grid layout
+- 3 kaarti reas desktop'is, 2 tablet'is, 1 mobile'is
+- Hover efekt: kaart liigub üles 5px
+- Kaardi värv muudab ülemise serva värvi
+- Valge taust, shadow
+
+Genereeri kõik vajalikud failid (vaata projekti struktuuri).</code></pre>
+            
+            <div class="tip">
+                💡 <strong>Cursor mõistab automaatselt:</strong> Kuna ütlesime "VAATA OLEMASOLEVAID BLOKKE", siis Cursor näeb projekti struktuuri ja genereerib failid õigetesse kohtadesse!
+            </div>
+
+            <div class="success">
+                <h4>✅ Cursor genereerib:</h4>
+                <ul>
+                    <li><strong>service-cards.php:</strong> Foreach loop kaartide jaoks</li>
+                    <li><strong>group_service_cards.json:</strong> Repeater koos image, text, textarea, url, color_picker väljadega</li>
+                    <li><strong>service-cards.css:</strong> Grid + hover efektid + responsive</li>
+                    <li>Kui linki pole, nuppu ei näidata (PHP conditional)</li>
+                </ul>
+            </div>
+
+            <p><strong>PHP Template näide (Cursor genereerib):</strong></p>
+            <pre><code>&lt;?php
+$section_title = get_field('section_title');
+$section_subtitle = get_field('section_subtitle');
+$cards = get_field('cards');
+?&gt;
+
+&lt;section class="block-service-cards"&gt;
+    &lt;div class="container"&gt;
+        &lt;?php if ($section_title): ?&gt;
+            &lt;h2 class="service-cards__title"&gt;&lt;?php echo esc_html($section_title); ?&gt;&lt;/h2&gt;
+        &lt;?php endif; ?&gt;
+        
+        &lt;?php if ($section_subtitle): ?&gt;
+            &lt;p class="service-cards__subtitle"&gt;&lt;?php echo esc_html($section_subtitle); ?&gt;&lt;/p&gt;
+        &lt;?php endif; ?&gt;
+        
+        &lt;?php if ($cards): ?&gt;
+            &lt;div class="service-cards__grid"&gt;
+                &lt;?php foreach ($cards as $card): ?&gt;
+                    &lt;div class="service-card" style="border-top-color: &lt;?php echo esc_attr($card['card_color']); ?&gt;"&gt;
+                        &lt;?php if ($card['icon']): ?&gt;
+                            &lt;img src="&lt;?php echo esc_url($card['icon']['url']); ?&gt;" 
+                                 alt="&lt;?php echo esc_attr($card['icon']['alt']); ?&gt;"
+                                 class="service-card__icon"&gt;
+                        &lt;?php endif; ?&gt;
+                        
+                        &lt;h3 class="service-card__title"&gt;&lt;?php echo esc_html($card['title']); ?&gt;&lt;/h3&gt;
+                        &lt;p class="service-card__description"&gt;&lt;?php echo esc_html($card['description']); ?&gt;&lt;/p&gt;
+                        
+                        &lt;?php if ($card['link_url']): ?&gt;
+                            &lt;a href="&lt;?php echo esc_url($card['link_url']); ?&gt;" 
+                               class="service-card__link"&gt;
+                                &lt;?php echo esc_html($card['link_text'] ?: 'Loe edasi'); ?&gt;
+                            &lt;/a&gt;
+                        &lt;?php endif; ?&gt;
+                    &lt;/div&gt;
+                &lt;?php endforeach; ?&gt;
+            &lt;/div&gt;
+        &lt;?php endif; ?&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+            <p><strong>CSS näide (Cursor genereerib):</strong></p>
+            <pre><code>/* Service Cards Block */
+.block-service-cards {
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.service-cards__title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-cards__subtitle {
+    text-align: center;
+    color: var(--color-gray-dark);
+    margin-bottom: var(--spacing-lg);
+}
+
+.service-cards__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    border-top: 4px solid var(--color-primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.service-card__icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: var(--spacing-md);
+}
+
+.service-card__title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-card__description {
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.service-card__link {
+    display: inline-block;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.service-card__link:hover {
+    color: var(--color-secondary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .service-cards__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .service-cards__grid {
+        grid-template-columns: 1fr;
+    }
+}</code></pre>
+        </div>
+
+        <div class="step">
+            <h3>🎯 Näide 3: FAQ Accordion (Küsimused-Vastused)</h3>
+            <p><strong>Cursor prompt:</strong></p>
+            <pre><code>Loo mulle ACF element "faq-accordion" (KKK accordion).
+
+VAATA OLEMASOLEVAID BLOKKE ja tee sarnaselt!
+
+Soovin hallata WordPressis:
+- Sektsiooni pealkiri (text, vaikimisi "Korduma kippuvad küsimused")
+- Küsimusi ja vastuseid (repeater, min 1):
+  * Küsimus (text, kohustuslik)
+  * Vastus (wysiwyg, põhiline toolbar)
+  * Kas ava vaikimisi? (true_false)
+
+Funktsionaalsus:
+- Klõps küsimusel avab/sulgeb vastuse
+- Ainult 1 küsimus võib olla korraga avatud
+- Sujuv slide animatsioon
+- Ikoon muutub: + muutub - kui avatud
+
+Genereeri kõik vajalikud failid koos JavaScript'iga (vaata projekti struktuuri).</code></pre>
+
+            <div class="success">
+                <h4>✅ Cursor genereerib:</h4>
+                <ul>
+                    <li><strong>faq-accordion.php:</strong> HTML struktuur accordion'ile</li>
+                    <li><strong>group_faq_accordion.json:</strong> Repeater koos wysiwyg ja true_false väljadega</li>
+                    <li><strong>faq-accordion.css:</strong> Accordion stiilid + animatsioonid</li>
+                    <li><strong>faq-accordion.js:</strong> Click event'id + slide toggle + ikoonide vahetamine</li>
+                </ul>
+            </div>
+
+            <p><strong>JavaScript näide (Cursor genereerib):</strong></p>
+            <pre><code>// FAQ Accordion
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-item__question');
+        const answer = item.querySelector('.faq-item__answer');
+        const icon = item.querySelector('.faq-item__icon');
+        
+        question.addEventListener('click', () => {
+            // Sulge kõik teised
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-item__answer').style.maxHeight = null;
+                    otherItem.querySelector('.faq-item__icon').textContent = '+';
+                }
+            });
+            
+            // Toggle praegune
+            item.classList.toggle('active');
+            
+            if (item.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.textContent = '−';
+            } else {
+                answer.style.maxHeight = null;
+                icon.textContent = '+';
+            }
+        });
+    });
+});</code></pre>
+        </div>
+
+        <div class="tip">
+            <h3>💡 Võtmesõnad Promptis</h3>
+            <p><strong>Alati kasuta neid fraase:</strong></p>
+            <ul>
+                <li>🔍 <code>"VAATA OLEMASOLEVAID BLOKKE ja tee sarnaselt!"</code></li>
+                <li>📁 <code>"Genereeri failid: functions.php, template-parts/blocks/..., acf-json/..., assets/css/30-components/..."</code></li>
+                <li>🎨 <code>"Disain:"</code> - kirjelda visuaali</li>
+                <li>⚙️ <code>"Funktsionaalsus:"</code> - kirjelda käitumist</li>
+                <li>📱 <code>"Responsive:"</code> - kirjelda mobile vs desktop</li>
+            </ul>
+        </div>
+
+        <div class="success">
+            <h3>✅ Universaalne Template Uutele Blokkidele</h3>
+            <pre><code>Loo mulle ACF element "[NIMI]" ([kirjeldus eesti keeles]).
+
+VAATA OLEMASOLEVAID BLOKKE ja tee sarnaselt!
+
+Soovin hallata WordPressis:
+- [Väli 1 kirjeldus] (type, vaikimisi "...")
+- [Väli 2] (repeater, min X, max Y):
+  * [Alamväli 1] (type, kohustuslik)
+  * [Alamväli 2] (type)
+  * [Alamväli 3] (type, vaikimisi "...")
+
+Disain (kui on Figma/CSS/HTML):
+[KLEEBI SIIA FIGMA HTML]
+
+[KLEEBI SIIA FIGMA CSS]
+
+VÕI kirjelda sõnadega:
+- [Kirjelda visuaali]
+- [Värvid, spacing, layout]
+
+Funktsionaalsus:
+- [Kui X, siis Y]
+- [Klõps... avab/sulgeb...]
+- [Hover efektid]
+
+Responsive:
+- Desktop: [kirjeldus]
+- Tablet: [kirjeldus]
+- Mobile: [kirjeldus]
+
+Genereeri kõik vajalikud failid (vaata projekti struktuuri).</code></pre>
+
+            <div class="tip">
+                <h4>💡 Miks see töötab?</h4>
+                <p><strong>"VAATA OLEMASOLEVAID BLOKKE ja tee sarnaselt!"</strong> - See üks lause on võti!</p>
+                <ul>
+                    <li>✅ Cursor analüüsib projekti struktuuri</li>
+                    <li>✅ Näeb, kus on <code>template-parts/blocks/</code></li>
+                    <li>✅ Näeb, kus on <code>acf-json/</code></li>
+                    <li>✅ Näeb, kus on <code>assets/css/30-components/</code></li>
+                    <li>✅ Genereerib failid õigetesse kohtadesse</li>
+                    <li>✅ Kasutab sama nimetamise konventsiooni</li>
+                </ul>
+                <p><strong>Ei pea täpsustama failiteid!</strong> Cursor on piisavalt tark. 🚀</p>
+            </div>
+
+            <div class="tip">
+                <h4>🎨 Disaini Lisamine - 3 Võimalust</h4>
+                
+                <p><strong>1️⃣ Figma HTML + CSS (Parim):</strong></p>
+                <ul>
+                    <li>Figmas: Vali element → Paremklõps → Plugins → Figma Make</li>
+                    <li>Kopeeri HTML ja CSS</li>
+                    <li>Kleebi prompti "Disain:" sektsiooni</li>
+                </ul>
+
+                <p><strong>2️⃣ Figma Screenshot (Hea):</strong></p>
+                <ul>
+                    <li>Tee Figmast screenshot</li>
+                    <li>Lohista pilt otse Cursor chat'i</li>
+                    <li>Kirjuta: "Tee täpselt nagu pildil"</li>
+                </ul>
+
+                <p><strong>3️⃣ Sõnaline Kirjeldus (OK):</strong></p>
+                <ul>
+                    <li>Kirjelda värvid, spacing, layout</li>
+                    <li>Näiteks: "Hall taust (#f5f5f5), valge kaart, 40px padding"</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="faq">❓ KKK (Korduma Kippuvad Küsimused)</h2>
+
+        <h3>❓ Block ei ilmu Gutenberg'is?</h3>
+        <div class="warning">
+            <strong>Lahendused:</strong>
+            <ol>
+                <li>Mine: <strong>Settings → Permalinks → Save Changes</strong></li>
+                <li>Kontrolli, kas ACF Pro on aktiveeritud</li>
+                <li>Kontrolli <code>functions.php</code> - kas block on registreeritud?</li>
+                <li>Kontrolli, kas <code>acf-json/group_*.json</code> fail eksisteerib</li>
+            </ol>
+        </div>
+
+        <h3>❓ "Sync available" ei ilmu?</h3>
+        <div class="warning">
+            <strong>Põhjused:</strong>
+            <ol>
+                <li><strong>JSON fail on vigane</strong> - kontrolli syntax'it (kasuta JSONLint.com)</li>
+                <li><strong>Kaust puudub</strong> - kontrolli, kas <code>acf-json/</code> kaust eksisteerib</li>
+                <li><strong>Õigused</strong> - kaust peab olema kirjutatav (chmod 755)</li>
+                <li><strong>Juba sünkroniseeritud</strong> - field group on juba WordPressis</li>
+            </ol>
+        </div>
+
+        <h3>❓ Kuidas muuta olemasolevat field group'i?</h3>
+        <div class="tip">
+            <strong>2 võimalust:</strong>
+            <ol>
+                <li><strong>WordPressis:</strong> Muuda Custom Fields → Field Groups → Salvesta → JSON uueneb automaatselt</li>
+                <li><strong>Cursor'is:</strong> Muuda JSON faili → Mine WordPressis → Sync available → Sync</li>
+            </ol>
+        </div>
+
+        <h3>❓ JSON fail on vigane?</h3>
+        <div class="warning">
+            <strong>Kontrolli:</strong>
+            <ol>
+                <li>Kopeeri JSON sisu</li>
+                <li>Mine: <a href="https://jsonlint.com/" target="_blank">jsonlint.com</a></li>
+                <li>Kleebi ja vajuta "Validate JSON"</li>
+                <li>Paranda vead</li>
+            </ol>
+            
+            <p><strong>Levinud vead:</strong></p>
+            <ul>
+                <li>Puuduv koma</li>
+                <li>Liigne koma viimase elemendi järel</li>
+                <li>Jutumärgid valesti</li>
+                <li>Puuduvad sulud</li>
+            </ul>
+        </div>
+
+        <h3>❓ Cursor ei genereeri JSON faili?</h3>
+        <div class="tip">
+            <strong>Täpsusta prompti:</strong>
+            <pre><code>OLULINE: Genereeri TÄIELIK ja VALID ACF JSON fail!
+
+Fail: acf-json/group_hero_banner.json
+
+JSON peab sisaldama:
+- "key": "group_hero_banner"
+- "title": "Hero Banner Block"
+- "fields": [] array kõigi väljadega
+- "location": [] array block location'iga
+- Iga field peab omama:
+  * "key": "field_hero_banner_[name]"
+  * "label": "..."
+  * "name": "..."
+  * "type": "..."
+  * "default_value": "..."
+
+Näita mulle TÄIELIK JSON fail!</code></pre>
+        </div>
+
+        <h3>❓ Kuidas lisada Repeater field?</h3>
+        <div class="tip">
+            <strong>JSON näide:</strong>
+            <pre><code>{
+  "key": "field_cards",
+  "name": "cards",
+  "type": "repeater",
+  "button_label": "Lisa kaart",
+  "min": 1,
+  "max": 10,
+  "layout": "block",
+  "sub_fields": [
+    {
+      "key": "field_card_title",
+      "name": "title",
+      "type": "text",
+      "required": 1
+    },
+    {
+      "key": "field_card_text",
+      "name": "text",
+      "type": "textarea"
+    }
+  ]
+}</code></pre>
+
+            <p><strong>PHP kasutus:</strong></p>
+            <pre><code>&lt;?php
+$cards = get_field('cards');
+if ($cards):
+    foreach ($cards as $card):
+        echo '&lt;div class="card"&gt;';
+        echo '&lt;h3&gt;' . esc_html($card['title']) . '&lt;/h3&gt;';
+        echo '&lt;p&gt;' . esc_html($card['text']) . '&lt;/p&gt;';
+        echo '&lt;/div&gt;';
+    endforeach;
+endif;
+?&gt;</code></pre>
+        </div>
+
+        <h3>❓ Kuidas lisada Color Picker?</h3>
+        <div class="tip">
+            <strong>JSON:</strong>
+            <pre><code>{
+  "key": "field_bg_color",
+  "name": "background_color",
+  "type": "color_picker",
+  "default_value": "#0066CC"
+}</code></pre>
+
+            <p><strong>PHP:</strong></p>
+            <pre><code>&lt;?php
+$bg_color = get_field('background_color') ?: '#0066CC';
+?&gt;
+&lt;section style="background: &lt;?php echo esc_attr($bg_color); ?&gt;"&gt;
+  ...
+&lt;/section&gt;</code></pre>
+        </div>
+
+        <h3>❓ Figma Make ei tööta?</h3>
+        <div class="tip">
+            <strong>Alternatiivid:</strong>
+            <ol>
+                <li><strong>Figma Dev Mode:</strong> Inspect → kopeeri CSS käsitsi</li>
+                <li><strong>Figma to Code plugin:</strong> Plugins → Figma to Code</li>
+                <li><strong>Anima plugin:</strong> Plugins → Anima → Export Code</li>
+                <li><strong>Käsitsi:</strong> Vaata Figma disaini ja kirjuta HTML/CSS ise</li>
+            </ol>
+        </div>
+
+        <h2>📋 Kiire Checklist</h2>
+
+        <div class="step">
+            <h3>Enne alustamist</h3>
+            <ul>
+                <li>☐ WordPress installitud</li>
+                <li>☐ ACF Pro aktiveeritud</li>
+                <li>☐ Teema kaust loodud</li>
+                <li>☐ <code>acf-json/</code> kaust olemas</li>
+                <li>☐ <code>template-parts/blocks/</code> kaust olemas</li>
+                <li>☐ ACF Local JSON seadistatud <code>functions.php</code>-s</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>Iga bloki jaoks</h3>
+            <ul>
+                <li>☐ Figma design kopeeritud</li>
+                <li>☐ Cursor genereeris 4 faili (PHP, JSON, CSS, registreering)</li>
+                <li>☐ JSON fail on valid (kontrolli JSONLint'iga)</li>
+                <li>☐ WordPressis sünkroniseeritud (Sync available)</li>
+                <li>☐ Block ilmub Gutenberg'is</li>
+                <li>☐ Väljad töötavad</li>
+                <li>☐ CSS laeb</li>
+                <li>☐ Testitud mobile'is</li>
+            </ul>
+        </div>
+
+        <h2>🎯 Kokkuvõte</h2>
+
+        <div class="success">
+            <h3>Automaatne töövoog 3 sammuga:</h3>
+            <ol>
+                <li><strong>Figma:</strong> Vali komponent → Figma Make → Kopeeri HTML/CSS</li>
+                <li><strong>Cursor:</strong> Prompti AI'd → Genereeri 4 faili (PHP + JSON + CSS + registreering)</li>
+                <li><strong>WordPress:</strong> Sünkroniseeri JSON → Kasuta Gutenberg'is</li>
+            </ol>
+            
+            <p><strong>EI PEA KÄSITSI ACF'D SEADISTAMA! ✨</strong></p>
+        </div>
+
+        <div class="tip">
+            <h3>💡 Peamised eelised:</h3>
+            <ul>
+                <li><strong>ACF JSON</strong> - Kõik field group'id failidena</li>
+                <li><strong>Git versiooni kontroll</strong> - Commit JSON failid</li>
+                <li><strong>Meeskonnatöö</strong> - JSON failid sünkroniseeruvad automaatselt</li>
+                <li><strong>Kiire</strong> - Ei pea käsitsi välju looma</li>
+                <li><strong>Cursor AI</strong> - Genereerib kõik automaatselt</li>
+                <li><strong>VAATA OLEMASOLEVAID BLOKKE</strong> - Cursor mõistab struktuuri</li>
+            </ul>
+        </div>
+
+        </div>
+        <!-- End Main Guide Tab -->
+
+        <!-- Ubuntu Help Tab -->
+        <div id="ubuntu-help" class="tab-content">
+
+        <h2 id="ubuntu">🐧 UBUNTU HELP: WordPress Installimine</h2>
+
+        <div class="step">
+            <h3><span class="step-number">1</span> Uuenda Süsteemi</h3>
+            <pre><code>sudo apt update
+sudo apt upgrade -y</code></pre>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">2</span> Installi LAMP Stack</h3>
+            <p><strong>Apache, MySQL, PHP:</strong></p>
+            <pre><code># Apache
+sudo apt install apache2 -y
+
+# MySQL
+sudo apt install mysql-server -y
+
+# PHP ja moodulid
+sudo apt install php php-mysql php-curl php-gd php-mbstring php-xml php-xmlrpc php-zip -y
+
+# Taaskäivita Apache
+sudo systemctl restart apache2</code></pre>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">3</span> Loo MySQL Andmebaas</h3>
+            <pre><code># Logi MySQL'i sisse
+sudo mysql -u root
+
+# MySQL käsud:
+CREATE DATABASE wordpress;
+CREATE USER 'wpuser'@'localhost' IDENTIFIED BY 'tugevparool123';
+GRANT ALL PRIVILEGES ON wordpress.* TO 'wpuser'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;</code></pre>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">4</span> Lae Alla WordPress</h3>
+            <pre><code># Mine Apache kausta
+cd /var/www/html
+
+# Lae alla WordPress
+sudo wget https://wordpress.org/latest.tar.gz
+
+# Paki lahti
+sudo tar -xzvf latest.tar.gz
+
+# Kustuta arhiiv
+sudo rm latest.tar.gz</code></pre>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">5</span> Seadista Õigused (OLULINE!)</h3>
+            <pre><code># Muuda omanikku
+sudo chown -R www-data:www-data /var/www/html/wordpress
+
+# Seadista kaustade õigused (755)
+sudo find /var/www/html/wordpress -type d -exec chmod 755 {} \;
+
+# Seadista failide õigused (644)
+sudo find /var/www/html/wordpress -type f -exec chmod 644 {} \;
+
+# wp-content peab olema kirjutatav
+sudo chmod -R 775 /var/www/html/wordpress/wp-content
+sudo chown -R www-data:www-data /var/www/html/wordpress/wp-content</code></pre>
+            
+            <div class="warning">
+                ⚠️ <strong>Oluline:</strong> Ilma õigete õigusteta ei saa pluginaid installida ega teemade faile luua!
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">6</span> Seadista wp-config.php</h3>
+            <pre><code># Kopeeri näidisfail
+sudo cp /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php
+
+# Muuda andmebaasi seadistusi
+sudo nano /var/www/html/wordpress/wp-config.php</code></pre>
+            
+            <p><strong>Muuda järgmised read:</strong></p>
+            <pre><code>define('DB_NAME', 'wordpress');
+define('DB_USER', 'wpuser');
+define('DB_PASSWORD', 'tugevparool123');
+define('DB_HOST', 'localhost');</code></pre>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">7</span> Ava Brauseris</h3>
+            <p>Mine: <code>http://localhost/wordpress</code> või <code>http://your-ip/wordpress</code></p>
+            <p>Järgi WordPress installimise juhiseid</p>
+        </div>
+
+        <div class="step">
+            <h3>Teema Kausta Õigused</h3>
+            <p>Kui lood oma teema:</p>
+            <pre><code># Loo teema kaust
+sudo mkdir -p /var/www/html/wordpress/wp-content/themes/minu-teema
+
+# Seadista õigused
+sudo chown -R www-data:www-data /var/www/html/wordpress/wp-content/themes/minu-teema
+sudo chmod -R 775 /var/www/html/wordpress/wp-content/themes/minu-teema
+
+# Loo acf-json kaust
+sudo mkdir -p /var/www/html/wordpress/wp-content/themes/minu-teema/acf-json
+sudo chown -R www-data:www-data /var/www/html/wordpress/wp-content/themes/minu-teema/acf-json
+sudo chmod -R 775 /var/www/html/wordpress/wp-content/themes/minu-teema/acf-json</code></pre>
+        </div>
+
+        <div class="tip">
+            <h3>💡 Kasulikud Käsud</h3>
+            <pre><code># Kontrolli Apache staatust
+sudo systemctl status apache2
+
+# Taaskäivita Apache
+sudo systemctl restart apache2
+
+# Vaata PHP versiooni
+php -v
+
+# Vaata MySQL staatust
+sudo systemctl status mysql
+
+# Vaata Apache error log'e
+sudo tail -f /var/log/apache2/error.log
+
+# Vaata failide õigusi
+ls -la /var/www/html/wordpress/wp-content/themes/</code></pre>
+        </div>
+
+        <div class="warning">
+            <h3>⚠️ Levinud Probleemid</h3>
+            <ul>
+                <li><strong>"Cannot write to directory"</strong> → Kontrolli õigusi (chmod 775)</li>
+                <li><strong>"Permission denied"</strong> → Kontrolli omanikku (chown www-data:www-data)</li>
+                <li><strong>"500 Internal Server Error"</strong> → Vaata error.log faili</li>
+                <li><strong>ACF JSON ei salvesta</strong> → acf-json/ kaust peab olema kirjutatav (775)</li>
+            </ul>
+        </div>
+
+        </div>
+        <!-- End Ubuntu Help Tab -->
+
+        <!-- Git Tutorial Tab -->
+        <div id="git-tutorial" class="tab-content">
+
+        <h2>🔀 GIT TUTORIAL: Versioonihaldus Algajatele</h2>
+
+        <div class="tip">
+            <h3>💡 Mis on Git?</h3>
+            <p>Git on versioonihaldussüsteem, mis võimaldab:</p>
+            <ul>
+                <li>Jälgida koodi muudatusi</li>
+                <li>Töötada meeskonnaga koos</li>
+                <li>Tagasi pöörata vigu</li>
+                <li>Hallata erinevaid versioone</li>
+            </ul>
+        </div>
+
+        <h2>📦 1. Git'i Installimine ja Seadistamine</h2>
+
+        <div class="step">
+            <h3><span class="step-number">1</span> Installi Git (Ubuntu/Linux)</h3>
+            <pre><code># Uuenda pakette
+sudo apt update
+
+# Installi Git
+sudo apt install git -y
+
+# Kontrolli versiooni
+git --version</code></pre>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">2</span> Seadista Oma Nimi ja Email</h3>
+            <p><strong>OLULINE:</strong> Tee see enne esimest commit'i!</p>
+            <pre><code># Seadista oma nimi
+git config --global user.name "Sinu Nimi"
+
+# Seadista oma email
+git config --global user.email "sinu.email@example.com"
+
+# Kontrolli seadistusi
+git config --list</code></pre>
+            
+            <div class="tip">
+                💡 <strong>Marketing Sharksis:</strong> Kasuta oma tööemail'i (nt tanel@sharks.ee)
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">3</span> Kasulikud Globaalsed Seadistused</h3>
+            <pre><code># Vaikimisi branch nimi "main"
+git config --global init.defaultBranch main
+
+# Värvilised väljundid
+git config --global color.ui auto
+
+# Vaikimisi editor (nano on lihtsam kui vim)
+git config --global core.editor nano
+
+# Automaatne rebase pull'imisel
+git config --global pull.rebase false</code></pre>
+        </div>
+
+        <h2>🚀 2. Põhilised Git Käsud</h2>
+
+        <div class="step">
+            <h3>📥 git clone - Projekti Allalaadimine</h3>
+            <p>Laadi alla olemasolev projekt GitHub'ist või GitLab'ist:</p>
+            <pre><code># Klooni repositoorium
+git clone https://github.com/kasutajanimi/projekt.git
+
+# Klooni konkreetsesse kausta
+git clone https://github.com/kasutajanimi/projekt.git minu-kaust
+
+# Klooni konkreetne branch
+git clone -b develop https://github.com/kasutajanimi/projekt.git</code></pre>
+            
+            <div class="success">
+                ✅ <strong>Näide:</strong>
+                <pre><code>git clone https://github.com/marketingsharks/sharks2025.git
+cd sharks2025</code></pre>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>📊 git status - Projekti Seisund</h3>
+            <p>Vaata, mis on muutunud:</p>
+            <pre><code># Vaata projekti seisundit
+git status
+
+# Lühike versioon
+git status -s</code></pre>
+            
+            <p><strong>Väljund näitab:</strong></p>
+            <ul>
+                <li><span style="color: red;">Punased failid</span> - Muudetud, aga ei ole staged</li>
+                <li><span style="color: green;">Rohelised failid</span> - Staged (valmis commit'iks)</li>
+                <li><span style="color: gray;">Hallid failid</span> - Untracked (uued failid)</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>➕ git add - Muudatuste Lisamine</h3>
+            <p>Lisa failid staging area'sse (valmista ette commit'iks):</p>
+            <pre><code># Lisa üks fail
+git add functions.php
+
+# Lisa mitu faili
+git add functions.php style.css
+
+# Lisa kõik muudetud failid
+git add .
+
+# Lisa kõik PHP failid
+git add *.php
+
+# Lisa konkreetne kaust
+git add template-parts/blocks/</code></pre>
+            
+            <div class="warning">
+                ⚠️ <strong>Ettevaatust:</strong> <code>git add .</code> lisab KÕIK failid. Kontrolli enne <code>git status</code>'iga!
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>💾 git commit - Muudatuste Salvestamine</h3>
+            <p>Salvesta muudatused koos kirjeldusega:</p>
+            <pre><code># Commit koos sõnumiga
+git commit -m "Lisa hero banner blokk"
+
+# Commit koos pikema kirjeldusega
+git commit -m "Lisa hero banner blokk" -m "Lisatud ACF väljad ja PHP template"
+
+# Lisa ja commit korraga (ainult juba jälgitavad failid)
+git commit -am "Paranda hero banner CSS"</code></pre>
+            
+            <div class="tip">
+                <h4>💡 Hea Commit Sõnumi Reeglid:</h4>
+                <ul>
+                    <li>✅ <strong>Hea:</strong> "Lisa contact form blokk"</li>
+                    <li>✅ <strong>Hea:</strong> "Paranda hero banner responsive CSS"</li>
+                    <li>✅ <strong>Hea:</strong> "Eemalda vananenud ACF JSON failid"</li>
+                    <li>❌ <strong>Halb:</strong> "update"</li>
+                    <li>❌ <strong>Halb:</strong> "fix"</li>
+                    <li>❌ <strong>Halb:</strong> "asjad"</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>📤 git push - Muudatuste Üles Laadimine</h3>
+            <p>Lae oma commit'id GitHub'i/GitLab'i:</p>
+            <pre><code># Push praegusesse branch'i
+git push
+
+# Push konkreetsesse branch'i
+git push origin main
+
+# Push uude branch'i (esimene kord)
+git push -u origin feature/hero-banner
+
+# Force push (ETTEVAATUST!)
+git push --force</code></pre>
+            
+            <div class="warning">
+                ⚠️ <strong>HOIATUS:</strong> <code>git push --force</code> kirjutab üle serveri ajaloo! Kasuta ainult kui tead, mida teed!
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>📥 git pull - Muudatuste Allalaadimine</h3>
+            <p>Lae alla uusimad muudatused serverist:</p>
+            <pre><code># Pull praegusest branch'ist
+git pull
+
+# Pull konkreetsest branch'ist
+git pull origin main
+
+# Pull koos rebase'iga
+git pull --rebase</code></pre>
+            
+            <div class="tip">
+                💡 <strong>Hea tava:</strong> Tee alati <code>git pull</code> enne töö alustamist, et saada uusimad muudatused!
+            </div>
+        </div>
+
+        <h2>🌿 3. Branch'id (Harud)</h2>
+
+        <div class="step">
+            <h3>Mis on Branch?</h3>
+            <p>Branch on eraldi "haru" projektis, kus saad töötada ilma põhikoodi mõjutamata.</p>
+            
+            <div class="success">
+                <h4>✅ Tüüpiline Töövoog:</h4>
+                <ul>
+                    <li><strong>main</strong> - Põhikood (stabiilne versioon)</li>
+                    <li><strong>develop</strong> - Arenduskood</li>
+                    <li><strong>feature/hero-banner</strong> - Uus funktsioon</li>
+                    <li><strong>bugfix/contact-form</strong> - Vea parandus</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>Branch'ide Haldamine</h3>
+            <pre><code># Vaata kõiki branch'e
+git branch
+
+# Vaata kõiki branch'e (ka remote)
+git branch -a
+
+# Loo uus branch
+git branch feature/hero-banner
+
+# Lülitu teisele branch'ile
+git checkout feature/hero-banner
+
+# Loo ja lülitu korraga
+git checkout -b feature/services
+
+# Kustuta branch
+git branch -d feature/hero-banner
+
+# Kustuta branch (force)
+git branch -D feature/hero-banner</code></pre>
+        </div>
+
+        <div class="step">
+            <h3>Branch'ide Ühendamine (Merge)</h3>
+            <pre><code># Lülitu branch'ile, KUHU tahad merge'ida
+git checkout main
+
+# Merge'i teine branch siia
+git merge feature/hero-banner
+
+# Merge koos commit sõnumiga
+git merge feature/hero-banner -m "Merge hero banner feature"</code></pre>
+            
+            <div class="warning">
+                ⚠️ <strong>Konfliktid:</strong> Kui kaks inimest muutsid sama faili, tekib konflikt. Git näitab konflikti kohti failides:
+                <pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Sinu versioon
+=======
+Teise inimese versioon
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/hero-banner</code></pre>
+                Paranda käsitsi, siis <code>git add</code> ja <code>git commit</code>.
+            </div>
+        </div>
+
+        <h2>⏪ 4. Muudatuste Tagasivõtmine</h2>
+
+        <div class="step">
+            <h3>🔄 git reset - Commit'ide Tagasivõtmine</h3>
+            <pre><code># Võta tagasi viimane commit (säilita muudatused)
+git reset --soft HEAD~1
+
+# Võta tagasi viimane commit (muudatused jäävad unstaged)
+git reset HEAD~1
+
+# Võta tagasi viimane commit (KUSTUTA muudatused!)
+git reset --hard HEAD~1
+
+# Võta tagasi 3 viimast commit'i
+git reset --hard HEAD~3
+
+# Lähtesta konkreetsele commit'ile
+git reset --hard abc1234</code></pre>
+            
+            <div class="warning">
+                ⚠️ <strong>OHTLIK:</strong> <code>git reset --hard</code> KUSTUTAB muudatused jäädavalt! Kasuta ettevaatlikult!
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>↩️ git revert - Turvaline Tagasivõtmine</h3>
+            <p>Revert loob UUE commit'i, mis tühistab vana commit'i (ei kustuta ajalugu):</p>
+            <pre><code># Tühista viimane commit
+git revert HEAD
+
+# Tühista konkreetne commit
+git revert abc1234
+
+# Tühista ilma automaatse commit'ita
+git revert --no-commit abc1234</code></pre>
+            
+            <div class="success">
+                ✅ <strong>Soovitatud:</strong> Kasuta <code>git revert</code> avalikes branch'ides (main, develop), mitte <code>git reset</code>!
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>🗑️ git restore - Failide Taastamine</h3>
+            <pre><code># Taasta fail viimasest commit'ist (kustuta muudatused)
+git restore functions.php
+
+# Taasta kõik failid
+git restore .
+
+# Eemalda fail staging area'st (aga säilita muudatused)
+git restore --staged functions.php
+
+# Taasta fail konkreetsest commit'ist
+git restore --source=abc1234 functions.php</code></pre>
+        </div>
+
+        <div class="step">
+            <h3>🧹 git clean - Untracked Failide Kustutamine</h3>
+            <pre><code># Näita, mis kustutataks (dry run)
+git clean -n
+
+# Kustuta untracked failid
+git clean -f
+
+# Kustuta ka kaustad
+git clean -fd
+
+# Kustuta ka .gitignore failid
+git clean -fdx</code></pre>
+        </div>
+
+        <h2>📜 5. Ajaloo Vaatamine</h2>
+
+        <div class="step">
+            <h3>📖 git log - Commit'ide Ajalugu</h3>
+            <pre><code># Vaata commit'ide ajalugu
+git log
+
+# Lühike versioon (üks rida per commit)
+git log --oneline
+
+# Viimased 5 commit'i
+git log -5
+
+# Graafilisel kujul
+git log --oneline --graph --all
+
+# Konkreetse faili ajalugu
+git log functions.php
+
+# Otsi commit'e sõnumi järgi
+git log --grep="hero banner"
+
+# Konkreetse autori commit'id
+git log --author="Tanel"</code></pre>
+        </div>
+
+        <div class="step">
+            <h3>🔍 git diff - Erinevuste Vaatamine</h3>
+            <pre><code># Vaata muudatusi (unstaged)
+git diff
+
+# Vaata staged muudatusi
+git diff --staged
+
+# Võrdle kahte branch'i
+git diff main develop
+
+# Võrdle kahte commit'i
+git diff abc1234 def5678
+
+# Vaata konkreetse faili muudatusi
+git diff functions.php</code></pre>
+        </div>
+
+        <div class="step">
+            <h3>👁️ git show - Konkreetse Commit'i Vaatamine</h3>
+            <pre><code># Vaata viimast commit'i
+git show
+
+# Vaata konkreetset commit'i
+git show abc1234
+
+# Vaata ainult muudetud faile
+git show --name-only abc1234</code></pre>
+        </div>
+
+        <h2>🔧 6. Kasulikud Lisavõtted</h2>
+
+        <div class="step">
+            <h3>💾 git stash - Ajutine Salvestamine</h3>
+            <p>Salvesta muudatused ajutiselt ilma commit'ita:</p>
+            <pre><code># Salvesta muudatused
+git stash
+
+# Salvesta koos kirjeldusega
+git stash save "WIP: hero banner"
+
+# Vaata salvestatud stash'e
+git stash list
+
+# Taasta viimane stash
+git stash pop
+
+# Taasta konkreetne stash
+git stash apply stash@{0}
+
+# Kustuta stash
+git stash drop stash@{0}
+
+# Kustuta kõik stash'id
+git stash clear</code></pre>
+            
+            <div class="tip">
+                💡 <strong>Kasuta stash'i kui:</strong> Pead kiiresti branch'i vahetama, aga ei taha commit'ida poolikut tööd.
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>🏷️ git tag - Versioonide Märgistamine</h3>
+            <pre><code># Loo tag
+git tag v1.0.0
+
+# Loo tag koos kirjeldusega
+git tag -a v1.0.0 -m "Esimene stabiilne versioon"
+
+# Vaata kõiki tag'e
+git tag
+
+# Push tag serverisse
+git push origin v1.0.0
+
+# Push kõik tag'id
+git push --tags
+
+# Kustuta tag
+git tag -d v1.0.0
+
+# Kustuta tag serverist
+git push origin --delete v1.0.0</code></pre>
+        </div>
+
+        <div class="step">
+            <h3>🔍 git blame - Kes Muutis Rida?</h3>
+            <pre><code># Vaata, kes muutis iga rida
+git blame functions.php
+
+# Vaata konkreetseid ridu
+git blame -L 10,20 functions.php
+
+# Lühike versioon
+git blame -s functions.php</code></pre>
+        </div>
+
+        <div class="step">
+            <h3>🔄 git fetch - Serverist Info Laadimine</h3>
+            <pre><code># Lae info serverist (ei muuda kohalikke faile)
+git fetch
+
+# Lae kõik branch'id
+git fetch --all
+
+# Lae ja kustuta kustutatud branch'id
+git fetch --prune</code></pre>
+            
+            <div class="tip">
+                💡 <strong>Erinevus:</strong>
+                <ul>
+                    <li><code>git fetch</code> - Laeb info, ei muuda faile</li>
+                    <li><code>git pull</code> - Laeb info JA merge'ib faile</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>📋 7. .gitignore - Failide Ignoreerimine</h2>
+
+        <div class="step">
+            <h3>Mis on .gitignore?</h3>
+            <p>Fail, mis ütleb Git'ile, milliseid faile EI peaks jälgima.</p>
+            
+            <p><strong>Loo fail .gitignore projekti juurkausta:</strong></p>
+            <pre><code># WordPress
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+
+# Node modules
+node_modules/
+
+# Composer
+vendor/
+
+# OS failid
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logid
+*.log
+error_log
+debug.log
+
+# Ajutised failid
+*.tmp
+*.bak
+*~</code></pre>
+        </div>
+
+        <div class="step">
+            <h3>Ignoreeri Juba Jälgitavat Faili</h3>
+            <pre><code># Eemalda fail Git'ist (aga säilita kettale)
+git rm --cached wp-config.php
+
+# Lisa .gitignore'i
+echo "wp-config.php" >> .gitignore
+
+# Commit
+git commit -m "Eemalda wp-config.php Git'ist"</code></pre>
+        </div>
+
+        <h2>🚨 8. Levinud Probleemid ja Lahendused</h2>
+
+        <div class="step">
+            <h3>❌ "Your branch is behind..."</h3>
+            <p><strong>Probleem:</strong> Keegi tegi serverisse muudatusi.</p>
+            <p><strong>Lahendus:</strong></p>
+            <pre><code>git pull</code></pre>
+        </div>
+
+        <div class="step">
+            <h3>❌ "Merge conflict"</h3>
+            <p><strong>Probleem:</strong> Kaks inimest muutsid sama faili.</p>
+            <p><strong>Lahendus:</strong></p>
+            <pre><code># 1. Ava fail ja paranda konfliktid käsitsi
+# 2. Lisa parandatud fail
+git add functions.php
+# 3. Commit
+git commit -m "Lahenda merge konflikt"</code></pre>
+        </div>
+
+        <div class="step">
+            <h3>❌ "Permission denied (publickey)"</h3>
+            <p><strong>Probleem:</strong> SSH võti puudub või on vale.</p>
+            <p><strong>Lahendus:</strong></p>
+            <pre><code># Genereeri SSH võti
+ssh-keygen -t ed25519 -C "sinu.email@example.com"
+
+# Kopeeri avalik võti
+cat ~/.ssh/id_ed25519.pub
+
+# Lisa GitHub'i: Settings → SSH and GPG keys → New SSH key</code></pre>
+        </div>
+
+        <div class="step">
+            <h3>❌ Commit'isin vale faili</h3>
+            <p><strong>Lahendus:</strong></p>
+            <pre><code># Võta commit tagasi (säilita muudatused)
+git reset --soft HEAD~1
+
+# Eemalda fail staging area'st
+git restore --staged vale-fail.php
+
+# Commit uuesti
+git commit -m "Õige commit"</code></pre>
+        </div>
+
+        <div class="step">
+            <h3>❌ Tahan kõike algusest alustada</h3>
+            <p><strong>Lahendus:</strong></p>
+            <pre><code># HOIATUS: See kustutab KÕIK kohalikud muudatused!
+git fetch origin
+git reset --hard origin/main
+git clean -fd</code></pre>
+        </div>
+
+        <h2>📚 9. Kiire Käskude Kokkuvõte</h2>
+
+        <div class="step">
+            <h3>Igapäevased Käsud</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Käsk</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Kirjeldus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>git status</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Vaata projekti seisundit</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>git add .</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Lisa kõik muudatused</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>git commit -m "..."</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Salvesta muudatused</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>git push</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Lae üles serverisse</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>git pull</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Lae alla serverist</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>git log --oneline</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Vaata ajalugu</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>git diff</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Vaata muudatusi</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="step">
+            <h3>Tüüpiline Töövoog</h3>
+            <pre><code># 1. Lae uusimad muudatused
+git pull
+
+# 2. Loo uus branch
+git checkout -b feature/hero-banner
+
+# 3. Tee muudatusi...
+# (muuda faile Cursor'is)
+
+# 4. Vaata, mis muutus
+git status
+git diff
+
+# 5. Lisa muudatused
+git add .
+
+# 6. Commit
+git commit -m "Lisa hero banner blokk"
+
+# 7. Push serverisse
+git push -u origin feature/hero-banner
+
+# 8. Loo Pull Request GitHub'is
+# (veebilehitsejas)
+
+# 9. Pärast merge'i, lülitu tagasi main'i
+git checkout main
+git pull
+
+# 10. Kustuta vana branch
+git branch -d feature/hero-banner</code></pre>
+        </div>
+
+        <div class="success">
+            <h3>✅ Parimad Tavad</h3>
+            <ul>
+                <li>🔄 Tee <code>git pull</code> enne töö alustamist</li>
+                <li>💾 Commit'i sageli (väikeste osadena)</li>
+                <li>📝 Kirjuta selged commit sõnumid</li>
+                <li>🌿 Kasuta branch'e uute funktsioonide jaoks</li>
+                <li>🔍 Kontrolli <code>git status</code> enne commit'i</li>
+                <li>⚠️ Ära kasuta <code>--force</code> ilma põhjuseta</li>
+                <li>🗑️ Kasuta .gitignore faili</li>
+                <li>🏷️ Märgista versioonid tag'idega</li>
+            </ul>
+        </div>
+
+        <div class="tip">
+            <h3>📖 Lisalugemine</h3>
+            <ul>
+                <li><a href="https://git-scm.com/doc" target="_blank" style="color: #0066CC;">Git Ametlik Dokumentatsioon</a></li>
+                <li><a href="https://learngitbranching.js.org/" target="_blank" style="color: #0066CC;">Learn Git Branching (Interaktiivne)</a></li>
+                <li><a href="https://github.com/git-tips/tips" target="_blank" style="color: #0066CC;">Git Tips & Tricks</a></li>
+            </ul>
+        </div>
+
+        </div>
+        <!-- End Git Tutorial Tab -->
+
+        <!-- Tips & Tricks Tab -->
+        <div id="tips-tricks" class="tab-content">
+
+        <h2 id="tips">💡 TIPS & TRICKS: Cursor Promptide Näited</h2>
+
+        <div class="step">
+            <h3>🎯 Näide 0: WordPress Teema Struktuur (Alustamiseks)</h3>
+            <p><strong>Prompt Cursor'ile (kopeeri ja kleebi):</strong></p>
+            <pre><code>Loo mulle WordPress teema struktuur kausta wp-content/themes/minu-teema
+
+GENEREERI järgmised failid:
+
+1. style.css:
+/*
+Theme Name: [Projekti Nimi] Theme
+Description: Marketing Sharks custom made template
+Version: 1.0.0
+Author: Marketing Sharks
+Author URI: https://marketingsharks.ee
+Text Domain: [projekti-nimi]
+*/
+
+2. functions.php:
+&lt;?php
+/**
+ * Theme: [Projekti Nimi]
+ * Description: Marketing Sharks custom made template
+ * Author: Marketing Sharks
+ */
+
+// Laadi CSS ja JS
+add_action('wp_enqueue_scripts', function() {
+    wp_enqueue_style('main', get_stylesheet_uri());
+});
+
+// ACF Local JSON - salvestab field group'id JSON failidesse
+add_filter('acf/settings/save_json', function($path) {
+    return get_stylesheet_directory() . '/acf-json';
+});
+
+// ACF Local JSON - laeb field group'id JSON failidest
+add_filter('acf/settings/load_json', function($paths) {
+    unset($paths[0]);
+    $paths[] = get_stylesheet_directory() . '/acf-json';
+    return $paths;
+});
+
+// Teema toetus
+add_action('after_setup_theme', function() {
+    // Post thumbnails
+    add_theme_support('post-thumbnails');
+    
+    // Title tag
+    add_theme_support('title-tag');
+    
+    // HTML5 toetus
+    add_theme_support('html5', [
+        'search-form',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption',
+    ]);
+});
+
+3. index.php:
+&lt;?php
+/**
+ * Main template file
+ */
+get_header();
+?>
+
+&lt;main id="main" class="site-main"&gt;
+    &lt;?php
+    if (have_posts()) {
+        while (have_posts()) {
+            the_post();
+            the_content();
+        }
+    }
+    ?&gt;
+&lt;/main&gt;
+
+&lt;?php
+get_footer();
+
+4. header.php:
+&lt;!DOCTYPE html&gt;
+&lt;html &lt;?php language_attributes(); ?&gt;&gt;
+&lt;head&gt;
+    &lt;meta charset="&lt;?php bloginfo('charset'); ?&gt;"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;?php wp_head(); ?&gt;
+&lt;/head&gt;
+&lt;body &lt;?php body_class(); ?&gt;&gt;
+&lt;?php wp_body_open(); ?&gt;
+
+5. footer.php:
+    &lt;?php wp_footer(); ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+6. Loo kaustad:
+- acf-json/
+- template-parts/blocks/
+- assets/css/
+- assets/js/
+
+LÕPLIK STRUKTUUR:
+minu-teema/
+├── style.css
+├── functions.php
+├── index.php
+├── header.php
+├── footer.php
+├── acf-json/
+├── template-parts/
+│   └── blocks/
+└── assets/
+    ├── css/
+    └── js/
+
+Loo kõik failid ja kaustad korraga. Veendu, et acf-json/ kaust on olemas!</code></pre>
+
+            <div class="success">
+                ✅ <strong>Tulemus:</strong> Täielik WordPress teema struktuur valmis 10 sekundiga!
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>🎯 Näide 1: Testimonials Carousel (Klientide Arvustused)</h3>
+            <p><strong>Lihtne Cursor prompt:</strong></p>
+            <pre><code>Tee mulle hallatav ACF element "testimonials" (klientide arvustused karusell).
+
+Soovin hallata WordPressis:
+- Arvustusi (võib lisada mitu, minimaalselt 1, maksimaalselt 10):
+  * Kliendi nimi (kohustuslik, näiteks "Mari Maasikas")
+  * Kliendi amet (näiteks "Tegevjuht")
+  * Kliendi firma (näiteks "Firma OÜ")
+  * Arvustuse tekst (kohustuslik, 4 rida)
+  * Kliendi foto (ümmargune, 80x80px)
+
+Funktsionaalsus:
+- Näita 1 arvustus korraga
+- Noolenupu nupud (← →) vahetavad arvustusi
+- Automaatne vahetamine iga 5 sekundi tagant (valikuline)
+- Responsive: mobile ja desktop sama
+
+Disain:
+- Hall taust (#f5f5f5)
+- Valge kaart (padding 40px, border-radius 12px)
+- Tekst kursiivis, 18px
+- Ümmargune foto
+
+Genereeri kõik failid koos JavaScript'iga.</code></pre>
+
+            <div class="success">
+                ✅ <strong>Tulemus:</strong> Cursor genereerib täisfunktsionaalse karuselli koos JavaScript'iga!
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>🎯 Näide 2: Hero Banner (Peabänner 3 Stiiliga)</h3>
+            <p><strong>Lihtne Cursor prompt:</strong></p>
+            <pre><code>Tee mulle hallatav ACF element "hero-banner" (peabänner) koos 3 erineva stiiliga.
+
+Soovin hallata WordPressis:
+- Pealkiri (kohustuslik, vaikimisi "Tere tulemast")
+- Alapealkiri (3 rida teksti)
+- Nupu tekst (vaikimisi "Alusta")
+- Nupu link (vaikimisi "#contact")
+- Taustapilt (valikuline)
+- Stiili valik (dropdown):
+  * Tume taust (must taust, valge tekst)
+  * Hele taust (valge taust, must tekst)
+  * Gradient taust (sinine-violetne gradient, valge tekst)
+
+Funktsionaalsus:
+- Vastavalt valitud stiilile muutub kogu banneri välimus
+- Taustapilt on valikuline
+- Responsive: mobile ja desktop
+
+Genereeri kõik failid.</code></pre>
+
+            <div class="tip">
+                💡 <strong>Märkad erinevust?</strong> Ei pea teadma PHP muutujate nimesid ega CSS klasside struktuuri. Kirjelda lihtsalt, mida tahad!
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>🎯 Näide 3: Card Grid (Kaardiruudustik)</h3>
+            <p><strong>Lihtne lähenemine:</strong></p>
+            <pre><code>Tee mulle hallatav ACF element "service-cards" (teenuste kaardid).
+
+Soovin hallata WordPressis:
+- Sektsiooni pealkiri (näiteks "Meie teenused")
+- Sektsiooni alapealkiri (valikuline)
+- Kaarte (minimaalselt 3, maksimaalselt 12):
+  * Ikoon (pilt, 64x64px)
+  * Kaardi pealkiri
+  * Kaardi kirjeldus (3 rida)
+  * Lingi URL
+  * Lingi tekst (vaikimisi "Loe edasi")
+  * Kaardi värv (värvi valija, vaikimisi sinine #0066CC)
+
+Funktsionaalsus:
+- Kui linki pole, ära näita nuppu
+- Kaardi värv muudab tausta
+- Hover efekt: kaart liigub üles 5px
+- Responsive: mobile 1 kaart, tablet 2 kaarti, desktop 3-4 kaarti
+
+Genereeri kõik failid (functions.php registreering, PHP template, ACF JSON, CSS).</code></pre>
+
+            <div class="tip">
+                💡 <strong>Miks see töötab paremini:</strong>
+                <ul>
+                    <li>✅ Kirjeldad, <strong>mida tahad hallata</strong>, mitte kuidas kood peaks välja nägema</li>
+                    <li>✅ Cursor mõistab "hallatav element" = ACF block</li>
+                    <li>✅ Ei pea teadma ACF field tüüpe (Cursor teab)</li>
+                    <li>✅ Kirjeldad funktsionaalsust inimkeeles</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>🎯 Näide 4: Accordion/FAQ (Küsimused-Vastused)</h3>
+            <p><strong>Lihtne Cursor prompt:</strong></p>
+            <pre><code>Tee mulle hallatav ACF element "faq-accordion" (KKK accordion).
+
+Soovin hallata WordPressis:
+- Sektsiooni pealkiri (vaikimisi "Korduma kippuvad küsimused")
+- Küsimusi ja vastuseid (võib lisada mitu):
+  * Küsimus (kohustuslik)
+  * Vastus (rich text editor, põhiline toolbar)
+  * Kas ava vaikimisi? (checkbox)
+
+Funktsionaalsus:
+- Klõps küsimusel avab/sulgeb vastuse
+- Ainult 1 küsimus võib olla korraga avatud
+- Sujuv avamise/sulgemise animatsioon
+- Ikoon muutub: + muutub - kui avatud
+- Smooth slide efekt
+
+Genereeri kõik failid koos JavaScript'iga.</code></pre>
+
+            <div class="success">
+                ✅ <strong>Cursor teab:</strong> Accordion vajab JavaScript'i ja genereerib selle automaatselt!
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>🎯 Näide 5: CTA Section (Tegevusüleskutse)</h3>
+            <p><strong>Lihtne Cursor prompt:</strong></p>
+            <pre><code>Tee mulle hallatav ACF element "cta-section" (call-to-action sektsioon).
+
+Soovin hallata WordPressis:
+- Pealkiri (kohustuslik)
+- Kirjeldus (mitu rida)
+- Nupu tekst (vaikimisi "Võta ühendust")
+- Nupu tüüp (dropdown):
+  * Tavaline link → näita URL väli
+  * Ava modal → näita modali sisu väli
+  * Scroll anchor'ile → näita anchor'i nimi väli
+- Taustavärv (värvi valija, vaikimisi sinine #0066CC)
+- Teksti värv (värvi valija, vaikimisi valge #FFFFFF)
+
+Funktsionaalsus:
+- Vastavalt nupu tüübile ilmuvad erinevad väljad WordPressis
+- Kui "Tavaline link" → genereeri &lt;a href&gt; tag
+- Kui "Ava modal" → genereeri modal popup JavaScript'iga
+- Kui "Scroll anchor'ile" → genereeri smooth scroll
+
+Genereeri kõik failid koos JavaScript'iga.</code></pre>
+
+            <div class="tip">
+                💡 <strong>Conditional Logic:</strong> Cursor mõistab "vastavalt... ilmuvad erinevad väljad" = ACF conditional logic!
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>🎯 Näide 6: Image Gallery (Pildigalerii Lightbox'iga)</h3>
+            <p><strong>Lihtne Cursor prompt:</strong></p>
+            <pre><code>Tee mulle hallatav ACF element "image-gallery" (pildigalerii lightbox'iga).
+
+Soovin hallata WordPressis:
+- Galerii pealkiri
+- Pilte (võib lisada mitu, WordPress galerii väli)
+- Veergude arv (dropdown):
+  * 2 veergu
+  * 3 veergu (vaikimisi)
+  * 4 veergu
+- Kas lightbox on sisse lülitatud? (checkbox, vaikimisi JAH)
+
+Funktsionaalsus:
+- Näita pilte grid'is vastavalt valitud veergude arvule
+- Kui lightbox on sisse lülitatud:
+  * Klõps pildil avab suurendatud vaate
+  * Nooled (← →) navigeerivad pilte vahel
+  * ESC klahv suleb lightbox'i
+  * Klõps taustale suleb lightbox'i
+- Fade in/out animatsioonid
+- Responsive: mobile'is 1-2 veergu
+
+Genereeri kõik failid koos JavaScript'iga.</code></pre>
+
+            <div class="success">
+                ✅ <strong>Tulemus:</strong> Täisfunktsionaalne galerii koos lightbox'iga, ilma et peaks teadma JavaScript'i!
+            </div>
+        </div>
+
+        <div class="tip">
+            <h3>💡 Kuidas Kirjutada Häid Prompte</h3>
+            <h4>✅ TEE NIIMOODI (Lihtne):</h4>
+            <ul>
+                <li><strong>"Tee mulle hallatav ACF element..."</strong> - Cursor mõistab kohe</li>
+                <li><strong>"Soovin hallata WordPressis:"</strong> - Kirjelda, mida tahad muuta</li>
+                <li><strong>"Funktsionaalsus:"</strong> - Kirjelda inimkeeles, mida peaks juhtuma</li>
+                <li><strong>"Responsive:"</strong> - Kirjelda mobile vs desktop käitumist</li>
+                <li><strong>"Genereeri kõik failid"</strong> - Cursor teab, milliseid</li>
+            </ul>
+            
+            <h4>❌ ÄRA TEE NIIMOODI (Keeruline):</h4>
+            <ul>
+                <li><del>"ACF VÄLJAD: field_name (text, required: 1, default_value: '...')"</del> - Liiga tehniline</li>
+                <li><del>"PHP: Loop läbi $cards repeater'i"</del> - Cursor teab seda</li>
+                <li><del>"CSS: grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))"</del> - Liiga spetsiifiline</li>
+                <li><del>"JSON fail peab sisaldama..."</del> - Cursor teab JSON struktuuri</li>
+            </ul>
+
+            <h4>🎯 Kuldne Reegel:</h4>
+            <p><strong>Kirjelda MIDA tahad, mitte KUIDAS seda teha.</strong></p>
+            <p>Cursor on piisavalt tark, et teada ACF struktuuri, PHP koodi ja CSS-i. Sina kirjelda lihtsalt funktsionaalsust!</p>
+        </div>
+
+        <div class="tip">
+            <h3>🔑 Kasulikud Fraasid Promptides</h3>
+            <h4>Alustamiseks:</h4>
+            <ul>
+                <li><code>"Tee mulle hallatav ACF element..."</code></li>
+                <li><code>"Tee mulle uus WordPress block..."</code></li>
+                <li><code>"Genereeri ACF block..."</code></li>
+            </ul>
+
+            <h4>Väljade kirjeldamiseks:</h4>
+            <ul>
+                <li><code>"Soovin hallata WordPressis:"</code></li>
+                <li><code>"võib lisada mitu"</code> = repeater field</li>
+                <li><code>"kohustuslik"</code> = required field</li>
+                <li><code>"vaikimisi..."</code> = default value</li>
+                <li><code>"dropdown"</code> = select field</li>
+                <li><code>"checkbox"</code> = true/false field</li>
+                <li><code>"värvi valija"</code> = color picker</li>
+                <li><code>"rich text editor"</code> = WYSIWYG</li>
+            </ul>
+
+            <h4>Funktsionaalsuse kirjeldamiseks:</h4>
+            <ul>
+                <li><code>"Funktsionaalsus:"</code></li>
+                <li><code>"Kui... siis..."</code> = conditional logic</li>
+                <li><code>"Klõps... avab/sulgeb..."</code> = JavaScript event</li>
+                <li><code>"Vastavalt... muutub..."</code> = dynamic behavior</li>
+                <li><code>"Responsive: mobile... desktop..."</code></li>
+            </ul>
+
+            <h4>Lõpetamiseks:</h4>
+            <ul>
+                <li><code>"Genereeri kõik failid"</code></li>
+                <li><code>"Genereeri koos JavaScript'iga"</code></li>
+                <li><code>"Genereeri koos CSS'iga"</code></li>
+            </ul>
+        </div>
+
+        <div class="success">
+            <h3>✅ Lihtne Prompti Template (SOOVITATUD)</h3>
+            <pre><code>Tee mulle hallatav ACF element "[NIMI]" ([kirjeldus eesti keeles]).
+
+Soovin hallata WordPressis:
+- [Väli 1 kirjeldus inimkeeles]
+- [Väli 2 kirjeldus] (kohustuslik / vaikimisi "...")
+- [Väli 3] (võib lisada mitu):
+  * [Alamväli 1]
+  * [Alamväli 2]
+  * [Alamväli 3]
+- [Väli 4] (dropdown):
+  * [Valik 1]
+  * [Valik 2]
+  * [Valik 3] (vaikimisi)
+
+Funktsionaalsus:
+- [Kirjelda, mida peaks juhtuma]
+- [Kui X, siis Y]
+- [Klõps... avab/sulgeb...]
+- [Responsive käitumine]
+
+Disain (kui on Figma):
+- [Kleebi Figma HTML]
+- [Kleebi Figma CSS]
+
+Genereeri kõik failid [koos JavaScript'iga / koos CSS'iga].</code></pre>
+
+            <div class="warning">
+                <h4>⚠️ Tehniline Template (Ainult Kui Vaja)</h4>
+                <p>Kui vajad täpset kontrolli ACF väljade üle, kasuta seda:</p>
+                <pre><code>Tee ACF block "[NIMI]".
+
+ACF VÄLJAD:
+- field_name (text, required: 1, default_value: "...", placeholder: "...")
+- repeater_name (repeater, min: 1, max: 10):
+  - sub_field (type, settings)
+
+PHP: [täpsed nõuded]
+CSS: [täpsed nõuded]
+JS: [täpsed nõuded]
+
+Genereeri: functions.php, template, JSON, CSS</code></pre>
+            </div>
+        </div>
+
+        <div class="tip">
+            <h3>🚀 Kiire Alustamise Checklist</h3>
+            <ol>
+                <li>✅ <strong>Teema struktuur:</strong> Kasuta "Näide 0" prompti</li>
+                <li>✅ <strong>Aktiveeri teema:</strong> Appearance → Themes</li>
+                <li>✅ <strong>Installi ACF Pro:</strong> Küsi Tannu käest</li>
+                <li>✅ <strong>Ekspordi Figmast:</strong> Kasuta Figma Make</li>
+                <li>✅ <strong>Loo esimene blokk:</strong> Kasuta universaalset template'i</li>
+                <li>✅ <strong>Sünkroniseeri:</strong> ACF → Tools → Sync</li>
+                <li>✅ <strong>Testi:</strong> Loo uus leht Gutenberg'is</li>
+            </ol>
+        </div>
+
+        </div>
+        <!-- End Tips & Tricks Tab -->
+
+        <!-- Cursor Hacks Tab -->
+        <div id="cursor-hacks" class="tab-content">
+
+        <h2>⚡ CURSOR HACKS: Efektiivne Kasutamine</h2>
+
+        <div class="step">
+            <h3>💰 1. Vali Õige Mudel - Säästa Raha</h3>
+            
+            <p><strong>Kuidas valida mudelit Cursor'is:</strong></p>
+            <ol>
+                <li>Vajuta <code>Ctrl+L</code> (Windows/Linux) või <code>Cmd+L</code> (Mac)</li>
+                <li>Üleval paremal nurgas vali mudel</li>
+                <li>Vali: <strong>Claude 4.5 Sonnet</strong> 🌟</li>
+            </ol>
+
+            <div class="success">
+                <h4>✅ SOOVITATUD: Claude 4.5 Sonnet</h4>
+                <p><strong>Uusim ja parim valik ACF projektidele!</strong></p>
+                <ul>
+                    <li>🚀 <strong>1M tokens Max Mode</strong> - Suurim context window</li>
+                    <li>💰 <strong>Odav</strong> - Sama hind kui 3.5 Sonnet</li>
+                    <li>⚡ <strong>Kiire</strong> - Parem jõudlus</li>
+                    <li>🎯 <strong>Kvaliteetne</strong> - Täiustatud koodigenereerimine</li>
+                </ul>
+            </div>
+
+            <h4>Cursor Toetatud Mudelid (2025):</h4>
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Mudel</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Provider</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Context</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Max Mode</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #d4edda;">
+                        <td style="border: 1px solid #ddd; padding: 12px;"><strong>🌟 Claude 4.5 Sonnet</strong></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Anthropic</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">200k</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><strong>1M</strong></td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;">Claude 4.5 Opus</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Anthropic</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">200k</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">200k</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;">Gemini 3 Flash</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Google</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">200k</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">1M</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;">Gemini 3 Pro</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Google</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">200k</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">1M</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;">GPT-5.1 Codex Max</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">OpenAI</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">272k</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">-</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;">GPT-5.2</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">OpenAI</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">272k</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">-</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;">Grok Code</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">xAI</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">256k</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">-</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;">Composer 1</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Cursor</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">200k</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tip">
+                <h4>💡 Mis on Max Mode?</h4>
+                <p>Max Mode laiendab context window'i maksimumini. Tavaliselt Cursor kasutab 200k tokens (~15,000 rida koodi). Max Mode'is:</p>
+                <ul>
+                    <li><strong>Claude 4.5 Sonnet:</strong> 200k → <strong>1M tokens</strong> (~75,000 rida koodi!)</li>
+                    <li><strong>Gemini 3 Flash/Pro:</strong> 200k → 1M tokens</li>
+                    <li>Veidi aeglasem ja kallim, aga võimaldab analüüsida tervet projekti korraga</li>
+                </ul>
+            </div>
+
+            <div class="tip">
+                <h4>🎯 Soovitused Erinevate Ülesannete Jaoks:</h4>
+                <ul>
+                    <li><strong>🌟 ACF blokid:</strong> Claude 4.5 Sonnet (parim valik!)</li>
+                    <li><strong>📦 Terve projekt:</strong> Claude 4.5 Sonnet Max Mode (1M context)</li>
+                    <li><strong>⚡ Kiired parandused:</strong> Gemini 3 Flash (kiire ja odav)</li>
+                    <li><strong>🔍 Keerulised probleemid:</strong> Claude 4.5 Opus</li>
+                    <li><strong>💻 Spetsiifiline kood:</strong> GPT-5.1 Codex Max</li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <h4>⚠️ Auto Mode</h4>
+                <p>Cursor'il on ka <strong>Auto</strong> režiim, mis valib automaatselt parima mudeli ülesande jaoks. See võib olla kallim, kuna valib premium mudeleid. Soovitame valida käsitsi <strong>Claude 4.5 Sonnet</strong>.</p>
+            </div>
+
+            <p style="margin-top: 20px; font-size: 0.9em; color: #666;">
+                <strong>Allikas:</strong> <a href="https://cursor.com/docs/models" target="_blank" style="color: #0066CC;">Cursor Models Documentation</a><br>
+                Hinnad: <a href="https://www.anthropic.com/pricing#api" target="_blank" style="color: #0066CC;">Anthropic Pricing</a> | 
+                <a href="https://openai.com/api/pricing/" target="_blank" style="color: #0066CC;">OpenAI Pricing</a>
+            </p>
+        </div>
+
+        <div class="step">
+            <h3>🖼️ 2. Lisa Prompti Pilte - Näita, Mida Tahad</h3>
+            <p><strong>Cursor toetab piltide lisamist promptidesse!</strong></p>
+            
+            <h4>Kuidas lisada pilte:</h4>
+            <ol>
+                <li>Vajuta <code>Ctrl+L</code> või <code>Cmd+L</code></li>
+                <li>Kirjuta prompt</li>
+                <li>Lohista pilt otse chat aknasse VÕI</li>
+                <li>Vajuta 📎 (clip) ikooni ja vali pilt</li>
+                <li>Vajuta Enter</li>
+            </ol>
+
+            <div class="success">
+                <h4>✅ Millal kasutada pilte:</h4>
+                <ul>
+                    <li><strong>Figma screenshot:</strong> "Tee täpselt nii nagu pildil"</li>
+                    <li><strong>Disaini näide:</strong> "Tee sarnane layout"</li>
+                    <li><strong>Error screenshot:</strong> "Parandada see viga"</li>
+                    <li><strong>Soovitud tulemus:</strong> "Tahan täpselt sellist väljundit"</li>
+                    <li><strong>Värviskeemid:</strong> "Kasuta neid värve"</li>
+                </ul>
+            </div>
+
+            <h4>Näide prompt koos pildiga:</h4>
+            <pre><code>Tee mulle ACF element nagu pildil.
+
+[LISA FIGMA SCREENSHOT SIIA]
+
+Soovin hallata:
+- Kõik väljad nagu pildil näha
+- Täpselt sama layout
+- Samad värvid ja stiilid
+
+Genereeri kõik failid.</code></pre>
+
+            <div class="tip">
+                💡 <strong>Pro tip:</strong> Pilt + lühike prompt = parem tulemus kui pikk tekstiline kirjeldus!
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>📐 3. Figmast SVG Koodi Kopeerimine</h3>
+            <p><strong>Ei pea eksportima - kopeeri SVG kood otse!</strong></p>
+            
+            <h4>Kuidas kopeerida SVG koodi Figmast:</h4>
+            <ol>
+                <li>Vali Figmas element (ikoon, logo, shape)</li>
+                <li>Paremklõps → <strong>Copy/Paste as → Copy as SVG</strong></li>
+                <li>Kleebi otse Cursor prompti</li>
+            </ol>
+
+            <h4>Näide prompt koos SVG koodiga:</h4>
+            <pre><code>Tee mulle ACF element "icon-card" kus saan valida ikooni.
+
+Kasuta seda SVG koodi vaikimisi ikoonina:
+
+&lt;svg width="64" height="64" viewBox="0 0 64 64"&gt;
+  &lt;path d="M32 8L8 24v24l24 16 24-16V24L32 8z" fill="#0066CC"/&gt;
+&lt;/svg&gt;
+
+Genereeri kõik failid.</code></pre>
+
+            <div class="success">
+                ✅ <strong>Eelised:</strong>
+                <ul>
+                    <li>Ei pea eksportima faile</li>
+                    <li>SVG on kohe koodis</li>
+                    <li>Cursor saab optimeerida SVG'i</li>
+                    <li>Kiire ja lihtne</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>🐛 4. Kui Jooksed Kinni - Jaga Error Log'e</h3>
+            <div class="warning">
+                <strong>⚠️ Kui 4-5 promptiga ei suuda Cursor errorit lahendada:</strong><br>
+                Anna talle täpsed error log'id!
+            </div>
+
+            <h4>A) PHP Errorid - error.log</h4>
+            <pre><code># Ubuntu/Linux
+sudo tail -100 /var/log/apache2/error.log
+
+# XAMPP (Windows)
+C:\xampp\apache\logs\error.log
+
+# LocalWP
+~/Local Sites/[site-name]/logs/php/error.log</code></pre>
+
+            <p><strong>Prompt Cursor'ile:</strong></p>
+            <pre><code>Sain PHP errori. Siin on error.log viimased 100 rida:
+
+[KLEEBI error.log SISU SIIA]
+
+Palun paranda see error.</code></pre>
+
+            <h4>B) JavaScript Errorid - Console Log</h4>
+            <ol>
+                <li>Ava brauser (Chrome/Firefox)</li>
+                <li>Vajuta <code>F12</code></li>
+                <li>Mine <strong>Console</strong> tab'ile</li>
+                <li>Kopeeri kõik punased errorid</li>
+            </ol>
+
+            <p><strong>Prompt Cursor'ile:</strong></p>
+            <pre><code>Sain JavaScript errori brauseris. Siin on console log:
+
+[KLEEBI CONSOLE ERROR SIIA]
+
+Palun paranda see error.</code></pre>
+
+            <h4>C) WordPress Debug Mode</h4>
+            <p>Lisa <code>wp-config.php</code> faili:</p>
+            <pre><code>define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);</code></pre>
+
+            <p>Errorid salvestatakse: <code>wp-content/debug.log</code></p>
+
+            <div class="tip">
+                💡 <strong>Pro tip:</strong> Mida täpsem error kood, seda kiirem lahendus! Ära kirjuta "ei tööta", vaid näita täpset error koodi.
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>⚡ 5. Efektiivsed Cursor Võtted</h3>
+
+            <h4>A) Kasuta @-mentions</h4>
+            <pre><code>@functions.php Lisa siia uue bloki registreering
+
+@template-parts/blocks/hero/hero.php Paranda seda faili
+
+@acf-json/group_hero.json Kontrolli seda JSON faili</code></pre>
+
+            <h4>B) Kasuta Cmd+K (Inline Edit)</h4>
+            <ul>
+                <li>Vali kood</li>
+                <li>Vajuta <code>Ctrl+K</code> (Windows) või <code>Cmd+K</code> (Mac)</li>
+                <li>Kirjuta, mida muuta</li>
+                <li>Cursor muudab ainult valitud osa</li>
+            </ul>
+
+            <h4>C) Multi-file Edit</h4>
+            <pre><code>Muuda järgmisi faile korraga:
+
+1. functions.php - lisa registreering
+2. template-parts/blocks/hero/hero.php - loo template
+3. acf-json/group_hero.json - loo JSON
+
+Tee kõik korraga.</code></pre>
+
+            <h4>D) Kasuta Composer (Ctrl+I)</h4>
+            <ul>
+                <li>Vajuta <code>Ctrl+I</code> või <code>Cmd+I</code></li>
+                <li>Kirjuta, mida tahad muuta</li>
+                <li>Cursor teeb muudatused automaatselt</li>
+                <li>Vaata üle ja kinnita</li>
+            </ul>
+
+            <h4>E) Terminal Commands</h4>
+            <pre><code>Käivita terminal'is:
+chmod -R 775 acf-json/
+
+ja kontrolli, kas õigused on korras.</code></pre>
+
+            <h4>F) Codebase Context</h4>
+            <pre><code>@Codebase Kuidas on meie projektis ACF blokid struktureeritud?
+
+@Codebase Leia kõik hero bloki failid</code></pre>
+        </div>
+
+        <div class="step">
+            <h3>🚀 6. Cursor Kiirklahvid</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Kiirklahv</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Funktsioon</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>Ctrl+L</code> / <code>Cmd+L</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Ava Chat</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>Ctrl+K</code> / <code>Cmd+K</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Inline Edit (muuda valitud koodi)</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>Ctrl+I</code> / <code>Cmd+I</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Composer (multi-file edit)</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>Ctrl+Shift+P</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Command Palette</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>Tab</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Kinnita Cursor soovitus</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;"><code>Esc</code></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Tühista Cursor soovitus</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="step">
+            <h3>📋 7. Cursor Arenduste Nimekiri</h3>
+            <p><strong>Cursor ID:</strong> <code>10425554</code></p>
+
+            <h4>Meie Projektid Cursor'is:</h4>
+            <ul>
+                <li><strong>sharks2025</strong> - WordPress teema ACF blokkidega</li>
+                <li><strong>AIshark</strong> - Laravel 11 rakendus (Marketing Bot, Sales Bot, Office Bot)</li>
+            </ul>
+
+            <h4>Kasutatavad Tehnoloogiad:</h4>
+            <ul>
+                <li><strong>WordPress:</strong> ACF Pro, Gutenberg, Custom Blocks</li>
+                <li><strong>Laravel:</strong> Laravel 11, Sanctum Auth, API integratsioonid</li>
+                <li><strong>Integratsioonid:</strong> Google Analytics 4, Facebook API, LinkedIn API, Pipedrive, HubSpot, Salesforce</li>
+                <li><strong>Frontend:</strong> HTML, CSS, JavaScript, Figma</li>
+            </ul>
+
+            <h4>Cursor Seadistused:</h4>
+            <ul>
+                <li><strong>Mudel:</strong> Claude 3.5 Sonnet (soovitatud)</li>
+                <li><strong>Context:</strong> 1M tokens</li>
+                <li><strong>Auto-complete:</strong> Sisse lülitatud</li>
+                <li><strong>Codebase indexing:</strong> Aktiivne</li>
+            </ul>
+
+            <h4>Projektide Struktuur:</h4>
+            <pre><code>sharks2025/
+├── acf-json/              # ACF field groups
+├── template-parts/
+│   └── blocks/            # ACF blokid
+├── assets/
+│   ├── css/
+│   └── js/
+└── docs/                  # See juhend!
+
+AIshark/
+├── app/
+│   ├── Services/          # Google Analytics, Facebook, LinkedIn
+│   ├── Http/Controllers/
+│   └── Models/
+├── routes/
+│   └── api.php
+└── config/</code></pre>
+
+            <div class="tip">
+                💡 <strong>Meeldetuletus:</strong> Marketing Sharksis on ACF Pro litsents olemas! Küsi Tannu käest: <strong>tanel@sharks.ee</strong>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>🎯 8. Best Practices</h3>
+            
+            <h4>✅ TEE:</h4>
+            <ul>
+                <li>🌟 Kasuta <strong>Claude 4.5 Sonnet</strong> (parim valik 2025)</li>
+                <li>📦 Suurte projektide jaoks: Max Mode (1M context)</li>
+                <li>🖼️ Lisa pilte promptidesse</li>
+                <li>📐 Kopeeri SVG kood otse Figmast</li>
+                <li>🐛 Jaga error log'e kui kinni jooksed</li>
+                <li>📎 Kasuta @-mentions failide jaoks</li>
+                <li>⚡ Kasuta Cmd+K inline edit'iks</li>
+                <li>💬 Kirjuta selged, inimlikud promptid</li>
+            </ul>
+
+            <h4>❌ ÄRA TEE:</h4>
+            <ul>
+                <li>❌ Ära kasuta Auto Mode (valib kallimaid mudeleid)</li>
+                <li>❌ Ära kirjuta "ei tööta" (näita error koodi)</li>
+                <li>❌ Ära proovi 10 korda sama prompti (muuda lähenemist)</li>
+                <li>❌ Ära unusta error.log'e kontrollida</li>
+                <li>❌ Ära kirjuta liiga tehnilisi prompte</li>
+            </ul>
+
+            <h4>💰 Context Window Võrdlus:</h4>
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Mudel</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Default</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Max Mode</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Ridu Koodi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #d4edda;">
+                        <td style="border: 1px solid #ddd; padding: 12px;"><strong>🌟 Claude 4.5 Sonnet</strong></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">200k</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><strong>1M</strong></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><strong>~75,000</strong></td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;">Gemini 3 Flash</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">200k</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">1M</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">~75,000</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;">GPT-5.1 Codex Max</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">272k</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">-</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">~20,000</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;">Grok Code</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">256k</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">-</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">~19,000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="success">
+                <h4>🎉 Kokkuvõte:</h4>
+                <p><strong>Claude 4.5 Sonnet Max Mode (1M tokens) võimaldab analüüsida tervet WordPress projekti korraga - kuni 75,000 rida koodi!</strong></p>
+                <p>Ideaalne suurte ACF projektide jaoks, kus on palju blokke ja faile.</p>
+                <p style="font-size: 0.9em; margin-top: 10px;">Allikas: <a href="https://cursor.com/docs/models" target="_blank" style="color: #0066CC;">Cursor Models Documentation</a></p>
+            </div>
+        </div>
+
+        </div>
+        <!-- End Cursor Hacks Tab -->
+
+        <!-- Chat Room Tab -->
+        <div id="chat-room" class="tab-content">
+            <h2>💬 Jututuba</h2>
+            <p>Jaga oma kogemusi, küsi küsimusi või anna tippe teistele arendajatele!</p>
+
+            <div class="tip">
+                <strong>💡 Jututoa reeglid:</strong>
+                <ul>
+                    <li>Ole viisakas ja abivalmis</li>
+                    <li>Jaga praktilisi nippe ja kogemusi</li>
+                    <li>Küsi julgelt - pole rumalaid küsimusi!</li>
+                </ul>
+            </div>
+
+            <!-- Kommentaaride vorm -->
+            <div class="chat-form">
+                <h3 style="margin-top: 0;">✍️ Lisa kommentaar</h3>
+                <form id="chatForm" onsubmit="submitComment(event)">
+                    <div style="margin-bottom: 15px;">
+                        <label for="userName" style="display: block; margin-bottom: 5px; font-weight: 600;">Nimi:</label>
+                        <input 
+                            type="text" 
+                            id="userName" 
+                            name="name" 
+                            required 
+                            maxlength="50"
+                            placeholder="Sinu nimi"
+                            class="chat-input"
+                        >
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label for="userComment" style="display: block; margin-bottom: 5px; font-weight: 600;">Kommentaar:</label>
+                        <textarea 
+                            id="userComment" 
+                            name="comment" 
+                            required 
+                            maxlength="500"
+                            rows="4"
+                            placeholder="Jaga oma mõtteid, tippe või küsimusi..."
+                            class="chat-textarea"
+                        ></textarea>
+                        <div style="text-align: right; font-size: 0.85em; color: #666; margin-top: 5px;">
+                            <span id="charCount">0</span>/500 tähemärki
+                        </div>
+                    </div>
+                    <button type="submit" class="chat-submit">
+                        📤 Saada kommentaar
+                    </button>
+                </form>
+                <div id="formMessage" style="margin-top: 15px; padding: 10px; border-radius: 4px; display: none;"></div>
+            </div>
+
+            <!-- Kommentaaride nimekiri -->
+            <div style="margin-top: 40px;">
+                <h3>💭 Kommentaarid</h3>
+                <div id="commentsList" style="margin-top: 20px;">
+                    <div style="text-align: center; padding: 40px; color: #666;">
+                        <p>⏳ Laen kommentaare...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Chat Room Tab -->
+
+        <h2>⏱️ Ideaalne Ajakulu (Benchmark)</h2>
+
+        <div class="success">
+            <h3>🚀 Figma → Live WordPress: 2 Tundi</h3>
+            <p><strong>Eeldused:</strong></p>
+            <ul>
+                <li>✅ Header ja Footer on juba olemas</li>
+                <li>✅ WordPress ja ACF Pro on seadistatud</li>
+                <li>✅ Teema struktuur on paigas</li>
+                <li>✅ Figma disain on valmis</li>
+            </ul>
+
+            <p><strong>Ajakava (kokku ~2h):</strong></p>
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Etapp</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Aeg</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Tegevused</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><strong>1. Figma Eksport</strong></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">10 min</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">
+                            - Figma Make: HTML/CSS eksport<br>
+                            - Screenshot'id vajadusel<br>
+                            - SVG ikoonide kopeerimine
+                        </td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;"><strong>2. ACF Blokid</strong></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">80 min</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">
+                            - Cursor promptid (3-5 blokki)<br>
+                            - ACF JSON sünkroniseerimine<br>
+                            - PHP template'id<br>
+                            - CSS (30-components/)<br>
+                            - JavaScript (kui vaja)<br>
+                            - Jooksev testimine
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><strong>3. Responsive + Testimine</strong></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">20 min</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">
+                            - Media queries kontrollimine<br>
+                            - Mobile/Tablet/Desktop testimine<br>
+                            - Gutenberg'is blokide kontrollimine<br>
+                            - Browserite testimine
+                        </td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="border: 1px solid #ddd; padding: 12px;"><strong>4. Viimistlus</strong></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">10 min</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">
+                            - Väikesed parandused<br>
+                            - Git commit & push<br>
+                            - Dokumenteerimine
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr style="background: #d4edda; font-weight: bold;">
+                        <td style="border: 1px solid #ddd; padding: 12px;">KOKKU</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">~2h</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Täishallatav ACF põhine lehekülg</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <p style="margin-top: 20px;"><strong>📊 Benchmark:</strong> Taneli ajakulu (Jaanuar 2026)</p>
+            <p style="font-size: 0.9em; color: #666;">
+                Tüüpiline projekt: 3-5 ACF blokki, täielikult responsive, täishallatav WordPressis
+            </p>
+        </div>
+
+        <div class="tip">
+            <h3>⚡ Kuidas Saavutada 2h Aega?</h3>
+            <ul>
+                <li>🎯 <strong>Kasuta Cursor'i õigesti:</strong> "VAATA OLEMASOLEVAID BLOKKE ja tee sarnaselt!"</li>
+                <li>📁 <strong>Projekti struktuur paigas:</strong> assets/css/30-components/, template-parts/blocks/</li>
+                <li>🔄 <strong>ACF Local JSON:</strong> Automaatne sünkroniseerimine</li>
+                <li>🎨 <strong>Figma Make:</strong> Kiire HTML/CSS eksport</li>
+                <li>💾 <strong>Git workflow:</strong> Sage commit'imine</li>
+                <li>🧪 <strong>Testi jooksvalt:</strong> Ära jäta testimist lõppu</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <h3>⚠️ Mis Võib Aega Pikendada?</h3>
+            <ul>
+                <li>❌ <strong>Puudulik Figma disain</strong> - lisa 30-60 min</li>
+                <li>❌ <strong>Keerulised animatsioonid</strong> - lisa 30-60 min</li>
+                <li>❌ <strong>Custom JavaScript</strong> - lisa 20-40 min</li>
+                <li>❌ <strong>Kolmanda osapoole integratsioonid</strong> - lisa 1-2h</li>
+                <li>❌ <strong>Ebaselged nõuded</strong> - võib kahekordistada aega</li>
+            </ul>
+        </div>
+
+        <div class="success">
+            <h3>🎯 Võrdlus: Enne vs Nüüd</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Meetod</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Ajakulu</th>
+                        <th style="border: 1px solid #ddd; padding: 12px; background: #0066CC; color: white;">Hallatavus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #f8d7da;">
+                        <td style="border: 1px solid #ddd; padding: 12px;">❌ <strong>Käsitsi ACF</strong></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">6-8h</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Keskmine</td>
+                    </tr>
+                    <tr style="background: #fff3cd;">
+                        <td style="border: 1px solid #ddd; padding: 12px;">⚠️ <strong>Elementor/Divi</strong></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">3-4h</td>
+                        <td style="border: 1px solid #ddd; padding: 12px;">Hea (kuid locked-in)</td>
+                    </tr>
+                    <tr style="background: #d4edda;">
+                        <td style="border: 1px solid #ddd; padding: 12px;">✅ <strong>Cursor + ACF JSON</strong></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><strong>2h</strong></td>
+                        <td style="border: 1px solid #ddd; padding: 12px;"><strong>Täielik</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>🚀 Tulemus:</strong> 3-4x kiirem kui traditsiooniline meetod, täielik kontroll koodi üle!</p>
+        </div>
+
+        <div class="footer">
+            <p><strong>ACF Blokid: Figma → WordPress</strong></p>
+            <p>Automaatne workflow koos ACF JSON'iga</p>
+            <p>Ubuntu Help + Git Tutorial + Tips & Tricks</p>
+            <p>Koostatud: 2026-01-05</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">⏱️ Benchmark: 2h Figma → Live (Tanel, Jaanuar 2026)</p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Hide all tab contents
+            var tabContents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+            
+            // Remove active class from all buttons
+            var tabButtons = document.getElementsByClassName("tab-button");
+            for (var i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+            
+            // Show current tab and mark button as active
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Kui avame jututoa, laeme kommentaarid
+            if (tabName === 'chat-room') {
+                loadComments();
+            }
+        }
+
+        // Tähemärkide loendur
+        document.addEventListener('DOMContentLoaded', function() {
+            const commentField = document.getElementById('userComment');
+            const charCount = document.getElementById('charCount');
+            
+            if (commentField && charCount) {
+                commentField.addEventListener('input', function() {
+                    charCount.textContent = this.value.length;
+                });
+            }
+        });
+
+        // Kommentaari saatmine
+        function submitComment(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            const messageDiv = document.getElementById('formMessage');
+            
+            // Näita laadimise sõnumit
+            messageDiv.style.display = 'block';
+            messageDiv.style.background = '#d1ecf1';
+            messageDiv.style.color = '#0c5460';
+            messageDiv.innerHTML = '⏳ Saadan kommentaari...';
+            
+            fetch('chat.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    messageDiv.style.background = '#d4edda';
+                    messageDiv.style.color = '#155724';
+                    messageDiv.innerHTML = '✅ ' + data.message;
+                    
+                    // Tühjenda vorm
+                    form.reset();
+                    document.getElementById('charCount').textContent = '0';
+                    
+                    // Laadi kommentaarid uuesti
+                    loadComments();
+                    
+                    // Peida sõnum 3 sekundi pärast
+                    setTimeout(() => {
+                        messageDiv.style.display = 'none';
+                    }, 3000);
+                } else {
+                    messageDiv.style.background = '#f8d7da';
+                    messageDiv.style.color = '#721c24';
+                    messageDiv.innerHTML = '❌ ' + data.message;
+                }
+            })
+            .catch(error => {
+                messageDiv.style.background = '#f8d7da';
+                messageDiv.style.color = '#721c24';
+                messageDiv.innerHTML = '❌ Viga kommentaari saatmisel. Proovi uuesti.';
+                console.error('Error:', error);
+            });
+        }
+
+        // Kommentaaride laadimine
+        function loadComments() {
+            const commentsList = document.getElementById('commentsList');
+            
+            fetch('chat.php?action=load')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.comments) {
+                    if (data.comments.length === 0) {
+                        commentsList.innerHTML = `
+                            <div style="text-align: center; padding: 40px; color: #666; background: #f8f9fa; border-radius: 8px;">
+                                <p style="font-size: 1.2em;">💭 Pole veel ühtegi kommentaari</p>
+                                <p>Ole esimene, kes jagab oma mõtteid!</p>
+                            </div>
+                        `;
+                    } else {
+                        commentsList.innerHTML = data.comments.map(comment => `
+                            <div class="comment-card">
+                                <div class="comment-header">
+                                    <strong class="comment-author">👤 ${comment.name}</strong>
+                                    <span class="comment-time">🕐 ${formatDate(comment.timestamp)}</span>
+                                </div>
+                                <p class="comment-text">${comment.comment}</p>
+                            </div>
+                        `).join('');
+                    }
+                } else {
+                    commentsList.innerHTML = `
+                        <div style="text-align: center; padding: 40px; color: #721c24; background: #f8d7da; border-radius: 8px;">
+                            <p>❌ Viga kommentaaride laadimisel</p>
+                        </div>
+                    `;
+                }
+            })
+            .catch(error => {
+                commentsList.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #721c24; background: #f8d7da; border-radius: 8px;">
+                        <p>❌ Viga kommentaaride laadimisel</p>
+                    </div>
+                `;
+                console.error('Error:', error);
+            });
+        }
+
+        // Kuupäeva vormindamine
+        function formatDate(timestamp) {
+            const date = new Date(timestamp);
+            const now = new Date();
+            const diff = Math.floor((now - date) / 1000); // sekundites
+            
+            if (diff < 60) return 'Just nüüd';
+            if (diff < 3600) return Math.floor(diff / 60) + ' min tagasi';
+            if (diff < 86400) return Math.floor(diff / 3600) + ' tundi tagasi';
+            if (diff < 604800) return Math.floor(diff / 86400) + ' päeva tagasi';
+            
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            
+            return `${day}.${month}.${year} ${hours}:${minutes}`;
+        }
+
+        // Laadi kommentaarid lehel laadimisel, kui jututuba on aktiivne
+        document.addEventListener('DOMContentLoaded', function() {
+            // Kui URL-is on hash #chat-room, ava see tab
+            if (window.location.hash === '#chat-room') {
+                const chatButton = document.querySelector('[onclick*="chat-room"]');
+                if (chatButton) {
+                    chatButton.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

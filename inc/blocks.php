@@ -880,6 +880,117 @@ add_action('acf/init', function() {
             );
         }
     ]);
+
+    // Blog Posts Block
+    acf_register_block_type([
+        'name'            => 'blog-posts',
+        'title'           => __('Blog Posts', 'sharks2025'),
+        'description'     => __('Display blog posts with category filter and pagination/infinite scroll', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/blog-posts/blog-posts.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'admin-post',
+        'keywords'        => ['blog', 'posts', 'articles', 'news', 'blogi', 'postitused'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin']
+        ],
+        'mode'            => 'preview',
+        'enqueue_assets'  => function() {
+            wp_enqueue_script(
+                'blog-posts-js',
+                get_template_directory_uri() . '/assets/js/blog-posts.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/blog-posts.js'),
+                true
+            );
+            wp_localize_script('blog-posts-js', 'blogPostsAjax', [
+                'ajaxurl' => admin_url('admin-ajax.php'),
+                'nonce'   => wp_create_nonce('blog_posts_nonce')
+            ]);
+        }
+    ]);
+
+    // Why Sharks Block
+    acf_register_block_type([
+        'name'            => 'why-sharks',
+        'title'           => __('Why Sharks', 'sharks2025'),
+        'description'     => __('Why choose Marketing Sharks section with title and 5 numbered cards', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/why-sharks/why-sharks.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'awards',
+        'keywords'        => ['why', 'sharks', 'about', 'features', 'benefits', 'meist'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Team Block
+    acf_register_block_type([
+        'name'            => 'team',
+        'title'           => __('Team', 'sharks2025'),
+        'description'     => __('Team section with customizable heading and team member cards with hover effects', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/team/team.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'groups',
+        'keywords'        => ['team', 'meeskond', 'people', 'staff', 'members', 'inimesed'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Why We Block
+    acf_register_block_type([
+        'name'            => 'why-we',
+        'title'           => __('Why We', 'sharks2025'),
+        'description'     => __('Miks meie blokk koos animeeritud numbritega', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/why-we.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'chart-line',
+        'keywords'        => ['why we', 'statistics', 'stats', 'numbrid', 'miks meie'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview',
+        'enqueue_assets'  => function() {
+            wp_enqueue_script(
+                'why-we-js',
+                get_template_directory_uri() . '/assets/js/why-we.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/why-we.js'),
+                true
+            );
+        }
+    ]);
+
+    // Wide Picture Block
+    acf_register_block_type([
+        'name'            => 'wide-picture',
+        'title'           => __('Wide Picture', 'sharks2025'),
+        'description'     => __('Full-width image with optional caption and customizable spacing', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/wide-picture/wide-picture.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'format-image',
+        'keywords'        => ['picture', 'image', 'photo', 'wide', 'full', 'pilt', 'foto'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
 });
 
 /**

@@ -17,6 +17,14 @@ if (!defined('ABSPATH')) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <?php wp_head(); ?>
+    <style>
+    /* Submenu override styles - loaded last to ensure priority */
+    .site-nav__menu .sub-menu a {
+        font-family: 'Switzer', var(--font-heading) !important;
+        font-size: 42px !important;
+        color: #000000 !important;
+    }
+    </style>
 </head>
 
 <body <?php body_class(); ?>>
@@ -188,7 +196,58 @@ if (!defined('ABSPATH')) {
     
     // Dropdown menu - hover opens, link is clickable
     (function() {
+        const header = document.querySelector('.site-header');
         const menuItems = document.querySelectorAll('.site-nav__menu .menu-item-has-children');
+        
+        // Add asterisk SVG and arrow icons to each submenu
+        menuItems.forEach(function(item) {
+            const submenu = item.querySelector('.sub-menu');
+            if (submenu) {
+                // Wrap existing items in container
+                const items = Array.from(submenu.children);
+                const container = document.createElement('ul');
+                container.className = 'sub-menu-container';
+                
+                items.forEach(function(li) {
+                    // Add arrow icon to each link
+                    const link = li.querySelector('a');
+                    if (link) {
+                        const arrow = document.createElement('span');
+                        arrow.className = 'submenu-arrow';
+                        arrow.innerHTML = '<svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg"><g><path d="M68.5352 174.814L93 174.814" stroke="black" stroke-width="2.8592" stroke-linecap="round" stroke-linejoin="round" transform="translate(-68.5, -165)"/><path d="M83.2148 165.028L93.0008 174.814L83.2148 184.6" stroke="black" stroke-width="2.8592" stroke-linecap="round" stroke-linejoin="round" transform="translate(-68.5, -165)"/></g></svg>';
+                        link.insertBefore(arrow, link.firstChild);
+                    }
+                    container.appendChild(li);
+                });
+                
+                submenu.innerHTML = '';
+                submenu.appendChild(container);
+                
+                // Add asterisk with Sharks logo background
+                const asterisk = document.createElement('div');
+                asterisk.className = 'submenu-asterisk';
+                asterisk.innerHTML = `
+                    <div class="asterisk-bg"></div>
+                    <svg class="asterisk-icon" width="23" height="35" viewBox="0 0 286 429" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M111.882 48.3398L111.547 47.7868L101.767 55.8829C100.271 57.1219 98.1359 57.1086 96.6561 55.851L92.5614 52.3759L92.6547 52.243L97.1511 51.5224L96.428 46.7551L96.4902 46.6647L101.023 45.9389L100.292 41.1317L100.326 41.0865L104.895 40.3553L104.159 35.5083L104.151 35.5189L100.359 29.2361L87.9302 41.9879C87.9302 41.9879 79.2899 38.8797 71.852 41.9879L79.8911 50.2355L69.6051 60.7884L58 62.4768L70.5744 67.8875L76.3095 81.2587L76.7553 69.0627L88.1272 69.1398L89.1301 75.3827C89.1301 75.3827 91.7424 72.2745 93.2041 69.177C99.1051 69.177 104.62 66.1672 107.917 61.1447L114.009 51.8654L111.882 48.3398ZM92.2011 41.9161C92.7998 41.3019 93.7691 41.3019 94.3651 41.9161C94.9638 42.5303 94.9638 43.522 94.3651 44.1362C93.7691 44.7504 92.7998 44.7504 92.2011 44.1362C91.6051 43.522 91.6051 42.5303 92.2011 41.9161Z" fill="white"/>
+                    </svg>
+                `;
+                submenu.appendChild(asterisk);
+            }
+        });
+        
+        // Desktop: add/remove submenu-open class on hover
+        if (window.innerWidth > 900) {
+            menuItems.forEach(function(item) {
+                item.addEventListener('mouseenter', function() {
+                    header.classList.add('submenu-open');
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    header.classList.remove('submenu-open');
+                });
+            });
+        }
         
         // Mobile only: toggle on click
         menuItems.forEach(function(item) {

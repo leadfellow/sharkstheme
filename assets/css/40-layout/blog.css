@@ -1,5 +1,99 @@
 /* Blog Layout & Sidebar */
 
+/* Blog Header */
+.blog-header {
+  width: 100%;
+  margin-bottom: var(--space-4);
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-header__top {
+  background: #000000;
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.blog-header__top-content {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.blog-header__badge {
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+}
+
+.blog-header__actions {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.blog-header__action {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+  border-radius: var(--radius-sm);
+}
+
+.blog-header__action:hover {
+  opacity: 0.7;
+}
+
+.blog-header__action svg {
+  stroke: currentColor;
+}
+
+.blog-header__image {
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  max-height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-header__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(20px) brightness(0.8);
+  transform: scale(1.1);
+}
+
+.blog-header__gradient {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(135, 206, 250, 0.6) 0%,
+    rgba(70, 130, 180, 0.4) 20%,
+    rgba(25, 25, 112, 0.3) 40%,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(139, 69, 19, 0.4) 60%,
+    rgba(205, 133, 63, 0.5) 80%,
+    rgba(255, 140, 0, 0.3) 100%
+  );
+  filter: blur(30px);
+  transform: scale(1.2);
+}
+
 /* Blog Layout Container */
 .blog-layout {
   display: grid;
@@ -225,6 +319,34 @@
 }
 
 @media (max-width: 768px) {
+  /* Blog Header Mobile */
+  .blog-header__top {
+    padding: var(--space-2) var(--space-3);
+  }
+  
+  .blog-header__badge {
+    font-size: 0.75rem;
+  }
+  
+  .blog-header__image {
+    height: 40vh;
+    min-height: 300px;
+    max-height: 400px;
+  }
+  
+  .blog-header__actions {
+    gap: var(--space-1);
+  }
+  
+  .blog-header__action {
+    padding: 0.375rem;
+  }
+  
+  .blog-header__action svg {
+    width: 18px;
+    height: 18px;
+  }
+  
   /* All layouts become stacked on mobile */
   .blog-layout--right-sidebar,
   .blog-layout--left-sidebar,

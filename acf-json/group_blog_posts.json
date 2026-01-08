@@ -1,0 +1,71 @@
+{
+    "key": "group_blog_posts",
+    "title": "Blog Posts",
+    "fields": [
+        {
+            "key": "field_blog_posts_per_page",
+            "label": "Postituste arv lehel",
+            "name": "posts_per_page",
+            "type": "number",
+            "instructions": "Mitu postitust näidatakse korraga",
+            "required": 0,
+            "default_value": 6,
+            "min": 2,
+            "max": 20,
+            "step": 2
+        },
+        {
+            "key": "field_blog_hover_color",
+            "label": "Hover värv",
+            "name": "hover_color",
+            "type": "color_picker",
+            "instructions": "Värv, mis ilmub hover efektil",
+            "required": 0,
+            "default_value": "#f237a6",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_blog_loading_type",
+            "label": "Laadimise tüüp",
+            "name": "loading_type",
+            "type": "select",
+            "instructions": "Kuidas postitusi juurde laaditakse",
+            "required": 0,
+            "choices": {
+                "pagination": "Paging (lehekülgede numbrid)",
+                "infinite": "Infinite scroll (kerides laeb juurde)"
+            },
+            "default_value": "pagination",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value"
+        },
+        {
+            "key": "field_blog_show_categories",
+            "label": "Näita kategooriate filtrit",
+            "name": "show_categories",
+            "type": "true_false",
+            "instructions": "Kas näidata ülaosas kategooriate navigatsiooni",
+            "required": 0,
+            "default_value": 1,
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/blog-posts"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

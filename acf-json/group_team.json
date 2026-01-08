@@ -1,0 +1,262 @@
+{
+    "key": "group_team_block",
+    "title": "Team Block",
+    "fields": [
+        {
+            "key": "field_team_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"team\", \"meeskond\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #team",
+            "required": 0,
+            "placeholder": "nt. team, meeskond",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_team_heading_parts",
+            "label": "Heading Parts (Pealkiri)",
+            "name": "heading_parts",
+            "type": "repeater",
+            "instructions": "Lisa pealkirja osad: tekst (must/hall), ikoonid ja reavahetused",
+            "required": 0,
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Lisa osa",
+            "sub_fields": [
+                {
+                    "key": "field_team_part_type",
+                    "label": "Osa tüüp",
+                    "name": "part_type",
+                    "type": "select",
+                    "instructions": "Vali tekst, ikoon või reavahetus",
+                    "required": 1,
+                    "choices": {
+                        "text": "Tekst",
+                        "icon": "Ikoon",
+                        "line_break": "Reavahetus"
+                    },
+                    "default_value": "text",
+                    "allow_null": 0
+                },
+                {
+                    "key": "field_team_part_text",
+                    "label": "Tekst",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "Sisesta tekst (nt. TUTVU AGENTUURI)",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_team_part_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ],
+                    "placeholder": "TUTVU AGENTUURI"
+                },
+                {
+                    "key": "field_team_part_color",
+                    "label": "Teksti värv",
+                    "name": "color",
+                    "type": "select",
+                    "instructions": "Vali teksti värv",
+                    "required": 0,
+                    "choices": {
+                        "black": "Must",
+                        "gray": "Hall"
+                    },
+                    "default_value": "black",
+                    "allow_null": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_team_part_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "key": "field_team_part_icon",
+                    "label": "Ikoon",
+                    "name": "icon",
+                    "type": "select",
+                    "instructions": "Vali ikoon",
+                    "required": 0,
+                    "choices": {
+                        "circle": "Ring (Circle)",
+                        "cross": "Rist (Cross)",
+                        "x": "X",
+                        "asterisk": "Tärn (Asterisk)",
+                        "star": "Täht (Star)"
+                    },
+                    "default_value": "circle",
+                    "allow_null": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_team_part_type",
+                                "operator": "==",
+                                "value": "icon"
+                            }
+                        ]
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_team_members",
+            "label": "Meeskonnaliikmed",
+            "name": "team_members",
+            "type": "repeater",
+            "instructions": "Lisa meeskonnaliikmed. Saad määrata rea numbri (1, 2, 3...) et paigutada liikmeid erinevatele ridadele.",
+            "required": 0,
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Lisa meeskonnaliige",
+            "sub_fields": [
+                {
+                    "key": "field_team_member_row",
+                    "label": "Rea number",
+                    "name": "row_number",
+                    "type": "number",
+                    "instructions": "Määra millisele reale see liige kuulub (1, 2, 3...). Rida 2 joondatakse paremale.",
+                    "required": 0,
+                    "default_value": 1,
+                    "min": 1,
+                    "max": 10,
+                    "step": 1,
+                    "wrapper": {
+                        "width": "20"
+                    }
+                },
+                {
+                    "key": "field_team_member_image",
+                    "label": "Pilt",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "Laadi üles meeskonnaliikme pilt (soovitatud: 428x428px ruut)",
+                    "required": 0,
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_team_member_hover_text",
+                    "label": "Hover tekst (valikuline)",
+                    "name": "hover_text",
+                    "type": "textarea",
+                    "instructions": "Tekst, mis ilmub pildi peale hõljutamisel. Kui tühi, siis hover efekti ei ole.",
+                    "required": 0,
+                    "rows": 4,
+                    "placeholder": "Tanel on üle 24 aasta tegutsenud IT valdkonnas..."
+                },
+                {
+                    "key": "field_team_member_corner_icon",
+                    "label": "Nurga ikoon hover'il",
+                    "name": "corner_icon",
+                    "type": "select",
+                    "instructions": "Vali ikoon, mis ilmub vasakus ülanurgas hover'il. Vali 'Ei näita', kui ei soovi ikooni.",
+                    "required": 0,
+                    "choices": {
+                        "none": "Ei näita",
+                        "x": "X (diagonaalid)",
+                        "star": "Täht (Star)",
+                        "cross": "Rist (Cross +)",
+                        "circle": "Ring (Circle)",
+                        "asterisk": "Tärn (Asterisk)"
+                    },
+                    "default_value": "x",
+                    "allow_null": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_team_member_hover_text",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "key": "field_team_member_hover_small_image",
+                    "label": "Väike hover pilt (valikuline)",
+                    "name": "hover_small_image",
+                    "type": "image",
+                    "instructions": "Väike pilt, mis ilmub paremas ülanurgas hover'il (soovitatud: 23x35px)",
+                    "required": 0,
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_team_member_hover_text",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "key": "field_team_member_name",
+                    "label": "Nimi",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "Meeskonnaliikme nimi",
+                    "required": 0,
+                    "placeholder": "Diana Taluri"
+                },
+                {
+                    "key": "field_team_member_position",
+                    "label": "Amet / Positsioon",
+                    "name": "position",
+                    "type": "text",
+                    "instructions": "Ametikoht või roll",
+                    "required": 0,
+                    "placeholder": "E-äri strateeg"
+                },
+                {
+                    "key": "field_team_member_phone",
+                    "label": "Telefon",
+                    "name": "phone",
+                    "type": "text",
+                    "instructions": "Telefoninumber (valikuline)",
+                    "required": 0,
+                    "placeholder": "+372 5554 9000"
+                },
+                {
+                    "key": "field_team_member_email",
+                    "label": "E-mail",
+                    "name": "email",
+                    "type": "email",
+                    "instructions": "E-posti aadress (valikuline)",
+                    "required": 0,
+                    "placeholder": "diana@marketingsharks.ee"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/team"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

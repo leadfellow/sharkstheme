@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jututoa Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 { color: #0066CC; }
+        h2 { color: #00A3E0; }
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        button {
+            background: #0066CC;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0052a3; }
+        #results {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Jututoa Testimine</h1>
+    
+    <div class="test-section">
+        <h2>1. API Testimine</h2>
+        <button onclick="testLoadComments()">📥 Lae kommentaarid</button>
+        <button onclick="testAddComment()">➕ Lisa testikommentaar</button>
+        <button onclick="testValidation()">✅ Testi valideerimist</button>
+        <div id="results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>2. Käsitsi Testimine</h2>
+        <form onsubmit="manualTest(event)">
+            <div style="margin-bottom: 10px;">
+                <label>Nimi:</label><br>
+                <input type="text" id="testName" value="Test Kasutaja" style="width: 100%; padding: 8px;">
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label>Kommentaar:</label><br>
+                <textarea id="testComment" rows="3" style="width: 100%; padding: 8px;">See on testikommentaar!</textarea>
+            </div>
+            <button type="submit">📤 Saada</button>
+        </form>
+    </div>
+
+    <div class="test-section">
+        <h2>3. Olemasolevad Kommentaarid</h2>
+        <button onclick="showComments()">👁️ Kuva kommentaarid</button>
+        <div id="commentsList"></div>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const results = document.getElementById('results');
+            const timestamp = new Date().toLocaleTimeString();
+            const icon = type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️';
+            results.innerHTML += `[${timestamp}] ${icon} ${message}\n`;
+        }
+
+        async function testLoadComments() {
+            document.getElementById('results').innerHTML = '';
+            log('Laen kommentaare...');
+            
+            try {
+                const response = await fetch('chat.php?action=load');
+                const data = await response.json();
+                
+                if (data.success) {
+                    log(`Kommentaaride arv: ${data.comments.length}`, 'success');
+                    log(JSON.stringify(data.comments, null, 2));
+                } else {
+                    log('Viga kommentaaride laadimisel', 'error');
+                }
+            } catch (error) {
+                log(`Error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testAddComment() {
+            document.getElementById('results').innerHTML = '';
+            log('Lisan testikommentaari...');
+            
+            const formData = new FormData();
+            formData.append('name', 'Test User ' + Math.floor(Math.random() * 100));
+            formData.append('comment', 'See on automaatne testikommentaar! ' + new Date().toLocaleString());
+            
+            try {
+                const response = await fetch('chat.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+                
+                if (data.success) {
+                    log('Kommentaar lisatud!', 'success');
+                    log(JSON.stringify(data, null, 2));
+                } else {
+                    log(`Viga: ${data.message}`, 'error');
+                }
+            } catch (error) {
+                log(`Error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testValidation() {
+            document.getElementById('results').innerHTML = '';
+            log('Testin valideerimist...');
+            
+            const tests = [
+                { name: '', comment: 'Test', expected: 'fail', desc: 'Tühi nimi' },
+                { name: 'A', comment: 'Test', expected: 'fail', desc: 'Liiga lühike nimi' },
+                { name: 'Test', comment: '', expected: 'fail', desc: 'Tühi kommentaar' },
+                { name: 'Test', comment: 'OK', expected: 'fail', desc: 'Liiga lühike kommentaar' },
+                { name: 'A'.repeat(51), comment: 'Test comment', expected: 'fail', desc: 'Liiga pikk nimi' },
+                { name: 'Test', comment: 'A'.repeat(501), expected: 'fail', desc: 'Liiga pikk kommentaar' },
+                { name: 'Valid Name', comment: 'Valid comment', expected: 'success', desc: 'Korrektne sisend' }
+            ];
+
+            for (const test of tests) {
+                const formData = new FormData();
+                formData.append('name', test.name);
+                formData.append('comment', test.comment);
+                
+                try {
+                    const response = await fetch('chat.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const data = await response.json();
+                    
+                    const passed = (test.expected === 'success' && data.success) || 
+                                   (test.expected === 'fail' && !data.success);
+                    
+                    log(`${test.desc}: ${passed ? 'PASS' : 'FAIL'} - ${data.message}`, 
+                        passed ? 'success' : 'error');
+                } catch (error) {
+                    log(`${test.desc}: ERROR - ${error.message}`, 'error');
+                }
+                
+                // Väike paus testide vahel
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+        }
+
+        async function manualTest(event) {
+            event.preventDefault();
+            document.getElementById('results').innerHTML = '';
+            
+            const name = document.getElementById('testName').value;
+            const comment = document.getElementById('testComment').value;
+            
+            log(`Saadan: ${name} - ${comment}`);
+            
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('comment', comment);
+            
+            try {
+                const response = await fetch('chat.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+                
+                if (data.success) {
+                    log('Kommentaar lisatud!', 'success');
+                } else {
+                    log(`Viga: ${data.message}`, 'error');
+                }
+            } catch (error) {
+                log(`Error: ${error.message}`, 'error');
+            }
+        }
+
+        async function showComments() {
+            const commentsList = document.getElementById('commentsList');
+            commentsList.innerHTML = '<p>⏳ Laen...</p>';
+            
+            try {
+                const response = await fetch('chat.php?action=load');
+                const data = await response.json();
+                
+                if (data.success && data.comments.length > 0) {
+                    commentsList.innerHTML = data.comments.map(c => `
+                        <div style="background: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 4px;">
+                            <strong>${c.name}</strong> <small>(${c.timestamp})</small><br>
+                            ${c.comment}
+                        </div>
+                    `).join('');
+                } else {
+                    commentsList.innerHTML = '<p>Pole kommentaare</p>';
+                }
+            } catch (error) {
+                commentsList.innerHTML = `<p class="error">Viga: ${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,150 @@
+{
+    "key": "group_why_we",
+    "title": "Why We",
+    "fields": [
+        {
+            "key": "field_why_we_heading",
+            "label": "Pealkiri (väike)",
+            "name": "heading",
+            "type": "text",
+            "instructions": "Väike ülemine pealkiri (nt. \"miks meie\")",
+            "required": 1,
+            "default_value": "miks meie",
+            "placeholder": "",
+            "maxlength": "",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_why_we_main_description",
+            "label": "Peamine kirjeldus",
+            "name": "main_description",
+            "type": "textarea",
+            "instructions": "Suur keskne kirjeldus",
+            "required": 1,
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_why_we_sub_description",
+            "label": "Alakirjeldus",
+            "name": "sub_description",
+            "type": "textarea",
+            "instructions": "Väiksem kirjeldus peamise all",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_why_we_stats",
+            "label": "Statistika",
+            "name": "stats",
+            "type": "repeater",
+            "instructions": "Lisa statistika numbrid ja kirjeldused",
+            "required": 0,
+            "layout": "table",
+            "button_label": "Lisa statistika",
+            "min": 0,
+            "max": 4,
+            "sub_fields": [
+                {
+                    "key": "field_why_we_stat_number",
+                    "label": "Number",
+                    "name": "number",
+                    "type": "text",
+                    "instructions": "Statistika number (nt. \"95%\" või \"250+\")",
+                    "required": 1,
+                    "default_value": "",
+                    "placeholder": "95%",
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_why_we_stat_label",
+                    "label": "Kirjeldus",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "Statistika kirjeldus",
+                    "required": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_why_we_image_top_left",
+            "label": "Pilt (üleval vasakul)",
+            "name": "image_top_left",
+            "type": "image",
+            "instructions": "Dekoratiivne pilt vasakus ülanurgas",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_why_we_image_bottom_right",
+            "label": "Pilt (all paremal)",
+            "name": "image_bottom_right",
+            "type": "image",
+            "instructions": "Dekoratiivne pilt paremas alanurgas",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/why-we"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

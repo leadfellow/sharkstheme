@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Sharks - Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica', Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .block-why-sharks {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .block-why-sharks__container {
+            display: flex;
+            flex-direction: column;
+            gap: 62px;
+            padding: 100px 58px;
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .block-why-sharks__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 1324px;
+            margin: 0 auto;
+        }
+
+        .block-why-sharks__section-title {
+            font-family: 'Manrope', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            text-transform: uppercase;
+            color: #000000;
+            white-space: nowrap;
+            margin: 0;
+        }
+
+        .block-why-sharks__content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            width: 652px;
+            max-width: 100%;
+            align-items: flex-start;
+            line-height: 0;
+        }
+
+        .block-why-sharks__main-heading {
+            font-family: 'Helvetica', Arial, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 1.1;
+            letter-spacing: -1.8px;
+            color: #000000;
+            width: 100%;
+        }
+
+        .block-why-sharks__main-heading p {
+            margin: 0;
+            margin-bottom: 0;
+        }
+
+        .block-why-sharks__description {
+            font-family: 'Helvetica', Arial, sans-serif;
+            font-size: 18px;
+            color: #141414;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .block-why-sharks__description p {
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Cards Container */
+        .block-why-sharks__cards {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            max-width: 1324px;
+            margin: 0 auto;
+        }
+
+        /* Individual Card */
+        .block-why-sharks__card {
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex-grow: 1;
+            flex-basis: 0;
+        }
+
+        .block-why-sharks__card-number {
+            font-family: 'Switzer', sans-serif;
+            font-weight: 500;
+            font-size: 26px;
+            line-height: 1.1;
+            letter-spacing: -1.3px;
+            text-transform: uppercase;
+            color: #bbbab6;
+            width: 60px;
+            margin: 0;
+        }
+
+        .block-why-sharks__card-divider {
+            width: 100%;
+            height: 0;
+            position: relative;
+        }
+
+        .block-why-sharks__card-divider svg {
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            left: 0;
+            top: -0.5px;
+        }
+
+        .block-why-sharks__card-divider line,
+        .block-why-sharks__card-divider path {
+            stroke: #BBBAB6;
+        }
+
+        .block-why-sharks__card-text {
+            font-family: 'Helvetica', Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.4;
+            color: #000000;
+        }
+
+        .block-why-sharks__card-text p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1440px) {
+            .block-why-sharks__container {
+                padding: 80px 40px;
+            }
+            
+            .block-why-sharks__header,
+            .block-why-sharks__cards {
+                max-width: 100%;
+            }
+
+            .block-why-sharks__content-wrapper {
+                width: 100%;
+                max-width: 652px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .block-why-sharks__cards {
+                flex-wrap: wrap;
+            }
+
+            .block-why-sharks__card {
+                flex-basis: calc(50% - 10px);
+                min-width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .block-why-sharks__container {
+                gap: 40px;
+                padding: 60px 20px;
+            }
+
+            .block-why-sharks__header {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .block-why-sharks__content-wrapper {
+                width: 100%;
+            }
+
+            .block-why-sharks__main-heading {
+                font-size: 28px;
+                letter-spacing: -1.4px;
+            }
+
+            .block-why-sharks__cards {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .block-why-sharks__card {
+                flex-basis: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .block-why-sharks__container {
+                padding: 40px 16px;
+                gap: 32px;
+            }
+
+            .block-why-sharks__section-title {
+                font-size: 16px;
+            }
+
+            .block-why-sharks__main-heading {
+                font-size: 24px;
+                letter-spacing: -1.2px;
+            }
+
+            .block-why-sharks__description {
+                font-size: 16px;
+            }
+
+            .block-why-sharks__card-number {
+                font-size: 22px;
+                letter-spacing: -1.1px;
+            }
+
+            .block-why-sharks__card-text {
+                font-size: 16px;
+            }
+
+            .block-why-sharks__cards {
+                gap: 24px;
+            }
+
+            .block-why-sharks__card {
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="block-why-sharks">
+        <div class="block-why-sharks__container">
+            <div class="block-why-sharks__header">
+                <p class="block-why-sharks__section-title">meist</p>
+                <div class="block-why-sharks__content-wrapper">
+                    <div class="block-why-sharks__main-heading">
+                        <p>Marketing Sharks on piisavalt suur, </p>
+                        <p>et võtta vastu mistahes väljakutse ja piisavalt väike, et klientidest hoolida.</p>
+                    </div>
+                    <div class="block-why-sharks__description">
+                        <p>Hea koostöö üheks aluseks on ühiste eesmärkide seadmine ning selle elluviimine. Mõtleme kliendiga kaasa ja lähtume tema eesmärkidest. Uurides klientidelt tagasisidet siis paljud kliendid valivad Marketing Sharksi, sest:</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-why-sharks__cards">
+                <div class="block-why-sharks__card">
+                    <p class="block-why-sharks__card-number">(01)</p>
+                    <div class="block-why-sharks__card-divider">
+                        <svg fill="none" preserveAspectRatio="none" viewBox="0 0 248.8 1">
+                            <path d="M0 0.5H248.8" stroke="#BBBAB6" />
+                        </svg>
+                    </div>
+                    <div class="block-why-sharks__card-text">
+                        <p>lähtume kliendist ja tema vajadustest</p>
+                    </div>
+                </div>
+
+                <div class="block-why-sharks__card">
+                    <p class="block-why-sharks__card-number">(02)</p>
+                    <div class="block-why-sharks__card-divider">
+                        <svg fill="none" preserveAspectRatio="none" viewBox="0 0 248.8 1">
+                            <path d="M0 0.5H248.8" stroke="#BBBAB6" />
+                        </svg>
+                    </div>
+                    <div class="block-why-sharks__card-text">
+                        <p>meie töö- ja reageerimiskiirus on väga head</p>
+                    </div>
+                </div>
+
+                <div class="block-why-sharks__card">
+                    <p class="block-why-sharks__card-number">(03)</p>
+                    <div class="block-why-sharks__card-divider">
+                        <svg fill="none" preserveAspectRatio="none" viewBox="0 0 248.8 1">
+                            <path d="M0 0.5H248.8" stroke="#BBBAB6" />
+                        </svg>
+                    </div>
+                    <div class="block-why-sharks__card-text">
+                        <p>meeskonna kogemus ja teadmistepagas on kõrge</p>
+                    </div>
+                </div>
+
+                <div class="block-why-sharks__card">
+                    <p class="block-why-sharks__card-number">(04)</p>
+                    <div class="block-why-sharks__card-divider">
+                        <svg fill="none" preserveAspectRatio="none" viewBox="0 0 248.8 1">
+                            <path d="M0 0.5H248.8" stroke="#BBBAB6" />
+                        </svg>
+                    </div>
+                    <div class="block-why-sharks__card-text">
+                        <p>perefirma, millel on pikaajalised strateegiad</p>
+                    </div>
+                </div>
+
+                <div class="block-why-sharks__card">
+                    <p class="block-why-sharks__card-number">(05)</p>
+                    <div class="block-why-sharks__card-divider">
+                        <svg fill="none" preserveAspectRatio="none" viewBox="0 0 248.8 1">
+                            <path d="M0 0.5H248.8" stroke="#BBBAB6" />
+                        </svg>
+                    </div>
+                    <div class="block-why-sharks__card-text">
+                        <p>järeltugi ja garantii oma töödele</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

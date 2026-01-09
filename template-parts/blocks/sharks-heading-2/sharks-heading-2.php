@@ -19,7 +19,7 @@ $paragraph_2 = get_field('paragraph_2');
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'sharks-heading-2-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'sharks-heading-2');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // SVG Icons

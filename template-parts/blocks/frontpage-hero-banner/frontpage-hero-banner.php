@@ -29,14 +29,14 @@ $portfolio_modal_content = get_field('portfolio_modal_content');
 $portfolio_image = get_field('portfolio_image');
 
 // Block attributes
-$anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '"' : '';
+$anchor = sharks_get_block_anchor($block, 'frontpage-hero-banner');
 $class_name = 'block-frontpage-hero-banner';
 if (!empty($block['className'])) {
     $class_name .= ' ' . $block['className'];
 }
 ?>
 
-<section <?php echo $anchor; ?> class="<?php echo esc_attr($class_name); ?>">
+<section id="<?php echo esc_attr($anchor); ?>" class="<?php echo esc_attr($class_name); ?>">
     <!-- Background -->
     <div class="block-frontpage-hero-banner__background"></div>
 

@@ -21,7 +21,7 @@ $ticker_bg_color = get_field('ticker_bg_color') ?: '#f237a6';
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'consultation-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'consultation');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 ?>
 

@@ -25,7 +25,7 @@ $image = get_field('image');
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'content-grey-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'content-grey');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // Icon mapping

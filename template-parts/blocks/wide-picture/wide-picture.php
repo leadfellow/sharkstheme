@@ -43,10 +43,7 @@ if ($shadow) {
 }
 
 // Block anchor
-$anchor = '';
-if (!empty($block['anchor'])) {
-    $anchor = 'id="' . esc_attr($block['anchor']) . '" ';
-}
+$anchor = sharks_get_block_anchor($block, 'wide-picture');
 
 // If no image, show placeholder in editor
 if (!$image) {
@@ -67,7 +64,7 @@ if (empty($alt_text)) {
 }
 ?>
 
-<div <?php echo $anchor; ?>class="<?php echo esc_attr($class_name); ?>">
+<div id="<?php echo esc_attr($anchor); ?>" class="<?php echo esc_attr($class_name); ?>">
     <div class="block-wide-picture__container">
         <figure class="block-wide-picture__figure">
             <img 

@@ -18,7 +18,7 @@ $right_card = get_field('right_card');
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'two-box-cta-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'two-box-cta');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // Icon mapping

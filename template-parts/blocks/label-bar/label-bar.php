@@ -29,7 +29,7 @@ $separator_svg = isset($separator_map[$separator_icon]) ? $separator_map[$separa
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'label-bar-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'label-bar');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 ?>
 

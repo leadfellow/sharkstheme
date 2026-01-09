@@ -18,7 +18,7 @@ $style_variant = get_field('style_variant') ?: 'default';
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'faq-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'faq');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // Style variant class

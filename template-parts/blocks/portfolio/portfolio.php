@@ -16,7 +16,7 @@ $categories = get_field('categories');
 $portfolio_items = get_field('portfolio_items');
 
 // Block attributes
-$anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '"' : '';
+$anchor = sharks_get_block_anchor($block, 'portfolio');
 $class_name = 'block-portfolio';
 if (!empty($block['className'])) {
     $class_name .= ' ' . $block['className'];
@@ -47,7 +47,7 @@ if (empty($portfolio_items)) {
 }
 ?>
 
-<section <?php echo $anchor; ?> class="<?php echo esc_attr($class_name); ?>">
+<section id="<?php echo esc_attr($anchor); ?>" class="<?php echo esc_attr($class_name); ?>">
     <div class="block-portfolio__container">
         <div class="block-portfolio__content-wrapper">
             <!-- Header Section -->

@@ -20,7 +20,7 @@ $highlight_color = get_field('highlight_color') ?: '#FFFFFF';
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'content-highlighted-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'content-highlighted');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // Icon mapping

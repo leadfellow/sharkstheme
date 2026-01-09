@@ -26,10 +26,7 @@ if (!empty($block['align'])) {
 }
 
 // Block anchor
-$anchor = '';
-if (!empty($block['anchor'])) {
-    $anchor = 'id="' . esc_attr($block['anchor']) . '" ';
-}
+$anchor = sharks_get_block_anchor($block, 'spacer');
 
 // Inline styles
 $style = sprintf(
@@ -39,7 +36,7 @@ $style = sprintf(
 );
 ?>
 
-<div <?php echo $anchor; ?>class="<?php echo esc_attr($class_name); ?>" style="<?php echo $style; ?>"></div>
+<div id="<?php echo esc_attr($anchor); ?>" class="<?php echo esc_attr($class_name); ?>" style="<?php echo $style; ?>"></div>
 
 
 

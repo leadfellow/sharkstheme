@@ -48,7 +48,7 @@ if (empty($platforms)) {
 }
 
 // Block attributes
-$anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '"' : '';
+$anchor = sharks_get_block_anchor($block, 'tech-platforms');
 $class_name = 'block-tech-platforms';
 if (!empty($block['className'])) {
     $class_name .= ' ' . $block['className'];
@@ -78,7 +78,7 @@ function tech_platforms_textarea_to_list($text) {
 }
 ?>
 
-<section <?php echo $anchor; ?> class="<?php echo esc_attr($class_name); ?>">
+<section id="<?php echo esc_attr($anchor); ?>" class="<?php echo esc_attr($class_name); ?>">
     <div class="block-tech-platforms__container">
         <!-- Header -->
         <div class="block-tech-platforms__header">

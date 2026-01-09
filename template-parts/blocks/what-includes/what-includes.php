@@ -18,7 +18,7 @@ $column_split_at = get_field('column_split_at') ?: 9;
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'what-includes-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'what-includes');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // Split items into two columns based on column_split_at

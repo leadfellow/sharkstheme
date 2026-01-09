@@ -20,7 +20,7 @@ $linkedin_url = get_field('linkedin_url');
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'specialist-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'specialist');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // Icon mapping

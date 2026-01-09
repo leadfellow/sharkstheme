@@ -18,7 +18,7 @@ $cf7_shortcode = get_field('cf7_shortcode');
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'inquiry-2-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'inquiry-2');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 ?>
 

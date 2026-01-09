@@ -21,7 +21,7 @@ $address = get_field('address') ?: '123 Business Street, Suite 100, City, State 
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'contact-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'contact-form');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // Two column class

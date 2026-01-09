@@ -22,7 +22,7 @@ $read_more_url = get_field('read_more_url');
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'sharks-headings-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'sharks-headings');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // Alignment class

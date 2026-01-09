@@ -24,7 +24,7 @@ $hover_color = get_field('hover_color') ?: '#F237A6';
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'case-story-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'case-story');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 ?>
 

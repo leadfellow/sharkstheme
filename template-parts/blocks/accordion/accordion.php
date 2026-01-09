@@ -29,10 +29,7 @@ if (!empty($block['align'])) {
 }
 
 // Block anchor
-$anchor = '';
-if (!empty($block['anchor'])) {
-    $anchor = 'id="' . esc_attr($block['anchor']) . '" ';
-}
+$anchor = sharks_get_block_anchor($block, 'accordion');
 
 // Return if no items
 if (empty($accordion_items)) {
@@ -43,7 +40,7 @@ if (empty($accordion_items)) {
 }
 ?>
 
-<section <?php echo $anchor; ?>class="<?php echo esc_attr($class_name); ?>">
+<section id="<?php echo esc_attr($anchor); ?>" class="<?php echo esc_attr($class_name); ?>">
         <div class="accordion">
             <?php foreach ($accordion_items as $index => $item): 
                 $number = str_pad($index + 1, 2, '0', STR_PAD_LEFT);

@@ -47,7 +47,7 @@ if (empty($accordion_items)) {
 }
 
 // Block attributes
-$anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '"' : '';
+$anchor = sharks_get_block_anchor($block, 'max-accordion');
 $class_name = 'block-max-accordion';
 if (!empty($block['className'])) {
     $class_name .= ' ' . $block['className'];
@@ -57,7 +57,7 @@ if (!empty($block['align'])) {
 }
 ?>
 
-<section <?php echo $anchor; ?> class="<?php echo esc_attr($class_name); ?>" 
+<section id="<?php echo esc_attr($anchor); ?>" class="<?php echo esc_attr($class_name); ?>" 
          style="background-color: <?php echo esc_attr($background_color); ?>; color: <?php echo esc_attr($text_color); ?>;"
          data-text-color="<?php echo esc_attr($text_color); ?>"
          data-bg-color="<?php echo esc_attr($background_color); ?>">

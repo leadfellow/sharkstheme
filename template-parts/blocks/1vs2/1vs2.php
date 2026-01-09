@@ -59,7 +59,7 @@ if (empty($links)) {
 }
 
 // Block attributes
-$anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '"' : '';
+$anchor = sharks_get_block_anchor($block, '1vs2');
 $class_name = 'block-1vs2';
 if (!empty($block['className'])) {
     $class_name .= ' ' . $block['className'];
@@ -88,7 +88,7 @@ function process_title_with_highlight($title, $highlight) {
 }
 ?>
 
-<section <?php echo $anchor; ?> class="<?php echo esc_attr($class_name); ?>">
+<section id="<?php echo esc_attr($anchor); ?>" class="<?php echo esc_attr($class_name); ?>">
     <div class="block-1vs2__container">
         <div class="block-1vs2__content">
             <!-- Header Section -->

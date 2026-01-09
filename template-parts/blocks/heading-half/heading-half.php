@@ -19,7 +19,7 @@ $background_color = get_field('background_color') ?: 'transparent';
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'heading-half-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'heading-half');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // Background color

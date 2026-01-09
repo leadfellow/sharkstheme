@@ -44,7 +44,7 @@ if (empty($services)) {
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'services-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'services');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 ?>
 

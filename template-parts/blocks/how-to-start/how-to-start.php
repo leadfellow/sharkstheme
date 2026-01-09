@@ -19,7 +19,7 @@ $tabs = get_field('tabs');
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'how-to-start-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'how-to-start');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // Icon mapping

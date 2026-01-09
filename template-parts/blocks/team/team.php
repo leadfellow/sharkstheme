@@ -16,7 +16,7 @@ $team_members = get_field('team_members');
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'team-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'team');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // Icon mapping for heading

@@ -19,7 +19,7 @@ $cards = get_field('cards');
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'why-sharks-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'why-sharks');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 ?>
 

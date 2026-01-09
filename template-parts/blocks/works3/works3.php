@@ -8,7 +8,7 @@
 $block_id = 'block-works3-' . ($block['id'] ?? uniqid());
 $class_name = isset($block['className']) ? ' ' . $block['className'] : '';
 $align_class = isset($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : '';
+$anchor = sharks_get_block_anchor($block, 'works3');
 
 // Get field values
 $background_color = get_field('background_color') ?: '#000000';

@@ -21,7 +21,7 @@ $background_style = get_field('background_style') ?: 'default';
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'why-us-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'why-us');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // Background style class

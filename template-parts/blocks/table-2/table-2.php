@@ -21,7 +21,7 @@ $table_rows = get_field('table_rows');
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'table-2-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'table-2');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
 // Return if no data

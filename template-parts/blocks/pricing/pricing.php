@@ -74,7 +74,7 @@ if (empty($pricing_plans)) {
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
-$anchor = !empty($block['anchor']) ? $block['anchor'] : 'pricing-' . $block['id'];
+$anchor = sharks_get_block_anchor($block, 'pricing');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 ?>
 

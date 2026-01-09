@@ -21,7 +21,7 @@ $background_color = get_field('background_color') ?: '#ffffff';
 $text_color = get_field('text_color') ?: '#000000';
 
 // Block attributes
-$anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '"' : '';
+$anchor = sharks_get_block_anchor($block, 'who-we-are');
 $class_name = 'block-who-we-are';
 if (!empty($block['className'])) {
     $class_name .= ' ' . $block['className'];
@@ -38,7 +38,7 @@ $style = sprintf(
 );
 ?>
 
-<section <?php echo $anchor; ?> class="<?php echo esc_attr($class_name); ?>" style="<?php echo $style; ?>">
+<section id="<?php echo esc_attr($anchor); ?>" class="<?php echo esc_attr($class_name); ?>" style="<?php echo $style; ?>">
     <div class="block-who-we-are__container">
         <!-- Sidebar Title -->
         <h2 class="block-who-we-are__sidebar-title" style="color: <?php echo esc_attr($text_color); ?>;">

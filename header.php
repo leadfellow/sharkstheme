@@ -276,10 +276,33 @@ if (!defined('ABSPATH')) {
                     // Mobile only: prevent default and toggle
                     if (window.innerWidth <= 900) {
                         e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const isOpen = item.classList.contains('is-open');
+                        
+                        // Close all other open menus
+                        menuItems.forEach(function(otherItem) {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('is-open');
+                            }
+                        });
+                        
+                        // Toggle current menu
                         item.classList.toggle('is-open');
                     }
                     // Desktop: link is clickable, hover opens dropdown
                 });
+                
+                // Also handle touch events for better mobile experience
+                link.addEventListener('touchstart', function(e) {
+                    if (window.innerWidth <= 900) {
+                        // Add visual feedback
+                        link.style.opacity = '0.7';
+                        setTimeout(function() {
+                            link.style.opacity = '';
+                        }, 150);
+                    }
+                }, { passive: true });
             }
         });
         

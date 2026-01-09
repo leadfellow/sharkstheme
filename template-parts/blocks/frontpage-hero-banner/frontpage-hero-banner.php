@@ -80,13 +80,19 @@ if (!empty($block['className'])) {
                     <?php
                     // Process shortcodes in modal content
                     $processed_cta_content = do_shortcode($cta_modal_content);
+                    $modal_content_id = 'modal-content-' . $block['id'];
                     ?>
+                    <!-- Hidden modal content -->
+                    <div id="<?php echo esc_attr($modal_content_id); ?>" style="display: none;">
+                        <?php echo $processed_cta_content; ?>
+                    </div>
+                    
                     <a href="#" 
                        class="block-frontpage-hero-banner__cta"
                        data-modal-trigger
                        data-modal-title="<?php echo esc_attr($cta_modal_title); ?>"
                        data-modal-description="<?php echo esc_attr($cta_modal_description); ?>"
-                       data-modal-content="<?php echo esc_attr($processed_cta_content); ?>">
+                       data-modal-content="#<?php echo esc_attr($modal_content_id); ?>">
                         <span class="block-frontpage-hero-banner__cta-text"><?php echo esc_html($cta_text); ?></span>
                         <div class="block-frontpage-hero-banner__cta-icon">
                             <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -137,13 +143,19 @@ if (!empty($block['className'])) {
                     <?php
                     // Process shortcodes in modal content
                     $processed_portfolio_content = do_shortcode($portfolio_modal_content);
+                    $portfolio_modal_content_id = 'portfolio-modal-content-' . $block['id'];
                     ?>
+                    <!-- Hidden portfolio modal content -->
+                    <div id="<?php echo esc_attr($portfolio_modal_content_id); ?>" style="display: none;">
+                        <?php echo $processed_portfolio_content; ?>
+                    </div>
+                    
                     <a href="#" 
                        class="block-frontpage-hero-banner__portfolio-button"
                        data-modal-trigger
                        data-modal-title="<?php echo esc_attr($portfolio_modal_title); ?>"
                        data-modal-description="<?php echo esc_attr($portfolio_modal_description); ?>"
-                       data-modal-content="<?php echo esc_attr($processed_portfolio_content); ?>">
+                       data-modal-content="#<?php echo esc_attr($portfolio_modal_content_id); ?>">
                         <span class="block-frontpage-hero-banner__portfolio-text"><?php echo esc_html($portfolio_text); ?></span>
                         <div class="block-frontpage-hero-banner__portfolio-icon">
                             <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">

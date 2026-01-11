@@ -30,15 +30,7 @@ $portfolio_image = get_field('portfolio_image');
 
 // Block attributes
 $anchor = sharks_get_block_anchor($block, 'frontpage-hero-banner');
-$class_name = 'block-frontpage-hero-banner';
-if (!empty($block['className'])) {
-    $class_name .= ' ' . $block['className'];
-}
-// Add mobile visibility class
-$mobile_class = sharks_get_mobile_visibility_class();
-if ($mobile_class) {
-    $class_name .= ' ' . $mobile_class;
-}
+$class_name = sharks_get_block_class($block, 'block-frontpage-hero-banner');
 ?>
 
 <section id="<?php echo esc_attr($anchor); ?>" class="<?php echo esc_attr($class_name); ?>">

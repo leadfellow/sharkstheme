@@ -89,55 +89,84 @@ CSS on juba lisatud `assets/css/site.css` failis:
 
 ## Näide: Frontpage Hero Banner
 
-### ACF JSON (acf-json/group_frontpage_hero_banner.json)
-
-```json
-{
-    "key": "field_frontpage_hero_banner_show_on_mobile",
-    "label": "Kuva mobiilis",
-    "name": "show_on_mobile",
-    "type": "true_false",
-    "instructions": "Määra, kas see blokk kuvatakse mobiilseadmetes (alla 768px)",
-    "required": 0,
-    "default_value": 1,
-    "ui": 1,
-    "ui_on_text": "Jah",
-    "ui_off_text": "Ei",
-    "wrapper": {
-        "width": "50"
-    }
-}
-```
-
 ### PHP Template (template-parts/blocks/frontpage-hero-banner/frontpage-hero-banner.php)
+
+**UUENDATUD - Lihtne viis:**
 
 ```php
 // Block attributes
 $anchor = sharks_get_block_anchor($block, 'frontpage-hero-banner');
-$class_name = 'block-frontpage-hero-banner';
-if (!empty($block['className'])) {
-    $class_name .= ' ' . $block['className'];
-}
-// Add mobile visibility class
-$mobile_class = sharks_get_mobile_visibility_class();
-if ($mobile_class) {
-    $class_name .= ' ' . $mobile_class;
-}
+$class_name = sharks_get_block_class($block, 'block-frontpage-hero-banner');
+```
+
+Seejärel kasuta template'is:
+
+```php
+<section id="<?php echo esc_attr($anchor); ?>" class="<?php echo esc_attr($class_name); ?>">
+    <!-- Block content -->
+</section>
 ```
 
 ## Kuidas lisada teistele blokkidele
 
-1. **Kopeeri ACF väli** ülaltoodud JSON struktuurist
-2. **Muuda `key` unikaalseks** - asenda `BLOCKNAME` oma bloki nimega
-3. **Lisa väli ACF JSON faili** kohe pärast `block_anchor` välja
-4. **Lisa PHP kood** bloki template faili
-5. **Salvesta ja värskenda** ACF välju WordPressi admin paneelis
+**HÜVA UUDIS:** ACF väli lisatakse automaatselt kõikidele blokkidele!
+
+Pead ainult muutma bloki template faili:
+
+1. **Ava bloki template fail** (nt. `template-parts/blocks/hero/hero.php`)
+2. **Leia või lisa block attributes sektsioon**
+3. **Kasuta `sharks_get_block_class()` funktsiooni:**
+
+```php
+// Block attributes
+$anchor = sharks_get_block_anchor($block, 'hero');
+$class_name = sharks_get_block_class($block, 'block-hero');
+```
+
+4. **Salvesta fail**
+
+Nii lihtne see ongi! ACF väli on juba olemas, sa pead ainult template faili uuendama.
 
 ## Funktsioonid
 
+### `sharks_get_block_class($block, $base_class)`
+
+**Asub failis:** `inc/blocks.php`
+
+**Kirjeldus:** Tagastab täieliku class name'i koos mobile visibility klassiga
+
+**Parameetrid:**
+- `$block` - Bloki data array
+- `$base_class` - Bloki base class (nt. 'block-hero')
+
+**Tagastab:** String - täielik class name
+
+```php
+function sharks_get_block_class($block, $base_class) {
+    $class_name = $base_class;
+    
+    // Add custom className if exists
+    if (!empty($block['className'])) {
+        $class_name .= ' ' . $block['className'];
+    }
+    
+    // Add mobile visibility class
+    $mobile_class = sharks_get_mobile_visibility_class();
+    if ($mobile_class) {
+        $class_name .= ' ' . $mobile_class;
+    }
+    
+    return $class_name;
+}
+```
+
 ### `sharks_get_mobile_visibility_class()`
 
-Asub failis: `inc/theme-helpers.php`
+**Asub failis:** `inc/theme-helpers.php`
+
+**Kirjeldus:** Kontrollib show_on_mobile välja ja tagastab CSS klassi
+
+**Tagastab:** String - 'hide-on-mobile' või tühi string
 
 ```php
 function sharks_get_mobile_visibility_class() {
@@ -153,6 +182,20 @@ function sharks_get_mobile_visibility_class() {
 }
 ```
 
+### ACF Filter Hook
+
+**Asub failis:** `functions.php`
+
+Automaatselt lisab "Kuva mobiilis" välja kõikidele ACF blokkidele:
+
+```php
+add_filter('acf/load_field_group', function($field_group) {
+    // Checks if this is a block field group
+    // Adds show_on_mobile field automatically
+    // Returns modified field group
+});
+```
+
 ## Testimine
 
 1. Ava blokk WordPressi editoris
@@ -162,21 +205,25 @@ function sharks_get_mobile_visibility_class() {
 5. Ava lehekülg mobiilvaates (alla 768px)
 6. Blokk peaks olema peidetud
 
-## Blokid, kus see on juba lisatud
+## Blokid, kus template on uuendatud
 
-- ✅ Frontpage Hero Banner
+- ✅ Frontpage Hero Banner - kasutab `sharks_get_block_class()`
 
-## Blokid, kuhu tuleks veel lisada
+## Blokid, kus template vajab uuendamist
 
-- [ ] Hero
-- [ ] Our Facts
-- [ ] Services
-- [ ] Team
-- [ ] Testimonials
-- [ ] Why Sharks
-- [ ] Why We
-- [ ] Portfolio
-- [ ] ... (kõik teised blokid)
+Järgmised blokid vajavad template faili uuendamist, et kasutada `sharks_get_block_class()` funktsiooni:
+
+- [ ] Hero (`template-parts/blocks/hero/hero.php`)
+- [ ] Our Facts (`template-parts/blocks/our-facts/our-facts.php`)
+- [ ] Services (`template-parts/blocks/services/services.php`)
+- [ ] Team (`template-parts/blocks/team/team.php`)
+- [ ] Testimonials (`template-parts/blocks/testimonials/testimonials.php`)
+- [ ] Why Sharks (`template-parts/blocks/why-sharks/why-sharks.php`)
+- [ ] Why We (`template-parts/blocks/why-we/why-we.php`)
+- [ ] Portfolio (`template-parts/blocks/portfolio/portfolio.php`)
+- [ ] ... (kõik teised ~40 blokki)
+
+**Märkus:** Isegi kui template ei ole uuendatud, on ACF väli juba olemas ja töötab! Template uuendamine on vajalik ainult selleks, et CSS klass lisataks automaatselt.
 
 ## Märkmed
 

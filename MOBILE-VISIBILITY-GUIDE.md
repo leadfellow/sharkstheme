@@ -2,25 +2,29 @@
 
 ## Ülevaade
 
-Kõikidele ACF blokkidele saab lisada "Kuva mobiilis" linnuke, mis kontrollib, kas blokk kuvatakse mobiilseadmetes (alla 768px).
+ACF blokkidele on lisatud "Kuva mobiilis" linnuke, mis kontrollib, kas blokk kuvatakse mobiilseadmetes (alla 768px).
 
-## 🚀 Kiire Alustamine
+## ✅ Juba Lisatud Blokkidele
 
-### 1. Käivita Update Skript
+Järgmised blokid on juba valmis ja neil on "Kuva mobiilis" väli:
 
-1. Ava brauseris: `https://sinu-sait.com/wp-content/themes/sharks2025/update-acf-mobile-fields.php`
-2. Skript lisab "Kuva mobiilis" välja **kõikidele** ACF blokkidele
-3. Kustuta skript pärast käivitamist
-4. Mine WordPressi admin → Custom Fields → kliki "Sync available" (kui näed)
-5. Värskenda brauser cache
-6. Valmis! Nüüd näed "Kuva mobiilis" välja kõikides blokkides
+1. ✅ **Frontpage Hero Banner** (`group_frontpage_hero_banner.json`)
+2. ✅ **Hero** (`group_hero.json`)
+3. ✅ **Our Facts** (`group_our_facts.json`)
+4. ✅ **Services** (`group_services.json`)
+5. ✅ **Team** (`group_team.json`)
+6. ✅ **Testimonials** (`group_testimonials.json`)
+7. ✅ **Portfolio** (`group_portfolio.json`)
+8. ✅ **CTA** (`group_cta.json`)
 
-### 2. Mis Juhtub?
+## 📝 Kuidas Kasutada
 
-- Väli lisatakse kõikidesse ACF JSON failidesse
-- Väli ilmub Anchor (ID) välja kõrvale (50% + 50% laius)
-- Vaikimisi on linnuke SEES (blokk kuvatakse mobiilis)
-- Administraator saab iga bloki juures otsustada, kas see kuvatakse mobiilis või mitte
+1. **Ava blokk Gutenbergis**
+2. **Näed kahte välja kõrvuti:**
+   - Vasakul: Anchor (ID) - 50% laius
+   - Paremal: Kuva mobiilis - 50% laius
+3. **Vaikimisi:** Linnuke on SEES (blokk kuvatakse mobiilis)
+4. **Peitmiseks:** Lülita linnuke VÄLJA → blokk peidetakse alla 768px
 
 ## Kuidas see töötab
 
@@ -117,25 +121,72 @@ Seejärel kasuta template'is:
 </section>
 ```
 
-## Kuidas lisada teistele blokkidele
+## 🔧 Kuidas lisada teistele blokkidele
 
-**HÜVA UUDIS:** ACF väli lisatakse automaatselt kõikidele blokkidele!
+Kui soovid lisada "Kuva mobiilis" välja teistele blokkidele, järgi neid samme:
 
-Pead ainult muutma bloki template faili:
+### 1. Ava ACF JSON fail
 
-1. **Ava bloki template fail** (nt. `template-parts/blocks/hero/hero.php`)
-2. **Leia või lisa block attributes sektsioon**
-3. **Kasuta `sharks_get_block_class()` funktsiooni:**
+Näiteks: `acf-json/group_pricing.json`
+
+### 2. Leia Anchor väli
+
+Otsi `"name": "block_anchor"` välja:
+
+```json
+{
+    "key": "field_pricing_anchor",
+    "label": "Anchor (ID)",
+    "name": "block_anchor",
+    ...
+    "wrapper": {
+        "width": "50"
+    }
+},
+```
+
+### 3. Lisa kohe pärast seda Mobile väli
+
+```json
+{
+    "key": "field_pricing_show_on_mobile",
+    "label": "Kuva mobiilis",
+    "name": "show_on_mobile",
+    "type": "true_false",
+    "instructions": "Määra, kas see blokk kuvatakse mobiilseadmetes (alla 768px)",
+    "required": 0,
+    "default_value": 1,
+    "ui": 1,
+    "ui_on_text": "Jah",
+    "ui_off_text": "Ei",
+    "wrapper": {
+        "width": "50"
+    }
+},
+```
+
+**OLULINE:** 
+- `key` peab olema unikaalne - kasuta bloki nime (nt. `field_pricing_show_on_mobile`)
+- Lisa koma `,` eelmise välja lõppu
+- Lisa koma `,` uue välja lõppu
+
+### 4. Salvesta fail
+
+### 5. Sünkroniseeri WordPressis
+
+- Mine Custom Fields
+- Kliki "Sync available" (kui näed)
+- Värskenda brauser cache
+
+### 6. Uuenda Template faili
+
+Kasuta `sharks_get_block_class()` funktsiooni:
 
 ```php
 // Block attributes
-$anchor = sharks_get_block_anchor($block, 'hero');
-$class_name = sharks_get_block_class($block, 'block-hero');
+$anchor = sharks_get_block_anchor($block, 'pricing');
+$class_name = sharks_get_block_class($block, 'block-pricing');
 ```
-
-4. **Salvesta fail**
-
-Nii lihtne see ongi! ACF väli on juba olemas, sa pead ainult template faili uuendama.
 
 ## Funktsioonid
 

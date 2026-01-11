@@ -2,7 +2,15 @@
 
 ## Ülevaade
 
-Kõikidele ACF blokkidele on võimalik lisada "Kuva mobiilis" linnuke, mis kontrollib, kas blokk kuvatakse mobiilseadmetes (alla 768px).
+Kõikidele ACF blokkidele lisatakse **automaatselt** "Kuva mobiilis" linnuke, mis kontrollib, kas blokk kuvatakse mobiilseadmetes (alla 768px).
+
+## ✅ Automaatne Lisamine
+
+Alates nüüd on "Kuva mobiilis" väli **automaatselt** kõikidel ACF blokkidel olemas! 
+
+- Väli lisatakse automaatselt läbi `acf/load_field_group` filtri
+- Vaikimisi on linnuke SEES (blokk kuvatakse mobiilis)
+- Administraator saab iga bloki juures otsustada, kas see kuvatakse mobiilis või mitte
 
 ## Kuidas see töötab
 
@@ -35,7 +43,22 @@ Igale blokile saab lisada järgmise välja ACF JSON failis:
 
 ### 2. PHP Template
 
-Bloki template failis lisa järgmine kood enne `<section>` tagi:
+**UUENDATUD - Lihtsam viis!**
+
+Bloki template failis kasuta `sharks_get_block_class()` funktsiooni:
+
+```php
+// Block attributes
+$anchor = sharks_get_block_anchor($block, 'block-name');
+$class_name = sharks_get_block_class($block, 'block-name');
+```
+
+See funktsioon lisab automaatselt:
+- Bloki base class
+- Custom className (kui on määratud)
+- Mobile visibility class (kui show_on_mobile on false)
+
+**Vana viis (töötab ka):**
 
 ```php
 // Block attributes

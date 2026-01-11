@@ -1038,3 +1038,27 @@ function sharks_get_block_anchor($block, $default_prefix = 'block') {
     
     return $anchor;
 }
+
+/**
+ * Get block class name with mobile visibility
+ * 
+ * @param array $block Block data
+ * @param string $base_class Base class name for the block
+ * @return string Complete class name with mobile visibility if needed
+ */
+function sharks_get_block_class($block, $base_class) {
+    $class_name = $base_class;
+    
+    // Add custom className if exists
+    if (!empty($block['className'])) {
+        $class_name .= ' ' . $block['className'];
+    }
+    
+    // Add mobile visibility class
+    $mobile_class = sharks_get_mobile_visibility_class();
+    if ($mobile_class) {
+        $class_name .= ' ' . $mobile_class;
+    }
+    
+    return $class_name;
+}

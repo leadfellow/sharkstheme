@@ -276,9 +276,11 @@ if (!defined('ABSPATH')) {
                 const chevronArea = document.createElement('span');
                 chevronArea.className = 'submenu-toggle';
                 chevronArea.setAttribute('aria-label', 'Toggle submenu');
+                chevronArea.setAttribute('role', 'button');
+                chevronArea.setAttribute('tabindex', '0');
                 
-                // Insert chevron area after the link
-                link.parentNode.insertBefore(chevronArea, link.nextSibling);
+                // Append chevron area to the menu item (not after link)
+                item.appendChild(chevronArea);
                 
                 // Chevron click - toggle submenu (mobile only)
                 chevronArea.addEventListener('click', function(e) {
@@ -298,13 +300,34 @@ if (!defined('ABSPATH')) {
                     }
                 });
                 
+                // Prevent touch events on chevron from bubbling to link
+                chevronArea.addEventListener('touchstart', function(e) {
+                    if (window.innerWidth <= 900) {
+                        e.stopPropagation();
+                    }
+                }, { passive: true });
+                
+                chevronArea.addEventListener('touchend', function(e) {
+                    if (window.innerWidth <= 900) {
+                        e.stopPropagation();
+                    }
+                }, { passive: true });
+                
                 // Link click - navigate to page (mobile: allow navigation)
                 link.addEventListener('click', function(e) {
-                    // On mobile, if submenu is NOT open, allow navigation
-                    // If submenu IS open, still allow navigation (clicking the link itself)
+                    // On mobile, allow navigation when clicking the link text
                     if (window.innerWidth <= 900) {
-                        // Don't prevent default - allow navigation
-                        // Just close the mobile menu after a short delay
+                        // Check if click is on the link itself (not on chevron area)
+                        const rect = link.getBoundingClientRect();
+                        const clickX = e.clientX;
+                        
+                        // If click is in the rightmost 50px, it might be chevron
+                        if (clickX > rect.right - 50) {
+                            // This is likely the chevron area, don't navigate
+                            return;
+                        }
+                        
+                        // Allow navigation and close menu
                         setTimeout(function() {
                             const nav = document.querySelector('.site-nav');
                             const toggle = document.querySelector('.site-nav__toggle');

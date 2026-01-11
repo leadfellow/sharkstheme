@@ -17,6 +17,21 @@
             }
         },
         {
+            "key": "field_frontpage_hero_banner_show_on_mobile",
+            "label": "Kuva mobiilis",
+            "name": "show_on_mobile",
+            "type": "true_false",
+            "instructions": "Määra, kas see blokk kuvatakse mobiilseadmetes (alla 768px)",
+            "required": 0,
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Jah",
+            "ui_off_text": "Ei",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_frontpage_hero_main_title",
             "label": "Main Title",
             "name": "main_title",

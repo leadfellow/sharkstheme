@@ -2,13 +2,23 @@
 
 ## Ülevaade
 
-Kõikidele ACF blokkidele lisatakse **automaatselt** "Kuva mobiilis" linnuke, mis kontrollib, kas blokk kuvatakse mobiilseadmetes (alla 768px).
+Kõikidele ACF blokkidele saab lisada "Kuva mobiilis" linnuke, mis kontrollib, kas blokk kuvatakse mobiilseadmetes (alla 768px).
 
-## ✅ Automaatne Lisamine
+## 🚀 Kiire Alustamine
 
-Alates nüüd on "Kuva mobiilis" väli **automaatselt** kõikidel ACF blokkidel olemas! 
+### 1. Käivita Update Skript
 
-- Väli lisatakse automaatselt läbi `acf/load_field_group` filtri
+1. Ava brauseris: `https://sinu-sait.com/wp-content/themes/sharks2025/update-acf-mobile-fields.php`
+2. Skript lisab "Kuva mobiilis" välja **kõikidele** ACF blokkidele
+3. Kustuta skript pärast käivitamist
+4. Mine WordPressi admin → Custom Fields → kliki "Sync available" (kui näed)
+5. Värskenda brauser cache
+6. Valmis! Nüüd näed "Kuva mobiilis" välja kõikides blokkides
+
+### 2. Mis Juhtub?
+
+- Väli lisatakse kõikidesse ACF JSON failidesse
+- Väli ilmub Anchor (ID) välja kõrvale (50% + 50% laius)
 - Vaikimisi on linnuke SEES (blokk kuvatakse mobiilis)
 - Administraator saab iga bloki juures otsustada, kas see kuvatakse mobiilis või mitte
 

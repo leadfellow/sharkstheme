@@ -267,18 +267,24 @@ if (!defined('ABSPATH')) {
             });
         }
         
-        // Mobile only: toggle on click
+        // Mobile only: separate link click and submenu toggle
         menuItems.forEach(function(item) {
             const link = item.querySelector('a');
             
             if (link) {
-                link.addEventListener('click', function(e) {
-                    // Mobile only: prevent default and toggle
+                // Create a clickable area for the chevron/arrow
+                const chevronArea = document.createElement('span');
+                chevronArea.className = 'submenu-toggle';
+                chevronArea.setAttribute('aria-label', 'Toggle submenu');
+                
+                // Insert chevron area after the link
+                link.parentNode.insertBefore(chevronArea, link.nextSibling);
+                
+                // Chevron click - toggle submenu (mobile only)
+                chevronArea.addEventListener('click', function(e) {
                     if (window.innerWidth <= 900) {
                         e.preventDefault();
                         e.stopPropagation();
-                        
-                        const isOpen = item.classList.contains('is-open');
                         
                         // Close all other open menus
                         menuItems.forEach(function(otherItem) {
@@ -290,19 +296,29 @@ if (!defined('ABSPATH')) {
                         // Toggle current menu
                         item.classList.toggle('is-open');
                     }
-                    // Desktop: link is clickable, hover opens dropdown
                 });
                 
-                // Also handle touch events for better mobile experience
-                link.addEventListener('touchstart', function(e) {
+                // Link click - navigate to page (mobile: allow navigation)
+                link.addEventListener('click', function(e) {
+                    // On mobile, if submenu is NOT open, allow navigation
+                    // If submenu IS open, still allow navigation (clicking the link itself)
                     if (window.innerWidth <= 900) {
-                        // Add visual feedback
-                        link.style.opacity = '0.7';
+                        // Don't prevent default - allow navigation
+                        // Just close the mobile menu after a short delay
                         setTimeout(function() {
-                            link.style.opacity = '';
-                        }, 150);
+                            const nav = document.querySelector('.site-nav');
+                            const toggle = document.querySelector('.site-nav__toggle');
+                            if (nav) {
+                                nav.classList.remove('is-active');
+                                document.body.style.overflow = '';
+                            }
+                            if (toggle) {
+                                toggle.setAttribute('aria-expanded', 'false');
+                            }
+                        }, 100);
                     }
-                }, { passive: true });
+                    // Desktop: link is clickable, hover opens dropdown
+                });
             }
         });
         

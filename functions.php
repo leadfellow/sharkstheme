@@ -21,6 +21,7 @@ define('SHARKS_URI', get_stylesheet_directory_uri());
 
 // Require theme files
 require_once SHARKS_DIR . '/inc/theme.php';
+require_once SHARKS_DIR . '/inc/theme-helpers.php';
 require_once SHARKS_DIR . '/inc/post-types.php';
 require_once SHARKS_DIR . '/inc/blocks.php';
 require_once SHARKS_DIR . '/inc/patterns.php';

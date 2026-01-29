@@ -26,8 +26,8 @@
   position: absolute;
   width: 860.29px;
   height: 860.29px;
-  left: calc(50% - 860.29px/2 + 504.15px);
-  top: calc(50% - 860.29px/2 + 227.15px);
+  left: calc(50% - 1440px/2 + 794px);
+  top: 247px;
   z-index: 1;
   pointer-events: none;
 }
@@ -47,6 +47,7 @@
   margin: 0 auto;
   padding: 0 58px;
   z-index: 2;
+  box-sizing: border-box;
 }
 
 /* Main Title */

@@ -59,6 +59,7 @@
   max-width: 1440px;
   width: 100%;
   padding: 0;
+  margin: 0 auto;
 }
 
 .site-header__inner {
@@ -70,10 +71,11 @@
   padding-right: 58px;
   padding-bottom: 25px;
   padding-left: 58px;
-  gap: 188px;
+  gap: 30px;
   width: 100%;
   max-width: 1440px;
   height: 110px;
+  box-sizing: border-box;
 }
 
 /* Logo */
@@ -211,7 +213,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(-16px);
   width: 100%;
-  max-width: 1440px;
+  max-width: calc(1440px - 116px);
   background: #ffffff;
   border-bottom: 1px solid #BBBAB6;
   padding: 42px 58px;
@@ -387,7 +389,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(-16px);
   width: 100%;
-  max-width: 1440px;
+  max-width: calc(1440px - 116px);
   background: #ffffff;
   border-bottom: 1px solid #BBBAB6;
   padding: 42px 58px;
@@ -1143,4 +1145,3 @@
   }
   
 }
-

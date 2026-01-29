@@ -108,44 +108,79 @@
 .single-post-content {
     max-width: 652px;
     margin: 0 auto;
-    padding: 120px 58px 80px;
+    padding: 120px 0 80px;
+    /* Reduced side padding because max-width is now exact 652px */
     background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 62px;
+    /* Frame 211 gap */
+}
+
+/* First paragraph (Intro/Huge Body) */
+.single-post-content>p:first-of-type {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    color: #000000 !important;
+    margin: 0;
 }
 
 .single-post-content p {
+    font-family: 'Helvetica', sans-serif;
     font-size: 18px;
-    line-height: 1.8;
-    margin-bottom: 24px;
-    color: #333 !important;
+    line-height: 1.4;
+    /* Body M line-height */
+    margin: 0;
+    /* Margin handled by flex gap */
+    color: #141414 !important;
 }
 
 .single-post-content * {
-    color: #333;
+    color: #141414;
+}
+
+.single-post-content h1,
+.single-post-content h2,
+.single-post-content h3,
+.single-post-content h4 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Frame 208/209/210 gap emulation */
+    margin: 0;
 }
 
 .single-post-content h2 {
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -1px;
-    margin: 48px 0 24px 0;
-    color: #000 !important;
+    font-family: 'Switzer', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: #000000 !important;
 }
 
 .single-post-content h3 {
-    font-size: 28px;
-    font-weight: 600;
-    line-height: 1.3;
-    margin: 36px 0 20px 0;
-    color: #000 !important;
+    font-family: 'Switzer', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: #000000 !important;
 }
 
 .single-post-content h4 {
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 1.4;
-    margin: 28px 0 16px 0;
-    color: #000 !important;
+    font-family: 'Switzer', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: #000000 !important;
 }
 
 .single-post-content ul,
@@ -387,7 +422,7 @@
     .single-post-content {
         padding: 80px 20px 60px;
     }
-    
+
     .single-post-tags {
         padding: 0 20px 60px;
     }

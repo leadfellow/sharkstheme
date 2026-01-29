@@ -538,3 +538,10 @@
     width: 100%;
   }
 }
+
+/* Ensure footer content fits within 1440px including padding */
+.site-footer {
+  box-sizing: border-box;
+  max-width: 1440px;
+  margin: 0 auto;
+}

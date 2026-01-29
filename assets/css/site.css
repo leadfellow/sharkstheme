@@ -50,6 +50,7 @@
 @import url('./30-components/works1.css');
 @import url('./30-components/blog-posts.css');
 @import url('./30-components/single-post.css');
+@import url('./30-components/author-page.css');
 @import url('./30-components/block-styles.css');
 @import url('./30-components/mouse-trail.css');
 @import url('./30-components/modal.css');
@@ -59,7 +60,9 @@
 @import url('./40-layout/blog.css');
 
 /* Reset & Base */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -135,25 +138,25 @@ img {
 }
 
 /* Remove spacing from ACF blocks */
-.entry-content > [data-type^="acf/"],
-.entry-content > .block-cta,
-.entry-content > .block-content-grey,
-.entry-content > .block-content-highlighted,
-.entry-content > .block-table-2,
-.entry-content > .block-two-box-cta,
-.entry-content > .block-what-includes,
-.entry-content > .block-service-cards,
-.entry-content > .block-specialist,
-.entry-content > .block-team,
-.entry-content > .block-label-bar,
-.entry-content > .block-testimonials,
-.entry-content > .block-hero,
-.entry-content > .sharks-headings,
-.entry-content > .block-case-story,
-.entry-content > .block-works5,
-.entry-content > .block-works3,
-.entry-content > .block-works1,
-.entry-content > .block-wide-picture {
+.entry-content>[data-type^="acf/"],
+.entry-content>.block-cta,
+.entry-content>.block-content-grey,
+.entry-content>.block-content-highlighted,
+.entry-content>.block-table-2,
+.entry-content>.block-two-box-cta,
+.entry-content>.block-what-includes,
+.entry-content>.block-service-cards,
+.entry-content>.block-specialist,
+.entry-content>.block-team,
+.entry-content>.block-label-bar,
+.entry-content>.block-testimonials,
+.entry-content>.block-hero,
+.entry-content>.sharks-headings,
+.entry-content>.block-case-story,
+.entry-content>.block-works5,
+.entry-content>.block-works3,
+.entry-content>.block-works1,
+.entry-content>.block-wide-picture {
   margin: 0 !important;
 }
 
@@ -164,37 +167,37 @@ img {
 .entry-content .wp-block-columns:not(:has([data-type^="acf/"])),
 .entry-content .wp-block-group:not(:has([data-type^="acf/"])),
 .entry-content .wp-block-cover,
-.entry-content > p,
-.entry-content > h1,
-.entry-content > h2,
-.entry-content > h3,
-.entry-content > h4,
-.entry-content > h5,
-.entry-content > h6,
-.entry-content > ul,
-.entry-content > ol {
+.entry-content>p,
+.entry-content>h1,
+.entry-content>h2,
+.entry-content>h3,
+.entry-content>h4,
+.entry-content>h5,
+.entry-content>h6,
+.entry-content>ul,
+.entry-content>ol {
   padding-inline: clamp(1rem, 3vw, 2rem);
 }
 
 /* Ensure ACF blocks have no extra padding from entry-content */
-.entry-content > .sharks-headings,
-.entry-content > .block-cta,
-.entry-content > .block-content-grey,
-.entry-content > .block-content-highlighted,
-.entry-content > .block-table-2,
-.entry-content > .block-two-box-cta,
-.entry-content > .block-what-includes,
-.entry-content > .block-service-cards,
-.entry-content > .block-specialist,
-.entry-content > .block-team,
-.entry-content > .block-label-bar,
-.entry-content > .block-testimonials,
-.entry-content > .block-hero,
-.entry-content > .block-case-story,
-.entry-content > .block-works5,
-.entry-content > .block-works3,
-.entry-content > .block-works1,
-.entry-content > .block-wide-picture {
+.entry-content>.sharks-headings,
+.entry-content>.block-cta,
+.entry-content>.block-content-grey,
+.entry-content>.block-content-highlighted,
+.entry-content>.block-table-2,
+.entry-content>.block-two-box-cta,
+.entry-content>.block-what-includes,
+.entry-content>.block-service-cards,
+.entry-content>.block-specialist,
+.entry-content>.block-team,
+.entry-content>.block-label-bar,
+.entry-content>.block-testimonials,
+.entry-content>.block-hero,
+.entry-content>.block-case-story,
+.entry-content>.block-works5,
+.entry-content>.block-works3,
+.entry-content>.block-works1,
+.entry-content>.block-wide-picture {
   padding-inline: 0 !important;
   margin-left: auto !important;
   margin-right: auto !important;
@@ -229,13 +232,13 @@ img {
 }
 
 /* Remove any block gap/spacing */
-.wp-block-columns:has(.heading-half) > * {
+.wp-block-columns:has(.heading-half)>* {
   margin: 0 !important;
 }
 
 /* Remove margin-top after heading-half */
-.entry-content .heading-half + *,
-.entry-content .wp-block-columns:has(.heading-half) + * {
+.entry-content .heading-half+*,
+.entry-content .wp-block-columns:has(.heading-half)+* {
   margin-top: 0 !important;
 }
 
@@ -263,4 +266,12 @@ img {
   white-space: nowrap;
   border-width: 0;
 }
+/* Override container max-width to 1440px */
+:root {
+  --container-max: 1440px !important;
+}
 
+/* Update container--wide to match 1440px */
+.container--wide {
+  width: min(1440px, 92vw);
+}

@@ -117,7 +117,7 @@
 }
 
 .block-faq--two-column .block-faq__inner {
-  max-width: 1200px;
+  max-width: 1440px;
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
   gap: clamp(3rem, 6vw, 6rem);

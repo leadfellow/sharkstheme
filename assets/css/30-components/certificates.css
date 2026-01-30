@@ -16,6 +16,8 @@
 
 /* Container */
 .certificates-container {
+    max-width: 1440px;
+    margin: 0 auto;
     padding: 100px 58px;
     display: flex;
     flex-direction: column;
@@ -120,12 +122,35 @@
     align-items: center;
     gap: 23px;
     width: 100%;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #bbbab6 transparent;
+    padding-bottom: 10px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.certificates-list::-webkit-scrollbar {
+    height: 8px;
+}
+
+.certificates-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.certificates-list::-webkit-scrollbar-thumb {
+    background: #bbbab6;
+    border-radius: 4px;
+}
+
+.certificates-list::-webkit-scrollbar-thumb:hover {
+    background: #999896;
 }
 
 .certificates-box {
-    flex: 1;
-    min-width: 150px;
+    flex: 0 0 auto;
+    min-width: 200px;
+    width: 200px;
     height: 120px;
     background-color: #ffffff;
     display: flex;

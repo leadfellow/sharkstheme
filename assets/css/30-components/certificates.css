@@ -129,7 +129,7 @@
 .certificates-list-wrapper {
     display: flex;
     gap: 23px;
-    animation: certificatesScroll 40s linear infinite;
+    animation: certificatesScroll 60s linear infinite;
     will-change: transform;
 }
 

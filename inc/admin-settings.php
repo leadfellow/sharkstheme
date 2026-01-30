@@ -1096,8 +1096,11 @@ add_action('acf/init', function() {
                             'type' => 'select',
                             'instructions' => 'Choose icon style',
                             'choices' => [
-                                'asterisk' => 'Asterisk (Default)',
-                                'cross' => 'Cross / Plus',
+                                'asterisk' => 'Asterisk (8-pointed)',
+                                'star' => 'Star (16-pointed)',
+                                'shark' => 'Shark',
+                                'cross_x' => 'Cross X',
+                                'plus' => 'Plus +',
                                 'circle' => 'Circle',
                                 'square' => 'Square',
                                 'triangle' => 'Triangle',

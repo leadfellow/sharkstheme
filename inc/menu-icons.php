@@ -58,8 +58,14 @@ function sharks_get_menu_icon($menu_item_text, $index = 0) {
     
     // Generate built-in icon
     switch ($icon_type) {
-        case 'cross':
-            return sharks_generate_cross_svg($icon_color, $index);
+        case 'star':
+            return sharks_generate_star_svg($icon_color, $index);
+        case 'shark':
+            return sharks_generate_shark_svg($icon_color, $index);
+        case 'cross_x':
+            return sharks_generate_cross_x_svg($icon_color, $index);
+        case 'plus':
+            return sharks_generate_plus_svg($icon_color, $index);
         case 'circle':
             return sharks_generate_circle_svg($icon_color, $index);
         case 'square':
@@ -73,7 +79,7 @@ function sharks_get_menu_icon($menu_item_text, $index = 0) {
 }
 
 /**
- * Generate Asterisk SVG
+ * Generate Asterisk SVG (Original from theme - 316x316 with mask)
  */
 function sharks_generate_asterisk_svg($color = '#000000', $index = 0) {
     $unique_id = 'asterisk-mask-' . $index;
@@ -88,12 +94,50 @@ function sharks_generate_asterisk_svg($color = '#000000', $index = 0) {
 }
 
 /**
- * Generate Cross/Plus SVG
+ * Generate Star SVG (16-pointed)
  */
-function sharks_generate_cross_svg($color = '#000000', $index = 0) {
+function sharks_generate_star_svg($color = '#000000', $index = 0) {
     return '<svg width="316" height="316" viewBox="0 0 316 316" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="316" height="316" fill="' . esc_attr($color) . '"/>
-        <path d="M158 50V266M50 158H266" stroke="#757472" stroke-width="20" stroke-linecap="round"/>
+        <g transform="translate(137, 137) scale(7.52)">
+            <path d="M21.0001 0.000135629L21.0042 20.9795L29.0365 1.59866L21.0118 20.9827L35.8493 6.1509L21.0176 20.9885L40.4016 12.9637L21.0208 20.9961L42.0001 21.0001L21.0208 21.0042L40.4016 29.0365L21.0176 21.0118L35.8493 35.8493L21.0118 21.0176L29.0365 40.4016L21.0042 21.0208L21.0001 42.0001L20.9961 21.0208L12.9637 40.4016L20.9885 21.0176L6.1509 35.8493L20.9827 21.0118L1.59866 29.0365L20.9795 21.0042L0.000135629 21.0001L20.9795 20.9961L1.59866 12.9637L20.9827 20.9885L6.1509 6.1509L20.9885 20.9827L12.9637 1.59866L20.9961 20.9795L21.0001 0.000135629Z" stroke="white" stroke-width="1.4"/>
+        </g>
+    </svg>';
+}
+
+/**
+ * Generate Shark SVG
+ */
+function sharks_generate_shark_svg($color = '#000000', $index = 0) {
+    return '<svg width="316" height="316" viewBox="0 0 316 316" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="316" height="316" fill="' . esc_attr($color) . '"/>
+        <g transform="translate(15, 43) scale(1.1)">
+            <path d="M111.882 48.3398L111.547 47.7868L101.767 55.8829C100.271 57.1219 98.1359 57.1086 96.6561 55.851L92.5614 52.3759L92.6547 52.243L97.1511 51.5224L96.428 46.7551L96.4902 46.6647L101.023 45.9389L100.292 41.1317L100.326 41.0865L104.895 40.3553L104.159 35.5083L104.151 35.5189L100.359 29.2361L87.9302 41.9879C87.9302 41.9879 79.2899 38.8797 71.852 41.9879L79.8911 50.2355L69.6051 60.7884L58 62.4768L70.5744 67.8875L76.3095 81.2587L76.7553 69.0627L88.1272 69.1398L89.1301 75.3827C89.1301 75.3827 91.7424 72.2745 93.2041 69.177C99.1051 69.177 104.62 66.1672 107.917 61.1447L114.009 51.8654L111.882 48.3398ZM92.2011 41.9161C92.7998 41.3019 93.7691 41.3019 94.3651 41.9161C94.9638 42.5303 94.9638 43.5219 94.3651 44.1361C93.7691 44.7503 92.7998 44.7503 92.2011 44.1361C91.6051 43.5219 91.6051 42.5303 92.2011 41.9161Z" fill="white"/>
+        </g>
+    </svg>';
+}
+
+/**
+ * Generate Cross X SVG (Original 215x215 from theme)
+ */
+function sharks_generate_cross_x_svg($color = '#000000', $index = 0) {
+    return '<svg width="316" height="316" viewBox="0 0 316 316" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="316" height="316" fill="' . esc_attr($color) . '"/>
+        <g transform="translate(50.5, 50.5)">
+            <svg width="215" height="215" viewBox="0 0 215 215" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M184.591 10.6074C190.059 5.13948 198.925 5.13948 204.393 10.6074C209.861 16.0754 209.861 24.9412 204.393 30.4092L171.15 63.6504C146.933 87.8678 146.933 127.132 171.15 151.35L204.393 184.591C209.861 190.059 209.861 198.925 204.393 204.393C198.925 209.861 190.059 209.861 184.591 204.393L151.35 171.15C127.132 146.933 87.8678 146.933 63.6504 171.15L30.4092 204.393C24.9412 209.861 16.0754 209.861 10.6074 204.393C5.13948 198.925 5.13948 190.059 10.6074 184.591L43.8496 151.35C68.067 127.132 68.067 87.8678 43.8496 63.6504L10.6074 30.4092C5.13947 24.9412 5.13947 16.0754 10.6074 10.6074C16.0754 5.13947 24.9412 5.13947 30.4092 10.6074L63.6504 43.8496C87.8677 68.067 127.132 68.067 151.35 43.8496L184.591 10.6074Z" stroke="#757472"/>
+            </svg>
+        </g>
+    </svg>';
+}
+
+/**
+ * Generate Plus SVG
+ */
+function sharks_generate_plus_svg($color = '#000000', $index = 0) {
+    return '<svg width="316" height="316" viewBox="0 0 316 316" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="316" height="316" fill="' . esc_attr($color) . '"/>
+        <path d="M158 50V266M50 158H266" stroke="white" stroke-width="20" stroke-linecap="round"/>
     </svg>';
 }
 
@@ -103,7 +147,7 @@ function sharks_generate_cross_svg($color = '#000000', $index = 0) {
 function sharks_generate_circle_svg($color = '#000000', $index = 0) {
     return '<svg width="316" height="316" viewBox="0 0 316 316" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="316" height="316" fill="' . esc_attr($color) . '"/>
-        <circle cx="158" cy="158" r="100" stroke="#757472" stroke-width="20" fill="none"/>
+        <circle cx="158" cy="158" r="150" fill="white"/>
     </svg>';
 }
 

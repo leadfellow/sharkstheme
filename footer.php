@@ -47,11 +47,11 @@ if (!defined('ABSPATH')) {
                         <!-- Rotating text circle -->
                         <svg class="site-footer__logo-circle" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                             <defs>
-                                <path id="circlePath" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" />
+                                <path id="circlePath" d="M 100, 100 m -85, 0 a 85,85 0 1,1 170,0 a 85,85 0 1,1 -170,0" />
                             </defs>
                             <text class="site-footer__logo-text-path">
                                 <textPath xlink:href="#circlePath" startOffset="0%">
-                                    MARKETING • SHARKS • MARKETING • SHARKS • 
+                                    HUNGRY FOR YOUR SUCCESS • HUNGRY FOR YOUR SUCCESS • HUNGRY FOR YOUR SUCCESS • 
                                 </textPath>
                             </text>
                         </svg>
@@ -108,7 +108,7 @@ if (!defined('ABSPATH')) {
                             <span>INSTAGRAM</span>
                             <div class="site-footer__social-icon">
                                 <svg width="37" height="37" viewBox="0 0 37 37" fill="none">
-                                    <rect width="37" height="37" rx="18.5" fill="white"/>
+                                    <rect width="37" height="37" rx="0" fill="white"/>
                                     <path d="M12.7188 18.5H24.2812" stroke="#000000" stroke-width="1.63802" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M20.4063 14.625L24.2812 18.5L20.4063 22.375" stroke="#000000" stroke-width="1.63802" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
@@ -120,7 +120,7 @@ if (!defined('ABSPATH')) {
                             <span>FACEBOOK</span>
                             <div class="site-footer__social-icon">
                                 <svg width="37" height="37" viewBox="0 0 37 37" fill="none">
-                                    <rect width="37" height="37" rx="18.5" fill="white"/>
+                                    <rect width="37" height="37" rx="0" fill="white"/>
                                     <path d="M12.7188 18.5H24.2812" stroke="#000000" stroke-width="1.63802" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M20.4063 14.625L24.2812 18.5L20.4063 22.375" stroke="#000000" stroke-width="1.63802" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
@@ -132,7 +132,7 @@ if (!defined('ABSPATH')) {
                             <span>LINKEDIN</span>
                             <div class="site-footer__social-icon">
                                 <svg width="37" height="37" viewBox="0 0 37 37" fill="none">
-                                    <rect width="37" height="37" rx="18.5" fill="white"/>
+                                    <rect width="37" height="37" rx="0" fill="white"/>
                                     <path d="M12.7188 18.5H24.2812" stroke="#000000" stroke-width="1.63802" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M20.4063 14.625L24.2812 18.5L20.4063 22.375" stroke="#000000" stroke-width="1.63802" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>

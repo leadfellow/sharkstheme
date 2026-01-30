@@ -7,6 +7,7 @@
   padding: 120px 58px 120px 58px;
   gap: 50px;
   width: 100%;
+  max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
 }

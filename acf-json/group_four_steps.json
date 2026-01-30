@@ -21,13 +21,13 @@
             "label": "Header Icon Left",
             "name": "header_icon_left",
             "type": "select",
-            "instructions": "Vali ikoon pealkirja vasakule küljele",
+            "instructions": "Vali ikoon pealkirja vasakule küljele (must kontuuriga)",
             "required": 0,
             "choices": {
-                "x": "X (Rist)",
-                "asterisk": "Asterisk (Tärnike)",
-                "star": "Star (Täht)",
-                "circle": "Circle (Ring)"
+                "x": "✕ X (Rist - must kontuuriga)",
+                "asterisk": "✱ Asterisk (Tärnike - must kontuuriga)",
+                "star": "✦ Star (Täht - must kontuuriga)",
+                "circle": "○ Circle (Ring - must kontuuriga)"
             },
             "default_value": "x",
             "allow_null": 1,
@@ -53,13 +53,13 @@
             "label": "Header Icon Right",
             "name": "header_icon_right",
             "type": "select",
-            "instructions": "Vali ikoon pealkirja paremale küljele",
+            "instructions": "Vali ikoon pealkirja paremale küljele (must kontuuriga)",
             "required": 0,
             "choices": {
-                "x": "X (Rist)",
-                "asterisk": "Asterisk (Tärnike)",
-                "star": "Star (Täht)",
-                "circle": "Circle (Ring)"
+                "x": "✕ X (Rist - must kontuuriga)",
+                "asterisk": "✱ Asterisk (Tärnike - must kontuuriga)",
+                "star": "✦ Star (Täht - must kontuuriga)",
+                "circle": "○ Circle (Ring - must kontuuriga)"
             },
             "default_value": "asterisk",
             "allow_null": 1,
@@ -72,14 +72,14 @@
             "label": "Card Background Icon",
             "name": "card_background_icon",
             "type": "select",
-            "instructions": "Vali ikoon musta kasti taustale",
+            "instructions": "Vali ikoon musta kasti taustale (valge kontuuriga)",
             "required": 0,
             "choices": {
-                "asterisk-stroke": "Asterisk Stroke (Tärn kontuuriga)",
-                "x": "X (Rist)",
-                "asterisk": "Asterisk (Tärnike)",
-                "star": "Star (Täht)",
-                "circle": "Circle (Ring)"
+                "asterisk-stroke": "✱ Asterisk Stroke (Suur hall tärn)",
+                "x": "✕ X (Rist - valge kontuuriga)",
+                "asterisk": "✱ Asterisk (Tärnike - valge kontuuriga)",
+                "star": "✦ Star (Täht - valge kontuuriga)",
+                "circle": "○ Circle (Ring - valge kontuuriga)"
             },
             "default_value": "asterisk-stroke",
             "allow_null": 1,
@@ -170,14 +170,14 @@
                     "label": "Step Icon",
                     "name": "step_icon",
                     "type": "select",
-                    "instructions": "Vali ikoon, mis kuvatakse vasakpoolsel kaardil kui sellele sammule klikitakse",
+                    "instructions": "Vali ikoon, mis kuvatakse vasakpoolsel kaardil kui sellele sammule klikitakse (valge kontuuriga mustal taustal)",
                     "required": 0,
                     "choices": {
-                        "asterisk-stroke": "Asterisk Stroke (Tärn kontuuriga)",
-                        "x": "X (Rist)",
-                        "asterisk": "Asterisk (Tärnike)",
-                        "star": "Star (Täht)",
-                        "circle": "Circle (Ring)"
+                        "asterisk-stroke": "✱ Asterisk Stroke (Suur hall tärn)",
+                        "x": "✕ X (Rist - valge kontuuriga)",
+                        "asterisk": "✱ Asterisk (Tärnike - valge kontuuriga)",
+                        "star": "✦ Star (Täht - valge kontuuriga)",
+                        "circle": "○ Circle (Ring - valge kontuuriga)"
                     },
                     "default_value": "asterisk-stroke",
                     "allow_null": 0,

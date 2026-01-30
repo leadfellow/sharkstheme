@@ -274,6 +274,19 @@ add_action('admin_head', function() {
 });
 
 /**
+ * Enqueue admin styles for ACF fields
+ */
+add_action('admin_enqueue_scripts', function() {
+    // Four Steps block icon preview styles
+    wp_enqueue_style(
+        'sharks-admin-four-steps-icons',
+        get_stylesheet_directory_uri() . '/assets/css/admin-four-steps-icons.css',
+        [],
+        SHARKS_VERSION
+    );
+});
+
+/**
  * Get blog layout based on Sharks Settings
  */
 function sharks_get_blog_layout($context = 'single') {

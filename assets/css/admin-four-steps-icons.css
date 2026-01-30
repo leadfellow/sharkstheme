@@ -1,0 +1,107 @@
+/**
+ * Four Steps Block - ACF Icon Preview Styles
+ * Adds visual icon previews to ACF radio button fields
+ */
+
+/* Hide radio button text, show only icons */
+.four-steps-icon-field .acf-radio-list label {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    padding: 0 !important;
+    margin: 0 8px 0 0 !important;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.four-steps-icon-field .acf-radio-list label:hover {
+    border-color: #2271b1;
+}
+
+.four-steps-icon-field .acf-radio-list input[type="radio"]:checked + label {
+    border-color: #2271b1;
+    background-color: #f0f6fc;
+}
+
+.four-steps-icon-field .acf-radio-list label:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Hide the actual text */
+.four-steps-icon-field .acf-radio-list label span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Header icons - black stroke */
+.acf-field[data-name="header_icon_left"] .acf-radio-list input[value="x"] + label:before,
+.acf-field[data-name="header_icon_right"] .acf-radio-list input[value="x"] + label:before {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M59.043 2.95701C57.4099 1.3239 54.7621 1.3239 53.129 2.95701L43.543 12.543C36.6157 19.4703 25.3843 19.4703 18.457 12.543L8.87103 2.95701C7.23792 1.3239 4.59012 1.3239 2.95701 2.95701C1.3239 4.59012 1.3239 7.23792 2.95701 8.87103L12.543 18.457C19.4703 25.3843 19.4703 36.6157 12.543 43.543L2.95701 53.129C1.3239 54.7621 1.3239 57.4099 2.95701 59.043C4.59012 60.6761 7.23792 60.6761 8.87103 59.043L18.457 49.457C25.3843 42.5297 36.6157 42.5297 43.543 49.457L53.129 59.043C54.7621 60.6761 57.4099 60.6761 59.043 59.043C60.6761 57.4099 60.6761 54.7621 59.043 53.129L49.457 43.543C42.5297 36.6157 42.5297 25.3843 49.457 18.457L59.043 8.87103C60.6761 7.23792 60.6761 4.59012 59.043 2.95701Z" stroke="black" stroke-width="2"/></svg>');
+}
+
+.acf-field[data-name="header_icon_left"] .acf-radio-list input[value="asterisk"] + label:before,
+.acf-field[data-name="header_icon_right"] .acf-radio-list input[value="asterisk"] + label:before {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M31 0V62M62 31H0M52.3269 9.67313L9.67313 52.3269M52.3269 52.3269L9.67313 9.67313" stroke="black" stroke-width="2.06667"/></svg>');
+}
+
+.acf-field[data-name="header_icon_left"] .acf-radio-list input[value="star"] + label:before,
+.acf-field[data-name="header_icon_right"] .acf-radio-list input[value="star"] + label:before {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M31.0002 0.000200214L31.0062 30.9697L42.8635 2.35993L31.0175 30.9745L52.9205 9.0799L31.0259 30.983L59.6405 19.1369L31.0307 30.9942L62.0002 31.0002L31.0307 31.0062L59.6405 42.8635L31.0259 31.0175L52.9205 52.9205L31.0175 31.0259L42.8635 59.6405L31.0062 31.0307L31.0002 62.0002L30.9942 31.0307L19.1369 59.6405L30.983 31.0259L9.0799 52.9205L30.9745 31.0175L2.35993 42.8635L30.9697 31.0062L0.000200214 31.0002L30.9697 30.9942L2.35993 19.1369L30.9745 30.983L9.0799 9.0799L30.983 30.9745L19.1369 2.35993L30.9942 30.9697L31.0002 0.000200214Z" stroke="black" stroke-width="2.06667"/></svg>');
+}
+
+.acf-field[data-name="header_icon_left"] .acf-radio-list input[value="circle"] + label:before,
+.acf-field[data-name="header_icon_right"] .acf-radio-list input[value="circle"] + label:before {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="31" cy="31" r="30" stroke="black" stroke-width="2"/></svg>');
+}
+
+/* Card icons - white stroke on black background */
+.four-steps-icon-field--card .acf-radio-list label {
+    background-color: #000;
+}
+
+.four-steps-icon-field--card .acf-radio-list input[type="radio"]:checked + label {
+    background-color: #000;
+    border-color: #2271b1;
+}
+
+.acf-field[data-name="card_background_icon"] .acf-radio-list input[value="x"] + label:before,
+.acf-field[data-name="step_icon"] .acf-radio-list input[value="x"] + label:before {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M59.043 2.95701C57.4099 1.3239 54.7621 1.3239 53.129 2.95701L43.543 12.543C36.6157 19.4703 25.3843 19.4703 18.457 12.543L8.87103 2.95701C7.23792 1.3239 4.59012 1.3239 2.95701 2.95701C1.3239 4.59012 1.3239 7.23792 2.95701 8.87103L12.543 18.457C19.4703 25.3843 19.4703 36.6157 12.543 43.543L2.95701 53.129C1.3239 54.7621 1.3239 57.4099 2.95701 59.043C4.59012 60.6761 7.23792 60.6761 8.87103 59.043L18.457 49.457C25.3843 42.5297 36.6157 42.5297 43.543 49.457L53.129 59.043C54.7621 60.6761 57.4099 60.6761 59.043 59.043C60.6761 57.4099 60.6761 54.7621 59.043 53.129L49.457 43.543C42.5297 36.6157 42.5297 25.3843 49.457 18.457L59.043 8.87103C60.6761 7.23792 60.6761 4.59012 59.043 2.95701Z" stroke="white" stroke-width="2"/></svg>');
+}
+
+.acf-field[data-name="card_background_icon"] .acf-radio-list input[value="asterisk"] + label:before,
+.acf-field[data-name="step_icon"] .acf-radio-list input[value="asterisk"] + label:before {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M31 0V62M62 31H0M52.3269 9.67313L9.67313 52.3269M52.3269 52.3269L9.67313 9.67313" stroke="white" stroke-width="2.06667"/></svg>');
+}
+
+.acf-field[data-name="card_background_icon"] .acf-radio-list input[value="star"] + label:before,
+.acf-field[data-name="step_icon"] .acf-radio-list input[value="star"] + label:before {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M31.0002 0.000200214L31.0062 30.9697L42.8635 2.35993L31.0175 30.9745L52.9205 9.0799L31.0259 30.983L59.6405 19.1369L31.0307 30.9942L62.0002 31.0002L31.0307 31.0062L59.6405 42.8635L31.0259 31.0175L52.9205 52.9205L31.0175 31.0259L42.8635 59.6405L31.0062 31.0307L31.0002 62.0002L30.9942 31.0307L19.1369 59.6405L30.983 31.0259L9.0799 52.9205L30.9745 31.0175L2.35993 42.8635L30.9697 31.0062L0.000200214 31.0002L30.9697 30.9942L2.35993 19.1369L30.9745 30.983L9.0799 9.0799L30.983 30.9745L19.1369 2.35993L30.9942 30.9697L31.0002 0.000200214Z" stroke="white" stroke-width="2.06667"/></svg>');
+}
+
+.acf-field[data-name="card_background_icon"] .acf-radio-list input[value="asterisk-stroke"] + label:before,
+.acf-field[data-name="step_icon"] .acf-radio-list input[value="asterisk-stroke"] + label:before {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M38.5117 12.8643L46.9336 4.44238L57.5566 15.0654L49.1338 23.4883H61.0469V38.5117H50.127L58.1289 45.9434L47.9053 56.9512L38.5117 48.2266V61.0469H23.4883V49.1328L15.0645 57.5566L4.44238 46.9336L12.8643 38.5117H0.954102V23.4883H11.876L3.87402 16.0566L14.0977 5.04883L23.4883 13.7695V0.954102H38.5117V12.8643Z" stroke="%23757472" stroke-width="2"/></svg>');
+}
+
+.acf-field[data-name="card_background_icon"] .acf-radio-list input[value="circle"] + label:before,
+.acf-field[data-name="step_icon"] .acf-radio-list input[value="circle"] + label:before {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="31" cy="31" r="30" stroke="white" stroke-width="2"/></svg>');
+}

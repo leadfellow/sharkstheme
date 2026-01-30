@@ -20,19 +20,21 @@
             "key": "field_four_steps_header_icon_left",
             "label": "Header Icon Left",
             "name": "header_icon_left",
-            "type": "select",
+            "type": "radio",
             "instructions": "Vali ikoon pealkirja vasakule küljele (must kontuuriga)",
             "required": 0,
             "choices": {
-                "x": "✕ X (Rist - must kontuuriga)",
-                "asterisk": "✱ Asterisk (Tärnike - must kontuuriga)",
-                "star": "✦ Star (Täht - must kontuuriga)",
-                "circle": "○ Circle (Ring - must kontuuriga)"
+                "x": "X (Rist)",
+                "asterisk": "Asterisk (Tärnike)",
+                "star": "Star (Täht)",
+                "circle": "Circle (Ring)"
             },
             "default_value": "x",
             "allow_null": 1,
+            "layout": "horizontal",
             "wrapper": {
-                "width": "33"
+                "width": "33",
+                "class": "four-steps-icon-field"
             }
         },
         {
@@ -52,39 +54,43 @@
             "key": "field_four_steps_header_icon_right",
             "label": "Header Icon Right",
             "name": "header_icon_right",
-            "type": "select",
+            "type": "radio",
             "instructions": "Vali ikoon pealkirja paremale küljele (must kontuuriga)",
             "required": 0,
             "choices": {
-                "x": "✕ X (Rist - must kontuuriga)",
-                "asterisk": "✱ Asterisk (Tärnike - must kontuuriga)",
-                "star": "✦ Star (Täht - must kontuuriga)",
-                "circle": "○ Circle (Ring - must kontuuriga)"
+                "x": "X (Rist)",
+                "asterisk": "Asterisk (Tärnike)",
+                "star": "Star (Täht)",
+                "circle": "Circle (Ring)"
             },
             "default_value": "asterisk",
             "allow_null": 1,
+            "layout": "horizontal",
             "wrapper": {
-                "width": "33"
+                "width": "33",
+                "class": "four-steps-icon-field"
             }
         },
         {
             "key": "field_four_steps_card_background_icon",
             "label": "Card Background Icon",
             "name": "card_background_icon",
-            "type": "select",
+            "type": "radio",
             "instructions": "Vali ikoon musta kasti taustale (valge kontuuriga)",
             "required": 0,
             "choices": {
-                "asterisk-stroke": "✱ Asterisk Stroke (Suur hall tärn)",
-                "x": "✕ X (Rist - valge kontuuriga)",
-                "asterisk": "✱ Asterisk (Tärnike - valge kontuuriga)",
-                "star": "✦ Star (Täht - valge kontuuriga)",
-                "circle": "○ Circle (Ring - valge kontuuriga)"
+                "asterisk-stroke": "Asterisk Stroke",
+                "x": "X (Rist)",
+                "asterisk": "Asterisk",
+                "star": "Star (Täht)",
+                "circle": "Circle (Ring)"
             },
             "default_value": "asterisk-stroke",
             "allow_null": 1,
+            "layout": "horizontal",
             "wrapper": {
-                "width": "33"
+                "width": "33",
+                "class": "four-steps-icon-field four-steps-icon-field--card"
             }
         },
         {
@@ -169,20 +175,22 @@
                     "key": "field_step_icon",
                     "label": "Step Icon",
                     "name": "step_icon",
-                    "type": "select",
+                    "type": "radio",
                     "instructions": "Vali ikoon, mis kuvatakse vasakpoolsel kaardil kui sellele sammule klikitakse (valge kontuuriga mustal taustal)",
                     "required": 0,
                     "choices": {
-                        "asterisk-stroke": "✱ Asterisk Stroke (Suur hall tärn)",
-                        "x": "✕ X (Rist - valge kontuuriga)",
-                        "asterisk": "✱ Asterisk (Tärnike - valge kontuuriga)",
-                        "star": "✦ Star (Täht - valge kontuuriga)",
-                        "circle": "○ Circle (Ring - valge kontuuriga)"
+                        "asterisk-stroke": "Asterisk Stroke",
+                        "x": "X (Rist)",
+                        "asterisk": "Asterisk",
+                        "star": "Star (Täht)",
+                        "circle": "Circle (Ring)"
                     },
                     "default_value": "asterisk-stroke",
                     "allow_null": 0,
+                    "layout": "horizontal",
                     "wrapper": {
-                        "width": "33"
+                        "width": "100",
+                        "class": "four-steps-icon-field four-steps-icon-field--card"
                     }
                 },
                 {

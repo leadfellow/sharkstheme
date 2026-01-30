@@ -17,6 +17,167 @@
             }
         },
         {
+            "key": "field_closed_accordion_heading_parts",
+            "label": "Heading Parts",
+            "name": "heading_parts",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Build your heading with text parts (dark/light colors) and line breaks",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Part",
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_closed_accordion_part_type",
+                    "label": "Part Type",
+                    "name": "part_type",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Choose text or line break",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "text": "Text (Word)",
+                        "line_break": "Line Break"
+                    },
+                    "default_value": "text",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_closed_accordion_part_text",
+                    "label": "Text",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Enter word or text",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_closed_accordion_part_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Enter text...",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_closed_accordion_part_color",
+                    "label": "Text Color",
+                    "name": "color",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Choose color for this text",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_closed_accordion_part_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "dark": "Dark (Black)",
+                        "light": "Light (Grey)"
+                    },
+                    "default_value": "dark",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
+                }
+            ]
+        },
+        {
+            "key": "field_closed_accordion_left_icons",
+            "label": "Left Icons",
+            "name": "left_icons",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add up to 3 icons (default: asterisk, star, x)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 3,
+            "collapsed": "",
+            "button_label": "Add Icon",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_closed_accordion_icon_type",
+                    "label": "Icon Type",
+                    "name": "icon_type",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "asterisk": "Asterisk",
+                        "star": "Star",
+                        "x": "X"
+                    },
+                    "default_value": "asterisk",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
+                }
+            ]
+        },
+        {
             "key": "field_closed_accordion_items",
             "label": "List Items",
             "name": "closed_accordion_items",
@@ -48,7 +209,7 @@
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "80",
                         "class": "",
                         "id": ""
                     },
@@ -57,24 +218,61 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
+                },
+                {
+                    "key": "field_closed_accordion_item_centered",
+                    "label": "Centered",
+                    "name": "centered",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Center align this item vertically (for short text)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "Yes",
+                    "ui_off_text": "No"
                 }
             ]
         },
         {
-            "key": "field_closed_accordion_background_color",
-            "label": "Background Color",
-            "name": "background_color",
+            "key": "field_closed_accordion_left_background_color",
+            "label": "Left Background Color",
+            "name": "left_background_color",
             "aria-label": "",
             "type": "color_picker",
-            "instructions": "Choose the background color for the block section",
+            "instructions": "Choose the background color for the left section",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "default_value": "#F7F7F5",
+            "enable_opacity": 1,
+            "return_format": "string"
+        },
+        {
+            "key": "field_closed_accordion_right_background_color",
+            "label": "Right Background Color",
+            "name": "right_background_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "Choose the background color for the right section",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#000000",
             "enable_opacity": 1,
             "return_format": "string"
         }

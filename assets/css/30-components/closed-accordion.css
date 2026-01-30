@@ -2,135 +2,178 @@
 /* A non-clickable list that looks like an accordion without expandable content */
 
 .block-closed-accordion {
-  padding: var(--space-5) 0;
-  background-color: #F7F7F5 !important; /* Default background, can be overridden via inline style */
-  display: flex;
-  flex-direction: column;
+  margin: 0 !important;
+  padding: 120px 0;
+  width: 100%;
+  background-color: #f7f7f5;
 }
 
 .block-closed-accordion .container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-/* When inside column, stretch fully */
-.wp-block-column > .block-closed-accordion {
-  flex: 1 !important;
-  box-sizing: border-box;
-}
-
-.wp-block-column .closed-accordion {
-  max-width: 100%;
-}
-
-
-.closed-accordion {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 15px;
-  max-width: 988px;
+  max-width: 1440px;
   margin: 0 auto;
+  padding: 0 58px;
+  width: 100%;
 }
 
-/* Closed Accordion Item */
-.closed-accordion__item {
-  box-sizing: border-box;
+.closed-accordion-main-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1324px;
+  width: 100%;
+  gap: 86px;
+}
+
+/* Left Section */
+.closed-accordion-left-section {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  width: 100%;
-  flex: none;
-  align-self: stretch;
-}
-
-/* Content (not a button, just a div) */
-.closed-accordion__content {
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
+  width: 586px;
+  flex-shrink: 0;
+}
+
+/* Title Block */
+.closed-accordion__title-block {
+  flex: 0 0 auto;
+}
+
+.closed-accordion__heading {
+  font-family: 'Switzer', var(--font-heading);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 82px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -4.1px;
+  margin: 0;
+}
+
+.closed-accordion__heading-part {
+  font-family: 'Switzer', var(--font-heading);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 82px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -4.1px;
+}
+
+.closed-accordion__heading-part--dark {
+  color: #000000;
+}
+
+.closed-accordion__heading-part--light {
+  color: #BBBAB6;
+}
+
+/* Icons */
+.closed-accordion__icons {
+  display: flex;
+  gap: 30px;
   align-items: center;
-  padding: 0px;
+  margin-top: auto;
+  padding-top: 60px;
+}
+
+.closed-accordion__icon {
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closed-accordion__icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Services List (Right Section) */
+.closed-accordion-services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 652px;
+  flex-shrink: 0;
+}
+
+.closed-accordion__service-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
   width: 100%;
 }
 
-/* Title Wrapper */
-.closed-accordion__title-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  padding: 0px;
-  gap: 50px;
-  flex: 1;
+.closed-accordion__service-item--centered {
+  align-items: center;
 }
 
-/* Number */
-.closed-accordion__number {
-  font-family: 'Switzer', var(--font-heading);
-  font-style: normal;
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 100%;
-  letter-spacing: -0.05em;
-  text-transform: uppercase;
+.closed-accordion__service-number {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 1.4;
   color: #BBBAB6;
-  flex: none;
-  min-width: 60px;
+  width: 60px;
+  flex-shrink: 0;
+  margin: 0;
 }
 
-/* Title */
-.closed-accordion__title {
-  font-family: 'Switzer', var(--font-heading);
-  font-style: normal;
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 100%;
-  letter-spacing: -0.05em;
-  text-transform: uppercase;
-  color: #171717;
-  margin: 0;
+.closed-accordion__service-text {
   flex: 1;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 36px;
+  line-height: 1.1;
+  color: #000000;
+  letter-spacing: -1.8px;
+  margin: 0;
 }
 
 /* Responsive */
-@media (max-width: 900px) {
-  .closed-accordion {
-    max-width: 100%;
-    gap: 12px;
+@media (max-width: 1400px) {
+  .closed-accordion-main-content {
+    flex-direction: column;
+    gap: 60px;
   }
   
-  .closed-accordion__item {
-    padding: 0px;
-  }
-  
-  .closed-accordion__title-wrapper {
-    gap: 20px;
-  }
-  
-  .closed-accordion__number {
-    font-size: 24px;
-    min-width: 50px;
-  }
-  
-  .closed-accordion__title {
-    font-size: 24px;
+  .closed-accordion-left-section,
+  .closed-accordion-services-list {
+    width: 100%;
   }
 }
 
-@media (max-width: 600px) {
-  .closed-accordion__title-wrapper {
-    gap: 15px;
+@media (max-width: 768px) {
+  .block-closed-accordion {
+    padding: 60px 0;
   }
   
-  .closed-accordion__number {
-    font-size: 20px;
-    min-width: 40px;
+  .block-closed-accordion .container {
+    padding: 0 24px;
   }
   
-  .closed-accordion__title {
-    font-size: 20px;
+  .closed-accordion__heading {
+    font-size: 48px;
+    letter-spacing: -2.4px;
+  }
+  
+  .closed-accordion__service-text {
+    font-size: 24px;
+    letter-spacing: -1.2px;
+  }
+  
+  .closed-accordion__service-number {
+    font-size: 18px;
+    width: 50px;
+  }
+  
+  .closed-accordion__icons {
+    gap: 20px;
+  }
+  
+  .closed-accordion__icon {
+    width: 48px;
+    height: 48px;
   }
 }

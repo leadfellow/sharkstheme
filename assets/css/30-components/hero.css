@@ -304,7 +304,7 @@
   align-items: center;
   justify-content: center;
   background: #ffffff;
-  border-radius: 8px;
+  border-radius: 0;
   padding: 12px;
   transition: all var(--transition-base);
 }

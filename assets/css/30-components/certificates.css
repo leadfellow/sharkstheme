@@ -116,35 +116,35 @@
     min-width: 0;
 }
 
-/* Certificates Section */
+/* Certificates Section - Infinite Carousel */
 .certificates-list {
     display: flex;
     align-items: center;
     gap: 23px;
     width: 100%;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
-    scrollbar-color: #bbbab6 transparent;
-    padding-bottom: 10px;
+    overflow: hidden;
+    position: relative;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.certificates-list::-webkit-scrollbar {
-    height: 8px;
+.certificates-list-wrapper {
+    display: flex;
+    gap: 23px;
+    animation: certificatesScroll 20s linear infinite;
+    will-change: transform;
 }
 
-.certificates-list::-webkit-scrollbar-track {
-    background: transparent;
+.certificates-list-wrapper:hover {
+    animation-play-state: paused;
 }
 
-.certificates-list::-webkit-scrollbar-thumb {
-    background: #bbbab6;
-    border-radius: 4px;
-}
-
-.certificates-list::-webkit-scrollbar-thumb:hover {
-    background: #999896;
+/* Infinite scroll animation */
+@keyframes certificatesScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .certificates-box {
@@ -163,13 +163,13 @@
     animation: certificateFloat 3s ease-in-out infinite;
 }
 
-/* Floating animation - horizontal movement */
+/* Floating animation - vertical movement (subtle) */
 @keyframes certificateFloat {
     0%, 100% {
-        transform: translateX(0px);
+        transform: translateY(0px);
     }
     50% {
-        transform: translateX(12px);
+        transform: translateY(-5px);
     }
 }
 

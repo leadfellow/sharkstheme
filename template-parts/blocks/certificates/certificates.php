@@ -103,18 +103,27 @@ function get_certificates_icon($icon_name) {
             </div>
         <?php endif; ?>
 
-        <!-- Certificates Section -->
+        <!-- Certificates Section - Infinite Carousel -->
         <?php if ($certificates && count($certificates) > 0): ?>
             <div class="certificates-list">
-                <?php foreach ($certificates as $certificate): ?>
-                    <div class="certificates-box">
-                        <?php if (!empty($certificate['image'])): ?>
-                            <img src="<?php echo esc_url($certificate['image']['url']); ?>" 
-                                 alt="<?php echo esc_attr($certificate['image']['alt'] ?: 'Certificate'); ?>"
-                                 class="certificates-box-image">
-                        <?php endif; ?>
-                    </div>
-                <?php endforeach; ?>
+                <div class="certificates-list-wrapper">
+                    <?php 
+                    // Display certificates twice for infinite loop
+                    for ($i = 0; $i < 2; $i++): 
+                        foreach ($certificates as $certificate): 
+                    ?>
+                        <div class="certificates-box">
+                            <?php if (!empty($certificate['image'])): ?>
+                                <img src="<?php echo esc_url($certificate['image']['url']); ?>" 
+                                     alt="<?php echo esc_attr($certificate['image']['alt'] ?: 'Certificate'); ?>"
+                                     class="certificates-box-image">
+                            <?php endif; ?>
+                        </div>
+                    <?php 
+                        endforeach; 
+                    endfor; 
+                    ?>
+                </div>
             </div>
         <?php endif; ?>
     </div>

@@ -157,6 +157,12 @@ add_action('acf/init', function() {
         ]);
         
         acf_add_options_sub_page([
+            'page_title'    => __('Menu Icons', 'sharks2025'),
+            'menu_title'    => __('Menu Icons', 'sharks2025'),
+            'parent_slug'   => 'sharks-settings',
+        ]);
+        
+        acf_add_options_sub_page([
             'page_title'    => __('System Status', 'sharks2025'),
             'menu_title'    => __('System Status', 'sharks2025'),
             'parent_slug'   => 'sharks-settings',
@@ -1029,6 +1035,131 @@ add_action('acf/init', function() {
                         'param' => 'options_page',
                         'operator' => '==',
                         'value' => 'acf-options-header-cta',
+                    ],
+                ],
+            ],
+            'menu_order' => 0,
+            'position' => 'normal',
+            'style' => 'seamless',
+        ]);
+        
+        // Menu Icons Settings Group
+        acf_add_local_field_group([
+            'key' => 'group_menu_icons',
+            'title' => 'Menu Icons Settings',
+            'fields' => [
+                // Instructions
+                [
+                    'key' => 'field_menu_icons_instructions',
+                    'label' => 'How to Configure',
+                    'name' => '',
+                    'type' => 'message',
+                    'message' => '<h3>🎨 Submenu Icons</h3>
+                        <p>Configure custom icons for each submenu in your navigation. Each parent menu item with a submenu can have its own unique icon.</p>
+                        <ul>
+                            <li><strong>Icon Type:</strong> Choose between Asterisk, Cross, Circle, Square, or upload custom SVG</li>
+                            <li><strong>Auto-detect:</strong> Icons are automatically assigned to menu items with submenus</li>
+                            <li><strong>Custom SVG:</strong> Upload your own SVG file for maximum flexibility</li>
+                        </ul>
+                        <p><em>Note: Changes will be visible immediately after saving.</em></p>',
+                    'new_lines' => 'wpautop',
+                ],
+                
+                // Menu Icons Repeater
+                [
+                    'key' => 'field_menu_icons_repeater',
+                    'label' => 'Menu Icons',
+                    'name' => 'menu_icons',
+                    'type' => 'repeater',
+                    'instructions' => 'Add an icon for each menu item that has a submenu',
+                    'layout' => 'block',
+                    'button_label' => 'Add Menu Icon',
+                    'sub_fields' => [
+                        // Menu Item Selector
+                        [
+                            'key' => 'field_menu_item_id',
+                            'label' => 'Menu Item',
+                            'name' => 'menu_item_id',
+                            'type' => 'text',
+                            'instructions' => 'Enter the menu item text (e.g., "Teenused", "Lahendused")',
+                            'placeholder' => 'Teenused',
+                            'wrapper' => [
+                                'width' => '40',
+                            ],
+                        ],
+                        
+                        // Icon Type
+                        [
+                            'key' => 'field_icon_type',
+                            'label' => 'Icon Type',
+                            'name' => 'icon_type',
+                            'type' => 'select',
+                            'instructions' => 'Choose icon style',
+                            'choices' => [
+                                'asterisk' => 'Asterisk (Default)',
+                                'cross' => 'Cross / Plus',
+                                'circle' => 'Circle',
+                                'square' => 'Square',
+                                'triangle' => 'Triangle',
+                                'custom' => 'Custom SVG',
+                            ],
+                            'default_value' => 'asterisk',
+                            'wrapper' => [
+                                'width' => '30',
+                            ],
+                        ],
+                        
+                        // Icon Color
+                        [
+                            'key' => 'field_icon_color',
+                            'label' => 'Icon Color',
+                            'name' => 'icon_color',
+                            'type' => 'color_picker',
+                            'instructions' => 'Background color for the icon',
+                            'default_value' => '#000000',
+                            'wrapper' => [
+                                'width' => '30',
+                            ],
+                            'conditional_logic' => [
+                                [
+                                    [
+                                        'field' => 'field_icon_type',
+                                        'operator' => '!=',
+                                        'value' => 'custom',
+                                    ],
+                                ],
+                            ],
+                        ],
+                        
+                        // Custom SVG Upload
+                        [
+                            'key' => 'field_custom_svg',
+                            'label' => 'Custom SVG',
+                            'name' => 'custom_svg',
+                            'type' => 'file',
+                            'instructions' => 'Upload your custom SVG file (316x316px recommended)',
+                            'return_format' => 'url',
+                            'library' => 'all',
+                            'mime_types' => 'svg',
+                            'conditional_logic' => [
+                                [
+                                    [
+                                        'field' => 'field_icon_type',
+                                        'operator' => '==',
+                                        'value' => 'custom',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'location' => [
+                [
+                    [
+                        'param' => 'options_page',
+                        'operator' => '==',
+                        'value' => 'acf-options-menu-icons',
                     ],
                 ],
             ],

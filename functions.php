@@ -27,6 +27,7 @@ require_once SHARKS_DIR . '/inc/blocks.php';
 require_once SHARKS_DIR . '/inc/patterns.php';
 require_once SHARKS_DIR . '/inc/block-styles.php';
 require_once SHARKS_DIR . '/inc/admin-settings.php';
+require_once SHARKS_DIR . '/inc/menu-icons.php';
 require_once SHARKS_DIR . '/inc/schema.php';
 
 // ACF JSON save/load points

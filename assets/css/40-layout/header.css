@@ -284,7 +284,9 @@
 .sharks-mega-menu__link {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 0;
+  padding-left: 0;
   gap: 12px;
   min-height: 46px;
   font-family: 'Switzer', var(--font-heading);
@@ -314,9 +316,9 @@
 
 /* Arrow icon in submenu */
 .sharks-mega-menu__arrow {
-  width: 46px;
+  width: 0;
   height: 46px;
-  border-radius: 50%;
+  border-radius: 0;
   background: transparent;
   display: flex;
   align-items: center;
@@ -324,6 +326,7 @@
   opacity: 0;
   transition: all 0.3s ease;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .sharks-mega-menu__arrow svg {
@@ -333,8 +336,9 @@
 }
 
 .sharks-mega-menu__link:hover .sharks-mega-menu__arrow {
+  width: 46px;
   opacity: 1;
-  background: rgba(0, 0, 0, 0.05);
+  background: transparent;
 }
 
 /* Asterisk container - right side */
@@ -423,7 +427,9 @@
 .site-nav__menu .sub-menu a {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 0;
+  padding-left: 0;
   gap: 12px;
   height: 46px;
   font-family: 'Switzer', var(--font-heading);
@@ -482,9 +488,9 @@
 }
 
 .site-nav__menu .submenu-arrow {
-  width: 46px;
+  width: 0;
   height: 46px;
-  border-radius: 183px;
+  border-radius: 0;
   background: transparent;
   display: flex;
   align-items: center;
@@ -492,6 +498,7 @@
   opacity: 0;
   transition: all 0.3s ease;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .site-nav__menu .submenu-arrow svg {
@@ -500,8 +507,9 @@
 }
 
 .site-nav__menu .sub-menu a:hover .submenu-arrow {
+  width: 46px;
   opacity: 1;
-  background: rgba(0, 0, 0, 0.05);
+  background: transparent;
 }
 
 .site-nav__menu .submenu-asterisk {

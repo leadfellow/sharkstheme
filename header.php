@@ -23,6 +23,8 @@ if (!defined('ABSPATH')) {
         font-family: 'Switzer', var(--font-heading) !important;
         font-size: 42px !important;
         color: #000000 !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
     }
     </style>
 </head>

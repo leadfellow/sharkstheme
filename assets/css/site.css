@@ -20,6 +20,7 @@
 @import url('./30-components/why-us.css');
 @import url('./30-components/why-that.css');
 @import url('./30-components/why-sharks.css');
+@import url('./30-components/why-sharks-2.css');
 @import url('./30-components/why-we.css');
 @import url('./30-components/sharks-headings.css');
 @import url('./30-components/content-grey.css');
@@ -38,6 +39,9 @@
 @import url('./30-components/wide-picture.css');
 @import url('./30-components/content-highlighted.css');
 @import url('./30-components/how-to-start.css');
+@import url('./30-components/four-steps.css');
+@import url('./30-components/experience.css');
+@import url('./30-components/certificates.css');
 @import url('./30-components/table-2.css');
 @import url('./30-components/two-box-cta.css');
 @import url('./30-components/what-includes.css');
@@ -156,7 +160,8 @@ img {
 .entry-content>.block-works5,
 .entry-content>.block-works3,
 .entry-content>.block-works1,
-.entry-content>.block-wide-picture {
+.entry-content>.block-wide-picture,
+.entry-content>.block-four-steps {
   margin: 0 !important;
 }
 
@@ -197,7 +202,8 @@ img {
 .entry-content>.block-works5,
 .entry-content>.block-works3,
 .entry-content>.block-works1,
-.entry-content>.block-wide-picture {
+.entry-content>.block-wide-picture,
+.entry-content>.block-four-steps {
   padding-inline: 0 !important;
   margin-left: auto !important;
   margin-right: auto !important;

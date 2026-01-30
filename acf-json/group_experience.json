@@ -1,0 +1,209 @@
+{
+    "key": "group_experience",
+    "title": "Experience Block",
+    "fields": [
+        {
+            "key": "field_experience_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"experience\", \"kogemus\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #experience",
+            "required": 0,
+            "placeholder": "nt. experience, kogemus",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_experience_show_on_mobile",
+            "label": "Kuva mobiilis",
+            "name": "show_on_mobile",
+            "type": "true_false",
+            "instructions": "Määra, kas see blokk kuvatakse mobiilseadmetes (alla 768px)",
+            "required": 0,
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Jah",
+            "ui_off_text": "Ei",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_experience_headline_gray",
+            "label": "Headline (Gray Part)",
+            "name": "headline_gray",
+            "type": "text",
+            "instructions": "First part of headline (gray color)",
+            "required": 1,
+            "default_value": "Vaatamata aastatepikkusele kogemusele",
+            "placeholder": "Vaatamata aastatepikkusele kogemusele",
+            "maxlength": 150
+        },
+        {
+            "key": "field_experience_headline_black",
+            "label": "Headline (Black Part)",
+            "name": "headline_black",
+            "type": "text",
+            "instructions": "Second part of headline (black color)",
+            "required": 1,
+            "default_value": "oleme paindlik ja värske",
+            "placeholder": "oleme paindlik ja värske",
+            "maxlength": 150
+        },
+        {
+            "key": "field_experience_features_tab",
+            "label": "Features",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "placement": "top"
+        },
+        {
+            "key": "field_experience_feature_1",
+            "label": "Feature 1 (Esimene rida, vasak)",
+            "name": "feature_1",
+            "type": "text",
+            "instructions": "Esimene omadus (kuvatakse esimeses reas vasakul)",
+            "required": 0,
+            "default_value": "95% klientidest soovitavad meid edasi",
+            "placeholder": "95% klientidest soovitavad meid edasi",
+            "maxlength": 150,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_experience_feature_2",
+            "label": "Feature 2 (Esimene rida, keskmine)",
+            "name": "feature_2",
+            "type": "text",
+            "instructions": "Teine omadus (kuvatakse esimeses reas keskel)",
+            "required": 0,
+            "default_value": "oleme loonud üle 250 kodulehekülje ja e-poe",
+            "placeholder": "oleme loonud üle 250 kodulehekülje ja e-poe",
+            "maxlength": 150,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_experience_feature_3",
+            "label": "Feature 3 (Esimene rida, parem)",
+            "name": "feature_3",
+            "type": "text",
+            "instructions": "Kolmas omadus (kuvatakse esimeses reas paremal)",
+            "required": 0,
+            "default_value": "turundame igapäevaselt rohkem kui 50 klienti",
+            "placeholder": "turundame igapäevaselt rohkem kui 50 klienti",
+            "maxlength": 150,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_experience_feature_4",
+            "label": "Feature 4 (Teine rida, vasak)",
+            "name": "feature_4",
+            "type": "text",
+            "instructions": "Neljas omadus (kuvatakse teises reas vasakul)",
+            "required": 0,
+            "default_value": "teekond meiega on lihtne ja kasumlik",
+            "placeholder": "teekond meiega on lihtne ja kasumlik",
+            "maxlength": 150,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_experience_feature_5",
+            "label": "Feature 5 (Teine rida, parem)",
+            "name": "feature_5",
+            "type": "text",
+            "instructions": "Viies omadus (kuvatakse teises reas paremal)",
+            "required": 0,
+            "default_value": "teeme tööd hingega ja kvaliteediga",
+            "placeholder": "teeme tööd hingega ja kvaliteediga",
+            "maxlength": 150,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_experience_cta_tab",
+            "label": "CTA & Images",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "placement": "top"
+        },
+        {
+            "key": "field_experience_cta_text",
+            "label": "CTA Button Text",
+            "name": "cta_text",
+            "type": "text",
+            "instructions": "Call to action button text",
+            "required": 1,
+            "default_value": "küsi pakkimust",
+            "placeholder": "küsi pakkimust",
+            "maxlength": 100
+        },
+        {
+            "key": "field_experience_cta_url",
+            "label": "CTA Button URL",
+            "name": "cta_url",
+            "type": "url",
+            "instructions": "Call to action button link URL",
+            "required": 0,
+            "default_value": "#",
+            "placeholder": "#contact"
+        },
+        {
+            "key": "field_experience_image_1",
+            "label": "Image 1",
+            "name": "image_1",
+            "type": "image",
+            "instructions": "First image (will be shown as base layer)",
+            "required": 0,
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_experience_image_2",
+            "label": "Image 2",
+            "name": "image_2",
+            "type": "image",
+            "instructions": "Second image (will fade in/out over first image)",
+            "required": 0,
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "50"
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/experience"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

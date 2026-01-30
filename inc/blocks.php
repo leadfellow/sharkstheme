@@ -929,6 +929,24 @@ add_action('acf/init', function() {
         'mode'            => 'preview'
     ]);
 
+    // Why Sharks 2 Block (with icons)
+    acf_register_block_type([
+        'name'            => 'why-sharks-2',
+        'title'           => __('Why Sharks 2 (Icons)', 'sharks2025'),
+        'description'     => __('Why choose Marketing Sharks section with icons - dark background version', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/why-sharks-2/why-sharks-2.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'star-filled',
+        'keywords'        => ['why', 'sharks', 'about', 'features', 'benefits', 'icons', 'miks valida'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
     // Team Block
     acf_register_block_type([
         'name'            => 'team',
@@ -990,6 +1008,78 @@ add_action('acf/init', function() {
             'color'   => ['background']
         ],
         'mode'            => 'preview'
+    ]);
+
+    // Four Steps Block
+    acf_register_block_type([
+        'name'            => 'four-steps',
+        'title'           => __('Four Steps', 'sharks2025'),
+        'description'     => __('Four steps section with customizable header icons, card with icon and steps list', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/four-steps/four-steps.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'editor-ol-rtl',
+        'keywords'        => ['steps', 'process', 'neli', 'sammud', 'eduni', 'four'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview',
+        'enqueue_assets'  => function() {
+            wp_enqueue_script(
+                'four-steps-js',
+                get_template_directory_uri() . '/assets/js/four-steps.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/four-steps.js'),
+                true
+            );
+        }
+    ]);
+
+    // Experience Block
+    acf_register_block_type([
+        'name'            => 'experience',
+        'title'           => __('Experience', 'sharks2025'),
+        'description'     => __('Experience section with headline, feature items, CTA button and images', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/experience/experience.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'star-filled',
+        'keywords'        => ['experience', 'features', 'kogemus', 'benefits', 'cta'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview'
+    ]);
+
+    // Certificates Block
+    acf_register_block_type([
+        'name'            => 'certificates',
+        'title'           => __('Certificates', 'sharks2025'),
+        'description'     => __('Competencies and certificates section with grid layout', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/certificates/certificates.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'awards',
+        'keywords'        => ['certificates', 'sertifikaadid', 'competence', 'kompetents', 'skills'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview',
+        'enqueue_assets'  => function() {
+            wp_enqueue_script(
+                'certificates-js',
+                get_template_directory_uri() . '/assets/js/certificates.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/certificates.js'),
+                true
+            );
+        }
     ]);
 });
 

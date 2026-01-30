@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Steps - Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f7f7f5;
+            padding: 120px 58px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 82px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .icon-left,
+        .icon-right {
+            width: 62px;
+            height: 62px;
+            flex-shrink: 0;
+        }
+
+        .title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 82px;
+            line-height: 1.1;
+            letter-spacing: -4.1px;
+            text-transform: uppercase;
+            color: black;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Content Section */
+        .content {
+            display: flex;
+            gap: 62px;
+            align-items: flex-start;
+        }
+
+        /* Left Column - Card */
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            flex-shrink: 0;
+        }
+
+        .card {
+            background-color: black;
+            width: 513px;
+            height: 350px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-background {
+            position: absolute;
+            width: 381.706px;
+            height: 381.706px;
+            left: 65.29px;
+            top: -15.71px;
+        }
+
+        .card-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 82px;
+            line-height: 1.1;
+            letter-spacing: -4.1px;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .card-description {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.4;
+            color: #141414;
+            max-width: 513px;
+        }
+
+        /* Right Column - Steps */
+        .right-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding-bottom: 30px;
+            position: relative;
+        }
+
+        .step-border {
+            border-bottom: 1px solid #bbbab6;
+        }
+
+        .step-highlighted {
+            background-color: white;
+            padding: 30px;
+            padding-bottom: 30px;
+            margin: 0 -30px;
+        }
+
+        .step-number {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 32px;
+            line-height: 1.1;
+            letter-spacing: -1.6px;
+            text-transform: uppercase;
+            color: #bbbab6;
+            width: 60px;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 32px;
+            line-height: 1.1;
+            letter-spacing: -1.6px;
+            text-transform: uppercase;
+            color: black;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .content {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 513px;
+            }
+
+            .card-description {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 60px 30px;
+            }
+
+            .container {
+                gap: 50px;
+            }
+
+            .header {
+                gap: 20px;
+            }
+
+            .icon-left,
+            .icon-right {
+                width: 40px;
+                height: 40px;
+            }
+
+            .title {
+                font-size: 48px;
+                letter-spacing: -2.4px;
+            }
+
+            .card {
+                height: 280px;
+            }
+
+            .card-number {
+                font-size: 60px;
+            }
+
+            .step {
+                gap: 30px;
+            }
+
+            .step-number {
+                font-size: 24px;
+                width: 50px;
+            }
+
+            .step-text {
+                font-size: 24px;
+                letter-spacing: -1.2px;
+            }
+
+            .step-highlighted {
+                padding: 20px;
+                margin: 0 -20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 36px;
+                letter-spacing: -1.8px;
+            }
+
+            .step {
+                gap: 20px;
+            }
+
+            .step-number {
+                font-size: 20px;
+                width: 40px;
+            }
+
+            .step-text {
+                font-size: 20px;
+                letter-spacing: -1px;
+            }
+
+            .card-description {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <svg class="icon-left" viewBox="0 0 62 62" fill="none">
+                <path d="M59.043 2.95701C57.4099 1.3239 54.7621 1.3239 53.129 2.95701L43.543 12.543C36.6157 19.4703 25.3843 19.4703 18.457 12.543L8.87103 2.95701C7.23792 1.3239 4.59012 1.3239 2.95701 2.95701C1.3239 4.59012 1.3239 7.23792 2.95701 8.87103L12.543 18.457C19.4703 25.3843 19.4703 36.6157 12.543 43.543L2.95701 53.129C1.3239 54.7621 1.3239 57.4099 2.95701 59.043C4.59012 60.6761 7.23792 60.6761 8.87103 59.043L18.457 49.457C25.3843 42.5297 36.6157 42.5297 43.543 49.457L53.129 59.043C54.7621 60.6761 57.4099 60.6761 59.043 59.043C60.6761 57.4099 60.6761 54.7621 59.043 53.129L49.457 43.543C42.5297 36.6157 42.5297 25.3843 49.457 18.457L59.043 8.87103C60.6761 7.23792 60.6761 4.59012 59.043 2.95701Z" fill="black"/>
+            </svg>
+            <h1 class="title">Neli sammu eduni</h1>
+            <svg class="icon-right" viewBox="0 0 62 62" fill="none">
+                <path d="M38.5117 12.8643L46.9336 4.44238L57.5566 15.0654L49.1338 23.4883H61.0469V38.5117H50.127L58.1289 45.9434L47.9053 56.9512L38.5117 48.2266V61.0469H23.4883V49.1328L15.0645 57.5566L4.44238 46.9336L12.8643 38.5117H0.954102V23.4883H11.876L3.87402 16.0566L14.0977 5.04883L23.4883 13.7695V0.954102H38.5117V12.8643Z" fill="black"/>
+            </svg>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content">
+            <!-- Left Column - Card -->
+            <div class="left-column">
+                <div class="card">
+                    <svg class="card-background" viewBox="0 0 381.706 381.706" fill="none">
+                        <path d="M238.565 75.6621L292.067 22.1602L359.544 89.6367L306.042 143.139H381.706V238.565H312.339L363.165 285.77L298.226 355.691L238.565 300.282V381.706H143.139V306.042L89.6377 359.544L22.1602 292.067L75.6621 238.565H0V143.139H69.3633L18.5371 95.9346L83.4756 26.0127L143.139 81.4229V0H238.565V75.6621Z" stroke="#757472" stroke-width="2"/>
+                    </svg>
+                    <div class="card-number">02</div>
+                </div>
+                <p class="card-description">Formuleerime eesmärgid. Töötame välja edasise tegevuskava ja optimaalse turundusstrateegia.</p>
+            </div>
+
+            <!-- Right Column - Steps List -->
+            <div class="right-column">
+                <div class="step">
+                    <span class="step-number">(01)</span>
+                    <span class="step-text">Strateegiline analüüs</span>
+                </div>
+
+                <div class="step step-highlighted">
+                    <span class="step-number">(02)</span>
+                    <span class="step-text">Lahenduste kavandamine</span>
+                </div>
+
+                <div class="step step-border">
+                    <span class="step-number">(03)</span>
+                    <span class="step-text">Praktiline teostus</span>
+                </div>
+
+                <div class="step step-border">
+                    <span class="step-number">(04)</span>
+                    <span class="step-text">Tulemuste analüüs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

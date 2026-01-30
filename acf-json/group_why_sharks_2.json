@@ -1,0 +1,116 @@
+{
+    "key": "group_why_sharks_2_block",
+    "title": "Why Sharks 2 Block",
+    "fields": [
+        {
+            "key": "field_why_sharks_2_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"why-sharks-2\", \"miks-meie\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #why-sharks-2",
+            "required": 0,
+            "placeholder": "nt. why-sharks-2, miks-meie",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_why_sharks_2_section_title",
+            "label": "Section Title",
+            "name": "section_title",
+            "type": "text",
+            "instructions": "Small uppercase title (e.g., 'MIKS MEIE')",
+            "required": 0,
+            "default_value": "MIKS MEIE",
+            "placeholder": "MIKS MEIE"
+        },
+        {
+            "key": "field_why_sharks_2_main_heading",
+            "label": "Main Heading",
+            "name": "main_heading",
+            "type": "text",
+            "instructions": "Main heading text",
+            "required": 1,
+            "default_value": "Miks valida Marketing Sharks?",
+            "placeholder": "Miks valida Marketing Sharks?"
+        },
+        {
+            "key": "field_why_sharks_2_description",
+            "label": "Description",
+            "name": "description",
+            "type": "textarea",
+            "instructions": "Description text below the heading",
+            "required": 0,
+            "rows": 4,
+            "default_value": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+            "placeholder": "Lorem Ipsum is simply dummy text..."
+        },
+        {
+            "key": "field_why_sharks_2_features",
+            "label": "Feature Cards",
+            "name": "features",
+            "type": "repeater",
+            "instructions": "Add feature cards with icons. Cards will be automatically numbered (01, 02, etc.)",
+            "required": 0,
+            "min": 0,
+            "max": 10,
+            "layout": "block",
+            "button_label": "Add Feature Card",
+            "sub_fields": [
+                {
+                    "key": "field_why_sharks_2_feature_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "instructions": "Vali ikoon feature kaardi jaoks",
+                    "required": 0,
+                    "choices": {
+                        "star": "Star (Täht)",
+                        "plus": "Plus (Rist)",
+                        "wave": "Wave (Laine)",
+                        "diamond": "Diamond (Teemant)",
+                        "circle": "Circle (Ring)",
+                        "square": "Square (Ruut)",
+                        "triangle": "Triangle (Kolmnurk)",
+                        "heart": "Heart (Süda)",
+                        "check": "Check (Linnuke)",
+                        "arrow": "Arrow (Nool)"
+                    },
+                    "default_value": "star",
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 1,
+                    "return_format": "value",
+                    "placeholder": "Vali ikoon..."
+                },
+                {
+                    "key": "field_why_sharks_2_feature_text",
+                    "label": "Feature Text",
+                    "name": "text",
+                    "type": "textarea",
+                    "instructions": "Feature description text",
+                    "required": 1,
+                    "rows": 3,
+                    "placeholder": "Perefirma, millel on pikaajalised strateegiad."
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/why-sharks-2"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

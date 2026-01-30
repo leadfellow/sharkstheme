@@ -1,0 +1,279 @@
+/**
+ * Four Steps Block Styles
+ */
+
+/* Container */
+.block-four-steps {
+    background-color: #f7f7f5;
+    padding: 120px 58px;
+    min-height: 100vh;
+}
+
+.four-steps__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 82px;
+}
+
+/* Header */
+.four-steps__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.four-steps__icon--left,
+.four-steps__icon--right {
+    width: 62px;
+    height: 62px;
+    flex-shrink: 0;
+}
+
+.four-steps__icon--left svg,
+.four-steps__icon--right svg {
+    width: 100%;
+    height: 100%;
+}
+
+.four-steps__title {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 82px;
+    line-height: 1.1;
+    letter-spacing: -4.1px;
+    text-transform: uppercase;
+    color: black;
+    text-align: center;
+    margin: 0;
+}
+
+/* Content Section */
+.four-steps__content {
+    display: flex;
+    gap: 62px;
+    align-items: flex-start;
+}
+
+/* Left Column - Card */
+.four-steps__left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    flex-shrink: 0;
+}
+
+.four-steps__card {
+    background-color: black;
+    width: 513px;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+}
+
+.four-steps__card-background {
+    position: absolute;
+    width: 381.706px;
+    height: 381.706px;
+    left: 65.29px;
+    top: -15.71px;
+    transition: opacity 0.3s ease;
+}
+
+.four-steps__card-background svg {
+    width: 100%;
+    height: 100%;
+}
+
+.four-steps__card-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 82px;
+    line-height: 1.1;
+    letter-spacing: -4.1px;
+    text-transform: uppercase;
+    color: white;
+    transition: opacity 0.3s ease;
+}
+
+.four-steps__card-description {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #141414;
+    max-width: 513px;
+    margin: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Right Column - Steps */
+.four-steps__right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.four-steps__step {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 30px 0;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.four-steps__step:hover {
+    transform: translateX(10px);
+}
+
+.four-steps__step--border {
+    border-bottom: 1px solid #bbbab6;
+}
+
+.four-steps__step--highlighted {
+    background-color: white;
+    padding: 30px;
+    margin: 0 -30px;
+    border-bottom: none !important;
+}
+
+/* Active state - same styling as highlighted */
+.four-steps__step--active {
+    background-color: white !important;
+    padding: 30px !important;
+    margin: 0 -30px !important;
+    border-bottom: none !important;
+}
+
+.four-steps__step--active .four-steps__step-number {
+    color: black !important;
+}
+
+/* Remove hover effect when active */
+.four-steps__step--active:hover {
+    transform: none !important;
+}
+
+.four-steps__step-number {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: -1.6px;
+    text-transform: uppercase;
+    color: #bbbab6;
+    width: 60px;
+    flex-shrink: 0;
+}
+
+.four-steps__step-text {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: -1.6px;
+    text-transform: uppercase;
+    color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .four-steps__content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .four-steps__card {
+        width: 100%;
+        max-width: 513px;
+    }
+
+    .four-steps__card-description {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .block-four-steps {
+        padding: 60px 30px;
+    }
+
+    .four-steps__container {
+        gap: 50px;
+    }
+
+    .four-steps__header {
+        gap: 20px;
+    }
+
+    .four-steps__icon--left,
+    .four-steps__icon--right {
+        width: 40px;
+        height: 40px;
+    }
+
+    .four-steps__title {
+        font-size: 48px;
+        letter-spacing: -2.4px;
+    }
+
+    .four-steps__card {
+        height: 280px;
+    }
+
+    .four-steps__card-number {
+        font-size: 60px;
+    }
+
+    .four-steps__step {
+        gap: 30px;
+    }
+
+    .four-steps__step-number {
+        font-size: 24px;
+        width: 50px;
+    }
+
+    .four-steps__step-text {
+        font-size: 24px;
+        letter-spacing: -1.2px;
+    }
+
+    .four-steps__step--highlighted {
+        padding: 20px;
+        margin: 0 -20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .four-steps__title {
+        font-size: 36px;
+        letter-spacing: -1.8px;
+    }
+
+    .four-steps__step {
+        gap: 20px;
+    }
+
+    .four-steps__step-number {
+        font-size: 20px;
+        width: 40px;
+    }
+
+    .four-steps__step-text {
+        font-size: 20px;
+        letter-spacing: -1px;
+    }
+
+    .four-steps__card-description {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,256 @@
+/* ====================================
+   Experience Block
+   ==================================== */
+
+.block-experience {
+  width: 100%;
+  background-color: white;
+  min-height: 100vh;
+}
+
+.block-experience__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 120px 58px;
+  display: flex;
+  flex-direction: column;
+  gap: 62px;
+  align-items: flex-start;
+}
+
+/* Headline */
+.block-experience__headline {
+  font-family: 'Switzer', 'Helvetica', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 82px;
+  line-height: 1.1;
+  letter-spacing: -4.1px;
+  text-transform: uppercase;
+  max-width: 1324px;
+  width: 100%;
+  white-space: normal;
+  margin: 0;
+  text-align: left;
+}
+
+.block-experience__headline-gray {
+  color: #bbbab6;
+}
+
+.block-experience__headline-black {
+  color: black;
+}
+
+/* Content Wrapper */
+.block-experience__content-wrapper {
+  display: flex;
+  gap: 62px;
+  align-items: flex-start;
+}
+
+/* Left Section */
+.block-experience__left-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 834px;
+  gap: 62px;
+}
+
+/* Features */
+.block-experience__features {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.block-experience__features-row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.block-experience__feature-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  backdrop-filter: blur(20px);
+  flex: 0 0 auto;
+}
+
+.block-experience__feature-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.block-experience__feature-text {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  color: black;
+  width: 233px;
+  margin: 0;
+}
+
+/* CTA Button */
+.block-experience__cta-button {
+  background-color: black;
+  width: 100%;
+  padding: 25px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  text-decoration: none;
+  display: block;
+}
+
+.block-experience__cta-button:hover {
+  opacity: 0.9;
+}
+
+.block-experience__cta-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.block-experience__cta-text {
+  font-family: 'Switzer', 'Helvetica', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 1.1;
+  letter-spacing: -2.1px;
+  text-transform: uppercase;
+  color: white;
+  margin: 0;
+}
+
+.block-experience__arrow-icon {
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+}
+
+/* Right Section (Images) */
+.block-experience__right-section {
+  width: 428px;
+  height: 428px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.block-experience__image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.block-experience__image-1 {
+  z-index: 1;
+}
+
+.block-experience__image-2 {
+  z-index: 2;
+  animation: fadeInOut 4s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1400px) {
+  .block-experience__headline {
+    font-size: 60px;
+    letter-spacing: -3px;
+    width: 100%;
+  }
+
+  .block-experience__content-wrapper {
+    flex-direction: column;
+  }
+
+  .block-experience__left-section {
+    width: 100%;
+  }
+
+  .block-experience__right-section {
+    width: 100%;
+    max-width: 428px;
+  }
+}
+
+@media (max-width: 900px) {
+  .block-experience__container {
+    padding: 60px 30px;
+  }
+
+  .block-experience__headline {
+    font-size: 48px;
+    letter-spacing: -2.4px;
+  }
+
+  .block-experience__features-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .block-experience__feature-item {
+    width: 100%;
+  }
+
+  .block-experience__feature-text {
+    width: 100%;
+  }
+
+  .block-experience__cta-text {
+    font-size: 32px;
+    letter-spacing: -1.6px;
+  }
+
+  .block-experience__arrow-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .block-experience__container {
+    padding: 40px 20px;
+    gap: 40px;
+  }
+
+  .block-experience__headline {
+    font-size: 36px;
+    letter-spacing: -1.8px;
+  }
+
+  .block-experience__left-section {
+    gap: 40px;
+  }
+
+  .block-experience__cta-text {
+    font-size: 24px;
+    letter-spacing: -1.2px;
+  }
+
+  .block-experience__cta-button {
+    padding: 20px;
+  }
+
+  .block-experience__arrow-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .block-experience__right-section {
+    height: 300px;
+  }
+}

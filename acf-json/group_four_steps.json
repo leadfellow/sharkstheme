@@ -1,0 +1,232 @@
+{
+    "key": "group_four_steps_block",
+    "title": "Four Steps Block",
+    "fields": [
+        {
+            "key": "field_four_steps_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"sammud\", \"steps\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #sammud",
+            "required": 0,
+            "placeholder": "nt. sammud, steps",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_four_steps_header_icon_left",
+            "label": "Header Icon Left",
+            "name": "header_icon_left",
+            "type": "select",
+            "instructions": "Vali ikoon pealkirja vasakule küljele",
+            "required": 0,
+            "choices": {
+                "x": "X (Rist)",
+                "asterisk": "Asterisk (Tärnike)",
+                "star": "Star (Täht)",
+                "circle": "Circle (Ring)"
+            },
+            "default_value": "x",
+            "allow_null": 1,
+            "wrapper": {
+                "width": "33"
+            }
+        },
+        {
+            "key": "field_four_steps_header_title",
+            "label": "Header Title",
+            "name": "header_title",
+            "type": "text",
+            "instructions": "Pealkiri (nt. 'Neli sammu eduni')",
+            "required": 1,
+            "default_value": "Neli sammu eduni",
+            "placeholder": "Sisesta pealkiri...",
+            "wrapper": {
+                "width": "34"
+            }
+        },
+        {
+            "key": "field_four_steps_header_icon_right",
+            "label": "Header Icon Right",
+            "name": "header_icon_right",
+            "type": "select",
+            "instructions": "Vali ikoon pealkirja paremale küljele",
+            "required": 0,
+            "choices": {
+                "x": "X (Rist)",
+                "asterisk": "Asterisk (Tärnike)",
+                "star": "Star (Täht)",
+                "circle": "Circle (Ring)"
+            },
+            "default_value": "asterisk",
+            "allow_null": 1,
+            "wrapper": {
+                "width": "33"
+            }
+        },
+        {
+            "key": "field_four_steps_card_background_icon",
+            "label": "Card Background Icon",
+            "name": "card_background_icon",
+            "type": "select",
+            "instructions": "Vali ikoon musta kasti taustale",
+            "required": 0,
+            "choices": {
+                "asterisk-stroke": "Asterisk Stroke (Tärn kontuuriga)",
+                "x": "X (Rist)",
+                "asterisk": "Asterisk (Tärnike)",
+                "star": "Star (Täht)",
+                "circle": "Circle (Ring)"
+            },
+            "default_value": "asterisk-stroke",
+            "allow_null": 1,
+            "wrapper": {
+                "width": "33"
+            }
+        },
+        {
+            "key": "field_four_steps_card_number",
+            "label": "Card Number",
+            "name": "card_number",
+            "type": "text",
+            "instructions": "Number musta kasti sees (nt. '02')",
+            "required": 0,
+            "default_value": "02",
+            "placeholder": "02",
+            "maxlength": 3,
+            "wrapper": {
+                "width": "33"
+            }
+        },
+        {
+            "key": "field_four_steps_card_description",
+            "label": "Card Description",
+            "name": "card_description",
+            "type": "textarea",
+            "instructions": "Kirjeldus musta kasti all",
+            "required": 0,
+            "default_value": "Formuleerime eesmärgid. Töötame välja edasise tegevuskava ja optimaalse turundusstrateegia.",
+            "rows": 3,
+            "placeholder": "Sisesta kirjeldus...",
+            "wrapper": {
+                "width": "34"
+            }
+        },
+        {
+            "key": "field_four_steps_steps",
+            "label": "Steps",
+            "name": "steps",
+            "type": "repeater",
+            "instructions": "Lisa kuni 4 sammu. Iga samm saab olla tavaline, esiletõstetud või äärisega.",
+            "required": 1,
+            "layout": "block",
+            "button_label": "Lisa samm",
+            "min": 1,
+            "max": 4,
+            "sub_fields": [
+                {
+                    "key": "field_step_text",
+                    "label": "Step Text",
+                    "name": "step_text",
+                    "type": "text",
+                    "instructions": "Sammu tekst (nt. 'Strateegiline analüüs')",
+                    "required": 1,
+                    "placeholder": "Sisesta sammu tekst...",
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_step_is_highlighted",
+                    "label": "Is Highlighted",
+                    "name": "is_highlighted",
+                    "type": "true_false",
+                    "instructions": "Kas samm on esiletõstetud (valge taust)?",
+                    "required": 0,
+                    "default_value": 0,
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "25"
+                    }
+                },
+                {
+                    "key": "field_step_has_border",
+                    "label": "Has Border",
+                    "name": "has_border",
+                    "type": "true_false",
+                    "instructions": "Kas sammu all on äär?",
+                    "required": 0,
+                    "default_value": 0,
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "25"
+                    }
+                },
+                {
+                    "key": "field_step_icon",
+                    "label": "Step Icon",
+                    "name": "step_icon",
+                    "type": "select",
+                    "instructions": "Vali ikoon, mis kuvatakse vasakpoolsel kaardil kui sellele sammule klikitakse",
+                    "required": 0,
+                    "choices": {
+                        "asterisk-stroke": "Asterisk Stroke (Tärn kontuuriga)",
+                        "x": "X (Rist)",
+                        "asterisk": "Asterisk (Tärnike)",
+                        "star": "Star (Täht)",
+                        "circle": "Circle (Ring)"
+                    },
+                    "default_value": "asterisk-stroke",
+                    "allow_null": 0,
+                    "wrapper": {
+                        "width": "33"
+                    }
+                },
+                {
+                    "key": "field_step_card_number",
+                    "label": "Card Number",
+                    "name": "step_card_number",
+                    "type": "text",
+                    "instructions": "Number, mis kuvatakse vasakpoolsel kaardil kui sellele sammule klikitakse (nt. '01', '02', '03', '04')",
+                    "required": 0,
+                    "placeholder": "01",
+                    "maxlength": 3,
+                    "wrapper": {
+                        "width": "33"
+                    }
+                },
+                {
+                    "key": "field_step_description",
+                    "label": "Step Description",
+                    "name": "step_description",
+                    "type": "textarea",
+                    "instructions": "Kirjeldus, mis kuvatakse vasakpoolse kaardi all kui sellele sammule klikitakse",
+                    "required": 0,
+                    "rows": 3,
+                    "placeholder": "Sisesta kirjeldus...",
+                    "wrapper": {
+                        "width": "34"
+                    }
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/four-steps"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

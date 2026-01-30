@@ -2,26 +2,29 @@
 .site-footer {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 100px 58px 100px;
+  align-items: center;
+  padding: 100px 0;
   gap: 50px;
   background: #000000;
   color: #fff;
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  height: 622px;
+  min-height: 622px;
   margin: 0;
+  width: 100%;
 }
 
 /* Watermark Background */
 .site-footer__watermark {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1440px;
   height: 177px;
-  opacity: 0.2;
+  opacity: 0.6;
   pointer-events: none;
   z-index: 0;
 }
@@ -37,11 +40,13 @@
 .site-footer__content {
   position: relative;
   z-index: 1;
-  max-width: 100%;
+  max-width: 1440px;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 50px;
+  padding: 0 58px;
+  box-sizing: border-box;
 }
 
 /* Footer Top: Logo + Nav + CTA */
@@ -96,6 +101,7 @@
   font-size: 13px;
   letter-spacing: 3px;
   text-transform: uppercase;
+  filter: brightness(1.5);
 }
 
 /* Center logo image */
@@ -336,7 +342,7 @@
 /* Responsive */
 @media (max-width: 1400px) {
   .site-footer {
-    padding: 80px 40px 80px;
+    padding: 80px 0;
     gap: 40px;
     height: auto;
     min-height: 622px;
@@ -344,6 +350,7 @@
   
   .site-footer__content {
     gap: 40px;
+    padding: 0 40px;
   }
   
   .site-footer__top {
@@ -362,8 +369,12 @@
 
 @media (max-width: 1100px) {
   .site-footer {
-    padding: 60px 30px 60px;
+    padding: 60px 0;
     height: auto;
+  }
+  
+  .site-footer__content {
+    padding: 0 30px;
   }
   
   .site-footer__top {
@@ -424,8 +435,12 @@
 
 @media (max-width: 900px) {
   .site-footer {
-    padding: 50px 20px 50px;
+    padding: 50px 0;
     height: auto;
+  }
+  
+  .site-footer__content {
+    padding: 0 20px;
   }
   
   .site-footer__logo {
@@ -500,8 +515,12 @@
 
 @media (max-width: 640px) {
   .site-footer {
-    padding: 40px 20px 40px;
+    padding: 40px 0;
     height: auto;
+  }
+  
+  .site-footer__content {
+    padding: 0 20px;
   }
   
   .site-footer__watermark {
@@ -539,9 +558,7 @@
   }
 }
 
-/* Ensure footer content fits within 1440px including padding */
+/* Ensure footer spans full width */
 .site-footer {
   box-sizing: border-box;
-  max-width: 1440px;
-  margin: 0 auto;
 }

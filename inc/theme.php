@@ -54,6 +54,7 @@ add_action('after_setup_theme', function() {
         'assets/css/30-components/comparison-table.css',
         'assets/css/30-components/faq.css',
         'assets/css/30-components/testimonials.css',
+        'assets/css/30-components/why-sharks-2.css',
         'assets/css/30-components/content-grey.css',
         'assets/css/30-components/service-cards.css',
         'assets/css/30-components/specialist.css',

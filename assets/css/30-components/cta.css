@@ -206,20 +206,19 @@
   
   /* Dark Pattern Variant (Star grid background) */
   .block-cta--dark-pattern {
-    background: #000000;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     position: relative;
-    overflow: hidden;
-    padding: 120px 58px;
+    overflow: visible;
   }
   
   .block-cta--dark-pattern .container {
+    background: #000000;
     width: 100%;
     max-width: 100%;
-    padding: 0;
+    padding: 120px 58px;
+    position: relative;
+    overflow: hidden;
   }
   
   .block-cta--dark-pattern .block-cta__inner {
@@ -559,7 +558,7 @@
       height: 120px;
     }
     
-    .block-cta--dark-pattern {
+    .block-cta--dark-pattern .container {
       padding: 80px 24px;
     }
     
@@ -679,7 +678,7 @@
       height: 80px;
     }
     
-    .block-cta--dark-pattern {
+    .block-cta--dark-pattern .container {
       padding: 60px 20px;
     }
     

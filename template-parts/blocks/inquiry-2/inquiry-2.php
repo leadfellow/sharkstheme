@@ -60,10 +60,10 @@ $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
             </div>
 
             <!-- Submit Button -->
-            <div class="block-inquiry-2__submit-section">
+            <div class="block-inquiry-2__submit-section" onclick="this.closest('.block-inquiry-2').querySelector('.wpcf7-submit').click();">
               <div class="block-inquiry-2__submit-content">
                 <div>
-                  <div class="block-inquiry-2__arrow-icon" onclick="this.closest('.block-inquiry-2').querySelector('.wpcf7-submit').click();">
+                  <div class="block-inquiry-2__arrow-icon">
                     <svg width="62" height="62" viewBox="0 0 62 62" fill="none">
                       <rect x="0.837838" y="0.837838" width="60.3243" height="60.3243" rx="30.1622" stroke="white" stroke-width="1.67568"/>
                       <path d="M24.1499 37.8504L37.8501 24.1503" stroke="white" stroke-width="2.74479" stroke-linecap="round" stroke-linejoin="round"/>

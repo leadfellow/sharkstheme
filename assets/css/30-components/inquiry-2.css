@@ -186,6 +186,12 @@
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.block-inquiry-2__submit-section:hover {
+    background-color: var(--button-hover-color, #333333);
 }
 
 .block-inquiry-2__submit-content {
@@ -214,13 +220,10 @@
     transition: all 0.3s ease;
     position: relative;
     z-index: 10000;
-    background: transparent;
-    border-radius: 50%;
 }
 
-.block-inquiry-2__arrow-icon:hover {
+.block-inquiry-2__submit-section:hover .block-inquiry-2__arrow-icon {
     transform: translate(4px, -4px);
-    background: var(--button-hover-color, rgba(255, 255, 255, 0.1));
 }
 
 .block-inquiry-2__submit-text {

@@ -214,11 +214,13 @@
     transition: all 0.3s ease;
     position: relative;
     z-index: 10000;
+    background: transparent;
+    border-radius: 50%;
 }
 
 .block-inquiry-2__arrow-icon:hover {
     transform: translate(4px, -4px);
-    opacity: 0.8;
+    background: var(--button-hover-color, rgba(255, 255, 255, 0.1));
 }
 
 .block-inquiry-2__submit-text {

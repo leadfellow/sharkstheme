@@ -278,7 +278,8 @@
   background: transparent;
   color: #FFFFFF;
   text-decoration: underline;
-  font-family: var(--font-heading);
+  text-decoration-line: underline;
+  font-family: 'Switzer';
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -286,10 +287,11 @@
   letter-spacing: -0.03em;
   transition: all var(--transition-base);
   white-space: nowrap;
-  width: 293px;
-  height: 46px;
+  width: 259px;
+  height: 26px;
   flex: none;
-  order: 1;
+  order: 0;
+  flex-grow: 0;
 }
 
 .block-hero--dark-wave .block-hero__cta:hover {

@@ -83,10 +83,18 @@ add_action('after_setup_theme', function() {
  * Enqueue styles and scripts
  */
 add_action('wp_enqueue_scripts', function() {
-    // Google Fonts - Inter (Switzer alternative) and Manrope
+    // Google Fonts - Switzer, Inter and Manrope
     wp_enqueue_style(
         'sharks-fonts',
         'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap',
+        [],
+        null
+    );
+    
+    // Switzer font from CDN
+    wp_enqueue_style(
+        'sharks-switzer-font',
+        'https://cdn.jsdelivr.net/npm/@fontsource/switzer@5.0.18/index.min.css',
         [],
         null
     );

@@ -64,7 +64,8 @@ For each item:
 The block uses:
 - **Font:** Switzer for headings, Helvetica for body text
 - **Colors:** Black text (#000000), grey numbers (#bbbab6)
-- **Spacing:** 120px top/bottom padding, 58px left/right padding
+- **Container:** Max-width 1440px, centered
+- **Spacing:** 120px top/bottom padding, 58px left/right padding (inside container)
 - **Responsive:** Adjusts padding, font sizes, and layout for mobile
 
 ## JavaScript Functionality

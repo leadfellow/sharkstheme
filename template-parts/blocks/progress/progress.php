@@ -52,59 +52,61 @@ if (empty($progress_items)) {
 ?>
 
 <section <?php echo $anchor; ?>class="<?php echo esc_attr($class_name); ?>" id="<?php echo esc_attr($block_id); ?>">
-    <div class="progress-container">
-        
-        <!-- Header Section -->
-        <div class="progress-header-section">
-            <div class="progress-title-wrapper">
-                <!-- Left Icon -->
-                <div class="progress-icon-wrapper">
-                    <?php echo $icon_map[$left_icon]; ?>
-                </div>
-                
-                <!-- Title -->
-                <h1 class="progress-main-title"><?php echo esc_html($main_title); ?></h1>
-                
-                <!-- Right Icon -->
-                <div class="progress-icon-wrapper">
-                    <?php echo $icon_map[$right_icon]; ?>
+    <div class="container">
+        <div class="progress-container">
+            
+            <!-- Header Section -->
+            <div class="progress-header-section">
+                <div class="progress-title-wrapper">
+                    <!-- Left Icon -->
+                    <div class="progress-icon-wrapper">
+                        <?php echo $icon_map[$left_icon]; ?>
+                    </div>
+                    
+                    <!-- Title -->
+                    <h1 class="progress-main-title"><?php echo esc_html($main_title); ?></h1>
+                    
+                    <!-- Right Icon -->
+                    <div class="progress-icon-wrapper">
+                        <?php echo $icon_map[$right_icon]; ?>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Subtitle -->
-        <?php if ($subtitle): ?>
-            <p class="progress-subtitle"><?php echo esc_html($subtitle); ?></p>
-        <?php endif; ?>
+            <!-- Subtitle -->
+            <?php if ($subtitle): ?>
+                <p class="progress-subtitle"><?php echo esc_html($subtitle); ?></p>
+            <?php endif; ?>
 
-        <!-- Accordion Section -->
-        <div class="progress-accordion-wrapper">
-            <?php foreach ($progress_items as $index => $item): 
-                $number = str_pad($index + 1, 2, '0', STR_PAD_LEFT);
-                $is_expanded = !empty($item['default_open']) ? ' progress-accordion-item-expanded' : '';
-            ?>
-                <div class="progress-accordion-item<?php echo esc_attr($is_expanded); ?>">
-                    <div class="progress-accordion-header">
-                        <div class="progress-accordion-title-wrapper">
-                            <p class="progress-accordion-number">(<?php echo esc_html($number); ?>)</p>
-                            <p class="progress-accordion-title"><?php echo esc_html($item['title']); ?></p>
-                        </div>
-                        <div class="progress-icon-plus">
-                            <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                                <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
-                            </svg>
-                        </div>
-                    </div>
-                    <?php if (!empty($item['content'])): ?>
-                        <div class="progress-accordion-content">
-                            <div class="progress-content-inner">
-                                <p><?php echo nl2br(esc_html($item['content'])); ?></p>
+            <!-- Accordion Section -->
+            <div class="progress-accordion-wrapper">
+                <?php foreach ($progress_items as $index => $item): 
+                    $number = str_pad($index + 1, 2, '0', STR_PAD_LEFT);
+                    $is_expanded = !empty($item['default_open']) ? ' progress-accordion-item-expanded' : '';
+                ?>
+                    <div class="progress-accordion-item<?php echo esc_attr($is_expanded); ?>">
+                        <div class="progress-accordion-header">
+                            <div class="progress-accordion-title-wrapper">
+                                <p class="progress-accordion-number">(<?php echo esc_html($number); ?>)</p>
+                                <p class="progress-accordion-title"><?php echo esc_html($item['title']); ?></p>
+                            </div>
+                            <div class="progress-icon-plus">
+                                <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
+                                    <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
+                                </svg>
                             </div>
                         </div>
-                    <?php endif; ?>
-                </div>
-            <?php endforeach; ?>
+                        <?php if (!empty($item['content'])): ?>
+                            <div class="progress-accordion-content">
+                                <div class="progress-content-inner">
+                                    <p><?php echo nl2br(esc_html($item['content'])); ?></p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            
         </div>
-        
     </div>
 </section>

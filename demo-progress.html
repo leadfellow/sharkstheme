@@ -16,152 +16,173 @@
       background-color: #ffffff;
       font-family: 'Helvetica', 'Arial', sans-serif;
     }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 58px;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 20px;
+      }
+    }
   </style>
 </head>
 <body>
   <section class="block-progress" id="progress-demo">
-    <div class="progress-container">
-      
-      <!-- Header Section -->
-      <div class="progress-header-section">
-        <div class="progress-title-wrapper">
-          <!-- Left Icon -->
-          <div class="progress-icon-wrapper">
-            <svg fill="none" preserveAspectRatio="none" viewBox="0 0 62 62">
-              <path d="M38.5116 12.8651L46.9344 4.44225L57.5575 15.0653L49.1346 23.4882H61.0467L61.0458 38.5116H50.1258L58.1278 45.9432L47.9042 56.951L38.5116 48.2274V61.0467H23.4882V49.1346L15.0653 57.5575L4.44225 46.9344L12.8651 38.5116H0.953974V23.4882H11.8729L3.87194 16.0575L14.0956 5.0487L23.4882 13.7714V0.953974H38.5116V12.8651Z" fill="black" />
-            </svg>
-          </div>
-          
-          <!-- Title -->
-          <h1 class="progress-main-title">DIGITURUNDUSE PROTSESS</h1>
-          
-          <!-- Right Icon -->
-          <div class="progress-icon-wrapper">
-            <svg fill="none" preserveAspectRatio="none" viewBox="0 0 62 62">
-              <path d="M62 62H20.667V41.333H41.333V20.667H62V62ZM41.333 20.667H20.667V41.333H0V0H41.333V20.667Z" fill="black" />
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Subtitle -->
-      <p class="progress-subtitle">Oleme 12+ aastaga kogemusi lihvinud ja teame tänu sellele hästi, millised võtmetegevused toimivad ja millistele teguritele erineval hetkel keskenduda. Teeme seda, mis toimib!</p>
-
-      <!-- Accordion Section -->
-      <div class="progress-accordion-wrapper">
+    <div class="container">
+      <div class="progress-container">
         
-        <!-- Item 01 -->
-        <div class="progress-accordion-item">
-          <div class="progress-accordion-header">
-            <div class="progress-accordion-title-wrapper">
-              <p class="progress-accordion-number">(01)</p>
-              <p class="progress-accordion-title">Kohtumine</p>
+        <!-- Header Section -->
+        <div class="progress-header-section">
+          <div class="progress-title-wrapper">
+            <!-- Left Icon -->
+            <div class="progress-icon-wrapper">
+              <svg fill="none" preserveAspectRatio="none" viewBox="0 0 62 62">
+                <path d="M38.5116 12.8651L46.9344 4.44225L57.5575 15.0653L49.1346 23.4882H61.0467L61.0458 38.5116H50.1258L58.1278 45.9432L47.9042 56.951L38.5116 48.2274V61.0467H23.4882V49.1346L15.0653 57.5575L4.44225 46.9344L12.8651 38.5116H0.953974V23.4882H11.8729L3.87194 16.0575L14.0956 5.0487L23.4882 13.7714V0.953974H38.5116V12.8651Z" fill="black" />
+              </svg>
             </div>
-            <div class="progress-icon-plus">
-              <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
+            
+            <!-- Title -->
+            <h1 class="progress-main-title">DIGITURUNDUSE PROTSESS</h1>
+            
+            <!-- Right Icon -->
+            <div class="progress-icon-wrapper">
+              <svg fill="none" preserveAspectRatio="none" viewBox="0 0 62 62">
+                <path d="M62 62H20.667V41.333H41.333V20.667H62V62ZM41.333 20.667H20.667V41.333H0V0H41.333V20.667Z" fill="black" />
               </svg>
             </div>
           </div>
         </div>
 
-        <!-- Item 02 - Default Open -->
-        <div class="progress-accordion-item progress-accordion-item-expanded">
-          <div class="progress-accordion-header">
-            <div class="progress-accordion-title-wrapper">
-              <p class="progress-accordion-number">(02)</p>
-              <p class="progress-accordion-title">Strateegialoome</p>
-            </div>
-            <div class="progress-icon-plus">
-              <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
-              </svg>
-            </div>
-          </div>
-          <div class="progress-accordion-content">
-            <div class="progress-content-inner">
-              <p>Kohtumisel kogutud infole lisaks töötleme analüütilisi andmeid, keskendudes muuhulgas SEO-auditile ja kodulehe analüüsile, aga ka Google Analytics ja Google Search Console andmetele. Kogutud info pakub meile laiapõhjalise ülevaate, mille baasil loome spetsiifilise ja ärile omase digiturundusstrateegia. Kliendiga ühiselt koostame tegevuskava ja määratleme tööde nimekirja iga turundusetapi jaoks.</p>
-            </div>
-          </div>
-        </div>
+        <!-- Subtitle -->
+        <p class="progress-subtitle">Oleme 12+ aastaga kogemusi lihvinud ja teame tänu sellele hästi, millised võtmetegevused toimivad ja millistele teguritele erineval hetkel keskenduda. Teeme seda, mis toimib!</p>
 
-        <!-- Item 03 -->
-        <div class="progress-accordion-item">
-          <div class="progress-accordion-header">
-            <div class="progress-accordion-title-wrapper">
-              <p class="progress-accordion-number">(03)</p>
-              <p class="progress-accordion-title">Raport</p>
-            </div>
-            <div class="progress-icon-plus">
-              <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 04 -->
-        <div class="progress-accordion-item">
-          <div class="progress-accordion-header">
-            <div class="progress-accordion-title-wrapper">
-              <p class="progress-accordion-number">(04)</p>
-              <p class="progress-accordion-title">Esimene etapp</p>
-            </div>
-            <div class="progress-icon-plus">
-              <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
-              </svg>
+        <!-- Accordion Section -->
+        <div class="progress-accordion-wrapper">
+          
+          <!-- Item 01 -->
+          <div class="progress-accordion-item">
+            <div class="progress-accordion-header">
+              <div class="progress-accordion-title-wrapper">
+                <p class="progress-accordion-number">(01)</p>
+                <p class="progress-accordion-title">Kohtumine</p>
+              </div>
+              <div class="progress-icon-plus">
+                <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
+                  <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
+                </svg>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Item 05 -->
-        <div class="progress-accordion-item">
-          <div class="progress-accordion-header">
-            <div class="progress-accordion-title-wrapper">
-              <p class="progress-accordion-number">(05)</p>
-              <p class="progress-accordion-title">Teine etapp</p>
+          <!-- Item 02 - Default Open -->
+          <div class="progress-accordion-item progress-accordion-item-expanded">
+            <div class="progress-accordion-header">
+              <div class="progress-accordion-title-wrapper">
+                <p class="progress-accordion-number">(02)</p>
+                <p class="progress-accordion-title">Strateegialoome</p>
+              </div>
+              <div class="progress-icon-plus">
+                <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
+                  <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
+                </svg>
+              </div>
             </div>
-            <div class="progress-icon-plus">
-              <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
-              </svg>
+            <div class="progress-accordion-content">
+              <div class="progress-content-inner">
+                <p>Kohtumisel kogutud infole lisaks töötleme analüütilisi andmeid, keskendudes muuhulgas SEO-auditile ja kodulehe analüüsile, aga ka Google Analytics ja Google Search Console andmetele. Kogutud info pakub meile laiapõhjalise ülevaate, mille baasil loome spetsiifilise ja ärile omase digiturundusstrateegia. Kliendiga ühiselt koostame tegevuskava ja määratleme tööde nimekirja iga turundusetapi jaoks.</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Item 06 -->
-        <div class="progress-accordion-item">
-          <div class="progress-accordion-header">
-            <div class="progress-accordion-title-wrapper">
-              <p class="progress-accordion-number">(06)</p>
-              <p class="progress-accordion-title">Kolmas etapp</p>
-            </div>
-            <div class="progress-icon-plus">
-              <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
-              </svg>
+          <!-- Item 03 -->
+          <div class="progress-accordion-item">
+            <div class="progress-accordion-header">
+              <div class="progress-accordion-title-wrapper">
+                <p class="progress-accordion-number">(03)</p>
+                <p class="progress-accordion-title">Raport</p>
+              </div>
+              <div class="progress-icon-plus">
+                <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
+                  <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
+                </svg>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Item 07 -->
-        <div class="progress-accordion-item">
-          <div class="progress-accordion-header">
-            <div class="progress-accordion-title-wrapper">
-              <p class="progress-accordion-number">(07)</p>
-              <p class="progress-accordion-title">Lõppvaatus</p>
-            </div>
-            <div class="progress-icon-plus">
-              <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
-              </svg>
+          <!-- Item 04 -->
+          <div class="progress-accordion-item">
+            <div class="progress-accordion-header">
+              <div class="progress-accordion-title-wrapper">
+                <p class="progress-accordion-number">(04)</p>
+                <p class="progress-accordion-title">Esimene etapp</p>
+              </div>
+              <div class="progress-icon-plus">
+                <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
+                  <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
+                </svg>
+              </div>
             </div>
           </div>
-        </div>
 
+          <!-- Item 05 -->
+          <div class="progress-accordion-item">
+            <div class="progress-accordion-header">
+              <div class="progress-accordion-title-wrapper">
+                <p class="progress-accordion-number">(05)</p>
+                <p class="progress-accordion-title">Teine etapp</p>
+              </div>
+              <div class="progress-icon-plus">
+                <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
+                  <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 06 -->
+          <div class="progress-accordion-item">
+            <div class="progress-accordion-header">
+              <div class="progress-accordion-title-wrapper">
+                <p class="progress-accordion-number">(06)</p>
+                <p class="progress-accordion-title">Kolmas etapp</p>
+              </div>
+              <div class="progress-icon-plus">
+                <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
+                  <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 07 -->
+          <div class="progress-accordion-item">
+            <div class="progress-accordion-header">
+              <div class="progress-accordion-title-wrapper">
+                <p class="progress-accordion-number">(07)</p>
+                <p class="progress-accordion-title">Lõppvaatus</p>
+              </div>
+              <div class="progress-icon-plus">
+                <svg class="progress-plus-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
+                  <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
       </div>
-      
     </div>
   </section>
 

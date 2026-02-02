@@ -125,8 +125,11 @@ $variant_class = $style_variant !== 'default' ? ' block-cta--' . $style_variant 
                  data-modal-content="<?php echo esc_attr($processed_content); ?>">
                 <?php echo esc_html($primary_button_text); ?>
                 <?php if ($style_variant === 'dark-pattern'): ?>
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(10.5, 11.5)">
+                      <path d="M0.708333 4.70827L10.7083 4.70827" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.41667"/>
+                      <path d="M6.70833 0.708333L10.7083 4.70833L6.70833 8.70833" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.41667"/>
+                    </g>
                   </svg>
                 <?php endif; ?>
               </a>
@@ -134,8 +137,11 @@ $variant_class = $style_variant !== 'default' ? ' block-cta--' . $style_variant 
               <a href="<?php echo esc_url($primary_button_url); ?>" target="_blank" rel="noopener noreferrer" class="btn btn--accent btn--lg<?php echo $style_variant === 'dark-pattern' ? ' btn--cta-white' : ''; ?>">
                 <?php echo esc_html($primary_button_text); ?>
                 <?php if ($style_variant === 'dark-pattern'): ?>
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(10.5, 11.5)">
+                      <path d="M0.708333 4.70827L10.7083 4.70827" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.41667"/>
+                      <path d="M6.70833 0.708333L10.7083 4.70833L6.70833 8.70833" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.41667"/>
+                    </g>
                   </svg>
                 <?php endif; ?>
               </a>
@@ -143,8 +149,11 @@ $variant_class = $style_variant !== 'default' ? ' block-cta--' . $style_variant 
               <a href="<?php echo esc_url($primary_button_url); ?>" class="btn btn--accent btn--lg<?php echo $style_variant === 'dark-pattern' ? ' btn--cta-white' : ''; ?>">
                 <?php echo esc_html($primary_button_text); ?>
                 <?php if ($style_variant === 'dark-pattern'): ?>
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(10.5, 11.5)">
+                      <path d="M0.708333 4.70827L10.7083 4.70827" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.41667"/>
+                      <path d="M6.70833 0.708333L10.7083 4.70833L6.70833 8.70833" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.41667"/>
+                    </g>
                   </svg>
                 <?php endif; ?>
               </a>

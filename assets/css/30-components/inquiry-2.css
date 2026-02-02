@@ -211,11 +211,12 @@
     height: 62px;
     flex-shrink: 0;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .block-inquiry-2__arrow-icon:hover {
     transform: translate(4px, -4px);
+    opacity: 0.8;
 }
 
 .block-inquiry-2__submit-text {

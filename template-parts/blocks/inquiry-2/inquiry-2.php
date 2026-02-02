@@ -15,6 +15,7 @@ $title_line_1 = get_field('title_line_1') ?: 'TELLI DIGITURUNDUS DIGIKOGENUD';
 $title_line_2 = get_field('title_line_2') ?: 'TURUNDUSAGENTUURILT';
 $submit_text = get_field('submit_text') ?: 'SAADA PÄRING';
 $cf7_shortcode = get_field('cf7_shortcode');
+$button_hover_color = get_field('button_hover_color') ?: '#333333';
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
@@ -22,7 +23,7 @@ $anchor = sharks_get_block_anchor($block, 'inquiry-2');
 $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 ?>
 
-<section id="<?php echo esc_attr($anchor); ?>" class="block-inquiry-2<?php echo esc_attr($align_class . $class_name); ?>">
+<section id="<?php echo esc_attr($anchor); ?>" class="block-inquiry-2<?php echo esc_attr($align_class . $class_name); ?>" style="--button-hover-color: <?php echo esc_attr($button_hover_color); ?>;">
   <div class="block-inquiry-2__wrapper">
     <!-- Header Section (Static) -->
     <div class="block-inquiry-2__header">

@@ -555,7 +555,7 @@
     }
     
     .block-inquiry-2__arrow-icon:hover {
-        background: #333333;
+        background: var(--button-hover-color, #333333);
         transform: scale(1.05);
     }
     

@@ -188,6 +188,8 @@
     align-items: flex-end;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .block-inquiry-2__submit-section:hover {
@@ -218,8 +220,6 @@
     flex-shrink: 0;
     cursor: pointer;
     transition: all 0.3s ease;
-    position: relative;
-    z-index: 10000;
 }
 
 .block-inquiry-2__submit-section:hover .block-inquiry-2__arrow-icon {

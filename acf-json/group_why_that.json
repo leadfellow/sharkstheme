@@ -46,13 +46,11 @@
                     "instructions": "Choose an icon for this card",
                     "required": 1,
                     "choices": {
-                        "star": "Star (8-point)",
-                        "x": "X (diamond)",
-                        "circles": "Circles (target)",
-                        "target": "Target (concentric)",
-                        "asterisk": "Asterisk"
+                        "diamond": "Diamond",
+                        "plus": "Plus",
+                        "wave": "Wave"
                     },
-                    "default_value": "star",
+                    "default_value": "diamond",
                     "allow_null": 0
                 },
                 {

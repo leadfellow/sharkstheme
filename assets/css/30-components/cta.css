@@ -228,8 +228,8 @@
     justify-content: center;
     margin: 0 auto 3rem;
     color: #FFFFFF;
-    width: 40px;
-    height: 40px;
+    width: 62px;
+    height: 62px;
   }
   
   .block-cta--dark-pattern .block-cta__title {
@@ -242,9 +242,11 @@
     text-align: center;
     text-transform: uppercase;
     color: #FFFFFF;
-    margin: 0 auto 12px;
+    margin: 0 auto;
+    margin-bottom: 12px;
     width: 588px;
     max-width: 100%;
+    height: 46px;
   }
   
   .block-cta--dark-pattern .block-cta__title--parts {
@@ -285,9 +287,11 @@
     justify-content: center;
     color: #FFFFFF;
     padding-top: 0;
-    margin: 0 auto 3rem;
+    margin: 0 auto;
+    margin-bottom: 40px;
     width: 486px;
     max-width: 100%;
+    height: 50px;
   }
   
   .block-cta--dark-pattern .block-cta__buttons {

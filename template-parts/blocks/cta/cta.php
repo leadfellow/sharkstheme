@@ -30,6 +30,9 @@ $secondary_modal_description = get_field('secondary_modal_description');
 $secondary_modal_content = get_field('secondary_modal_content');
 $show_icon = get_field('show_icon');
 $style_variant = get_field('style_variant') ?: 'default';
+$show_marquee = get_field('show_marquee');
+$marquee_text = get_field('marquee_text') ?: 'Astu turundusteadlik samm ja tule konsultatsioonile';
+$marquee_bg_color = get_field('marquee_bg_color') ?: '#f237a6';
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
@@ -176,5 +179,21 @@ $variant_class = $style_variant !== 'default' ? ' block-cta--' . $style_variant 
       <?php endif; ?>
     </div>
   </div>
+  
+  <?php if ($show_marquee && $style_variant === 'dark-pattern'): ?>
+    <!-- Marquee Bar -->
+    <div class="block-cta__marquee" style="background-color: <?php echo esc_attr($marquee_bg_color); ?>;">
+      <div class="block-cta__marquee-track">
+        <?php for ($i = 0; $i < 4; $i++): ?>
+          <div class="block-cta__marquee-item">
+            <span class="block-cta__marquee-text"><?php echo esc_html($marquee_text); ?></span>
+            <svg class="block-cta__marquee-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.2369 0.7631C14.8155 0.341651 14.1322 0.341651 13.7107 0.7631L11.2369 3.2369C9.44921 5.02459 6.55079 5.02459 4.7631 3.2369L2.2893 0.7631C1.86785 0.341651 1.18455 0.341651 0.7631 0.7631C0.341651 1.18455 0.341651 1.86785 0.763099 2.2893L3.2369 4.7631C5.02459 6.55079 5.02459 9.44921 3.2369 11.2369L0.7631 13.7107C0.341651 14.1322 0.341651 14.8155 0.7631 15.2369C1.18455 15.6583 1.86785 15.6583 2.2893 15.2369L4.7631 12.7631C6.55079 10.9754 9.44921 10.9754 11.2369 12.7631L13.7107 15.2369C14.1322 15.6583 14.8155 15.6583 15.2369 15.2369C15.6583 14.8155 15.6583 14.1322 15.2369 13.7107L12.7631 11.2369C10.9754 9.44921 10.9754 6.55079 12.7631 4.7631L15.2369 2.2893C15.6583 1.86785 15.6583 1.18455 15.2369 0.7631Z" fill="white"/>
+            </svg>
+          </div>
+        <?php endfor; ?>
+      </div>
+    </div>
+  <?php endif; ?>
 </section>
 

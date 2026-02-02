@@ -1081,6 +1081,39 @@ add_action('acf/init', function() {
             );
         }
     ]);
+
+    // Progress Block
+    acf_register_block_type([
+        'name'            => 'progress',
+        'title'           => __('Progress', 'sharks2025'),
+        'description'     => __('Accordion-style progress/process section with expandable items', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/progress/progress.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'list-view',
+        'keywords'        => ['progress', 'process', 'protsess', 'accordion', 'steps', 'sammud'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview',
+        'enqueue_assets'  => function() {
+            wp_enqueue_style(
+                'progress-css',
+                get_template_directory_uri() . '/assets/css/progress.css',
+                [],
+                filemtime(get_template_directory() . '/assets/css/progress.css')
+            );
+            wp_enqueue_script(
+                'progress-js',
+                get_template_directory_uri() . '/assets/js/progress.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/progress.js'),
+                true
+            );
+        }
+    ]);
 });
 
 /**

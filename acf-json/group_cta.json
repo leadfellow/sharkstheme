@@ -395,6 +395,57 @@
             "default_value": "default",
             "allow_null": 0,
             "multiple": 0
+        },
+        {
+            "key": "field_cta_show_marquee",
+            "label": "Show Marquee Bar",
+            "name": "show_marquee",
+            "type": "true_false",
+            "instructions": "Show animated marquee bar below CTA (only for dark-pattern variant)",
+            "required": 0,
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Jah",
+            "ui_off_text": "Ei"
+        },
+        {
+            "key": "field_cta_marquee_text",
+            "label": "Marquee Text",
+            "name": "marquee_text",
+            "type": "text",
+            "instructions": "Text that scrolls in the marquee bar",
+            "required": 0,
+            "default_value": "Astu turundusteadlik samm ja tule konsultatsioonile",
+            "placeholder": "Astu turundusteadlik samm ja tule konsultatsioonile",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_show_marquee",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_cta_marquee_bg_color",
+            "label": "Marquee Background Color",
+            "name": "marquee_bg_color",
+            "type": "color_picker",
+            "instructions": "Background color for the marquee bar",
+            "required": 0,
+            "default_value": "#f237a6",
+            "enable_opacity": 0,
+            "return_format": "string",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_show_marquee",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
         }
     ],
     "location": [

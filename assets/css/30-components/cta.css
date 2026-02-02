@@ -210,15 +210,17 @@
     flex-direction: column;
     position: relative;
     overflow: visible;
+    padding: 0;
   }
   
-  .block-cta--dark-pattern .container {
+  .block-cta--dark-pattern > .container {
     background: #000000;
     width: 100%;
     max-width: 100%;
     padding: 120px 58px;
     position: relative;
     overflow: hidden;
+    margin: 0;
   }
   
   .block-cta--dark-pattern .block-cta__inner {
@@ -330,7 +332,7 @@
   }
   
   /* Pattern decorations (Star grid) */
-  .block-cta__pattern {
+  .block-cta--dark-pattern .block-cta__pattern {
     position: absolute;
     left: 346.29px;
     top: -101px;
@@ -558,7 +560,7 @@
       height: 120px;
     }
     
-    .block-cta--dark-pattern .container {
+    .block-cta--dark-pattern > .container {
       padding: 80px 24px;
     }
     
@@ -576,7 +578,7 @@
       width: 100%;
     }
     
-    .block-cta__pattern {
+    .block-cta--dark-pattern .block-cta__pattern {
       left: 50%;
       transform: translateX(-50%);
     }
@@ -678,7 +680,7 @@
       height: 80px;
     }
     
-    .block-cta--dark-pattern .container {
+    .block-cta--dark-pattern > .container {
       padding: 60px 20px;
     }
     

@@ -334,8 +334,9 @@
   /* Pattern decorations (Star grid) */
   .block-cta--dark-pattern .block-cta__pattern {
     position: absolute;
-    left: 346.29px;
-    top: -101px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 747.706px;
     height: 747.706px;
     pointer-events: none;
@@ -576,11 +577,6 @@
     .block-cta--dark-pattern .block-cta__text {
       font-size: 16px;
       width: 100%;
-    }
-    
-    .block-cta--dark-pattern .block-cta__pattern {
-      left: 50%;
-      transform: translateX(-50%);
     }
     
     .block-cta--centered-dark {

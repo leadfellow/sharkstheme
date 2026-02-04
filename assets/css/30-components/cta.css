@@ -286,15 +286,15 @@
   }
   
   .block-cta--dark-pattern .block-cta__text {
-    font-family: 'Helvetica', Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 400;
+    font-family: 'Helvetica', Arial, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
     font-style: normal;
-    line-height: 140%;
-    letter-spacing: 0;
+    line-height: 140% !important;
+    letter-spacing: 0 !important;
     text-align: center;
-    color: #FFFFFF;
-    margin: 0;
+    color: #FFFFFF !important;
+    margin: 0 !important;
     width: 428px;
     max-width: 100%;
     display: flex;

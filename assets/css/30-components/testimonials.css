@@ -159,14 +159,12 @@
 .block-testimonials__author-image {
   width: 62px;
   height: 62px;
-  border-radius: 50%;
+  border-radius: 50% !important;
   object-fit: cover;
   flex: none;
   order: 0;
   display: block;
-  background: #FFFFFF;
-  padding: 3px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .block-testimonials__author-info {

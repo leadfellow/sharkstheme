@@ -1,0 +1,63 @@
+---
+description: Always increment theme version after CSS/design changes
+alwaysApply: true
+---
+
+# Theme Version Management
+
+**CRITICAL**: After ANY CSS or design changes, you MUST increment the theme version to prevent browser cache issues.
+
+## Version Location
+
+The theme version is defined in `functions.php`:
+
+```php
+define('SHARKS_VERSION', '1.7.6');
+```
+
+## When to Increment
+
+Increment the patch version (last number) after:
+- ✅ Any CSS file modifications
+- ✅ Design/layout changes
+- ✅ Style updates
+- ✅ JavaScript changes that affect UI
+- ✅ Any visual changes
+
+## How to Increment
+
+Change the version number in `functions.php`:
+
+```php
+// Before
+define('SHARKS_VERSION', '1.7.6');
+
+// After
+define('SHARKS_VERSION', '1.7.7');
+```
+
+## Version Format
+
+Use semantic versioning: `MAJOR.MINOR.PATCH`
+- **MAJOR**: Breaking changes
+- **MINOR**: New features
+- **PATCH**: Bug fixes, CSS updates, design tweaks
+
+For CSS/design changes, always increment PATCH (e.g., 1.7.6 → 1.7.7)
+
+## Why This Matters
+
+The version is used as a cache-busting parameter when enqueuing styles:
+
+```php
+wp_enqueue_style('site-css', SHARKS_URI . '/assets/css/site.css', [], SHARKS_VERSION);
+```
+
+Without version increment, users may see old cached styles instead of your updates.
+
+## Workflow
+
+1. Make CSS/design changes
+2. Increment `SHARKS_VERSION` in `functions.php`
+3. Test that changes appear (clear browser cache if needed)
+4. Commit both changes together

@@ -355,8 +355,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const targetId = href.substring(1);
         const targetElement = document.getElementById(targetId);
         
-        console.log('Anchor clicked:', targetId, 'Element found:', !!targetElement);
-        
         if (targetElement) {
             e.preventDefault();
             
@@ -374,12 +372,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const headerHeight = header ? header.offsetHeight : 80;
             const targetRect = targetElement.getBoundingClientRect();
             const targetPosition = targetRect.top + window.pageYOffset - headerHeight - 20; // Extra 20px spacing
-            
-            console.log('Target element:', targetElement);
-            console.log('Target rect:', targetRect);
-            console.log('Window pageYOffset:', window.pageYOffset);
-            console.log('Header height:', headerHeight);
-            console.log('Calculated position:', targetPosition);
             
             window.scrollTo({
                 top: targetPosition,

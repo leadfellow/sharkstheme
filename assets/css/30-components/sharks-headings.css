@@ -4,12 +4,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 120px 58px 120px 58px;
+  padding: 120px 58px;
   gap: 50px;
   width: 100%;
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+  min-height: 100vh;
 }
 
 .sharks-headings__label {
@@ -17,11 +18,12 @@
   font-size: 18px;
   font-weight: 700;
   font-style: normal;
-  line-height: 100%;
-  letter-spacing: 0%;
+  line-height: 1;
+  letter-spacing: 0;
   text-transform: uppercase;
-  color: #666;
+  color: #000000;
   margin: 0;
+  text-align: center;
 }
 
 .sharks-headings__title {
@@ -45,7 +47,6 @@
 
 .sharks-headings__part {
   display: inline;
-  white-space: nowrap;
   margin: 0 15px;
 }
 
@@ -89,7 +90,7 @@
   flex-direction: column;
   gap: 30px;
   align-items: center;
-  width: 496px;
+  width: 428px;
   max-width: 100%;
 }
 
@@ -108,7 +109,7 @@
 
 /* Description */
 .sharks-headings__description {
-  font-family: var(--font-sans);
+  font-family: 'Helvetica', Arial, var(--font-sans);
   font-size: 18px;
   font-weight: 400;
   line-height: 1.4;
@@ -117,6 +118,7 @@
   color: #000000;
   margin: 0;
   width: 100%;
+  white-space: pre-wrap;
 }
 
 /* Read More Link */
@@ -127,6 +129,7 @@
   padding: 10px 0;
   text-decoration: none;
   transition: opacity var(--transition-base);
+  cursor: pointer;
 }
 
 .sharks-headings__read-more:empty {
@@ -134,11 +137,11 @@
 }
 
 .sharks-headings__read-more:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .sharks-headings__read-more-text {
-  font-family: var(--font-sans);
+  font-family: 'Switzer', var(--font-sans);
   font-size: 20px;
   font-weight: 500;
   letter-spacing: -0.6px;
@@ -182,7 +185,7 @@
 
 .sharks-headings--left .sharks-headings__content-wrapper {
   align-items: flex-start;
-  width: 496px;
+  width: 428px;
   max-width: 100%;
 }
 
@@ -240,7 +243,7 @@
 
 .sharks-headings--right .sharks-headings__content-wrapper {
   align-items: flex-end;
-  width: 496px;
+  width: 428px;
   max-width: 100%;
 }
 
@@ -259,29 +262,30 @@
   }
 }
 
-@media (max-width: 900px) {
-  .sharks-headings {
-    padding: 80px 30px 80px 30px;
-    gap: 40px;
-  }
-  
-  .sharks-headings__label {
-    font-size: 16px;
-  }
-  
+@media (max-width: 1024px) {
   .sharks-headings__title {
-    font-size: 48px;
-    letter-spacing: -2.4px;
-  }
-  
-  .sharks-headings__part {
-    margin: 0 10px;
+    font-size: 60px;
+    letter-spacing: -3px;
   }
   
   .sharks-headings__icon {
     width: 48px;
     height: 48px;
+  }
+  
+  .sharks-headings__part {
     margin: 0 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .sharks-headings {
+    padding: 80px 30px;
+    gap: 40px;
+  }
+  
+  .sharks-headings__label {
+    font-size: 16px;
   }
   
   .sharks-headings__subtitle {
@@ -300,8 +304,8 @@
 
 @media (max-width: 768px) {
   .sharks-headings {
-    padding: 60px 24px 60px 24px;
-    gap: 30px;
+    padding: 80px 30px;
+    gap: 40px;
   }
   
   .sharks-headings__label {
@@ -309,61 +313,53 @@
   }
   
   .sharks-headings__title {
-    font-size: 48px;
-    letter-spacing: -2.4px;
+    font-size: 40px;
+    letter-spacing: -2px;
   }
   
   .sharks-headings__part {
-    margin: 0 10px;
+    margin: 0 7.5px;
   }
   
   .sharks-headings__icon {
-    width: 40px;
-    height: 40px;
-    margin: 0 10px;
+    width: 36px;
+    height: 36px;
+    margin: 0 7.5px;
   }
   
   .sharks-headings__content-wrapper {
     width: 100%;
-  }
-  
-  .sharks-headings__subtitle {
-    font-size: 28px;
-    letter-spacing: -1.4px;
+    max-width: 428px;
   }
   
   .sharks-headings__description {
     font-size: 16px;
   }
-  
-  .sharks-headings__read-more-text {
-    font-size: 18px;
-  }
 }
 
 @media (max-width: 480px) {
   .sharks-headings {
-    padding: 50px 20px;
-    gap: 25px;
+    padding: 60px 20px;
+    gap: 40px;
   }
   
   .sharks-headings__label {
-    font-size: 13px;
+    font-size: 14px;
   }
   
   .sharks-headings__title {
-    font-size: 36px;
-    letter-spacing: -1.8px;
+    font-size: 28px;
+    letter-spacing: -1.4px;
   }
   
   .sharks-headings__part {
-    margin: 0 8px;
+    margin: 0 5px;
   }
   
   .sharks-headings__icon {
-    width: 32px;
-    height: 32px;
-    margin: 0 8px;
+    width: 28px;
+    height: 28px;
+    margin: 0 5px;
   }
   
   .sharks-headings__subtitle {
@@ -372,33 +368,11 @@
   }
   
   .sharks-headings__description {
-    font-size: 15px;
+    font-size: 14px;
   }
   
   .sharks-headings__read-more-text {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 375px) {
-  .sharks-headings__title {
-    font-size: 32px;
-    letter-spacing: -1.6px;
-  }
-  
-  .sharks-headings__part {
-    margin: 0 6px;
-  }
-  
-  .sharks-headings__icon {
-    width: 28px;
-    height: 28px;
-    margin: 0 6px;
-  }
-  
-  .sharks-headings__subtitle {
-    font-size: 22px;
-    letter-spacing: -1.1px;
+    font-size: 18px;
   }
 }
 

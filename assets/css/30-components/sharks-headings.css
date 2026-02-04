@@ -47,15 +47,7 @@
 
 .sharks-headings__part {
   display: inline;
-  margin: 0 15px;
-}
-
-.sharks-headings__part:first-child {
-  margin-left: 0;
-}
-
-.sharks-headings__part:last-child {
-  margin-right: 0;
+  margin: 0;
 }
 
 .sharks-headings__part--dark {
@@ -76,6 +68,9 @@
   line-height: 1;
   vertical-align: middle;
   margin: 0 15px;
+  position: relative;
+  top: 0;
+  transform: translateY(-3px);
 }
 
 .sharks-headings__icon svg {
@@ -271,10 +266,8 @@
   .sharks-headings__icon {
     width: 48px;
     height: 48px;
-  }
-  
-  .sharks-headings__part {
     margin: 0 10px;
+    transform: translateY(-2px);
   }
 }
 
@@ -317,14 +310,11 @@
     letter-spacing: -2px;
   }
   
-  .sharks-headings__part {
-    margin: 0 7.5px;
-  }
-  
   .sharks-headings__icon {
     width: 36px;
     height: 36px;
     margin: 0 7.5px;
+    transform: translateY(-2px);
   }
   
   .sharks-headings__content-wrapper {
@@ -352,14 +342,11 @@
     letter-spacing: -1.4px;
   }
   
-  .sharks-headings__part {
-    margin: 0 5px;
-  }
-  
   .sharks-headings__icon {
     width: 28px;
     height: 28px;
     margin: 0 5px;
+    transform: translateY(-1px);
   }
   
   .sharks-headings__subtitle {

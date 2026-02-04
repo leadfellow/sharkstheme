@@ -15,6 +15,7 @@
     background-color: #000;
     color: #fff;
     overflow-x: hidden;
+    margin: 0 !important;
 }
 
 /* Main Wrapper */
@@ -29,7 +30,7 @@
     gap: 50px;
     align-items: flex-start;
     justify-content: center;
-    padding: 0 58px 120px 58px;
+    padding: 120px 58px;
     overflow: hidden;
 }
 

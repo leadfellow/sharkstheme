@@ -159,10 +159,11 @@
 .block-testimonials__author-image {
   width: 62px;
   height: 62px;
-  border-radius: 100px;
+  border-radius: 50%;
   object-fit: cover;
   flex: none;
   order: 0;
+  display: block;
 }
 
 .block-testimonials__author-info {

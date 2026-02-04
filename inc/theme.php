@@ -124,6 +124,15 @@ add_action('wp_enqueue_scripts', function() {
         SHARKS_VERSION,
         true // Load in footer
     );
+    
+    // Inquiry 2 form interactions
+    wp_enqueue_script(
+        'sharks-inquiry-2',
+        get_stylesheet_directory_uri() . '/assets/js/inquiry-2.js',
+        [],
+        SHARKS_VERSION,
+        true // Load in footer
+    );
 }, 10);
 
 /**

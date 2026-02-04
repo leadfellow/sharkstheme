@@ -23,9 +23,18 @@
 /* Header Section */
 .block-case-story__header {
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    align-items: center;
+    padding: 0px;
+    gap: 30px;
+    width: 1324px;
+    max-width: 100%;
+    height: 90px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
 }
 
 .block-case-story__title {
@@ -56,12 +65,20 @@
 
 /* Subtitle */
 .block-case-story__subtitle {
+    width: 652px;
+    max-width: 100%;
+    height: 80px;
     font-family: 'Helvetica', Arial, sans-serif;
-    font-size: 36px;
-    letter-spacing: -1.8px;
-    line-height: 1.1;
-    margin: 0;
+    font-style: normal;
     font-weight: 400;
+    font-size: 36px;
+    line-height: 110%;
+    letter-spacing: -0.05em;
+    color: #000000;
+    margin: 0;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
 /* Cards Grid */

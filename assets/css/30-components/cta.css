@@ -289,17 +289,17 @@
     font-family: 'Helvetica', Arial, sans-serif !important;
     font-size: 18px !important;
     font-weight: 400 !important;
-    font-style: normal;
+    font-style: normal !important;
     line-height: 140% !important;
     letter-spacing: 0 !important;
-    text-align: center;
+    text-align: center !important;
     color: #FFFFFF !important;
     margin: 0 !important;
-    width: 428px;
-    max-width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 428px !important;
+    max-width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   
   .block-cta--dark-pattern .block-cta__buttons {

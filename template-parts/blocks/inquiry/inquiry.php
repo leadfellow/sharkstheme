@@ -15,6 +15,7 @@ $title = get_field('title') ?: 'KIRJUTAMEILE';
 $submit_text = get_field('submit_text') ?: 'SAADA PÄRING';
 $icons = get_field('icons');
 $cf7_shortcode = get_field('cf7_shortcode');
+$button_hover_color = get_field('button_hover_color') ?: '#333333';
 
 // Block attributes
 $align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
@@ -31,7 +32,7 @@ $icon_map = [
 ];
 ?>
 
-<section id="<?php echo esc_attr($anchor); ?>" class="block-inquiry<?php echo esc_attr($align_class . $class_name); ?>">
+<section id="<?php echo esc_attr($anchor); ?>" class="block-inquiry<?php echo esc_attr($align_class . $class_name); ?>" style="--button-hover-color: <?php echo esc_attr($button_hover_color); ?>;">
   <!-- Top: Scrolling Title + Icons -->
   <div class="block-inquiry__header">
     <div class="block-inquiry__header-scroll">

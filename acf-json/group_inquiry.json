@@ -75,6 +75,17 @@
             "instructions": "Paste Contact Form 7 shortcode (e.g., [contact-form-7 id=\"123\"])",
             "required": 1,
             "placeholder": "[contact-form-7 id=\"123\" title=\"Contact form\"]"
+        },
+        {
+            "key": "field_inquiry_button_hover_color",
+            "label": "Button Hover Color",
+            "name": "button_hover_color",
+            "type": "color_picker",
+            "instructions": "Choose the hover color for the submit button and success message background",
+            "required": 0,
+            "default_value": "#333333",
+            "enable_opacity": 0,
+            "return_format": "string"
         }
     ],
     "location": [

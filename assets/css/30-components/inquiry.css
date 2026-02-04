@@ -181,6 +181,16 @@
   color: #000000;
 }
 
+/* Submit wrapper hover effect */
+.block-inquiry__submit-wrapper {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.block-inquiry__submit-wrapper:hover {
+  background: var(--button-hover-color, #333333);
+}
+
 /* Contact Form 7 Styling */
 .block-inquiry__form-wrapper .wpcf7-form {
   display: flex;
@@ -405,6 +415,46 @@
   border-bottom-color: #FF0000 !important;
 }
 
+/* Success State - Background with selected color, centered message */
+.block-inquiry__inner.form-success {
+  background-color: var(--button-hover-color, #ffc0cb) !important;
+  min-height: 400px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 40px !important;
+  position: relative !important;
+}
+
+.inquiry-success-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 60px 40px;
+  max-width: 800px;
+  width: 90%;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.inquiry-success-message.visible {
+  opacity: 1;
+}
+
+.inquiry-success-message h2 {
+  font-family: 'Switzer', var(--font-sans);
+  font-size: 48px;
+  font-weight: 500;
+  color: #000;
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 1.2;
+  letter-spacing: -2.4px;
+}
+
 /* Responsive */
 @media (max-width: 1500px) {
   .block-inquiry {
@@ -594,5 +644,44 @@
   .block-inquiry__submit-button svg {
     width: 16px;
     height: 16px;
+  }
+  
+  .inquiry-success-message {
+    padding: 25px 16px;
+  }
+  
+  .inquiry-success-message h2 {
+    font-size: 24px;
+    letter-spacing: -1.2px;
+  }
+}
+
+/* Success message responsive styles */
+@media (max-width: 1024px) {
+  .inquiry-success-message h2 {
+    font-size: 42px;
+    letter-spacing: -2.1px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inquiry-success-message {
+    padding: 40px 24px;
+  }
+  
+  .inquiry-success-message h2 {
+    font-size: 32px;
+    letter-spacing: -1.6px;
+  }
+}
+
+@media (max-width: 640px) {
+  .inquiry-success-message {
+    padding: 30px 20px;
+  }
+  
+  .inquiry-success-message h2 {
+    font-size: 28px;
+    letter-spacing: -1.4px;
   }
 }

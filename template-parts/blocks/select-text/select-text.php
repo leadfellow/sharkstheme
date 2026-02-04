@@ -85,7 +85,7 @@ if (!$tabs || empty($tabs)) {
         const contents = block.querySelectorAll('.select-text__content');
         
         tabs.forEach(tab => {
-            tab.addEventListener('mouseenter', function(e) {
+            tab.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const tabIndex = this.getAttribute('data-tab');
@@ -101,7 +101,7 @@ if (!$tabs || empty($tabs)) {
                     c.style.display = 'none';
                 });
                 
-                // Activate hovered tab
+                // Activate clicked tab
                 this.classList.add('select-text__tab--active');
                 this.setAttribute('aria-selected', 'true');
                 

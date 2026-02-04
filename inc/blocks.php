@@ -446,7 +446,16 @@ add_action('acf/init', function() {
             'spacing' => ['padding', 'margin'],
             'color'   => ['background']
         ],
-        'mode'            => 'preview'
+        'mode'            => 'preview',
+        'enqueue_assets'  => function() {
+            wp_enqueue_script(
+                'inquiry-js',
+                get_template_directory_uri() . '/assets/js/inquiry.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/inquiry.js'),
+                true
+            );
+        }
     ]);
 
     // Inquiry 2 Block (Static Title)

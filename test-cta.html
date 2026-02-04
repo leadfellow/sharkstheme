@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Teenus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: #000000;
+            color: white;
+            width: 100%;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 120px 58px;
+        }
+
+        .icon {
+            position: relative;
+            flex-shrink: 0;
+            width: 62px;
+            height: 62px;
+            z-index: 2;
+        }
+
+        .icon svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .main-text {
+            position: relative;
+            flex-shrink: 0;
+            width: 618px;
+            max-width: 100%;
+            font-family: 'Helvetica', Arial, sans-serif;
+            font-size: 36px;
+            font-weight: 400;
+            font-style: normal;
+            line-height: 110%;
+            text-align: center;
+            letter-spacing: -0.05em;
+            color: #757472;
+            margin: 0;
+            z-index: 2;
+        }
+
+        .main-text .highlight {
+            color: white;
+        }
+
+        .description {
+            position: relative;
+            flex-shrink: 0;
+            width: 428px;
+            max-width: 100%;
+            font-family: 'Helvetica', Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            font-style: normal;
+            line-height: 140%;
+            text-align: center;
+            letter-spacing: 0;
+            color: #FFFFFF;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .description p {
+            margin: 0;
+        }
+
+        .background-pattern {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 747.706px;
+            height: 747.706px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .background-pattern svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 80px 24px;
+                gap: 30px;
+            }
+
+            .icon {
+                width: 48px;
+                height: 48px;
+            }
+
+            .main-text {
+                font-size: 28px;
+                width: 100%;
+            }
+
+            .description {
+                font-size: 16px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 60px 20px;
+                gap: 24px;
+            }
+
+            .main-text {
+                font-size: 24px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Icon -->
+        <div class="icon">
+            <svg fill="none" preserveAspectRatio="none" viewBox="0 0 62 62">
+                <g>
+                    <path d="M30.8379 61.6748L22.0195 40.8555L30.8379 44.8672L40.4795 40.4795L30.8379 61.6748ZM17.7773 30.8379L22.0195 40.8555L0 30.8379L21.6621 21.6631L17.7773 30.8379ZM61.6748 30.8379L40.4795 40.4795L44.8672 30.8379L40.8555 22.0205L61.6748 30.8379ZM40.8555 22.0205L30.8379 17.7783L21.6621 21.6631L30.8379 0L40.8555 22.0205Z" fill="white" />
+                </g>
+            </svg>
+        </div>
+
+        <!-- Main Text -->
+        <p class="main-text">Toimiv veebileht toob müüke ja päringuid vaid siis, <span class="highlight">kui klient selle üles leiab</span>, mistõttu on oluline olla SEO-tegevustega kursis, et püsida otsingutulemuste tipus.</p>
+
+        <!-- Description -->
+        <div class="description">
+            <p>Millest alustada, kuidas saada otsingutulemustes headele positsioonidele, mis on veebilehe SEO ja kes seda teenust pakub? Enda praktikast lähtuvalt võtame pulkadeks lahti kõige elementaarsemad aspektid, millele tasub mõelda.</p>
+        </div>
+
+        <!-- Background Pattern -->
+        <div class="background-pattern">
+            <svg fill="none" preserveAspectRatio="none" viewBox="0 0 860.292 860.292">
+                <g>
+                    <mask fill="white" id="path-1-inside-1_1_29">
+                        <path d="M537.683 170.525L658.265 49.9443L810.344 202.023L689.761 322.606H860.292L860.291 537.68H703.951L818.504 644.068L672.144 801.66L537.683 676.781V860.292H322.61V689.757L202.025 810.342L49.9463 658.262L170.528 537.68H0V322.606H156.329L41.7773 216.219L188.138 58.6279L322.61 183.517V0H537.683V170.525Z" />
+                    </mask>
+                    <path d="M537.683 170.525H536.683V172.94L538.39 171.232L537.683 170.525ZM658.265 49.9443L658.972 49.2372L658.265 48.5301L657.558 49.2372L658.265 49.9443ZM810.344 202.023L811.051 202.731L811.758 202.023L811.051 201.316L810.344 202.023ZM689.761 322.606L689.054 321.899L687.347 323.606H689.761V322.606ZM860.292 322.606H861.292V321.606H860.292V322.606ZM860.291 537.68V538.68H861.291V537.68H860.291ZM703.951 537.68V536.68H701.405L703.271 538.412L703.951 537.68ZM818.504 644.068L819.237 644.749L819.917 644.016L819.184 643.336L818.504 644.068ZM672.144 801.66L671.463 802.393L672.196 803.073L672.876 802.341L672.144 801.66ZM537.683 676.781L538.363 676.049L536.683 674.488V676.781H537.683ZM537.683 860.292V861.292H538.683V860.292H537.683ZM322.61 860.292H321.61V861.292H322.61V860.292ZM322.61 689.757H323.61V687.343L321.903 689.05L322.61 689.757ZM202.025 810.342L201.318 811.049L202.025 811.756L202.732 811.049L202.025 810.342ZM49.9463 658.262L49.2392 657.555L48.5321 658.262L49.2392 658.969L49.9463 658.262ZM170.528 537.68L171.235 538.387L172.943 536.68H170.528V537.68ZM0 537.68H-1V538.68H0V537.68ZM0 322.606V321.606H-1V322.606H0ZM156.329 322.606V323.606H158.875L157.01 321.874L156.329 322.606ZM41.7773 216.219L41.0446 215.538L40.3641 216.271L41.0968 216.951L41.7773 216.219ZM188.138 58.6279L188.818 57.8952L188.085 57.2147L187.405 57.9474L188.138 58.6279ZM322.61 183.517L321.93 184.249L323.61 185.81V183.517H322.61ZM322.61 0V-1H321.61V0H322.61ZM537.683 0H538.683V-1H537.683V0ZM537.683 170.525L538.39 171.232L658.972 50.6514L658.265 49.9443L657.558 49.2372L536.976 169.818L537.683 170.525ZM658.265 49.9443L657.558 50.6514L809.637 202.731L810.344 202.023L811.051 201.316L658.972 49.2372L658.265 49.9443ZM810.344 202.023L809.637 201.316L689.054 321.899L689.761 322.606L690.468 323.314L811.051 202.731L810.344 202.023ZM689.761 322.606V323.606H860.292V322.606V321.606H689.761V322.606ZM860.292 322.606H859.292L859.291 537.68H860.291H861.291L861.292 322.606H860.292ZM860.291 537.68V536.68H703.951V537.68V538.68H860.291V537.68ZM703.951 537.68L703.271 538.412L817.823 644.801L818.504 644.068L819.184 643.336L704.632 536.947L703.951 537.68ZM818.504 644.068L817.771 643.388L671.411 800.98L672.144 801.66L672.876 802.341L819.237 644.749L818.504 644.068ZM672.144 801.66L672.824 800.927L538.363 676.049L537.683 676.781L537.002 677.514L671.463 802.393L672.144 801.66ZM537.683 676.781H536.683V860.292H537.683H538.683V676.781H537.683ZM537.683 860.292V859.292H322.61V860.292V861.292H537.683V860.292ZM322.61 860.292H323.61V689.757H322.61H321.61V860.292H322.61ZM322.61 689.757L321.903 689.05L201.318 809.635L202.025 810.342L202.732 811.049L323.317 690.464L322.61 689.757ZM202.025 810.342L202.732 809.635L50.6534 657.555L49.9463 658.262L49.2392 658.969L201.318 811.049L202.025 810.342ZM49.9463 658.262L50.6534 658.969L171.235 538.387L170.528 537.68L169.821 536.973L49.2392 657.555L49.9463 658.262ZM170.528 537.68V536.68H0V537.68V538.68H170.528V537.68ZM0 537.68H1V322.606H0H-1V537.68H0ZM0 322.606V323.606H156.329V322.606V321.606H0V322.606ZM156.329 322.606L157.01 321.874L42.4579 215.486L41.7773 216.219L41.0968 216.951L155.649 323.339L156.329 322.606ZM41.7773 216.219L42.5101 216.899L188.87 59.3084L188.138 58.6279L187.405 57.9474L41.0446 215.538L41.7773 216.219ZM188.138 58.6279L187.457 59.3607L321.93 184.249L322.61 183.517L323.291 182.784L188.818 57.8952L188.138 58.6279ZM322.61 183.517H323.61V0H322.61H321.61V183.517H322.61ZM322.61 0V1H537.683V0V-1H322.61V0ZM537.683 0H536.683V170.525H537.683H538.683V0H537.683Z" fill="#757472" mask="url(#path-1-inside-1_1_29)" />
+                </g>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

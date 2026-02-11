@@ -38,8 +38,10 @@ wp_enqueue_script(
     <div class="portfolio1-container">
         
         <?php if ($categories && count($categories) > 0): ?>
-            <!-- Category Filter -->
-            <div class="portfolio1-filter">
+            <!-- Category Filter Wrapper -->
+            <div class="portfolio1-filter-wrapper">
+                <!-- Category Filter -->
+                <div class="portfolio1-filter">
                 <!-- Kõik nupp (alati esimene) -->
                 <button 
                     class="portfolio1-filter-btn active" 
@@ -57,7 +59,8 @@ wp_enqueue_script(
                         <?php echo esc_html($category['name']); ?>
                     </button>
                 <?php endforeach; ?>
-            </div>
+                </div><!-- .portfolio1-filter -->
+            </div><!-- .portfolio1-filter-wrapper -->
         <?php endif; ?>
 
         <?php if ($portfolio_items && count($portfolio_items) > 0): ?>

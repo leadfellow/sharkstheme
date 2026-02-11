@@ -10,6 +10,14 @@ Formaat põhineb [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) põhim
 - 🎨 Filtri taust nüüd valge (#FFFFFF)
 - 📐 Filtri padding: 25px 58px (vertikaalne ja horisontaalne)
 
+## [1.1.3] - 2026-02-11
+
+### Muudetud
+- 🎨 Filtri valge taust nüüd ainult content area laiuses
+- 📐 Lisatud .portfolio1-filter-wrapper (hall taust full-width)
+- 🎨 Filter: valge taust, max-width: 1440px, padding: 25px 58px
+- 🎨 Servad jäävad halliks (#F7F7F5)
+
 ## [1.1.1] - 2026-02-11
 
 ### Muudetud

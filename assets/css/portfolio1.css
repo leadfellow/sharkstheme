@@ -15,13 +15,19 @@
     padding: 0;
 }
 
+/* Filter wrapper with background */
+.portfolio1-filter-wrapper {
+    width: 100%;
+    background: #F7F7F5;
+    padding: 25px 0;
+}
+
 /* Category Filter */
 .portfolio1-filter {
     display: flex;
     gap: 0;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0;
     flex-wrap: wrap;
     padding: 25px 58px;
     max-width: 1440px;

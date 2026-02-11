@@ -4,6 +4,14 @@ Kõik olulised muudatused selles projektis dokumenteeritakse siin.
 
 Formaat põhineb [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) põhimõtetel.
 
+## [1.0.9] - 2026-02-11
+
+### Parandatud
+- 📍 "Loe lähemalt projektist" nüüd täpselt keskel
+- 🎯 Kasutab position: absolute + left: 50% + transform: translateX(-50%)
+- 📍 Toggle ikoon paremale (margin-left: auto)
+- ✅ Tekst on nüüd täpselt tsentreeritud
+
 ## [1.0.8] - 2026-02-11
 
 ### Muudetud

@@ -1,0 +1,269 @@
+{
+    "key": "group_portfolio1",
+    "title": "Portfolio1 Block",
+    "fields": [
+        {
+            "key": "field_portfolio1_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"portfolio\", \"tood\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #portfolio",
+            "required": 0,
+            "placeholder": "nt. portfolio, tood",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_portfolio1_show_on_mobile",
+            "label": "Kuva mobiilis",
+            "name": "show_on_mobile",
+            "type": "true_false",
+            "instructions": "Määra, kas see blokk kuvatakse mobiilseadmetes (alla 768px)",
+            "required": 0,
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Jah",
+            "ui_off_text": "Ei",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_portfolio1_categories",
+            "label": "Kategooriad",
+            "name": "categories",
+            "type": "repeater",
+            "instructions": "Lisa portfolio kategooriad filtreerimiseks. Esimene kategooria on 'Kõik' vaikimisi.",
+            "required": 1,
+            "layout": "table",
+            "button_label": "Lisa kategooria",
+            "min": 1,
+            "max": 10,
+            "sub_fields": [
+                {
+                    "key": "field_portfolio1_category_name",
+                    "label": "Kategooria nimi",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "nt. 'Kõik Kodulehed', 'Veebilehed', 'Eridisain'",
+                    "required": 1,
+                    "placeholder": "Veebilehed",
+                    "maxlength": 50
+                },
+                {
+                    "key": "field_portfolio1_category_slug",
+                    "label": "Kategooria slug",
+                    "name": "slug",
+                    "type": "text",
+                    "instructions": "Unikaalne identifikaator (nt. 'veebilehed', 'eridisain')",
+                    "required": 1,
+                    "placeholder": "veebilehed",
+                    "maxlength": 50
+                }
+            ]
+        },
+        {
+            "key": "field_portfolio1_items",
+            "label": "Portfolio tööd",
+            "name": "portfolio_items",
+            "type": "repeater",
+            "instructions": "Lisa portfolio tööd. Tööde taust vaheldub automaatselt (valge/hall).",
+            "required": 0,
+            "layout": "block",
+            "button_label": "Lisa töö",
+            "min": 0,
+            "max": 50,
+            "sub_fields": [
+                {
+                    "key": "field_portfolio1_item_category",
+                    "label": "Kategooria",
+                    "name": "category",
+                    "type": "text",
+                    "instructions": "Kategooria slug (peab vastama üleval määratud kategooria slug'ile)",
+                    "required": 1,
+                    "placeholder": "veebilehed"
+                },
+                {
+                    "key": "field_portfolio1_item_category_label",
+                    "label": "Kategooria silt",
+                    "name": "category_label",
+                    "type": "text",
+                    "instructions": "Kategooria nimi, mis kuvatakse (nt. 'Eridisain')",
+                    "required": 1,
+                    "placeholder": "Eridisain"
+                },
+                {
+                    "key": "field_portfolio1_item_title",
+                    "label": "Pealkiri",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "Töö pealkiri (nt. 'Kalle beds')",
+                    "required": 1,
+                    "placeholder": "Kalle beds"
+                },
+                {
+                    "key": "field_portfolio1_item_logo",
+                    "label": "Logo SVG kood",
+                    "name": "logo_svg",
+                    "type": "textarea",
+                    "instructions": "Lisa SVG koodi logo jaoks (ainult <path> või <g> sisu)",
+                    "required": 0,
+                    "rows": 3,
+                    "placeholder": "<path d=\"M59.043 2.95701...\" fill=\"black\" />"
+                },
+                {
+                    "key": "field_portfolio1_item_description",
+                    "label": "Kirjeldus",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "Lühike kirjeldus tööst",
+                    "required": 1,
+                    "rows": 3
+                },
+                {
+                    "key": "field_portfolio1_item_button_text",
+                    "label": "Nupu tekst",
+                    "name": "button_text",
+                    "type": "text",
+                    "instructions": "CTA nupu tekst",
+                    "required": 0,
+                    "default_value": "Vaata lehte",
+                    "placeholder": "Vaata lehte"
+                },
+                {
+                    "key": "field_portfolio1_item_button_link",
+                    "label": "Nupu link",
+                    "name": "button_link",
+                    "type": "url",
+                    "instructions": "Link, kuhu nupp viib",
+                    "required": 0,
+                    "placeholder": "https://example.com"
+                },
+                {
+                    "key": "field_portfolio1_item_main_image",
+                    "label": "Peamine pilt (MacBook mockup)",
+                    "name": "main_image",
+                    "type": "image",
+                    "instructions": "Peamine pilt, mis kuvatakse MacBook mockup'is (soovitatav: 1200x800px)",
+                    "required": 1,
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_portfolio1_item_task_title",
+                    "label": "Lähteülesanne pealkiri",
+                    "name": "task_title",
+                    "type": "text",
+                    "instructions": "Lähteülesande sektsiooni pealkiri",
+                    "required": 0,
+                    "default_value": "Lähteülesanne",
+                    "placeholder": "Lähteülesanne"
+                },
+                {
+                    "key": "field_portfolio1_item_task_intro",
+                    "label": "Lähteülesanne sissejuhatus",
+                    "name": "task_intro",
+                    "type": "text",
+                    "instructions": "Tekst enne lähteülesande listi",
+                    "required": 0,
+                    "placeholder": "Uuele lehele seadis klient 4 peamist ülesannet:"
+                },
+                {
+                    "key": "field_portfolio1_item_task_list",
+                    "label": "Lähteülesande punktid",
+                    "name": "task_list",
+                    "type": "repeater",
+                    "instructions": "Lisa lähteülesande punktid",
+                    "required": 0,
+                    "layout": "table",
+                    "button_label": "Lisa punkt",
+                    "sub_fields": [
+                        {
+                            "key": "field_portfolio1_task_item",
+                            "label": "Punkt",
+                            "name": "item",
+                            "type": "text",
+                            "required": 1
+                        }
+                    ]
+                },
+                {
+                    "key": "field_portfolio1_item_solution_title",
+                    "label": "Lahenduse pealkiri",
+                    "name": "solution_title",
+                    "type": "text",
+                    "instructions": "Lahenduse sektsiooni pealkiri",
+                    "required": 0,
+                    "default_value": "Lahendus",
+                    "placeholder": "Lahendus"
+                },
+                {
+                    "key": "field_portfolio1_item_solution_text",
+                    "label": "Lahenduse tekst",
+                    "name": "solution_text",
+                    "type": "textarea",
+                    "instructions": "Lahenduse kirjeldus",
+                    "required": 0,
+                    "rows": 4
+                },
+                {
+                    "key": "field_portfolio1_item_screenshot",
+                    "label": "Screenshot pilt",
+                    "name": "screenshot_image",
+                    "type": "image",
+                    "instructions": "Screenshot pilt paremal pool (soovitatav: 800x600px)",
+                    "required": 0,
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_portfolio1_item_stats_before",
+                    "label": "Enne number",
+                    "name": "stats_before",
+                    "type": "text",
+                    "instructions": "Statistika 'enne' number (nt. '150')",
+                    "required": 0,
+                    "placeholder": "150"
+                },
+                {
+                    "key": "field_portfolio1_item_stats_after",
+                    "label": "Pärast number",
+                    "name": "stats_after",
+                    "type": "text",
+                    "instructions": "Statistika 'pärast' number (nt. '450')",
+                    "required": 0,
+                    "placeholder": "450"
+                },
+                {
+                    "key": "field_portfolio1_item_stats_label",
+                    "label": "Statistika silt",
+                    "name": "stats_label",
+                    "type": "text",
+                    "instructions": "Statistika kirjeldus (nt. 'Külastajat kuus')",
+                    "required": 0,
+                    "placeholder": "Külastajat kuus"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/portfolio1"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

@@ -1123,6 +1123,39 @@ add_action('acf/init', function() {
             );
         }
     ]);
+
+    // Portfolio1 Block
+    acf_register_block_type([
+        'name'            => 'portfolio1',
+        'title'           => __('Portfolio1 (Expandable)', 'sharks2025'),
+        'description'     => __('Expandable portfolio items with category filtering, MacBook mockups, and before/after stats', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/portfolio1/portfolio1.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'portfolio',
+        'keywords'        => ['portfolio', 'expandable', 'accordion', 'projects', 'case studies', 'tööd', 'filter'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview',
+        'enqueue_assets'  => function() {
+            wp_enqueue_style(
+                'portfolio1-css',
+                get_template_directory_uri() . '/assets/css/portfolio1.css',
+                [],
+                filemtime(get_template_directory() . '/assets/css/portfolio1.css')
+            );
+            wp_enqueue_script(
+                'portfolio1-js',
+                get_template_directory_uri() . '/assets/js/portfolio1.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/portfolio1.js'),
+                true
+            );
+        }
+    ]);
 });
 
 /**

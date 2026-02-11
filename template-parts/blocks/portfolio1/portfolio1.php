@@ -73,8 +73,9 @@ wp_enqueue_script(
                         data-category="<?php echo esc_attr($item['category']); ?>"
                         data-item-id="<?php echo esc_attr($item_id); ?>"
                     >
-                        <!-- Header Section -->
-                        <div class="portfolio1-header">
+                        <div class="portfolio1-item-inner">
+                            <!-- Header Section -->
+                            <div class="portfolio1-header">
                             <div class="portfolio1-header-left">
                                 <p class="portfolio1-category"><?php echo esc_html($item['category_label']); ?></p>
                                 <div class="portfolio1-title-wrapper">
@@ -235,6 +236,7 @@ wp_enqueue_script(
                                 </div>
                             </div>
                         </div>
+                        </div><!-- .portfolio1-item-inner -->
                     </div>
                 <?php endforeach; ?>
             </div>

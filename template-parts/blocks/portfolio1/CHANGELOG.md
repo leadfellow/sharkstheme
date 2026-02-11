@@ -4,6 +4,17 @@ Kõik olulised muudatused selles projektis dokumenteeritakse siin.
 
 Formaat põhineb [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) põhimõtetel.
 
+## [1.1.1] - 2026-02-11
+
+### Muudetud
+- 🎨 Töö taust nüüd full-width (servast servani)
+- 📐 Lisatud .portfolio1-item-inner wrapper content area jaoks
+- 📐 Max-width: 1440px, padding: 0 58px inner wrapper'ile
+- 🎨 Esimene töö: valge taust full-width
+- 🎨 Teine töö: hall taust full-width
+- 📍 "Loe lähemalt" ja detailid nüüd õiges content area's
+- 📐 Header gap vähendatud 356px → 60px (responsive)
+
 ## [1.1.0] - 2026-02-11
 
 ### Parandatud

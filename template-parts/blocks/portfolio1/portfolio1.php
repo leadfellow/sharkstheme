@@ -171,18 +171,11 @@ wp_enqueue_script(
                                 <div class="portfolio1-content-inner">
                                     <div class="portfolio1-content-left">
                                         <!-- Task Section -->
-                                        <?php if (!empty($item['task_list']) && count($item['task_list']) > 0): ?>
+                                        <?php if (!empty($item['task_text'])): ?>
                                             <div class="portfolio1-task-section">
                                                 <p class="portfolio1-section-title"><?php echo esc_html($item['task_title'] ?: 'Lähteülesanne'); ?></p>
                                                 <div class="portfolio1-section-text">
-                                                    <?php if (!empty($item['task_intro'])): ?>
-                                                        <p><?php echo esc_html($item['task_intro']); ?></p>
-                                                    <?php endif; ?>
-                                                    <ol>
-                                                        <?php foreach ($item['task_list'] as $task): ?>
-                                                            <li><?php echo esc_html($task['item']); ?></li>
-                                                        <?php endforeach; ?>
-                                                    </ol>
+                                                    <p><?php echo esc_html($item['task_text']); ?></p>
                                                 </div>
                                             </div>
                                         <?php endif; ?>
@@ -198,7 +191,7 @@ wp_enqueue_script(
                                         <?php endif; ?>
                                     </div>
 
-                                    <!-- Screenshot Section -->
+                                    <!-- Screenshot & Metrics Section -->
                                     <div class="portfolio1-content-right">
                                         <?php if (!empty($item['screenshot_image'])): ?>
                                             <div class="portfolio1-screenshot-wrapper">
@@ -210,26 +203,37 @@ wp_enqueue_script(
                                             </div>
                                         <?php endif; ?>
 
-                                        <!-- Stats Section -->
-                                        <?php if (!empty($item['stats_before']) || !empty($item['stats_after'])): ?>
-                                            <div class="portfolio1-stats-section">
-                                                <div class="portfolio1-stats-chart">
-                                                    <?php if (!empty($item['stats_before'])): ?>
-                                                        <div class="portfolio1-stat-bar before">
-                                                            <div class="portfolio1-stat-label">Enne</div>
-                                                            <div class="portfolio1-stat-value"><?php echo esc_html($item['stats_before']); ?></div>
-                                                        </div>
-                                                    <?php endif; ?>
-                                                    <?php if (!empty($item['stats_after'])): ?>
-                                                        <div class="portfolio1-stat-bar after">
-                                                            <div class="portfolio1-stat-label">Pärast</div>
-                                                            <div class="portfolio1-stat-value"><?php echo esc_html($item['stats_after']); ?></div>
-                                                        </div>
-                                                    <?php endif; ?>
-                                                </div>
-                                                <?php if (!empty($item['stats_label'])): ?>
-                                                    <p class="portfolio1-stats-description"><?php echo esc_html($item['stats_label']); ?></p>
-                                                <?php endif; ?>
+                                        <!-- Metrics Section -->
+                                        <?php if (!empty($item['metrics']) && count($item['metrics']) > 0): ?>
+                                            <div class="portfolio1-metrics-section">
+                                                <?php foreach ($item['metrics'] as $metric_group): ?>
+                                                    <div class="portfolio1-metric-group">
+                                                        <?php if (!empty($metric_group['title'])): ?>
+                                                            <h3 class="portfolio1-metric-title"><?php echo esc_html($metric_group['title']); ?></h3>
+                                                        <?php endif; ?>
+                                                        
+                                                        <?php if (!empty($metric_group['subtitle'])): ?>
+                                                            <p class="portfolio1-metric-subtitle"><?php echo esc_html($metric_group['subtitle']); ?></p>
+                                                        <?php endif; ?>
+                                                        
+                                                        <?php if (!empty($metric_group['label'])): ?>
+                                                            <p class="portfolio1-metric-label"><?php echo esc_html($metric_group['label']); ?></p>
+                                                        <?php endif; ?>
+                                                        
+                                                        <?php if (!empty($metric_group['items']) && count($metric_group['items']) > 0): ?>
+                                                            <div class="portfolio1-metric-items">
+                                                                <?php foreach ($metric_group['items'] as $metric_item): ?>
+                                                                    <div class="portfolio1-metric-item">
+                                                                        <div class="portfolio1-metric-circle <?php echo esc_attr($metric_item['color']); ?>">
+                                                                            <span class="portfolio1-metric-value"><?php echo esc_html($metric_item['value']); ?></span>
+                                                                        </div>
+                                                                        <p class="portfolio1-metric-item-label"><?php echo esc_html($metric_item['label']); ?></p>
+                                                                    </div>
+                                                                <?php endforeach; ?>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                <?php endforeach; ?>
                                             </div>
                                         <?php endif; ?>
                                     </div>

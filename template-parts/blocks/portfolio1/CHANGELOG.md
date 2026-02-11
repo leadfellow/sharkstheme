@@ -4,6 +4,34 @@ Kõik olulised muudatused selles projektis dokumenteeritakse siin.
 
 Formaat põhineb [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) põhimõtetel.
 
+## [1.2.0] - 2026-02-11
+
+### Muudetud
+- 🔄 Lähteülesanne: Eemaldatud punktide list, asendatud tekstiväljaga
+- 🎨 Statistika sektsioon asendatud kvaliteedi näitajate süsteemiga
+- 📊 Uus metrikate struktuur (repeater grupid):
+  - Pealkiri (nt. "KVALITEEDI NÄITAJAD", "W3C")
+  - Alapealkiri (nt. "Sihtkide skor 0-100 %/ni")
+  - Silt (nt. "Uus veeb")
+  - Näitajad (ringid numbriga):
+    - Väärtus (number)
+    - Silt (tekst numbri all)
+    - Värv (oranž, sinine, punane, roheline, hall)
+- 🎨 Uus CSS metrikate jaoks:
+  - 80px ringid värvilise taustaga
+  - Flexbox paigutus
+  - Tsentreeritud elemendid
+  - 40px gap grupide vahel
+  - 24px gap näitajate vahel
+- 📐 Paremal pool: pilt üleval, metrikad all
+- ✅ Teema versioon: 2.0.1 → 2.1.0
+
+### Eemaldatud
+- ❌ Lähteülesande punktide list (task_list repeater)
+- ❌ Lähteülesande sissejuhatus (task_intro)
+- ❌ Vana statistika struktuur (stats_before, stats_after, stats_label)
+- ❌ Vana statistika CSS (stat-bar, stat-chart)
+
 ## [1.1.2] - 2026-02-11
 
 ### Muudetud

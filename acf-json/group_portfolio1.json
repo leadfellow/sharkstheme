@@ -193,32 +193,14 @@
                     "placeholder": "Lähteülesanne"
                 },
                 {
-                    "key": "field_portfolio1_item_task_intro",
-                    "label": "Lähteülesanne sissejuhatus",
-                    "name": "task_intro",
-                    "type": "text",
-                    "instructions": "Tekst enne lähteülesande listi",
+                    "key": "field_portfolio1_item_task_text",
+                    "label": "Lähteülesanne tekst",
+                    "name": "task_text",
+                    "type": "textarea",
+                    "instructions": "Lähteülesande kirjeldus (ilma punktideta)",
                     "required": 0,
-                    "placeholder": "Uuele lehele seadis klient 4 peamist ülesannet:"
-                },
-                {
-                    "key": "field_portfolio1_item_task_list",
-                    "label": "Lähteülesande punktid",
-                    "name": "task_list",
-                    "type": "repeater",
-                    "instructions": "Lisa lähteülesande punktid",
-                    "required": 0,
-                    "layout": "table",
-                    "button_label": "Lisa punkt",
-                    "sub_fields": [
-                        {
-                            "key": "field_portfolio1_task_item",
-                            "label": "Punkt",
-                            "name": "item",
-                            "type": "text",
-                            "required": 1
-                        }
-                    ]
+                    "rows": 4,
+                    "placeholder": "Uuele lehele seadis klient 4 peamist ülesannet..."
                 },
                 {
                     "key": "field_portfolio1_item_solution_title",
@@ -251,31 +233,89 @@
                     "library": "all"
                 },
                 {
-                    "key": "field_portfolio1_item_stats_before",
-                    "label": "Enne number",
-                    "name": "stats_before",
-                    "type": "text",
-                    "instructions": "Statistika 'enne' number (nt. '150')",
+                    "key": "field_portfolio1_item_metrics",
+                    "label": "Kvaliteedi näitajad",
+                    "name": "metrics",
+                    "type": "repeater",
+                    "instructions": "Lisa kvaliteedi näitajate grupid (nt. Sihtkide skor, W3C)",
                     "required": 0,
-                    "placeholder": "150"
-                },
-                {
-                    "key": "field_portfolio1_item_stats_after",
-                    "label": "Pärast number",
-                    "name": "stats_after",
-                    "type": "text",
-                    "instructions": "Statistika 'pärast' number (nt. '450')",
-                    "required": 0,
-                    "placeholder": "450"
-                },
-                {
-                    "key": "field_portfolio1_item_stats_label",
-                    "label": "Statistika silt",
-                    "name": "stats_label",
-                    "type": "text",
-                    "instructions": "Statistika kirjeldus (nt. 'Külastajat kuus')",
-                    "required": 0,
-                    "placeholder": "Külastajat kuus"
+                    "layout": "block",
+                    "button_label": "Lisa näitajate grupp",
+                    "sub_fields": [
+                        {
+                            "key": "field_portfolio1_metric_title",
+                            "label": "Pealkiri",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "Näitajate grupi pealkiri (nt. 'KVALITEEDI NÄITAJAD', 'W3C')",
+                            "required": 1,
+                            "placeholder": "KVALITEEDI NÄITAJAD"
+                        },
+                        {
+                            "key": "field_portfolio1_metric_subtitle",
+                            "label": "Alapealkiri",
+                            "name": "subtitle",
+                            "type": "text",
+                            "instructions": "Alapealkiri (nt. 'Sihtkide skor 0-100 %/ni', 'The W3C Markup Validation')",
+                            "required": 0,
+                            "placeholder": "Sihtkide skor 0-100 %/ni"
+                        },
+                        {
+                            "key": "field_portfolio1_metric_label",
+                            "label": "Silt",
+                            "name": "label",
+                            "type": "text",
+                            "instructions": "Silt näitajate kohal (nt. 'Uus veeb', 'Vana veeb')",
+                            "required": 0,
+                            "placeholder": "Uus veeb"
+                        },
+                        {
+                            "key": "field_portfolio1_metric_items",
+                            "label": "Näitajad",
+                            "name": "items",
+                            "type": "repeater",
+                            "instructions": "Lisa näitajad (ringid numbriga)",
+                            "required": 0,
+                            "layout": "table",
+                            "button_label": "Lisa näitaja",
+                            "sub_fields": [
+                                {
+                                    "key": "field_portfolio1_metric_value",
+                                    "label": "Väärtus",
+                                    "name": "value",
+                                    "type": "text",
+                                    "instructions": "Number (nt. '42', '91')",
+                                    "required": 1,
+                                    "placeholder": "42"
+                                },
+                                {
+                                    "key": "field_portfolio1_metric_label_text",
+                                    "label": "Silt",
+                                    "name": "label",
+                                    "type": "text",
+                                    "instructions": "Tekst numbri all (nt. 'Vana veeb', 'Uus veeb', 'Vead')",
+                                    "required": 1,
+                                    "placeholder": "Vana veeb"
+                                },
+                                {
+                                    "key": "field_portfolio1_metric_color",
+                                    "label": "Värv",
+                                    "name": "color",
+                                    "type": "select",
+                                    "instructions": "Ringi värv",
+                                    "required": 1,
+                                    "choices": {
+                                        "orange": "Oranž (#FFA500)",
+                                        "blue": "Sinine (#00BFFF)",
+                                        "red": "Punane (#FF6B6B)",
+                                        "green": "Roheline (#A4D65E)",
+                                        "gray": "Hall (#CCCCCC)"
+                                    },
+                                    "default_value": "blue"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }

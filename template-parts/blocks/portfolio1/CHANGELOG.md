@@ -4,6 +4,12 @@ Kõik olulised muudatused selles projektis dokumenteeritakse siin.
 
 Formaat põhineb [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) põhimõtetel.
 
+## [1.1.2] - 2026-02-11
+
+### Muudetud
+- 🎨 Filtri taust nüüd valge (#FFFFFF)
+- 📐 Filtri padding: 25px 58px (vertikaalne ja horisontaalne)
+
 ## [1.1.1] - 2026-02-11
 
 ### Muudetud

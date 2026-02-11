@@ -191,49 +191,61 @@ wp_enqueue_script(
                                         <?php endif; ?>
                                     </div>
 
-                                    <!-- Screenshot & Metrics Section -->
+                                    <!-- Metrics Section -->
                                     <div class="portfolio1-content-right">
-                                        <?php if (!empty($item['screenshot_image'])): ?>
-                                            <div class="portfolio1-screenshot-wrapper">
-                                                <img 
-                                                    src="<?php echo esc_url($item['screenshot_image']['url']); ?>" 
-                                                    alt="<?php echo esc_attr($item['screenshot_image']['alt'] ?: 'Screenshot'); ?>" 
-                                                    class="portfolio1-screenshot-image"
-                                                >
-                                            </div>
-                                        <?php endif; ?>
-
-                                        <!-- Metrics Section -->
-                                        <?php if (!empty($item['metrics']) && count($item['metrics']) > 0): ?>
-                                            <div class="portfolio1-metrics-section">
-                                                <?php foreach ($item['metrics'] as $metric_group): ?>
-                                                    <div class="portfolio1-metric-group">
-                                                        <?php if (!empty($metric_group['title'])): ?>
-                                                            <h3 class="portfolio1-metric-title"><?php echo esc_html($metric_group['title']); ?></h3>
-                                                        <?php endif; ?>
-                                                        
-                                                        <?php if (!empty($metric_group['subtitle'])): ?>
-                                                            <p class="portfolio1-metric-subtitle"><?php echo esc_html($metric_group['subtitle']); ?></p>
-                                                        <?php endif; ?>
-                                                        
-                                                        <?php if (!empty($metric_group['label'])): ?>
-                                                            <p class="portfolio1-metric-label"><?php echo esc_html($metric_group['label']); ?></p>
-                                                        <?php endif; ?>
-                                                        
-                                                        <?php if (!empty($metric_group['items']) && count($metric_group['items']) > 0): ?>
-                                                            <div class="portfolio1-metric-items">
-                                                                <?php foreach ($metric_group['items'] as $metric_item): ?>
-                                                                    <div class="portfolio1-metric-item">
-                                                                        <div class="portfolio1-metric-circle <?php echo esc_attr($metric_item['color']); ?>">
-                                                                            <span class="portfolio1-metric-value"><?php echo esc_html($metric_item['value']); ?></span>
-                                                                        </div>
-                                                                        <p class="portfolio1-metric-item-label"><?php echo esc_html($metric_item['label']); ?></p>
-                                                                    </div>
-                                                                <?php endforeach; ?>
+                                        <?php 
+                                        $has_metrics = !empty($item['metric1_value']) || !empty($item['metric2_value']) || 
+                                                      !empty($item['metric3_value']) || !empty($item['metric4_value']);
+                                        
+                                        if ($has_metrics): ?>
+                                            <div class="portfolio1-metrics-box">
+                                                <div class="portfolio1-metrics-row portfolio1-metrics-top">
+                                                    <?php if (!empty($item['metric1_value'])): ?>
+                                                        <div class="portfolio1-metric-item">
+                                                            <div class="portfolio1-metric-circle <?php echo esc_attr($item['metric1_color'] ?: 'orange'); ?>">
+                                                                <span class="portfolio1-metric-value"><?php echo esc_html($item['metric1_value']); ?></span>
                                                             </div>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                <?php endforeach; ?>
+                                                            <?php if (!empty($item['metric1_label'])): ?>
+                                                                <p class="portfolio1-metric-item-label"><?php echo esc_html($item['metric1_label']); ?></p>
+                                                            <?php endif; ?>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                    
+                                                    <?php if (!empty($item['metric2_value'])): ?>
+                                                        <div class="portfolio1-metric-item">
+                                                            <div class="portfolio1-metric-circle <?php echo esc_attr($item['metric2_color'] ?: 'blue'); ?>">
+                                                                <span class="portfolio1-metric-value"><?php echo esc_html($item['metric2_value']); ?></span>
+                                                            </div>
+                                                            <?php if (!empty($item['metric2_label'])): ?>
+                                                                <p class="portfolio1-metric-item-label"><?php echo esc_html($item['metric2_label']); ?></p>
+                                                            <?php endif; ?>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                </div>
+                                                
+                                                <div class="portfolio1-metrics-row portfolio1-metrics-bottom">
+                                                    <?php if (!empty($item['metric3_value'])): ?>
+                                                        <div class="portfolio1-metric-item">
+                                                            <div class="portfolio1-metric-circle <?php echo esc_attr($item['metric3_color'] ?: 'red'); ?>">
+                                                                <span class="portfolio1-metric-value"><?php echo esc_html($item['metric3_value']); ?></span>
+                                                            </div>
+                                                            <?php if (!empty($item['metric3_label'])): ?>
+                                                                <p class="portfolio1-metric-item-label"><?php echo esc_html($item['metric3_label']); ?></p>
+                                                            <?php endif; ?>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                    
+                                                    <?php if (!empty($item['metric4_value'])): ?>
+                                                        <div class="portfolio1-metric-item">
+                                                            <div class="portfolio1-metric-circle <?php echo esc_attr($item['metric4_color'] ?: 'green'); ?>">
+                                                                <span class="portfolio1-metric-value"><?php echo esc_html($item['metric4_value']); ?></span>
+                                                            </div>
+                                                            <?php if (!empty($item['metric4_label'])): ?>
+                                                                <p class="portfolio1-metric-item-label"><?php echo esc_html($item['metric4_label']); ?></p>
+                                                            <?php endif; ?>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                </div>
                                             </div>
                                         <?php endif; ?>
                                     </div>

@@ -305,7 +305,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding: 25px 0;
+    padding: 25px;
     gap: 40px;
     width: 100%;
     border-bottom: 1px solid #BBBAB6;
@@ -313,10 +313,12 @@
 
 .portfolio1-read-more-btn {
     width: 100%;
-    display: grid;
-    grid-template-columns: 62px 1fr 62px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     padding: 0;
+    gap: 10px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -337,8 +339,9 @@
     text-transform: uppercase;
     color: #000000;
     margin: 0;
-    text-align: center;
-    grid-column: 2;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
 .portfolio1-toggle-icon {
@@ -346,8 +349,9 @@
     height: 62px;
     position: relative;
     border-radius: 182.986px;
-    grid-column: 3;
-    justify-self: end;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 }
 
 .portfolio1-toggle-icon svg {
@@ -456,75 +460,22 @@
     margin: 0;
 }
 
-/* Screenshot */
-.portfolio1-screenshot-wrapper {
-    width: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.portfolio1-screenshot-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
 /* Metrics Section */
-.portfolio1-metrics-section {
+.portfolio1-metrics-box {
     display: flex;
     flex-direction: column;
     gap: 40px;
     width: 100%;
     padding: 40px;
     background: #FFFFFF;
+    border: 2px solid #000000;
 }
 
-.portfolio1-metric-group {
+.portfolio1-metrics-row {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-}
-
-.portfolio1-metric-title {
-    font-family: 'Switzer', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 110%;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
-    color: #000000;
-    margin: 0;
-}
-
-.portfolio1-metric-subtitle {
-    font-family: 'Helvetica', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 140%;
-    color: #F237A6;
-    margin: 0;
-}
-
-.portfolio1-metric-label {
-    font-family: 'Helvetica', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 140%;
-    color: #000000;
-    margin: 0;
-}
-
-.portfolio1-metric-items {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 24px;
-    width: 100%;
+    align-items: flex-start;
+    gap: 40px;
 }
 
 .portfolio1-metric-item {

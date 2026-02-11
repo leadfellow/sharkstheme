@@ -222,100 +222,140 @@
                     "rows": 4
                 },
                 {
-                    "key": "field_portfolio1_item_screenshot",
-                    "label": "Screenshot pilt",
-                    "name": "screenshot_image",
-                    "type": "image",
-                    "instructions": "Screenshot pilt paremal pool (soovitatav: 800x600px)",
+                    "key": "field_portfolio1_item_metric1_value",
+                    "label": "Näitaja 1 - Väärtus",
+                    "name": "metric1_value",
+                    "type": "text",
+                    "instructions": "Esimese näitaja number (üleval vasakul, nt. '42')",
                     "required": 0,
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all"
+                    "placeholder": "42"
                 },
                 {
-                    "key": "field_portfolio1_item_metrics",
-                    "label": "Kvaliteedi näitajad",
-                    "name": "metrics",
-                    "type": "repeater",
-                    "instructions": "Lisa kvaliteedi näitajate grupid (nt. Sihtkide skor, W3C)",
+                    "key": "field_portfolio1_item_metric1_label",
+                    "label": "Näitaja 1 - Silt",
+                    "name": "metric1_label",
+                    "type": "text",
+                    "instructions": "Esimese näitaja tekst (nt. 'Vana veeb')",
                     "required": 0,
-                    "layout": "block",
-                    "button_label": "Lisa näitajate grupp",
-                    "sub_fields": [
-                        {
-                            "key": "field_portfolio1_metric_title",
-                            "label": "Pealkiri",
-                            "name": "title",
-                            "type": "text",
-                            "instructions": "Näitajate grupi pealkiri (nt. 'KVALITEEDI NÄITAJAD', 'W3C')",
-                            "required": 1,
-                            "placeholder": "KVALITEEDI NÄITAJAD"
-                        },
-                        {
-                            "key": "field_portfolio1_metric_subtitle",
-                            "label": "Alapealkiri",
-                            "name": "subtitle",
-                            "type": "text",
-                            "instructions": "Alapealkiri (nt. 'Sihtkide skor 0-100 %/ni', 'The W3C Markup Validation')",
-                            "required": 0,
-                            "placeholder": "Sihtkide skor 0-100 %/ni"
-                        },
-                        {
-                            "key": "field_portfolio1_metric_label",
-                            "label": "Silt",
-                            "name": "label",
-                            "type": "text",
-                            "instructions": "Silt näitajate kohal (nt. 'Uus veeb', 'Vana veeb')",
-                            "required": 0,
-                            "placeholder": "Uus veeb"
-                        },
-                        {
-                            "key": "field_portfolio1_metric_items",
-                            "label": "Näitajad",
-                            "name": "items",
-                            "type": "repeater",
-                            "instructions": "Lisa näitajad (ringid numbriga)",
-                            "required": 0,
-                            "layout": "table",
-                            "button_label": "Lisa näitaja",
-                            "sub_fields": [
-                                {
-                                    "key": "field_portfolio1_metric_value",
-                                    "label": "Väärtus",
-                                    "name": "value",
-                                    "type": "text",
-                                    "instructions": "Number (nt. '42', '91')",
-                                    "required": 1,
-                                    "placeholder": "42"
-                                },
-                                {
-                                    "key": "field_portfolio1_metric_label_text",
-                                    "label": "Silt",
-                                    "name": "label",
-                                    "type": "text",
-                                    "instructions": "Tekst numbri all (nt. 'Vana veeb', 'Uus veeb', 'Vead')",
-                                    "required": 1,
-                                    "placeholder": "Vana veeb"
-                                },
-                                {
-                                    "key": "field_portfolio1_metric_color",
-                                    "label": "Värv",
-                                    "name": "color",
-                                    "type": "select",
-                                    "instructions": "Ringi värv",
-                                    "required": 1,
-                                    "choices": {
-                                        "orange": "Oranž (#FFA500)",
-                                        "blue": "Sinine (#00BFFF)",
-                                        "red": "Punane (#FF6B6B)",
-                                        "green": "Roheline (#A4D65E)",
-                                        "gray": "Hall (#CCCCCC)"
-                                    },
-                                    "default_value": "blue"
-                                }
-                            ]
-                        }
-                    ]
+                    "placeholder": "Vana veeb"
+                },
+                {
+                    "key": "field_portfolio1_item_metric1_color",
+                    "label": "Näitaja 1 - Värv",
+                    "name": "metric1_color",
+                    "type": "select",
+                    "instructions": "Esimese näitaja ringi värv",
+                    "required": 0,
+                    "choices": {
+                        "orange": "Oranž (#FFA500)",
+                        "blue": "Sinine (#00BFFF)",
+                        "red": "Punane (#FF6B6B)",
+                        "green": "Roheline (#A4D65E)",
+                        "gray": "Hall (#CCCCCC)"
+                    },
+                    "default_value": "orange"
+                },
+                {
+                    "key": "field_portfolio1_item_metric2_value",
+                    "label": "Näitaja 2 - Väärtus",
+                    "name": "metric2_value",
+                    "type": "text",
+                    "instructions": "Teise näitaja number (üleval paremal, nt. '91')",
+                    "required": 0,
+                    "placeholder": "91"
+                },
+                {
+                    "key": "field_portfolio1_item_metric2_label",
+                    "label": "Näitaja 2 - Silt",
+                    "name": "metric2_label",
+                    "type": "text",
+                    "instructions": "Teise näitaja tekst (nt. 'Uus veeb')",
+                    "required": 0,
+                    "placeholder": "Uus veeb"
+                },
+                {
+                    "key": "field_portfolio1_item_metric2_color",
+                    "label": "Näitaja 2 - Värv",
+                    "name": "metric2_color",
+                    "type": "select",
+                    "instructions": "Teise näitaja ringi värv",
+                    "required": 0,
+                    "choices": {
+                        "orange": "Oranž (#FFA500)",
+                        "blue": "Sinine (#00BFFF)",
+                        "red": "Punane (#FF6B6B)",
+                        "green": "Roheline (#A4D65E)",
+                        "gray": "Hall (#CCCCCC)"
+                    },
+                    "default_value": "blue"
+                },
+                {
+                    "key": "field_portfolio1_item_metric3_value",
+                    "label": "Näitaja 3 - Väärtus",
+                    "name": "metric3_value",
+                    "type": "text",
+                    "instructions": "Kolmanda näitaja number (all vasakul, nt. '17')",
+                    "required": 0,
+                    "placeholder": "17"
+                },
+                {
+                    "key": "field_portfolio1_item_metric3_label",
+                    "label": "Näitaja 3 - Silt",
+                    "name": "metric3_label",
+                    "type": "text",
+                    "instructions": "Kolmanda näitaja tekst (nt. 'Vead')",
+                    "required": 0,
+                    "placeholder": "Vead"
+                },
+                {
+                    "key": "field_portfolio1_item_metric3_color",
+                    "label": "Näitaja 3 - Värv",
+                    "name": "metric3_color",
+                    "type": "select",
+                    "instructions": "Kolmanda näitaja ringi värv",
+                    "required": 0,
+                    "choices": {
+                        "orange": "Oranž (#FFA500)",
+                        "blue": "Sinine (#00BFFF)",
+                        "red": "Punane (#FF6B6B)",
+                        "green": "Roheline (#A4D65E)",
+                        "gray": "Hall (#CCCCCC)"
+                    },
+                    "default_value": "red"
+                },
+                {
+                    "key": "field_portfolio1_item_metric4_value",
+                    "label": "Näitaja 4 - Väärtus",
+                    "name": "metric4_value",
+                    "type": "text",
+                    "instructions": "Neljanda näitaja number (all paremal, nt. '13')",
+                    "required": 0,
+                    "placeholder": "13"
+                },
+                {
+                    "key": "field_portfolio1_item_metric4_label",
+                    "label": "Näitaja 4 - Silt",
+                    "name": "metric4_label",
+                    "type": "text",
+                    "instructions": "Neljanda näitaja tekst (nt. 'Hoiatused')",
+                    "required": 0,
+                    "placeholder": "Hoiatused"
+                },
+                {
+                    "key": "field_portfolio1_item_metric4_color",
+                    "label": "Näitaja 4 - Värv",
+                    "name": "metric4_color",
+                    "type": "select",
+                    "instructions": "Neljanda näitaja ringi värv",
+                    "required": 0,
+                    "choices": {
+                        "orange": "Oranž (#FFA500)",
+                        "blue": "Sinine (#00BFFF)",
+                        "red": "Punane (#FF6B6B)",
+                        "green": "Roheline (#A4D65E)",
+                        "gray": "Hall (#CCCCCC)"
+                    },
+                    "default_value": "green"
                 }
             ]
         }

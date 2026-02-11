@@ -4,6 +4,14 @@ Kõik olulised muudatused selles projektis dokumenteeritakse siin.
 
 Formaat põhineb [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) põhimõtetel.
 
+## [1.2.1] - 2026-02-11
+
+### Parandatud
+- 📐 "Loe lähemalt projektist" nüüd vasakule joondatud (mitte keskel)
+- 🔄 Muudetud CSS Grid → Flexbox (justify-content: space-between)
+- 📏 Padding: 25px (mitte 25px 0)
+- ✅ Vastavalt Figma disainile
+
 ## [1.2.0] - 2026-02-11
 
 ### Muudetud

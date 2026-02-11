@@ -68,14 +68,14 @@
 .portfolio1-items {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 120px;
 }
 
 .portfolio1-item {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0;
+    padding: 120px 58px;
     gap: 62px;
     transition: opacity 0.3s ease, max-height 0.3s ease;
 }
@@ -85,11 +85,11 @@
 }
 
 .portfolio1-item.bg-white {
-    background: transparent;
+    background: #FFFFFF;
 }
 
 .portfolio1-item.bg-gray {
-    background: transparent;
+    background: #F7F7F5;
 }
 
 /* Header Section */
@@ -192,22 +192,6 @@
     cursor: pointer;
 }
 
-.portfolio1-cta-button:hover {
-    background: #000000;
-}
-
-.portfolio1-cta-button:hover .portfolio1-cta-text {
-    color: #ffffff;
-}
-
-.portfolio1-cta-button:hover .portfolio1-arrow-icon rect {
-    fill: #ffffff;
-}
-
-.portfolio1-cta-button:hover .portfolio1-arrow-icon path {
-    stroke: #000000;
-}
-
 .portfolio1-cta-text {
     font-family: 'Switzer', sans-serif;
     font-style: normal;
@@ -233,11 +217,22 @@
 }
 
 .portfolio1-arrow-icon rect {
+    fill: #000000;
     transition: fill 0.3s ease;
 }
 
 .portfolio1-arrow-icon path {
+    stroke: #FFFFFF;
     transition: stroke 0.3s ease;
+}
+
+/* Hover effect - invert colors */
+.portfolio1-cta-button:hover .portfolio1-arrow-icon rect {
+    fill: #FFFFFF;
+}
+
+.portfolio1-cta-button:hover .portfolio1-arrow-icon path {
+    stroke: #000000;
 }
 
 /* MacBook Mockup Section */

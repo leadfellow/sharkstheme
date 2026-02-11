@@ -4,6 +4,27 @@ Kõik olulised muudatused selles projektis dokumenteeritakse siin.
 
 Formaat põhineb [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) põhimõtetel.
 
+## [1.0.7] - 2026-02-11
+
+### Muudetud
+- 🎨 CTA nupu hover efekt parandatud
+- ❌ Eemaldatud must taust hover'il
+- 🔄 Hover: Noole kast muutub valge taustaga, nool mustaks
+- 🎨 Vaikimisi: Must taust, valge nool
+- 🎨 Hover: Valge taust, must nool
+- 📝 Tekst jääb alati mustaks ja allakriipsutatuks
+
+## [1.0.6] - 2026-02-11
+
+### Muudetud
+- 🎨 Vahelduvad taustad tagasi: valge (#FFFFFF) ja hall (#F7F7F5)
+- 📐 Portfolio item padding: 120px 58px
+- 📐 Gap tööde vahel: 120px
+- 🔄 Esimene töö: valge taust
+- 🔄 Teine töö: hall taust
+- 🔄 Kolmas töö: valge taust
+- 🔄 jne...
+
 ## [1.0.5] - 2026-02-11
 
 ### Muudetud

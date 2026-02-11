@@ -105,12 +105,41 @@
                     "placeholder": "Kalle beds"
                 },
                 {
-                    "key": "field_portfolio1_item_logo",
-                    "label": "Logo SVG kood",
+                    "key": "field_portfolio1_item_logo_type",
+                    "label": "Logo tüüp",
+                    "name": "logo_type",
+                    "type": "select",
+                    "instructions": "Vali logo ikoon või kasuta custom SVG koodi",
+                    "required": 0,
+                    "choices": {
+                        "none": "Ilma ikoonita",
+                        "icon1": "Ikoon 1 (X-mustriga)",
+                        "icon2": "Ikoon 2 (Tärniga)",
+                        "custom": "Custom SVG kood"
+                    },
+                    "default_value": "none",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "return_format": "value",
+                    "placeholder": "Vali ikoon"
+                },
+                {
+                    "key": "field_portfolio1_item_logo_svg",
+                    "label": "Custom Logo SVG kood",
                     "name": "logo_svg",
                     "type": "textarea",
-                    "instructions": "Lisa SVG koodi logo jaoks (ainult <path> või <g> sisu)",
+                    "instructions": "Lisa SVG koodi logo jaoks (ainult <path> või <g> sisu). Kuvatakse ainult kui 'Logo tüüp' on 'Custom SVG kood'.",
                     "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_portfolio1_item_logo_type",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
                     "rows": 3,
                     "placeholder": "<path d=\"M59.043 2.95701...\" fill=\"black\" />"
                 },

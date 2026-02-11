@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio1 Demo - Sharks 2025</title>
+    <link rel="stylesheet" href="assets/css/portfolio1.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <section class="portfolio1-block">
+        <div class="portfolio1-container">
+            
+            <!-- Category Filter -->
+            <div class="portfolio1-filter">
+                <button class="portfolio1-filter-btn active" data-category="all">Kõik Kodulehed</button>
+                <button class="portfolio1-filter-btn" data-category="eridisain">Eridisain</button>
+                <button class="portfolio1-filter-btn" data-category="veebilehed">Valmisdisain</button>
+            </div>
+
+            <!-- Portfolio Items -->
+            <div class="portfolio1-items">
+                
+                <!-- Item 1 - White Background -->
+                <div class="portfolio1-item bg-white" data-category="eridisain" data-item-id="portfolio-item-0">
+                    <!-- Header Section -->
+                    <div class="portfolio1-header">
+                        <div class="portfolio1-header-left">
+                            <p class="portfolio1-category">Eridisain</p>
+                            <div class="portfolio1-title-wrapper">
+                                <p class="portfolio1-main-title">Kalle beds</p>
+                                <div class="portfolio1-logo-icon">
+                                    <svg fill="none" preserveAspectRatio="none" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg">
+                                        <g>
+                                            <!-- Ikoon 1: X-mustriga -->
+                                            <path d="M59.043 2.95701C57.4099 1.3239 54.7621 1.3239 53.129 2.95701L43.543 12.543C36.6157 19.4703 25.3843 19.4703 18.457 12.543L8.87103 2.95701C7.23792 1.3239 4.59012 1.3239 2.95701 2.95701C1.3239 4.59012 1.3239 7.23792 2.95701 8.87103L12.543 18.457C19.4703 25.3843 19.4703 36.6157 12.543 43.543L2.95701 53.129C1.3239 54.7621 1.3239 57.4099 2.95701 59.043C4.59012 60.6761 7.23792 60.6761 8.87103 59.043L18.457 49.457C25.3843 42.5297 36.6157 42.5297 43.543 49.457L53.129 59.043C54.7621 60.6761 57.4099 60.6761 59.043 59.043C60.6761 57.4099 60.6761 54.7621 59.043 53.129L49.457 43.543C42.5297 36.6157 42.5297 25.3843 49.457 18.457L59.043 8.87103C60.6761 7.23792 60.6761 4.59012 59.043 2.95701Z" fill="black" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio1-header-right">
+                            <div class="portfolio1-description">
+                                <p>Persona pakub personali- ja palgaarvestust, töö- ja puhkusekraafikuid ühtses pilvepõhises tarkvaras. Persona abil hallatakse Eestis 40 000 töötajat.</p>
+                            </div>
+                            <a href="#" class="portfolio1-cta-button">
+                                <p class="portfolio1-cta-text">Vaata lehte</p>
+                                <div class="portfolio1-arrow-icon">
+                                    <svg fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
+                                        <g>
+                                            <rect fill="black" height="26" width="26" />
+                                            <path d="M8.9375 13H17.0625" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104" />
+                                            <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- MacBook Mockup Section -->
+                    <div class="portfolio1-macbook-section">
+                        <div class="portfolio1-macbook-wrapper">
+                            <div class="portfolio1-macbook-container">
+                                <div class="portfolio1-macbook-bezel">
+                                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=800&fit=crop" alt="Kalle beds" class="portfolio1-macbook-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Details Section -->
+                    <div class="portfolio1-details-wrapper">
+                        <!-- Read More Header -->
+                        <div class="portfolio1-read-more-section">
+                            <button class="portfolio1-read-more-btn" data-target="portfolio-item-0">
+                                <p class="portfolio1-read-more-title">loe lähemalt projektist</p>
+                                <div class="portfolio1-toggle-icon">
+                                    <svg class="icon-plus" fill="none" preserveAspectRatio="none" viewBox="0 0 22.6274 22.6274">
+                                        <g>
+                                            <path d="M11.3137 0V22.6274M0 11.3137H22.6274" stroke="black" stroke-width="2"/>
+                                        </g>
+                                    </svg>
+                                    <svg class="icon-close" fill="none" preserveAspectRatio="none" viewBox="0 0 22.6274 22.6274">
+                                        <g>
+                                            <path d="M22.6274 20.469L13.4721 11.3137L22.6274 2.15837L20.469 0L11.3137 9.15534L2.15837 0L0 2.15837L9.15534 11.3137L0 20.469L2.15837 22.6274L11.3137 13.4721L20.469 22.6274L22.6274 20.469Z" fill="black" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+
+                        <!-- Content Section -->
+                        <div class="portfolio1-content-section" data-content-id="portfolio-item-0">
+                            <div class="portfolio1-content-inner">
+                                <div class="portfolio1-content-left">
+                                    <!-- Task Section -->
+                                    <div class="portfolio1-task-section">
+                                        <p class="portfolio1-section-title">Lähteülesanne</p>
+                                        <div class="portfolio1-section-text">
+                                            <p>Uuele lehele seadis klient 4 peamist ülesannet:</p>
+                                            <ol>
+                                                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                                                <li>Lorem Ipsum is simply dummy text of the printing and</li>
+                                                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. väärtuspakkumise ümberkujundamine;</li>
+                                                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+
+                                    <!-- Solution Section -->
+                                    <div class="portfolio1-solution-section">
+                                        <p class="portfolio1-section-title">Lahendus</p>
+                                        <div class="portfolio1-section-text">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Screenshot Section -->
+                                <div class="portfolio1-content-right">
+                                    <div class="portfolio1-screenshot-wrapper">
+                                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Screenshot" class="portfolio1-screenshot-image">
+                                    </div>
+
+                                    <!-- Stats Section -->
+                                    <div class="portfolio1-stats-section">
+                                        <div class="portfolio1-stats-chart">
+                                            <div class="portfolio1-stat-bar before">
+                                                <div class="portfolio1-stat-label">Enne</div>
+                                                <div class="portfolio1-stat-value">150</div>
+                                            </div>
+                                            <div class="portfolio1-stat-bar after">
+                                                <div class="portfolio1-stat-label">Pärast</div>
+                                                <div class="portfolio1-stat-value">450</div>
+                                            </div>
+                                        </div>
+                                        <p class="portfolio1-stats-description">Külastajat kuus</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 - Gray Background -->
+                <div class="portfolio1-item bg-gray" data-category="veebilehed" data-item-id="portfolio-item-1">
+                    <!-- Header Section -->
+                    <div class="portfolio1-header">
+                        <div class="portfolio1-header-left">
+                            <p class="portfolio1-category">Veebilehed</p>
+                            <div class="portfolio1-title-wrapper">
+                                <p class="portfolio1-main-title">TechStart OÜ</p>
+                                <div class="portfolio1-logo-icon">
+                                    <svg fill="none" preserveAspectRatio="none" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg">
+                                        <g>
+                                            <!-- Ikoon 2: Tärniga -->
+                                            <path d="M38.5107 12.864L46.9326 4.44214L57.5557 15.0652L49.1328 23.488H61.0459V38.5115H50.126L58.1279 45.9431L47.9043 56.9509L38.5107 48.2263V61.0466H23.4873V49.1335L15.0635 57.5574L4.44141 46.9343L12.8643 38.5115H0.953125V23.488H11.875L3.87305 16.0564L14.0967 5.04858L23.4873 13.7693V0.953857H38.5107V12.864Z" fill="black"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio1-header-right">
+                            <div class="portfolio1-description">
+                                <p>Kaasaegne veebilahendus tehnoloogia ettevõttele, mis ühendab kasutajasõbraliku disaini ja võimsa funktsionaalsuse.</p>
+                            </div>
+                            <a href="#" class="portfolio1-cta-button">
+                                <p class="portfolio1-cta-text">Vaata lehte</p>
+                                <div class="portfolio1-arrow-icon">
+                                    <svg fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
+                                        <g>
+                                            <rect fill="black" height="26" width="26" />
+                                            <path d="M8.9375 13H17.0625" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104" />
+                                            <path d="M13.8125 9.75L17.0625 13L13.8125 16.25" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15104" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- MacBook Mockup Section -->
+                    <div class="portfolio1-macbook-section">
+                        <div class="portfolio1-macbook-wrapper">
+                            <div class="portfolio1-macbook-container">
+                                <div class="portfolio1-macbook-bezel">
+                                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=800&fit=crop" alt="TechStart" class="portfolio1-macbook-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Details Section -->
+                    <div class="portfolio1-details-wrapper">
+                        <div class="portfolio1-read-more-section">
+                            <button class="portfolio1-read-more-btn" data-target="portfolio-item-1">
+                                <p class="portfolio1-read-more-title">loe lähemalt projektist</p>
+                                <div class="portfolio1-toggle-icon">
+                                    <svg class="icon-plus" fill="none" preserveAspectRatio="none" viewBox="0 0 22.6274 22.6274">
+                                        <g>
+                                            <path d="M11.3137 0V22.6274M0 11.3137H22.6274" stroke="black" stroke-width="2"/>
+                                        </g>
+                                    </svg>
+                                    <svg class="icon-close" fill="none" preserveAspectRatio="none" viewBox="0 0 22.6274 22.6274">
+                                        <g>
+                                            <path d="M22.6274 20.469L13.4721 11.3137L22.6274 2.15837L20.469 0L11.3137 9.15534L2.15837 0L0 2.15837L9.15534 11.3137L0 20.469L2.15837 22.6274L11.3137 13.4721L20.469 22.6274L22.6274 20.469Z" fill="black" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="portfolio1-content-section" data-content-id="portfolio-item-1">
+                            <div class="portfolio1-content-inner">
+                                <div class="portfolio1-content-left">
+                                    <div class="portfolio1-task-section">
+                                        <p class="portfolio1-section-title">Lähteülesanne</p>
+                                        <div class="portfolio1-section-text">
+                                            <p>Klient soovis:</p>
+                                            <ol>
+                                                <li>Modernne ja professionaalne välimus</li>
+                                                <li>Kiire laadimisaeg</li>
+                                                <li>SEO optimeeritud struktuur</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+
+                                    <div class="portfolio1-solution-section">
+                                        <p class="portfolio1-section-title">Lahendus</p>
+                                        <div class="portfolio1-section-text">
+                                            <p>Lõime tänapäevase veebilehe, mis vastab kõikidele nõuetele ja ületab ootused.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="portfolio1-content-right">
+                                    <div class="portfolio1-screenshot-wrapper">
+                                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop" alt="Screenshot" class="portfolio1-screenshot-image">
+                                    </div>
+
+                                    <div class="portfolio1-stats-section">
+                                        <div class="portfolio1-stats-chart">
+                                            <div class="portfolio1-stat-bar before">
+                                                <div class="portfolio1-stat-label">Enne</div>
+                                                <div class="portfolio1-stat-value">2.5s</div>
+                                            </div>
+                                            <div class="portfolio1-stat-bar after">
+                                                <div class="portfolio1-stat-label">Pärast</div>
+                                                <div class="portfolio1-stat-value">0.8s</div>
+                                            </div>
+                                        </div>
+                                        <p class="portfolio1-stats-description">Lehe laadimisaeg</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/portfolio1.js"></script>
+</body>
+</html>

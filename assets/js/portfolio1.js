@@ -52,17 +52,23 @@
         items.forEach(item => {
             const itemCategory = item.getAttribute('data-category');
             
-            // Show all if first category (usually "Kõik") or matching category
-            if (category === items[0].getAttribute('data-category') || 
-                itemCategory === category || 
-                category === 'all' || 
-                category === 'koik') {
+            // Show all if category is "all"
+            if (category === 'all') {
                 item.classList.remove('hidden');
                 // Use setTimeout to trigger animation
                 setTimeout(() => {
                     item.style.opacity = '1';
                 }, 10);
-            } else {
+            } 
+            // Show matching category
+            else if (itemCategory === category) {
+                item.classList.remove('hidden');
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                }, 10);
+            } 
+            // Hide non-matching
+            else {
                 item.style.opacity = '0';
                 setTimeout(() => {
                     item.classList.add('hidden');

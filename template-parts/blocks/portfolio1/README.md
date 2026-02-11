@@ -40,8 +40,13 @@ Laiendatav portfolio komponent kategooriate filtreerimise, MacBook mockup'ide ja
 - **Kuva mobiilis**: Määra mobiilse nähtavuse
 
 ### Kategooriad
-- **Kategooria nimi**: Kuvatav nimi (nt. "Kõik Kodulehed")
-- **Kategooria slug**: Unikaalne identifikaator (nt. "koik")
+
+**TÄHTIS:** "Kõik Kodulehed" nupp lisatakse automaatselt!
+
+- **Kategooria nimi**: Kuvatav nimi (nt. "Eridisain", "Veebilehed")
+- **Kategooria slug**: Unikaalne identifikaator (nt. "eridisain", "veebilehed")
+
+**Märkus:** Esimene filtreerimise nupp on alati "Kõik Kodulehed" ja see lisatakse automaatselt. Sa pead lisama ainult spetsiifilised kategooriad.
 
 ### Portfolio tööd
 
@@ -49,7 +54,8 @@ Laiendatav portfolio komponent kategooriate filtreerimise, MacBook mockup'ide ja
 - **Kategooria**: Kategooria slug (peab vastama üleval määratule)
 - **Kategooria silt**: Kuvatav kategooria nimi
 - **Pealkiri**: Töö pealkiri
-- **Logo SVG kood**: SVG path kood logo jaoks
+- **Logo tüüp**: Vali ikoon (Ilma ikoonita, Ikoon 1, Ikoon 2, Custom SVG)
+- **Custom Logo SVG kood**: SVG path kood (ainult kui Logo tüüp = Custom SVG)
 - **Kirjeldus**: Lühike kirjeldus tööst
 - **Nupu tekst**: CTA nupu tekst (vaikimisi: "Vaata lehte")
 - **Nupu link**: Link, kuhu nupp viib
@@ -176,4 +182,5 @@ acf-json/
 - Ainult üks akordion saab korraga avatud olla
 - Filtreerimisel peidetakse mittevastavad tööd
 - Mobiilis on kohandatud paigutus ja suurused
-- Logo SVG tuleb lisada ilma `<svg>` tagideta, ainult `<path>` või `<g>` sisu
+- Logo ikoonid: 3 valmis ikooni (Ikoon 1, Ikoon 2) või custom SVG
+- Custom SVG tuleb lisada ilma `<svg>` tagideta, ainult `<path>` või `<g>` sisu

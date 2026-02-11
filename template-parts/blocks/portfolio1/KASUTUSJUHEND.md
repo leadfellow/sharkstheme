@@ -33,7 +33,16 @@
 **Pealkiri** (kohustuslik)
 - Töö pealkiri (nt. "Kalle beds")
 
-**Logo SVG kood** (valikuline)
+**Logo tüüp** (valikuline)
+- Vali eelnevalt määratud ikoonidest või kasuta custom SVG'd
+- Valikud:
+  - **Ilma ikoonita** - Logo ei kuvata
+  - **Ikoon 1 (X-mustriga)** - X-kujuline muster
+  - **Ikoon 2 (Tärniga)** - Tärni kujuline ikoon
+  - **Custom SVG kood** - Kasuta oma SVG koodi
+
+**Custom Logo SVG kood** (valikuline)
+- Kuvatakse ainult kui "Logo tüüp" on "Custom SVG kood"
 - Lisa ainult SVG path kood
 - Näide: `<path d="M59.043 2.95701..." fill="black" />`
 - ⚠️ Ära lisa `<svg>` tage, ainult sisu!
@@ -110,23 +119,23 @@
 
 ### Kategooriad
 
+**TÄHTIS:** "Kõik Kodulehed" nupp lisatakse automaatselt ja näitab kõiki töid!
+
 ```
 Kategooria 1:
-- Nimi: Kõik Kodulehed
-- Slug: koik
+- Nimi: Eridisain
+- Slug: eridisain
 
 Kategooria 2:
 - Nimi: Veebilehed
 - Slug: veebilehed
 
 Kategooria 3:
-- Nimi: Eridisain
-- Slug: eridisain
-
-Kategooria 4:
 - Nimi: E-poed
 - Slug: e-poed
 ```
+
+**Märkus:** Esimene nupp "Kõik Kodulehed" lisatakse automaatselt ja ei pea seda kategooriates määrama.
 
 ### Töö näide
 
@@ -135,7 +144,7 @@ Kategooria 4:
 Kategooria: eridisain
 Kategooria silt: Eridisain
 Pealkiri: Kalle beds
-Logo SVG: <path d="M59.043 2.95701C57.4099..." fill="black" />
+Logo tüüp: Ikoon 1 (X-mustriga)
 Kirjeldus: Persona pakub personali- ja palgaarvestust, töö- ja puhkusekraafikuid ühtses pilvepõhises tarkvaras.
 Nupu tekst: Vaata lehte
 Nupu link: https://example.com
@@ -218,15 +227,19 @@ Silt: Külastajat kuus
 - Mitteametlik stiil
 - Õigekirjavead
 
-### Logo SVG
+### Logo ikoonid
 
 ✅ **Hea:**
-```html
-<path d="M59.043 2.95701C57.4099..." fill="black" />
-```
+- Vali "Ikoon 1" või "Ikoon 2" kiireks kasutamiseks
+- Vali "Custom SVG kood" kui vajad oma ikooni
+- Vali "Ilma ikoonita" kui logo pole vajalik
 
-❌ **Halb:**
+**Custom SVG näide:**
 ```html
+✅ Õige:
+<path d="M59.043 2.95701C57.4099..." fill="black" />
+
+❌ Vale:
 <svg viewBox="0 0 62 62">
   <path d="M59.043 2.95701C57.4099..." fill="black" />
 </svg>

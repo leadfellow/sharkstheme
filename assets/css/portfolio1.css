@@ -300,16 +300,14 @@
 
 .portfolio1-read-more-btn {
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 62px 1fr 62px;
     align-items: center;
     padding: 0;
     background: transparent;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    position: relative;
 }
 
 .portfolio1-read-more-btn:hover {
@@ -326,17 +324,17 @@
     text-transform: uppercase;
     color: #000000;
     margin: 0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    text-align: center;
+    grid-column: 2;
 }
 
 .portfolio1-toggle-icon {
     width: 62px;
     height: 62px;
     position: relative;
-    margin-left: auto;
     border-radius: 182.986px;
+    grid-column: 3;
+    justify-self: end;
 }
 
 .portfolio1-toggle-icon svg {

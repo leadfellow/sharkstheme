@@ -4,6 +4,14 @@ Kõik olulised muudatused selles projektis dokumenteeritakse siin.
 
 Formaat põhineb [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) põhimõtetel.
 
+## [1.1.0] - 2026-02-11
+
+### Parandatud
+- 📐 "Loe lähemalt" kasutab nüüd CSS Grid'i täpseks tsentreerimiseks
+- 🎯 Grid: 62px (tühi) | 1fr (tekst) | 62px (ikoon)
+- ✅ Tekst on nüüd täpselt keskel, arvestades ikooni ruumiga
+- 📍 Ikoon paremale (grid-column: 3)
+
 ## [1.0.9] - 2026-02-11
 
 ### Parandatud

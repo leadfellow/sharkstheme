@@ -5,13 +5,14 @@
 
 .portfolio1-block {
     width: 100%;
-    padding: 60px 0;
+    padding: 120px 0;
+    background: #F7F7F5;
 }
 
 .portfolio1-container {
-    max-width: 1400px;
+    max-width: 1440px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 58px;
 }
 
 /* Category Filter */
@@ -20,9 +21,9 @@
     gap: 0;
     justify-content: center;
     align-items: center;
-    margin-bottom: 60px;
+    margin-bottom: 62px;
     flex-wrap: wrap;
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 1px solid #BBBAB6;
     padding-bottom: 0;
 }
 
@@ -71,8 +72,11 @@
 }
 
 .portfolio1-item {
-    display: block;
-    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 62px;
     transition: opacity 0.3s ease, max-height 0.3s ease;
 }
 
@@ -81,53 +85,71 @@
 }
 
 .portfolio1-item.bg-white {
-    background: #ffffff;
+    background: transparent;
 }
 
 .portfolio1-item.bg-gray {
-    background: #f5f5f5;
+    background: transparent;
 }
 
 /* Header Section */
 .portfolio1-header {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    gap: 60px;
-    margin-bottom: 40px;
+    align-items: flex-start;
+    padding: 0;
+    gap: 356px;
+    width: 100%;
 }
 
 .portfolio1-header-left {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 22px;
+    width: 540px;
 }
 
 .portfolio1-header-right {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    align-items: flex-start;
+    padding: 0;
+    gap: 22px;
+    width: 428px;
 }
 
 .portfolio1-category {
-    font-size: 14px;
-    font-weight: 500;
-    color: #666666;
-    margin: 0 0 16px 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-family: 'Helvetica', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 140%;
+    color: #F237A6;
+    margin: 0;
 }
 
 .portfolio1-title-wrapper {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 16px;
+    padding: 0;
+    gap: 30px;
 }
 
 .portfolio1-main-title {
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 1.2;
-    margin: 0;
+    font-family: 'Switzer', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 82px;
+    line-height: 110%;
+    text-align: center;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
     color: #000000;
+    margin: 0;
 }
 
 .portfolio1-logo-icon {
@@ -146,19 +168,25 @@
 }
 
 .portfolio1-description p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333333;
+    font-family: 'Helvetica', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    color: #000000;
     margin: 0;
 }
 
 .portfolio1-cta-button {
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 12px;
-    padding: 14px 24px;
-    background: #ffffff;
-    border: 2px solid #000000;
+    padding: 10px 0;
+    gap: 8px;
+    background: transparent;
+    border: none;
     text-decoration: none;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -181,8 +209,13 @@
 }
 
 .portfolio1-cta-text {
-    font-size: 16px;
+    font-family: 'Switzer', sans-serif;
+    font-style: normal;
     font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: -0.03em;
+    text-decoration-line: underline;
     color: #000000;
     margin: 0;
     transition: color 0.3s ease;
@@ -209,11 +242,18 @@
 
 /* MacBook Mockup Section */
 .portfolio1-macbook-section {
-    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 120px 58px;
+    gap: 62px;
+    isolation: isolate;
+    width: 100%;
     background: #000000;
-    padding: 60px 40px;
-    margin-left: -40px;
-    margin-right: -40px;
+    margin-left: -58px;
+    margin-right: -58px;
+    padding-left: 58px;
+    padding-right: 58px;
 }
 
 .portfolio1-macbook-wrapper {
@@ -257,18 +297,26 @@
 
 /* Read More Section */
 .portfolio1-read-more-section {
-    margin-bottom: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 25px;
+    gap: 40px;
+    width: 100%;
+    border-bottom: 1px solid #BBBAB6;
 }
 
 .portfolio1-read-more-btn {
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 0;
+    padding: 0;
+    gap: 10px;
     background: transparent;
     border: none;
-    border-top: 2px solid #000000;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -278,17 +326,22 @@
 }
 
 .portfolio1-read-more-title {
-    font-size: 18px;
-    font-weight: 600;
+    font-family: 'Switzer', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 110%;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
     color: #000000;
     margin: 0;
-    text-transform: lowercase;
 }
 
 .portfolio1-toggle-icon {
-    width: 24px;
-    height: 24px;
+    width: 62px;
+    height: 62px;
     position: relative;
+    border-radius: 182.986px;
 }
 
 .portfolio1-toggle-icon svg {
@@ -330,26 +383,34 @@
 .portfolio1-content-section.active {
     max-height: 3000px;
     opacity: 1;
-    padding-top: 40px;
 }
 
 .portfolio1-content-inner {
     display: flex;
-    gap: 60px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 58px 35px 0;
+    gap: 132px;
 }
 
 .portfolio1-content-left {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    align-items: flex-start;
+    padding: 0;
+    gap: 42px;
+    width: 540px;
 }
 
 .portfolio1-content-right {
-    flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
     gap: 30px;
+    width: 652px;
+    background: #FFFFFF;
 }
 
 .portfolio1-section-title {

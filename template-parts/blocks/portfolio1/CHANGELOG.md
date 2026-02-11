@@ -4,6 +4,33 @@ Kõik olulised muudatused selles projektis dokumenteeritakse siin.
 
 Formaat põhineb [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) põhimõtetel.
 
+## [1.0.5] - 2026-02-11
+
+### Muudetud
+- 🎨 Filtreerimise nuppude stiil täpsustatud
+- 🔤 Font: Switzer Medium 20px, letter-spacing: -0.03em
+- 🎨 Mitteaktiivne: #757472 (hall), ilma allakriipsutuseta
+- 🎨 Aktiivne: #000000 (must), allakriipsutusega
+- ❌ Eemaldatud alumine border-bottom joon
+- ❌ Eemaldatud sinine border aktiivse nupu alt
+
+## [1.0.4] - 2026-02-11
+
+### Muudetud
+- 🎨 CSS uuendatud vastavalt Figma disainile
+- 📐 Täpsed mõõtmed ja gap'id
+- 🔤 Täpsed fontide suurused ja kaalud
+- 🎨 Täpsed värvid (#F7F7F5, #F237A6, #BBBAB6, #141414)
+- 📏 Container max-width: 1440px, padding: 58px
+- 🔤 Pealkiri: Switzer 82px, letter-spacing: -0.05em
+- 🔤 Kategooria: Helvetica 18px, värv: #F237A6
+- 🔤 Kirjeldus: Helvetica 18px, line-height: 140%
+- 🔤 "Loe lähemalt": Switzer 42px
+- 📐 Header gap: 356px
+- 📐 Content gap: 132px
+- 📐 MacBook section padding: 120px 58px
+- 🎨 Content right background: #FFFFFF
+
 ## [1.0.3] - 2026-02-11
 
 ### Muudetud

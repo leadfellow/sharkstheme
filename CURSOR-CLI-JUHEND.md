@@ -1,245 +1,229 @@
-# Cursor CLI kasutamise juhend
+# Sharks 2025 teema - Cursor juhend
 
-## 1. Mis on Cursor CLI?
+## Projekti ülevaade
 
-Cursor CLI võimaldab kasutada Cursor AI agenti otse terminalist, ilma graafilise kasutajaliideseta. See on kasulik:
-- Serverikeskkondades (nt WSL, remote serverid)
-- Automatiseeritud töövoogudes
-- Kui eelistad terminali-põhist tööd
-
----
-
-## 2. Cursor CLI paigaldamine
-
-### Windowsis (PowerShell)
-```powershell
-# Cursor CLI tuleb koos Cursor IDE-ga
-# Kontrolli, kas cursor käsk on saadaval:
-cursor --version
-```
-
-### WSL/Linux keskkonnas
-```bash
-# Kui Cursor on Windowsis installitud, saad WSL-ist kasutada:
-cursor.cmd --version
-
-# Või lisa alias .bashrc faili:
-echo 'alias cursor="cursor.cmd"' >> ~/.bashrc
-source ~/.bashrc
-```
+**Teema nimi:** Sharks 2025  
+**Versioon:** 1.9.0  
+**Tüüp:** WordPress teema ACF Blocks + Gutenberg  
+**Asukoht:** `/var/www/html/sharks-wp/wp-content/themes/sharks2025`
 
 ---
 
-## 3. Projekti avamine CLI kaudu
+## Projekti struktuur
 
-```bash
-# Mine projekti kausta
-cd /var/www/html/sharks-wp/wp-content/themes/sharks2025
-
-# Ava Cursor selles kaustas
-cursor .
-```
-
----
-
-## 4. Kuidas agendile ülesandeid anda
-
-### Põhimõtted:
-
-1. **Ole konkreetne ja detailne** - Kuna CLI keskkonnas pole visuaalset konteksti, kirjelda täpselt:
-   - Millist faili soovid muuta
-   - Mis on praegune olukord
-   - Mis on soovitud tulemus
-
-2. **Kasuta @ viiteid failidele**
-   ```
-   @style.css - viitab konkreetsele failile
-   @inc/ - viitab kaustale
-   ```
-
-3. **Ülesande struktuur** - Hea ülesande formaat:
-   ```
-   ÜLESANNE: [Lühike kirjeldus]
-   
-   KONTEKST:
-   - Mis on praegune olukord
-   - Miks seda vaja on
-   
-   NÕUDED:
-   - Konkreetne nõue 1
-   - Konkreetne nõue 2
-   
-   FAILID:
-   - @failinimi.php - mida seal teha
-   ```
-
----
-
-## 5. Mida agent teeb
-
-### Agendi töövoog:
-
-1. **Loeb ja analüüsib** - Kasutab `Read` tööriista failide lugemiseks
-2. **Otsib** - Kasutab `Grep` ja `Glob` koodi otsimiseks
-3. **Muudab** - Kasutab `StrReplace` või `Write` failide muutmiseks
-4. **Testib** - Kontrollib linterite vigu
-5. **Raporteerib** - Annab tagasisidet tehtud muudatustest
-
-### Agendi võimekused:
-- Failide lugemine ja kirjutamine
-- Koodi otsimine ja analüüs
-- Terminali käskude käivitamine
-- Veebilehitseja kasutamine testimiseks
-- Ülesannete planeerimine ja jälgimine
-
----
-
-## 6. Praktilised näited ülesannete andmiseks
-
-### Näide 1: Lihtne muudatus
-```
-Muuda header.php failis logo laiust 200px pealt 250px peale
-```
-
-### Näide 2: Keerukam ülesanne
-```
-ÜLESANNE: Lisa uus custom post type "Tooted"
-
-NÕUDED:
-- Post type nimi: "tooted"
-- Toetab: title, editor, thumbnail
-- Nähtav admin menüüs
-- Has archive: true
-
-FAIL: @inc/custom-post-types.php
-```
-
-### Näide 3: Bugfix
-```
-PROBLEEM: Mobiilivaates menüü ei sulgu pärast lingi klikkimist
-
-OODATUD KÄITUMINE: Menüü peaks sulguma automaatselt
-
-FAILID: Tõenäoliselt @js/navigation.js või @inc/header.php
-```
-
-### Näide 4: Uue funktsionaalsuse lisamine
-```
-ÜLESANNE: Lisa AJAX-põhine otsing
-
-KIRJELDUS:
-Kasutaja sisestab otsingusõna ja tulemused ilmuvad
-reaalajas ilma lehte uuendamata.
-
-NÕUDED:
-- Minimaalne tähemärkide arv: 3
-- Debounce: 300ms
-- Näita loading indikaatorit
-- Kuva "Tulemusi ei leitud" kui tühi
-
-FAILID:
-- @js/search.js - JS loogika
-- @inc/ajax-handlers.php - PHP handler
-- @style.css - stiilid
-```
-
----
-
-## 7. Soovitused efektiivseks koostööks
-
-| Tee nii ✓ | Ära tee nii ✗ |
-|-----------|---------------|
-| "Muuda @style.css failis .header klassi font-size 18px peale" | "Muuda fondi suuremaks" |
-| "Lisa functions.php faili uus filter mis..." | "Lisa mingi filter" |
-| Kirjelda oodatavat tulemust | Eelda, et agent teab konteksti |
-| Maini seotud failid | Jäta failid mainimata |
-| Anna konkreetsed väärtused (värvid, suurused) | "Tee ilusamaks" |
-
----
-
-## 8. Erinevused GUI vs CLI vahel
-
-| Aspekt | GUI (graafiline) | CLI |
-|--------|------------------|-----|
-| Failide nägemine | Näed avatud faile | Pead mainima faile |
-| Kontekst | Automaatne | Pead kirjeldama |
-| Kiirus | Visuaalne navigeerimine | Käsupõhine |
-| Sobib | Avastamiseks | Konkreetseteks ülesanneteks |
-
----
-
-## 9. Kasulikud käsud
-
-```bash
-# Ava projekt Cursoris
-cursor .
-
-# Ava konkreetne fail
-cursor failinimi.php
-
-# Ava mitu faili
-cursor fail1.php fail2.php
-
-# Näita Cursor versiooni
-cursor --version
-
-# Näita abi
-cursor --help
-```
-
----
-
-## 10. Veaotsing
-
-### Probleem: cursor käsku ei leita
-```bash
-# Lisa Cursor PATH-i või kasuta täispikka teed
-# Windows: C:\Users\[kasutaja]\AppData\Local\Programs\cursor\Cursor.exe
-# Või kasuta alias'it
-```
-
-### Probleem: Agent ei leia faile
-```
-# Kasuta täispikka teed või @ viiteid
-# Kontrolli, et oled õiges kaustas
-```
-
-### Probleem: Muudatused ei rakendu
-```
-# Kontrolli, et fail on salvestatud
-# Vaata, kas on linter vigu
-# Küsi agendilt kinnitust muudatuste kohta
-```
-
----
-
-## 11. Projekti struktuur (sharks2025 teema)
-
-Selle projekti puhul on kasulik teada:
 ```
 sharks2025/
-├── style.css          # Peamine stiilileht
-├── functions.php      # Teema funktsioonid
-├── header.php         # Päis
-├── footer.php         # Jalus
-├── index.php          # Peamine template
-├── inc/               # PHP include failid
-├── js/                # JavaScript failid
-├── css/               # Täiendavad CSS failid
-├── template-parts/    # Template osad
-└── assets/            # Pildid, fondid jne
+├── functions.php          # Teema seaded, SHARKS_VERSION
+├── style.css              # WP teema info (stiilid on site.css-is)
+├── header.php             # Päis
+├── footer.php             # Jalus
+├── front-page.php         # Avalehe template
+├── single.php             # Üksiku postituse template
+├── page.php               # Lehe template
+│
+├── inc/                   # PHP funktsioonid
+│   ├── theme.php          # Teema setup, enqueue
+│   ├── blocks.php         # ACF blokkide registreerimine
+│   ├── post-types.php     # Custom post types
+│   ├── admin-settings.php # Admin seaded
+│   ├── menu-icons.php     # Menüü ikoonid
+│   └── schema.php         # Schema.org markup
+│
+├── template-parts/blocks/ # ACF BLOKID (54 blokki)
+│   ├── hero/
+│   ├── four-steps/
+│   ├── portfolio1/
+│   ├── experience/
+│   ├── testimonials/
+│   ├── cta/
+│   ├── blog-posts/
+│   └── ... (47 muud blokki)
+│
+├── assets/
+│   ├── css/
+│   │   ├── 00-settings/variables.css  # CSS muutujad
+│   │   ├── 30-components/             # Blokkide stiilid
+│   │   ├── 40-layout/                 # Layout stiilid
+│   │   └── site.css                   # Kompileeritud CSS
+│   └── js/                            # JavaScript failid
+│
+├── acf-json/              # ACF väljade JSON eksport
+└── .cursor/rules/         # Cursor reeglid
 ```
 
 ---
 
-## 12. Kiire alustamise checklist
+## Olulised reeglid
 
-- [ ] Cursor on installitud
-- [ ] `cursor --version` töötab
-- [ ] Oled projekti kaustas
-- [ ] Tead projekti struktuuri
-- [ ] Oled valmis konkreetseid ülesandeid andma
+### 1. Versiooni tõstmine (KOHUSTUSLIK!)
+
+Pärast IGAT CSS/JS muudatust tõsta versiooni `functions.php` failis:
+
+```php
+// Praegune versioon
+define('SHARKS_VERSION', '1.9.0');
+
+// Pärast muudatust
+define('SHARKS_VERSION', '1.9.1');
+```
+
+**Miks?** Versioon on cache-busting parameeter. Ilma selleta kasutajad näevad vanu stiile.
+
+### 2. CSS struktuur
+
+- **Muutujad:** `assets/css/00-settings/variables.css`
+- **Blokkide stiilid:** `assets/css/30-components/[bloki-nimi].css`
+- **Layout:** `assets/css/40-layout/`
+
+### 3. Blokkide struktuur
+
+Iga blokk asub `template-parts/blocks/[bloki-nimi]/` kaustas:
+- `[bloki-nimi].php` - PHP template
+- `README.md` - dokumentatsioon (kui on)
+
+ACF väljad: `acf-json/group_[bloki_nimi].json`
 
 ---
 
-*Viimati uuendatud: Veebruar 2026*
+## Olemasolevad blokid (54 tk)
+
+| Blokk | Kirjeldus |
+|-------|-----------|
+| `hero` | Avalehe hero banner |
+| `four-steps` | 4-sammuline protsess |
+| `portfolio1` | Portfoolio filtritega |
+| `experience` | Kogemuse näitajad |
+| `testimonials` | Klientide tagasiside |
+| `cta` | Call-to-action |
+| `blog-posts` | Blogipostitused |
+| `team` | Meeskond |
+| `certificates` | Sertifikaadid |
+| `faq` | KKK accordion |
+| `inquiry` / `inquiry-2` | Päringuvormid |
+| `why-sharks` / `why-sharks-2` | Miks valida meid |
+| `progress` | Progress bar |
+| `table-2` | Tabel |
+| `wide-picture` | Lai pilt |
+| `content-highlighted` | Esiletõstetud sisu |
+| `closed-accordion` | Suletud accordion |
+| ... | ja veel 37 blokki |
+
+---
+
+## Ülesannete andmine
+
+### Blokkide muutmine
+
+```
+ÜLESANNE: Muuda [bloki-nimi] blokki
+
+MUUDATUS:
+- [Konkreetne muudatus]
+
+FAILID:
+- @template-parts/blocks/[bloki-nimi]/[bloki-nimi].php
+- @assets/css/30-components/[bloki-nimi].css
+```
+
+### Näide: Hero bloki muutmine
+
+```
+ÜLESANNE: Muuda hero bloki tausta värvi
+
+MUUDATUS:
+- Taustavärv peaks olema #1a1a2e
+
+FAILID:
+- @template-parts/blocks/hero/hero.php
+- @assets/css/30-components/hero.css
+```
+
+### Näide: Uue bloki loomine
+
+```
+ÜLESANNE: Loo uus blokk "partners"
+
+NÕUDED:
+- Näitab partnerite logosid
+- 6 logo reas
+- Hover efekt
+- ACF väljad: logo pilt, link, nimi
+
+FAILID:
+- @template-parts/blocks/partners/partners.php (uus)
+- @assets/css/30-components/partners.css (uus)
+- @inc/blocks.php (lisa registreerimine)
+- @acf-json/group_partners.json (uus)
+```
+
+### Näide: CSS muutmine
+
+```
+ÜLESANNE: Muuda four-steps bloki värve
+
+MUUDATUS:
+- Ikoonide taustavärv: #f237a6
+- Teksti värv: #ffffff
+
+FAIL: @assets/css/30-components/four-steps.css
+
+NB! Ära unusta SHARKS_VERSION tõsta!
+```
+
+### Näide: Bugfix
+
+```
+PROBLEEM: Portfolio1 filter ei tööta mobiilis
+
+OODATUD: Filter peaks avanema ja sulguma
+
+FAILID:
+- @assets/js/portfolio1.js
+- @assets/css/portfolio1.css
+```
+
+---
+
+## Kiirviited failidele
+
+| Vajadus | Fail |
+|---------|------|
+| Teema versioon | `@functions.php` |
+| CSS muutujad | `@assets/css/00-settings/variables.css` |
+| Päis | `@header.php` |
+| Jalus | `@footer.php` |
+| Menüü | `@inc/menu-icons.php` |
+| Blokkide register | `@inc/blocks.php` |
+| Post types | `@inc/post-types.php` |
+
+---
+
+## Workflow
+
+1. **Anna ülesanne** - kirjelda täpselt mida vaja
+2. **Agent loeb** - vaatab failid üle
+3. **Agent muudab** - teeb muudatused
+4. **Agent tõstab versiooni** - uuendab SHARKS_VERSION
+5. **Agent raporteerib** - näitab mis tehti
+
+---
+
+## Mida MITTE teha
+
+- ❌ Ära muuda `style.css` sisu (ainult meta info)
+- ❌ Ära kustuta `acf-json` faile käsitsi
+- ❌ Ära unusta versiooni tõsta pärast CSS muudatusi
+- ❌ Ära lisa inline stiile PHP failidesse (kasuta CSS faile)
+
+---
+
+## Mida ALATI teha
+
+- ✅ Kasuta olemasolevaid CSS muutujaid `variables.css`-ist
+- ✅ Järgi olemasolevat koodi stiili
+- ✅ Tõsta SHARKS_VERSION pärast visuaalseid muudatusi
+- ✅ Testi mobiilivaates
+
+---
+
+*Sharks 2025 teema - Cursor juhend*

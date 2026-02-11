@@ -4,6 +4,14 @@ Kõik olulised muudatused selles projektis dokumenteeritakse siin.
 
 Formaat põhineb [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) põhimõtetel.
 
+## [1.0.8] - 2026-02-11
+
+### Muudetud
+- 📐 MacBook mockup must taust nüüd content area laiuses (mitte full-width)
+- 📍 "Loe lähemalt projektist" tekst keskele
+- 📍 Toggle ikoon (nool) paremale (position: absolute, right: 0)
+- 🎨 Must taust ei lähe enam üle content area
+
 ## [1.0.7] - 2026-02-11
 
 ### Muudetud

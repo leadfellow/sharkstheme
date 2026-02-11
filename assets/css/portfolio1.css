@@ -245,10 +245,6 @@
     isolation: isolate;
     width: 100%;
     background: #000000;
-    margin-left: -58px;
-    margin-right: -58px;
-    padding-left: 58px;
-    padding-right: 58px;
 }
 
 .portfolio1-macbook-wrapper {
@@ -306,7 +302,7 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0;
     gap: 10px;
@@ -314,6 +310,7 @@
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .portfolio1-read-more-btn:hover {
@@ -329,13 +326,14 @@
     letter-spacing: -0.05em;
     text-transform: uppercase;
     color: #000000;
-    margin: 0;
+    margin: 0 auto;
 }
 
 .portfolio1-toggle-icon {
     width: 62px;
     height: 62px;
-    position: relative;
+    position: absolute;
+    right: 0;
     border-radius: 182.986px;
 }
 

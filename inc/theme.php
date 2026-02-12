@@ -133,6 +133,17 @@ add_action('wp_enqueue_scripts', function() {
         SHARKS_VERSION,
         true // Load in footer
     );
+    
+    // Single post table of contents (only on single post pages)
+    if (is_single()) {
+        wp_enqueue_script(
+            'sharks-single-post-toc',
+            get_stylesheet_directory_uri() . '/assets/js/single-post-toc.js',
+            [],
+            SHARKS_VERSION,
+            true // Load in footer
+        );
+    }
 }, 10);
 
 /**

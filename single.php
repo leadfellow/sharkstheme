@@ -76,9 +76,17 @@ while (have_posts()) : the_post();
             <?php endif; ?>
         </div>
         
-        <!-- Post Content -->
-        <div class="single-post-content">
-            <?php the_content(); ?>
+        <!-- Post Content with TOC -->
+        <div class="single-post-content-wrapper">
+            <!-- Table of Contents (Left) -->
+            <nav class="single-post-toc" id="post-toc">
+                <!-- Will be populated by JavaScript -->
+            </nav>
+            
+            <!-- Main Content (Right) -->
+            <div class="single-post-content">
+                <?php the_content(); ?>
+            </div>
         </div>
         
         <!-- Post Tags -->

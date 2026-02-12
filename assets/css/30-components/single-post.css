@@ -104,11 +104,136 @@
     object-position: center;
 }
 
-/* Post Content */
+/* Post Content Wrapper - Two Column Layout */
+.single-post-content-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 120px 58px 80px;
+    display: flex;
+    gap: 132px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Table of Contents (Left Column) */
+.single-post-toc {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    flex-shrink: 0;
+    width: 316px;
+    position: sticky;
+    top: 120px;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    align-self: flex-start;
+}
+
+/* Custom scrollbar for TOC */
+.single-post-toc::-webkit-scrollbar {
+    width: 4px;
+}
+
+.single-post-toc::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.single-post-toc::-webkit-scrollbar-thumb {
+    background: #bbbab6;
+    border-radius: 2px;
+}
+
+.single-post-toc::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* When TOC is hidden, center the content */
+.single-post-content-wrapper:has(.single-post-toc[style*="display: none"]) {
+    justify-content: center;
+}
+
+.single-post-content-wrapper:has(.single-post-toc[style*="display: none"]) .single-post-content {
+    margin: 0 auto;
+}
+
+.single-post-toc .toc-item {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.single-post-toc .toc-item-border {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    width: 100%;
+}
+
+.single-post-toc .toc-item-border::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #bbbab6;
+}
+
+.single-post-toc .toc-item-content {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    flex-shrink: 0;
+    width: 100%;
+    white-space: pre-wrap;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.single-post-toc .toc-item-content:hover {
+    opacity: 0.7;
+}
+
+.single-post-toc .toc-number {
+    font-family: 'Switzer', sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    flex-shrink: 0;
+    color: #bbbab6;
+    font-size: 26px;
+    letter-spacing: -1.3px;
+    text-transform: uppercase;
+    width: 60px;
+}
+
+.single-post-toc .toc-text {
+    flex: 1 0 0;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    min-height: 1px;
+    min-width: 1px;
+    font-size: 18px;
+    color: #000;
+}
+
+.single-post-toc .toc-item.active .toc-number {
+    color: #F237A6;
+}
+
+.single-post-toc .toc-item.active .toc-text {
+    color: #F237A6;
+}
+
+/* Post Content (Right Column) */
 .single-post-content {
     max-width: 652px;
-    margin: 0 auto;
-    padding: 120px 0 80px;
+    flex-shrink: 0;
+    width: 652px;
     /* Reduced side padding because max-width is now exact 652px */
     background: #fff;
     display: flex;
@@ -117,15 +242,48 @@
     /* Frame 211 gap */
 }
 
+/* Content sections - h2 + following content grouped together */
+/* Remove gap before h2 if it follows content */
+.single-post-content > *:not(:first-child) {
+    margin-top: 0;
+}
+
+/* Add proper spacing between sections (h2 groups) */
+.single-post-content h2 {
+    margin-top: 62px;
+}
+
+/* First h2 should not have top margin */
+.single-post-content > h2:first-of-type,
+.single-post-content > p:first-child + h2 {
+    margin-top: 0;
+}
+
+/* Elements immediately after h2 should have 20px gap */
+.single-post-content h2 + * {
+    margin-top: 20px !important;
+}
+
+/* Elements within a section (after h2) should have 20px gap between them */
+.single-post-content h2 ~ *:not(h2) + *:not(h2) {
+    margin-top: 20px;
+}
+
+/* But if next element is h2, it should have 62px gap (new section) */
+.single-post-content h2 ~ * + h2 {
+    margin-top: 62px;
+}
+
 /* First paragraph (Intro/Huge Body) */
-.single-post-content>p:first-of-type {
+.single-post-content>p:first-child {
     font-family: 'Helvetica', sans-serif;
     font-size: 36px;
     font-weight: 400;
     line-height: 1.1;
-    letter-spacing: -0.05em;
+    letter-spacing: -1.8px;
     color: #000000 !important;
     margin: 0;
+    white-space: pre-wrap;
 }
 
 .single-post-content p {
@@ -138,6 +296,12 @@
     color: #141414 !important;
 }
 
+/* Empty paragraphs (like &nbsp;) should be hidden or minimal */
+.single-post-content p:empty,
+.single-post-content p:has(br:only-child) {
+    display: none;
+}
+
 .single-post-content * {
     color: #141414;
 }
@@ -146,10 +310,6 @@
 .single-post-content h2,
 .single-post-content h3,
 .single-post-content h4 {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    /* Frame 208/209/210 gap emulation */
     margin: 0;
 }
 
@@ -158,7 +318,7 @@
     font-size: 32px;
     font-weight: 500;
     line-height: 1.1;
-    letter-spacing: -0.05em;
+    letter-spacing: -1.6px;
     text-transform: uppercase;
     color: #000000 !important;
 }
@@ -168,7 +328,7 @@
     font-size: 32px;
     font-weight: 500;
     line-height: 1.1;
-    letter-spacing: -0.05em;
+    letter-spacing: -1.6px;
     text-transform: uppercase;
     color: #000000 !important;
 }
@@ -178,7 +338,7 @@
     font-size: 32px;
     font-weight: 500;
     line-height: 1.1;
-    letter-spacing: -0.05em;
+    letter-spacing: -1.6px;
     text-transform: uppercase;
     color: #000000 !important;
 }
@@ -186,15 +346,16 @@
 .single-post-content ul,
 .single-post-content ol {
     font-size: 18px;
-    line-height: 1.8;
-    margin-bottom: 24px;
-    padding-left: 28px;
-    color: #333;
+    line-height: 1.4;
+    margin: 0;
+    padding-left: 27px;
+    color: #141414;
 }
 
 .single-post-content li {
-    margin-bottom: 12px;
-    color: #333 !important;
+    margin-bottom: 0;
+    line-height: 1.4;
+    color: #141414 !important;
 }
 
 .single-post-content img {
@@ -419,16 +580,31 @@
         height: 400px;
     }
 
-    .single-post-content {
+    .single-post-content-wrapper {
+        flex-direction: column;
         padding: 80px 20px 60px;
+        gap: 40px;
+    }
+
+    .single-post-toc {
+        position: static;
+        width: 100%;
+        order: 2;
+    }
+
+    .single-post-content {
+        width: 100%;
+        max-width: 100%;
+        order: 1;
     }
 
     .single-post-tags {
         padding: 0 20px 60px;
     }
-
-    .single-post-tags {
-        padding: 0 20px 60px;
+    
+    /* When TOC is hidden in mobile, center content */
+    .single-post-content-wrapper:has(.single-post-toc[style*="display: none"]) .single-post-content {
+        margin: 0 auto;
     }
 
     .related-posts {
@@ -501,6 +677,10 @@
         height: 300px;
     }
 
+    .single-post-content-wrapper {
+        padding: 60px 20px 40px;
+    }
+
     .single-post-content p {
         font-size: 16px;
     }
@@ -511,6 +691,16 @@
 
     .single-post-content h3 {
         font-size: 22px;
+    }
+
+    .single-post-toc .toc-number {
+        font-size: 20px;
+        letter-spacing: -1px;
+        width: 50px;
+    }
+
+    .single-post-toc .toc-text {
+        font-size: 16px;
     }
 
     .related-posts-title {

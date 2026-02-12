@@ -4,6 +4,28 @@ Kõik olulised muudatused selles projektis dokumenteeritakse siin.
 
 Formaat põhineb [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) põhimõtetel.
 
+## [1.3.0] - 2026-02-11
+
+### Muudetud
+- 🔄 Metrikate struktuur lihtsustatud: 4 fikseeritud välja (mitte repeater)
+- 📊 Näitajad 2x2 paigutuses:
+  - Näitaja 1 ja 2: üleval (vasakul ja paremal)
+  - Näitaja 3 ja 4: all (vasakul ja paremal)
+- 🎨 Valge taust musta äärisega ruut
+- 📐 40px gap ridade vahel, 40px gap näitajate vahel
+- ✅ Teema versioon: 2.1.1 → 2.2.0
+
+### Eemaldatud
+- ❌ Screenshot pildi väli (enam ei saa pilti lisada)
+- ❌ Metrikate repeater struktuur
+- ❌ Metrikate grupid (title, subtitle, label)
+
+### ACF väljad
+- Näitaja 1: väärtus, silt, värv (vaikimisi: oranž)
+- Näitaja 2: väärtus, silt, värv (vaikimisi: sinine)
+- Näitaja 3: väärtus, silt, värv (vaikimisi: punane)
+- Näitaja 4: väärtus, silt, värv (vaikimisi: roheline)
+
 ## [1.2.1] - 2026-02-11
 
 ### Parandatud

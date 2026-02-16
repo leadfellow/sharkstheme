@@ -136,7 +136,8 @@
                         currentPosition = maxScroll;
                     }
 
-                    image.style.transform = 'translateX(-50%) translateY(' + (-currentPosition) + 'px) translateZ(0)';
+                    // Use whole pixel values only
+                    image.style.top = Math.round(-currentPosition) + 'px';
                 }, 16); // ~60fps
             }
 
@@ -156,7 +157,7 @@
                 
                 isHovering = true;
                 currentPosition = 0;
-                image.style.transform = 'translateX(-50%) translateY(0px) translateZ(0)';
+                image.style.top = '0px';
 
                 // Get initial mouse position and start scrolling
                 const rect = container.getBoundingClientRect();

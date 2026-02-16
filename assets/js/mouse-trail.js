@@ -991,15 +991,10 @@
   // Check both touch support and device type
   const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  const isSafariMobile = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
   
-  // Detect ALL Safari browsers (iOS, iPadOS, and macOS)
-  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) || 
-                   /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-                   (navigator.vendor && navigator.vendor.indexOf('Apple') > -1);
-  
-  // Only initialize on desktop (no touch, not mobile, not ANY Safari)
-  if (!isTouchDevice && !isMobile && !isSafariMobile && !isSafari) {
+  // Only initialize on desktop (no touch, not mobile)
+  // Safari desktop is now supported!
+  if (!isTouchDevice && !isMobile) {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', init);
     } else {

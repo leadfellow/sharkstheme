@@ -29,8 +29,8 @@
     flex-direction: column;
     gap: 50px;
     align-items: flex-start;
-    justify-content: center;
-    padding: 120px 58px 120px 58px;
+    justify-content: flex-start;
+    padding: 120px 58px 0 58px;
     overflow: hidden;
 }
 
@@ -97,6 +97,7 @@
     background-color: #fff;
     width: 100%;
     overflow: hidden;
+    margin-bottom: 120px;
 }
 
 .block-inquiry-2__form-container {

@@ -7,17 +7,28 @@
 (function() {
   'use strict';
 
-  // Detect Safari for optimized settings
+  // Detect Safari for alternative implementation
   const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  
+  // Safari fallback - use simple canvas trail instead of WebGL
+  if (isSafari) {
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (!isTouchDevice && !isMobile) {
+      initSafariTrail();
+    }
+    return; // Exit - don't run WebGL version
+  }
   
   const config = {
     SIM_RESOLUTION: 128,
-    DYE_RESOLUTION: isSafari ? 512 : 1024,
+    DYE_RESOLUTION: 1024,
     CAPTURE_RESOLUTION: 512,
     DENSITY_DISSIPATION: 2.5,
     VELOCITY_DISSIPATION: 1.5,
     PRESSURE: 0.15,
-    PRESSURE_ITERATIONS: isSafari ? 20 : 25,
+    PRESSURE_ITERATIONS: 25,
     CURL: 5,
     SPLAT_RADIUS: 0.15,
     SPLAT_FORCE: 4000,
@@ -1002,6 +1013,145 @@
         // Reset pointer movement when outside hero banner
         pointer.moved = false;
       }
+    });
+  }
+
+  // Safari-specific simple trail implementation
+  function initSafariTrail() {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.id = 'safari-trail';
+    canvas.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+    `;
+    document.body.appendChild(canvas);
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    const particles = [];
+    const colors = [
+      'rgba(100, 150, 255, 0.6)',
+      'rgba(255, 100, 150, 0.6)',
+      'rgba(150, 255, 100, 0.6)',
+      'rgba(255, 200, 100, 0.6)',
+      'rgba(200, 100, 255, 0.6)'
+    ];
+    
+    class Particle {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.size = Math.random() * 30 + 20;
+        this.speedX = (Math.random() - 0.5) * 2;
+        this.speedY = (Math.random() - 0.5) * 2;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.life = 1;
+      }
+      
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.life -= 0.02;
+        this.size *= 0.97;
+      }
+      
+      draw() {
+        ctx.globalAlpha = this.life;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    
+    function isMouseOverHeroBanner(clientX, clientY) {
+      const header = document.querySelector('.site-header');
+      if (header && header.classList.contains('submenu-open')) {
+        return false;
+      }
+      
+      const openMenuItem = document.querySelector('.site-nav__menu .is-open');
+      if (openMenuItem) {
+        return false;
+      }
+      
+      const heroBanner = document.querySelector('.block-frontpage-hero-banner');
+      const heroBlock = document.querySelector('.block-hero');
+      
+      if (heroBanner) {
+        const rect = heroBanner.getBoundingClientRect();
+        if (clientX >= rect.left && clientX <= rect.right &&
+            clientY >= rect.top && clientY <= rect.bottom) {
+          return true;
+        }
+      }
+      
+      if (heroBlock) {
+        const rect = heroBlock.getBoundingClientRect();
+        const labelsBar = document.querySelector('.block-hero__labels-wrapper');
+        
+        if (clientX >= rect.left && clientX <= rect.right &&
+            clientY >= rect.top && clientY <= rect.bottom) {
+          
+          if (labelsBar) {
+            const labelsRect = labelsBar.getBoundingClientRect();
+            if (clientY >= labelsRect.top && clientY <= labelsRect.bottom) {
+              return false;
+            }
+          }
+          
+          return true;
+        }
+      }
+      
+      return false;
+    }
+    
+    let lastX = 0;
+    let lastY = 0;
+    
+    window.addEventListener('mousemove', (e) => {
+      if (!isMouseOverHeroBanner(e.clientX, e.clientY)) {
+        return;
+      }
+      
+      const distance = Math.sqrt((e.clientX - lastX) ** 2 + (e.clientY - lastY) ** 2);
+      
+      if (distance > 5) {
+        particles.push(new Particle(e.clientX, e.clientY));
+        lastX = e.clientX;
+        lastY = e.clientY;
+      }
+    });
+    
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      for (let i = particles.length - 1; i >= 0; i--) {
+        particles[i].update();
+        particles[i].draw();
+        
+        if (particles[i].life <= 0) {
+          particles.splice(i, 1);
+        }
+      }
+      
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+    
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     });
   }
 

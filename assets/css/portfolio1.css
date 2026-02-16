@@ -289,11 +289,14 @@
     -webkit-transform: translateX(-50%) translateZ(0);
     transition: none;
     pointer-events: none;
-    image-rendering: -webkit-optimize-contrast;
-    -ms-interpolation-mode: bicubic;
+    image-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     will-change: transform;
+    filter: none;
+    -webkit-filter: none;
 }
 
 

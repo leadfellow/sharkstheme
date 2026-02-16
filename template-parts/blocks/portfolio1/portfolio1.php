@@ -135,6 +135,9 @@ wp_enqueue_script(
                             $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true) ?: $item['title'];
                             $image_srcset = wp_get_attachment_image_srcset($image_id, 'full');
                             $image_sizes = wp_get_attachment_image_sizes($image_id, 'full');
+                            $image_meta = wp_get_attachment_metadata($image_id);
+                            $image_width = isset($image_meta['width']) ? $image_meta['width'] : '';
+                            $image_height = isset($image_meta['height']) ? $image_meta['height'] : '';
                         ?>
                             <div class="portfolio1-image-section">
                                 <div class="portfolio1-image-wrapper">
@@ -143,9 +146,13 @@ wp_enqueue_script(
                                             src="<?php echo esc_url($image_full); ?>" 
                                             srcset="<?php echo esc_attr($image_srcset); ?>"
                                             sizes="<?php echo esc_attr($image_sizes); ?>"
+                                            width="<?php echo esc_attr($image_width); ?>"
+                                            height="<?php echo esc_attr($image_height); ?>"
                                             alt="<?php echo esc_attr($image_alt); ?>" 
                                             class="portfolio1-scroll-image"
                                             loading="eager"
+                                            decoding="sync"
+                                            fetchpriority="high"
                                         >
                                     </div>
                                 </div>

@@ -57,21 +57,34 @@
 
   function init() {
     try {
+      console.log('🎨 Fluid cursor: Starting initialization...');
       createCanvas();
+      console.log('🎨 Fluid cursor: Canvas created');
+      
       const webglSupported = initWebGL();
       if (!webglSupported) {
+        console.warn('🎨 Fluid cursor: WebGL not supported');
         // Clean up canvas if WebGL failed
         if (canvas && canvas.parentNode) {
           canvas.parentNode.removeChild(canvas);
         }
         return;
       }
+      console.log('🎨 Fluid cursor: WebGL initialized');
+      
       createShaders();
+      console.log('🎨 Fluid cursor: Shaders created');
+      
       initFramebuffers();
+      console.log('🎨 Fluid cursor: Framebuffers initialized');
+      
       bindEvents();
+      console.log('🎨 Fluid cursor: Events bound');
+      
       update();
+      console.log('🎨 Fluid cursor: Animation started - READY!');
     } catch (error) {
-      console.warn('Fluid cursor initialization failed:', error);
+      console.error('🎨 Fluid cursor initialization failed:', error);
       // Clean up canvas on error
       if (canvas && canvas.parentNode) {
         canvas.parentNode.removeChild(canvas);
@@ -1025,6 +1038,13 @@
   const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   
+  console.log('🎨 Fluid cursor: Device check -', {
+    isTouchDevice,
+    isMobile,
+    userAgent: navigator.userAgent,
+    willInitialize: !isTouchDevice && !isMobile
+  });
+  
   // Only initialize on desktop (no touch, not mobile)
   // Safari desktop is now supported!
   if (!isTouchDevice && !isMobile) {
@@ -1033,5 +1053,7 @@
     } else {
       init();
     }
+  } else {
+    console.log('🎨 Fluid cursor: Skipped (touch device or mobile)');
   }
 })();

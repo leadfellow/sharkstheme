@@ -299,18 +299,76 @@ if (!defined('ABSPATH')) {
         // Desktop: add/remove submenu-open class on hover
         if (window.innerWidth > 900) {
             let hoverTimeout;
+            const nav = document.querySelector('.site-nav');
+            const logo = document.querySelector('.site-logo');
+            const cta = document.querySelector('.site-cta');
             
-            // Add submenu-open when hovering the entire header
-            header.addEventListener('mouseenter', function() {
-                clearTimeout(hoverTimeout);
-                header.classList.add('submenu-open');
-            });
+            // Function to check if mouse is in the active area (20px after logo, 20px before CTA)
+            function isInActiveArea(e) {
+                if (!logo || !cta) return false;
+                
+                const logoRect = logo.getBoundingClientRect();
+                const ctaRect = cta.getBoundingClientRect();
+                const mouseX = e.clientX;
+                
+                // Active area: 20px after logo ends, 20px before CTA starts
+                const activeStart = logoRect.right + 20;
+                const activeEnd = ctaRect.left - 20;
+                
+                return mouseX >= activeStart && mouseX <= activeEnd;
+            }
+            
+            // Add submenu-open when hovering the navigation area (with margins)
+            if (nav) {
+                nav.addEventListener('mouseenter', function(e) {
+                    if (isInActiveArea(e)) {
+                        clearTimeout(hoverTimeout);
+                        header.classList.add('submenu-open');
+                    }
+                });
+                
+                // Track mouse movement to handle the margins
+                header.addEventListener('mousemove', function(e) {
+                    if (isInActiveArea(e)) {
+                        clearTimeout(hoverTimeout);
+                        header.classList.add('submenu-open');
+                    } else {
+                        // If mouse is outside active area, remove the class
+                        if (header.classList.contains('submenu-open')) {
+                            // Check if mouse is not over submenu
+                            const isOverSubmenu = e.target.closest('.sharks-mega-menu, .sub-menu');
+                            if (!isOverSubmenu) {
+                                hoverTimeout = setTimeout(function() {
+                                    header.classList.remove('submenu-open');
+                                }, 100);
+                            }
+                        }
+                    }
+                });
+            }
             
             // Remove submenu-open when leaving the header
             header.addEventListener('mouseleave', function() {
                 hoverTimeout = setTimeout(function() {
                     header.classList.remove('submenu-open');
                 }, 100);
+            });
+            
+            // Keep submenu-open when hovering any submenu
+            menuItems.forEach(function(item) {
+                const submenu = item.querySelector('.sharks-mega-menu, .sub-menu');
+                if (submenu) {
+                    submenu.addEventListener('mouseenter', function() {
+                        clearTimeout(hoverTimeout);
+                        header.classList.add('submenu-open');
+                    });
+                    
+                    submenu.addEventListener('mouseleave', function() {
+                        hoverTimeout = setTimeout(function() {
+                            header.classList.remove('submenu-open');
+                        }, 100);
+                    });
+                }
             });
         }
         

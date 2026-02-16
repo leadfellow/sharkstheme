@@ -1016,7 +1016,7 @@
     });
   }
 
-  // Safari-specific simple trail implementation
+  // Safari-specific fluid-like trail implementation
   function initSafariTrail() {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -1030,6 +1030,9 @@
       height: 100vh;
       pointer-events: none;
       z-index: 9999;
+      filter: blur(40px);
+      opacity: 0.8;
+      mix-blend-mode: screen;
     `;
     document.body.appendChild(canvas);
     
@@ -1037,35 +1040,43 @@
     canvas.height = window.innerHeight;
     
     const particles = [];
-    const colors = [
-      'rgba(100, 150, 255, 0.6)',
-      'rgba(255, 100, 150, 0.6)',
-      'rgba(150, 255, 100, 0.6)',
-      'rgba(255, 200, 100, 0.6)',
-      'rgba(200, 100, 255, 0.6)'
-    ];
+    let hue = Math.random() * 360;
     
     class Particle {
-      constructor(x, y) {
+      constructor(x, y, velocityX, velocityY) {
         this.x = x;
         this.y = y;
-        this.size = Math.random() * 30 + 20;
-        this.speedX = (Math.random() - 0.5) * 2;
-        this.speedY = (Math.random() - 0.5) * 2;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.size = Math.random() * 80 + 60;
+        this.speedX = velocityX * 0.3 + (Math.random() - 0.5) * 0.5;
+        this.speedY = velocityY * 0.3 + (Math.random() - 0.5) * 0.5;
         this.life = 1;
+        this.hue = hue;
       }
       
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        this.life -= 0.02;
-        this.size *= 0.97;
+        this.speedX *= 0.92;
+        this.speedY *= 0.92;
+        this.life -= 0.008;
+        this.size *= 0.99;
       }
       
       draw() {
-        ctx.globalAlpha = this.life;
-        ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.life * 0.5;
+        
+        // Create soft gradient for professional fluid effect
+        const gradient = ctx.createRadialGradient(
+          this.x, this.y, 0,
+          this.x, this.y, this.size
+        );
+        
+        gradient.addColorStop(0, `hsla(${this.hue}, 70%, 65%, 0.8)`);
+        gradient.addColorStop(0.4, `hsla(${this.hue + 15}, 75%, 55%, 0.4)`);
+        gradient.addColorStop(0.7, `hsla(${this.hue + 30}, 80%, 50%, 0.2)`);
+        gradient.addColorStop(1, `hsla(${this.hue + 45}, 85%, 45%, 0)`);
+        
+        ctx.fillStyle = gradient;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -1117,29 +1128,48 @@
     
     let lastX = 0;
     let lastY = 0;
+    let lastTime = Date.now();
     
     window.addEventListener('mousemove', (e) => {
       if (!isMouseOverHeroBanner(e.clientX, e.clientY)) {
         return;
       }
       
+      const currentTime = Date.now();
+      const deltaTime = currentTime - lastTime;
+      
+      const velocityX = (e.clientX - lastX) / (deltaTime || 1);
+      const velocityY = (e.clientY - lastY) / (deltaTime || 1);
+      
       const distance = Math.sqrt((e.clientX - lastX) ** 2 + (e.clientY - lastY) ** 2);
       
-      if (distance > 5) {
-        particles.push(new Particle(e.clientX, e.clientY));
+      if (distance > 2) {
+        // Create multiple particles for ultra-smooth trail
+        const numParticles = Math.min(Math.floor(distance / 8), 4);
+        for (let i = 0; i < numParticles; i++) {
+          particles.push(new Particle(e.clientX, e.clientY, velocityX, velocityY));
+        }
+        
+        // Very slowly change hue for subtle color variation
+        hue += 0.3;
+        if (hue > 360) hue = 0;
+        
         lastX = e.clientX;
         lastY = e.clientY;
+        lastTime = currentTime;
       }
     });
     
     function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Very subtle fade for long-lasting trail
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.02)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       for (let i = particles.length - 1; i >= 0; i--) {
         particles[i].update();
         particles[i].draw();
         
-        if (particles[i].life <= 0) {
+        if (particles[i].life <= 0 || particles[i].size < 1) {
           particles.splice(i, 1);
         }
       }

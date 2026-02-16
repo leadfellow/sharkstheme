@@ -280,12 +280,20 @@
 .portfolio1-scroll-image {
     width: 100%;
     height: auto;
+    max-width: none;
     display: block;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%) translateZ(0);
+    -webkit-transform: translateX(-50%) translateZ(0);
     transition: none;
     pointer-events: none;
+    image-rendering: -webkit-optimize-contrast;
+    -ms-interpolation-mode: bicubic;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform;
 }
 
 

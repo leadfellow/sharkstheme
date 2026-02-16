@@ -902,6 +902,18 @@
   }
 
   function isMouseOverHeroBanner(clientX, clientY) {
+    // Don't show trail if any menu or submenu is open
+    const header = document.querySelector('.site-header');
+    if (header && header.classList.contains('submenu-open')) {
+      return false; // Submenu is open, don't show trail
+    }
+    
+    // Check if any menu item has is-open class (mobile menu)
+    const openMenuItem = document.querySelector('.site-nav__menu .is-open');
+    if (openMenuItem) {
+      return false; // Menu item is open, don't show trail
+    }
+    
     // Find hero banner elements
     const heroBanner = document.querySelector('.block-frontpage-hero-banner');
     const heroBlock = document.querySelector('.block-hero');

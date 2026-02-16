@@ -127,10 +127,10 @@
                 
                 if (relativePosition < 0.2) {
                     // Top 20% - scroll up (faster at top)
-                    scrollSpeed = -8 * (1 - relativePosition / 0.2); // -8 to 0
+                    scrollSpeed = -4 * (1 - relativePosition / 0.2); // -4 to 0
                 } else {
                     // Bottom 80% - scroll down (faster at bottom)
-                    scrollSpeed = 5 + (relativePosition - 0.2) * 7.5; // 5 to 11
+                    scrollSpeed = 2 + (relativePosition - 0.2) * 3.75; // 2 to 5
                 }
 
                 scrollInterval = setInterval(function() {

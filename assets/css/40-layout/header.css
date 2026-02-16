@@ -175,6 +175,27 @@
   position: relative;
 }
 
+/* Create invisible bridge between menu item and submenu to prevent closing */
+.site-nav__menu .menu-item-has-children::before {
+  content: '';
+  position: fixed;
+  top: 110px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: transparent;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 98;
+  pointer-events: none;
+}
+
+.site-nav__menu .menu-item-has-children:hover::before {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 /* White header when submenu is open */
 .site-header.submenu-open {
   background: #ffffff;
@@ -211,17 +232,16 @@
   position: fixed;
   top: 110px;
   left: 50%;
-  transform: translateX(-50%) translateY(-16px);
+  transform: translateX(-50%) translateY(0);
   width: 100%;
   max-width: calc(1440px - 116px);
   background: #ffffff;
   border-bottom: 1px solid #BBBAB6;
   padding: 42px 58px;
-  padding-top: 58px;
   list-style: none;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   transition-delay: 0s;
   z-index: 99;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
@@ -230,7 +250,6 @@
   justify-content: flex-start;
   align-items: flex-start;
   gap: 62px;
-  margin-top: -16px;
 }
 
 /* Show submenu on hover */
@@ -239,16 +258,7 @@
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
-  transition-delay: 0.15s;
-}
-
-/* Keep submenu open when hovering the gap between menu and submenu */
-.site-nav__menu li.menu-item-has-children:hover > .sharks-mega-menu {
-  transition-delay: 0.15s;
-}
-
-.site-nav__menu li.menu-item-has-children > .sharks-mega-menu {
-  transition-delay: 0s, 0s, 0s;
+  transition-delay: 0s;
 }
 
 /* Menu items container */
@@ -404,7 +414,7 @@
   position: fixed;
   top: 110px;
   left: 50%;
-  transform: translateX(-50%) translateY(-16px);
+  transform: translateX(-50%) translateY(0);
   width: 100%;
   max-width: calc(1440px - 116px);
   background: #ffffff;
@@ -413,7 +423,7 @@
   list-style: none;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 99;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   display: flex;

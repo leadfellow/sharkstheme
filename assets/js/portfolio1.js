@@ -100,15 +100,8 @@
                 const imageHeight = image.naturalHeight || image.offsetHeight;
                 maxScroll = imageHeight - containerHeight;
 
-                console.log('Portfolio1 scroll setup:', {
-                    containerHeight: containerHeight,
-                    imageHeight: imageHeight,
-                    maxScroll: maxScroll
-                });
-
                 // Only enable scrolling if image is taller than container
                 if (maxScroll <= 0) {
-                    console.log('Image not tall enough for scrolling');
                     return false;
                 }
                 return true;
@@ -127,10 +120,10 @@
                 
                 if (relativePosition < 0.2) {
                     // Top 20% - scroll up (faster at top)
-                    scrollSpeed = -4 * (1 - relativePosition / 0.2); // -4 to 0
+                    scrollSpeed = -3 * (1 - relativePosition / 0.2); // -3 to 0
                 } else {
                     // Bottom 80% - scroll down (faster at bottom)
-                    scrollSpeed = 2 + (relativePosition - 0.2) * 3.75; // 2 to 5
+                    scrollSpeed = 1.5 + (relativePosition - 0.2) * 2.5; // 1.5 to 3.5
                 }
 
                 scrollInterval = setInterval(function() {

@@ -25,15 +25,15 @@
     SIM_RESOLUTION: 128,
     DYE_RESOLUTION: 1024,
     CAPTURE_RESOLUTION: 512,
-    DENSITY_DISSIPATION: 2.5,
-    VELOCITY_DISSIPATION: 1.5,
-    PRESSURE: 0.15,
-    PRESSURE_ITERATIONS: 25,
-    CURL: 5,
-    SPLAT_RADIUS: 0.15,
-    SPLAT_FORCE: 4000,
+    DENSITY_DISSIPATION: 1.5,
+    VELOCITY_DISSIPATION: 1.0,
+    PRESSURE: 0.25,
+    PRESSURE_ITERATIONS: 30,
+    CURL: 10,
+    SPLAT_RADIUS: 0.25,
+    SPLAT_FORCE: 6000,
     SHADING: true,
-    COLOR_UPDATE_SPEED: 8,
+    COLOR_UPDATE_SPEED: 4,
     PAUSED: false,
     BACK_COLOR: { r: 0, g: 0, b: 0 },
     TRANSPARENT: true
@@ -883,14 +883,14 @@
   }
 
   function generateColor() {
-    // Generate vibrant colors with good visibility
+    // Professional color palette inspired by high-end portfolios
     const hue = Math.random();
-    let c = HSVtoRGB(hue, 0.8, 1.0);
+    let c = HSVtoRGB(hue, 0.65, 1.0);
     
-    // Stronger color intensity for better visibility
-    c.r *= 0.25;
-    c.g *= 0.25;
-    c.b *= 0.25;
+    // Balanced intensity for elegant fluid effect
+    c.r *= 0.35;
+    c.g *= 0.35;
+    c.b *= 0.35;
     
     return c;
   }

@@ -132,9 +132,19 @@ wp_enqueue_script(
                         <?php if (!empty($item['main_image'])): 
                             $image_id = $item['main_image']['ID'];
                             
-                            // Try to get 1208px width image, fallback to full
-                            $image_1208 = wp_get_attachment_image_url($image_id, [1208, 9999]);
-                            $image_url = $image_1208 ? $image_1208 : wp_get_attachment_image_url($image_id, 'full');
+                            // Get the original uploaded file path (not scaled version)
+                            $image_meta = wp_get_attachment_metadata($image_id);
+                            $upload_dir = wp_upload_dir();
+                            
+                            // Check if there's an original_image in meta (WordPress stores this when it creates scaled version)
+                            if (isset($image_meta['original_image'])) {
+                                // Use the original file, not the scaled version
+                                $file_path = pathinfo($image_meta['file']);
+                                $image_url = $upload_dir['baseurl'] . '/' . $file_path['dirname'] . '/' . $image_meta['original_image'];
+                            } else {
+                                // No scaled version exists, use the full size
+                                $image_url = wp_get_attachment_image_url($image_id, 'full');
+                            }
                             
                             $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true) ?: $item['title'];
                         ?>

@@ -89,78 +89,96 @@
 
             let scrollInterval = null;
             let currentPosition = 0;
+            let maxScroll = 0;
+            let containerHeight = 0;
 
-            // Wait for image to load to get accurate dimensions
-            if (image.complete) {
-                setupScrolling();
-            } else {
-                image.addEventListener('load', setupScrolling);
-            }
-
+            // Setup function that recalculates dimensions
             function setupScrolling() {
-                const containerHeight = container.offsetHeight;
-                const imageHeight = image.offsetHeight;
-                const maxScroll = imageHeight - containerHeight;
+                containerHeight = container.offsetHeight;
+                const imageHeight = image.naturalHeight || image.offsetHeight;
+                maxScroll = imageHeight - containerHeight;
+
+                console.log('Portfolio1 scroll setup:', {
+                    containerHeight: containerHeight,
+                    imageHeight: imageHeight,
+                    maxScroll: maxScroll
+                });
 
                 // Only enable scrolling if image is taller than container
                 if (maxScroll <= 0) {
-                    return;
+                    console.log('Image not tall enough for scrolling');
+                    return false;
                 }
+                return true;
+            }
 
-                container.addEventListener('mouseenter', function() {
-                    // Reset position when entering
-                    currentPosition = 0;
-                    image.style.top = '0px';
-                });
-
-                container.addEventListener('mousemove', function(e) {
-                    const rect = container.getBoundingClientRect();
-                    const mouseY = e.clientY - rect.top;
-                    const relativePosition = mouseY / containerHeight; // 0 to 1
-
-                    // Clear any existing interval
-                    if (scrollInterval) {
-                        clearInterval(scrollInterval);
-                    }
-
-                    // Determine scroll direction and speed based on mouse position
-                    let scrollSpeed = 0;
-                    
-                    if (relativePosition < 0.3) {
-                        // Top 30% - scroll up
-                        scrollSpeed = -2 * (1 - relativePosition / 0.3); // -2 to 0
-                    } else if (relativePosition > 0.7) {
-                        // Bottom 30% - scroll down
-                        scrollSpeed = 2 * ((relativePosition - 0.7) / 0.3); // 0 to 2
-                    } else {
-                        // Middle 40% - no scroll
-                        scrollSpeed = 0;
-                    }
-
-                    if (scrollSpeed !== 0) {
-                        scrollInterval = setInterval(function() {
-                            currentPosition += scrollSpeed;
-                            
-                            // Clamp position
-                            if (currentPosition < 0) {
-                                currentPosition = 0;
-                            } else if (currentPosition > maxScroll) {
-                                currentPosition = maxScroll;
-                            }
-
-                            image.style.top = -currentPosition + 'px';
-                        }, 16); // ~60fps
-                    }
-                });
-
-                container.addEventListener('mouseleave', function() {
-                    // Stop scrolling when mouse leaves
-                    if (scrollInterval) {
-                        clearInterval(scrollInterval);
-                        scrollInterval = null;
-                    }
+            // Wait for image to load
+            if (image.complete && image.naturalHeight > 0) {
+                setupScrolling();
+            } else {
+                image.addEventListener('load', function() {
+                    setupScrolling();
                 });
             }
+
+            // Mouse enter - reset to top
+            container.addEventListener('mouseenter', function() {
+                // Recalculate dimensions on enter
+                if (!setupScrolling()) return;
+                
+                currentPosition = 0;
+                image.style.top = '0px';
+            });
+
+            // Mouse move - scroll based on position
+            container.addEventListener('mousemove', function(e) {
+                // Make sure we have valid dimensions
+                if (maxScroll <= 0) return;
+
+                const rect = container.getBoundingClientRect();
+                const mouseY = e.clientY - rect.top;
+                const relativePosition = mouseY / containerHeight; // 0 to 1
+
+                // Clear any existing interval
+                if (scrollInterval) {
+                    clearInterval(scrollInterval);
+                    scrollInterval = null;
+                }
+
+                // Determine scroll direction and speed based on mouse position
+                let scrollSpeed = 0;
+                
+                if (relativePosition < 0.3) {
+                    // Top 30% - scroll up
+                    scrollSpeed = -3 * (1 - relativePosition / 0.3); // -3 to 0
+                } else if (relativePosition > 0.7) {
+                    // Bottom 30% - scroll down
+                    scrollSpeed = 3 * ((relativePosition - 0.7) / 0.3); // 0 to 3
+                }
+
+                if (scrollSpeed !== 0) {
+                    scrollInterval = setInterval(function() {
+                        currentPosition += scrollSpeed;
+                        
+                        // Clamp position
+                        if (currentPosition < 0) {
+                            currentPosition = 0;
+                        } else if (currentPosition > maxScroll) {
+                            currentPosition = maxScroll;
+                        }
+
+                        image.style.top = -currentPosition + 'px';
+                    }, 16); // ~60fps
+                }
+            });
+
+            // Mouse leave - stop scrolling
+            container.addEventListener('mouseleave', function() {
+                if (scrollInterval) {
+                    clearInterval(scrollInterval);
+                    scrollInterval = null;
+                }
+            });
         });
     }
 

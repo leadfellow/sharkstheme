@@ -298,29 +298,20 @@ if (!defined('ABSPATH')) {
         
         // Desktop: add/remove submenu-open class on hover
         if (window.innerWidth > 900) {
-            const nav = document.querySelector('.site-nav');
             let hoverTimeout;
             
-            // Add submenu-open when hovering any menu item with children
-            menuItems.forEach(function(item) {
-                item.addEventListener('mouseenter', function() {
-                    clearTimeout(hoverTimeout);
-                    header.classList.add('submenu-open');
-                });
+            // Add submenu-open when hovering the entire header
+            header.addEventListener('mouseenter', function() {
+                clearTimeout(hoverTimeout);
+                header.classList.add('submenu-open');
             });
             
-            // Remove submenu-open only when leaving the entire navigation area
-            if (nav) {
-                nav.addEventListener('mouseleave', function() {
-                    hoverTimeout = setTimeout(function() {
-                        header.classList.remove('submenu-open');
-                    }, 100);
-                });
-                
-                nav.addEventListener('mouseenter', function() {
-                    clearTimeout(hoverTimeout);
-                });
-            }
+            // Remove submenu-open when leaving the header
+            header.addEventListener('mouseleave', function() {
+                hoverTimeout = setTimeout(function() {
+                    header.classList.remove('submenu-open');
+                }, 100);
+            });
         }
         
         // Mobile only: separate link click and submenu toggle

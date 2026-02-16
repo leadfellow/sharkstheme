@@ -7,14 +7,17 @@
 (function() {
   'use strict';
 
+  // Detect Safari for optimized settings
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  
   const config = {
     SIM_RESOLUTION: 128,
-    DYE_RESOLUTION: 1024,
+    DYE_RESOLUTION: isSafari ? 512 : 1024,
     CAPTURE_RESOLUTION: 512,
     DENSITY_DISSIPATION: 2.5,
     VELOCITY_DISSIPATION: 1.5,
     PRESSURE: 0.15,
-    PRESSURE_ITERATIONS: 25,
+    PRESSURE_ITERATIONS: isSafari ? 20 : 25,
     CURL: 5,
     SPLAT_RADIUS: 0.15,
     SPLAT_FORCE: 4000,
@@ -53,29 +56,48 @@
   let baseVertexShader;
 
   function init() {
-    createCanvas();
-    initWebGL();
-    createShaders();
-    initFramebuffers();
-    bindEvents();
-    update();
+    try {
+      createCanvas();
+      const webglSupported = initWebGL();
+      if (!webglSupported) {
+        // Clean up canvas if WebGL failed
+        if (canvas && canvas.parentNode) {
+          canvas.parentNode.removeChild(canvas);
+        }
+        return;
+      }
+      createShaders();
+      initFramebuffers();
+      bindEvents();
+      update();
+    } catch (error) {
+      console.warn('Fluid cursor initialization failed:', error);
+      // Clean up canvas on error
+      if (canvas && canvas.parentNode) {
+        canvas.parentNode.removeChild(canvas);
+      }
+    }
   }
 
   function createCanvas() {
     canvas = document.createElement('canvas');
     canvas.id = 'fluid-cursor';
-    canvas.style.position = 'fixed';
-    canvas.style.top = '0';
-    canvas.style.left = '0';
-    canvas.style.width = '100vw';
-    canvas.style.height = '100vh';
-    canvas.style.pointerEvents = 'none';
-    canvas.style.zIndex = '9999';
-    canvas.style.display = 'block';
-    canvas.style.touchAction = 'none';
-    canvas.style.userSelect = 'none';
-    canvas.style.webkitUserSelect = 'none';
-    canvas.style.webkitTouchCallout = 'none';
+    canvas.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      display: block;
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    `;
     document.body.appendChild(canvas);
     resizeCanvas();
   }
@@ -86,13 +108,22 @@
       depth: false,
       stencil: false,
       antialias: false,
-      preserveDrawingBuffer: false
+      preserveDrawingBuffer: false,
+      premultipliedAlpha: false,
+      powerPreference: 'high-performance'
     };
 
+    // Try WebGL2 first, then fallback to WebGL1
     gl = canvas.getContext('webgl2', params);
     const isWebGL2 = !!gl;
     if (!isWebGL2) {
       gl = canvas.getContext('webgl', params) || canvas.getContext('experimental-webgl', params);
+    }
+    
+    // If no WebGL context, bail out
+    if (!gl) {
+      console.warn('WebGL not supported, fluid cursor disabled');
+      return false;
     }
 
     let halfFloat;
@@ -106,7 +137,7 @@
       supportLinearFiltering = gl.getExtension('OES_texture_half_float_linear');
     }
 
-    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    gl.clearColor(0.0, 0.0, 0.0, 0.0);
 
     const halfFloatTexType = isWebGL2 ? gl.HALF_FLOAT : (halfFloat && halfFloat.HALF_FLOAT_OES);
     let formatRGBA, formatRG, formatR;
@@ -133,6 +164,8 @@
       config.DYE_RESOLUTION = 256;
       config.SHADING = false;
     }
+    
+    return true;
   }
 
   function getSupportedFormat(internalFormat, format, type) {

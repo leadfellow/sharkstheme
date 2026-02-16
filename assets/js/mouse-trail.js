@@ -7,33 +7,19 @@
 (function() {
   'use strict';
 
-  // Detect Safari for alternative implementation
-  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-  
-  // Safari fallback - use simple canvas trail instead of WebGL
-  if (isSafari) {
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
-    if (!isTouchDevice && !isMobile) {
-      initSafariTrail();
-    }
-    return; // Exit - don't run WebGL version
-  }
-  
   const config = {
     SIM_RESOLUTION: 128,
     DYE_RESOLUTION: 1024,
     CAPTURE_RESOLUTION: 512,
-    DENSITY_DISSIPATION: 1.5,
-    VELOCITY_DISSIPATION: 1.0,
-    PRESSURE: 0.25,
-    PRESSURE_ITERATIONS: 30,
-    CURL: 10,
-    SPLAT_RADIUS: 0.25,
-    SPLAT_FORCE: 6000,
+    DENSITY_DISSIPATION: 2.0,
+    VELOCITY_DISSIPATION: 1.5,
+    PRESSURE: 0.2,
+    PRESSURE_ITERATIONS: 25,
+    CURL: 6,
+    SPLAT_RADIUS: 0.18,
+    SPLAT_FORCE: 4500,
     SHADING: true,
-    COLOR_UPDATE_SPEED: 4,
+    COLOR_UPDATE_SPEED: 6,
     PAUSED: false,
     BACK_COLOR: { r: 0, g: 0, b: 0 },
     TRANSPARENT: true
@@ -75,6 +61,9 @@
         if (canvas && canvas.parentNode) {
           canvas.parentNode.removeChild(canvas);
         }
+        // Try Safari fallback
+        console.log('WebGL not supported, trying Canvas fallback...');
+        initSafariTrail();
         return;
       }
       createShaders();
@@ -86,6 +75,12 @@
       // Clean up canvas on error
       if (canvas && canvas.parentNode) {
         canvas.parentNode.removeChild(canvas);
+      }
+      // Try Safari fallback
+      try {
+        initSafariTrail();
+      } catch (e) {
+        console.error('Safari trail also failed:', e);
       }
     }
   }
@@ -883,14 +878,14 @@
   }
 
   function generateColor() {
-    // Professional color palette inspired by high-end portfolios
+    // Vibrant but elegant color palette
     const hue = Math.random();
-    let c = HSVtoRGB(hue, 0.65, 1.0);
+    let c = HSVtoRGB(hue, 0.75, 1.0);
     
-    // Balanced intensity for elegant fluid effect
-    c.r *= 0.35;
-    c.g *= 0.35;
-    c.b *= 0.35;
+    // Good visibility with professional look
+    c.r *= 0.28;
+    c.g *= 0.28;
+    c.b *= 0.28;
     
     return c;
   }

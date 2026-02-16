@@ -91,6 +91,8 @@
             let currentPosition = 0;
             let maxScroll = 0;
             let containerHeight = 0;
+            let isHovering = false;
+            let lastMouseY = 0;
 
             // Setup function that recalculates dimensions
             function setupScrolling() {
@@ -112,40 +114,15 @@
                 return true;
             }
 
-            // Wait for image to load
-            if (image.complete && image.naturalHeight > 0) {
-                setupScrolling();
-            } else {
-                image.addEventListener('load', function() {
-                    setupScrolling();
-                });
-            }
-
-            // Mouse enter - reset to top
-            container.addEventListener('mouseenter', function() {
-                // Recalculate dimensions on enter
-                if (!setupScrolling()) return;
-                
-                currentPosition = 0;
-                image.style.top = '0px';
-            });
-
-            // Mouse move - scroll based on position
-            container.addEventListener('mousemove', function(e) {
-                // Make sure we have valid dimensions
-                if (maxScroll <= 0) return;
-
-                const rect = container.getBoundingClientRect();
-                const mouseY = e.clientY - rect.top;
-                const relativePosition = mouseY / containerHeight; // 0 to 1
-
+            // Start scrolling based on mouse position
+            function startScrolling(mouseY) {
                 // Clear any existing interval
                 if (scrollInterval) {
                     clearInterval(scrollInterval);
                     scrollInterval = null;
                 }
 
-                // Determine scroll direction and speed based on mouse position
+                const relativePosition = mouseY / containerHeight; // 0 to 1
                 let scrollSpeed = 0;
                 
                 if (relativePosition < 0.3) {
@@ -170,10 +147,45 @@
                         image.style.top = -currentPosition + 'px';
                     }, 16); // ~60fps
                 }
+            }
+
+            // Wait for image to load
+            if (image.complete && image.naturalHeight > 0) {
+                setupScrolling();
+            } else {
+                image.addEventListener('load', function() {
+                    setupScrolling();
+                });
+            }
+
+            // Mouse enter - reset to top and start scrolling
+            container.addEventListener('mouseenter', function(e) {
+                // Recalculate dimensions on enter
+                if (!setupScrolling()) return;
+                
+                isHovering = true;
+                currentPosition = 0;
+                image.style.top = '0px';
+
+                // Get initial mouse position and start scrolling
+                const rect = container.getBoundingClientRect();
+                lastMouseY = e.clientY - rect.top;
+                startScrolling(lastMouseY);
+            });
+
+            // Mouse move - update scroll based on position
+            container.addEventListener('mousemove', function(e) {
+                // Make sure we have valid dimensions
+                if (maxScroll <= 0 || !isHovering) return;
+
+                const rect = container.getBoundingClientRect();
+                lastMouseY = e.clientY - rect.top;
+                startScrolling(lastMouseY);
             });
 
             // Mouse leave - stop scrolling
             container.addEventListener('mouseleave', function() {
+                isHovering = false;
                 if (scrollInterval) {
                     clearInterval(scrollInterval);
                     scrollInterval = null;

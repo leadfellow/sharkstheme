@@ -57,34 +57,21 @@
 
   function init() {
     try {
-      console.log('🎨 Fluid cursor: Starting initialization...');
       createCanvas();
-      console.log('🎨 Fluid cursor: Canvas created');
-      
       const webglSupported = initWebGL();
       if (!webglSupported) {
-        console.warn('🎨 Fluid cursor: WebGL not supported');
         // Clean up canvas if WebGL failed
         if (canvas && canvas.parentNode) {
           canvas.parentNode.removeChild(canvas);
         }
         return;
       }
-      console.log('🎨 Fluid cursor: WebGL initialized');
-      
       createShaders();
-      console.log('🎨 Fluid cursor: Shaders created');
-      
       initFramebuffers();
-      console.log('🎨 Fluid cursor: Framebuffers initialized');
-      
       bindEvents();
-      console.log('🎨 Fluid cursor: Events bound');
-      
       update();
-      console.log('🎨 Fluid cursor: Animation started - READY!');
     } catch (error) {
-      console.error('🎨 Fluid cursor initialization failed:', error);
+      console.error('Fluid cursor initialization failed:', error);
       // Clean up canvas on error
       if (canvas && canvas.parentNode) {
         canvas.parentNode.removeChild(canvas);
@@ -885,29 +872,14 @@
   }
 
   function generateColor() {
-    // Generate more vibrant, professional colors inspired by high-end portfolios
+    // Generate vibrant colors with good visibility
     const hue = Math.random();
-    let c = HSVtoRGB(hue, 0.95, 1.0);
+    let c = HSVtoRGB(hue, 0.8, 1.0);
     
-    // Boost specific color ranges for more appealing palette
-    // Blues, purples, and cyans (more professional look)
-    if (hue > 0.5 && hue < 0.75) {
-      c.r *= 0.15;
-      c.g *= 0.15;
-      c.b *= 0.2;
-    } 
-    // Reds and magentas
-    else if (hue < 0.15 || hue > 0.85) {
-      c.r *= 0.18;
-      c.g *= 0.08;
-      c.b *= 0.12;
-    }
-    // Greens and teals
-    else {
-      c.r *= 0.1;
-      c.g *= 0.15;
-      c.b *= 0.15;
-    }
+    // Stronger color intensity for better visibility
+    c.r *= 0.25;
+    c.g *= 0.25;
+    c.b *= 0.25;
     
     return c;
   }
@@ -1038,13 +1010,6 @@
   const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   
-  console.log('🎨 Fluid cursor: Device check -', {
-    isTouchDevice,
-    isMobile,
-    userAgent: navigator.userAgent,
-    willInitialize: !isTouchDevice && !isMobile
-  });
-  
   // Only initialize on desktop (no touch, not mobile)
   // Safari desktop is now supported!
   if (!isTouchDevice && !isMobile) {
@@ -1053,7 +1018,5 @@
     } else {
       init();
     }
-  } else {
-    console.log('🎨 Fluid cursor: Skipped (touch device or mobile)');
   }
 })();

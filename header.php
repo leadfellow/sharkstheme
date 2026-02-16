@@ -340,18 +340,18 @@ if (!defined('ABSPATH')) {
                             if (!isOverSubmenu) {
                                 hoverTimeout = setTimeout(function() {
                                     header.classList.remove('submenu-open');
-                                }, 100);
+                                }, 400);
                             }
                         }
                     }
                 });
             }
             
-            // Remove submenu-open when leaving the header
+            // Remove submenu-open when leaving the header (with longer delay)
             header.addEventListener('mouseleave', function() {
                 hoverTimeout = setTimeout(function() {
                     header.classList.remove('submenu-open');
-                }, 100);
+                }, 400);
             });
             
             // Keep submenu-open when hovering any submenu
@@ -366,7 +366,7 @@ if (!defined('ABSPATH')) {
                     submenu.addEventListener('mouseleave', function() {
                         hoverTimeout = setTimeout(function() {
                             header.classList.remove('submenu-open');
-                        }, 100);
+                        }, 400);
                     });
                 }
             });

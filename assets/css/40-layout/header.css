@@ -217,10 +217,12 @@
   background: #ffffff;
   border-bottom: 1px solid #BBBAB6;
   padding: 42px 58px;
+  padding-top: 58px;
   list-style: none;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0s;
   z-index: 99;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -228,6 +230,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   gap: 62px;
+  margin-top: -16px;
 }
 
 /* Show submenu on hover */
@@ -236,6 +239,16 @@
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
+  transition-delay: 0.15s;
+}
+
+/* Keep submenu open when hovering the gap between menu and submenu */
+.site-nav__menu li.menu-item-has-children:hover > .sharks-mega-menu {
+  transition-delay: 0.15s;
+}
+
+.site-nav__menu li.menu-item-has-children > .sharks-mega-menu {
+  transition-delay: 0s, 0s, 0s;
 }
 
 /* Menu items container */

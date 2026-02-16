@@ -284,19 +284,16 @@
     display: block;
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%) translateZ(0);
-    -webkit-transform: translateX(-50%) translateZ(0);
+    left: 0;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
     transition: none;
     pointer-events: none;
-    image-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     will-change: transform;
-    filter: none;
-    -webkit-filter: none;
 }
 
 

@@ -1,6 +1,6 @@
 /**
  * Portfolio1 Block JavaScript
- * Handles category filtering and accordion functionality
+ * Handles category filtering and auto-scroll on hover functionality
  */
 
 (function() {
@@ -15,7 +15,7 @@
 
     function init() {
         initCategoryFilters();
-        initAccordions();
+        initScrollableImages();
     }
 
     /**
@@ -78,60 +78,89 @@
     }
 
     /**
-     * Initialize accordion functionality
+     * Initialize scrollable images with auto-scroll on hover
      */
-    function initAccordions() {
-        const readMoreButtons = document.querySelectorAll('.portfolio1-read-more-btn');
+    function initScrollableImages() {
+        const imageContainers = document.querySelectorAll('.portfolio1-image-container');
         
-        readMoreButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const targetId = this.getAttribute('data-target');
-                const contentSection = document.querySelector(`[data-content-id="${targetId}"]`);
-                
-                if (!contentSection) return;
-                
-                const isActive = this.classList.contains('active');
-                
-                if (isActive) {
-                    // Close accordion
-                    this.classList.remove('active');
-                    contentSection.classList.remove('active');
-                    
-                    // Smooth scroll to top of item
-                    setTimeout(() => {
-                        const item = this.closest('.portfolio1-item');
-                        if (item) {
-                            const offset = 100;
-                            const itemTop = item.getBoundingClientRect().top + window.pageYOffset - offset;
-                            window.scrollTo({
-                                top: itemTop,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }, 100);
-                } else {
-                    // Close all other accordions in this block
-                    const block = this.closest('.portfolio1-block');
-                    const allButtons = block.querySelectorAll('.portfolio1-read-more-btn');
-                    const allContents = block.querySelectorAll('.portfolio1-content-section');
-                    
-                    allButtons.forEach(btn => btn.classList.remove('active'));
-                    allContents.forEach(content => content.classList.remove('active'));
-                    
-                    // Open this accordion
-                    this.classList.add('active');
-                    contentSection.classList.add('active');
-                    
-                    // Smooth scroll to content
-                    setTimeout(() => {
-                        const contentTop = contentSection.getBoundingClientRect().top + window.pageYOffset - 100;
-                        window.scrollTo({
-                            top: contentTop,
-                            behavior: 'smooth'
-                        });
-                    }, 300);
+        imageContainers.forEach(container => {
+            const image = container.querySelector('.portfolio1-scroll-image');
+            if (!image) return;
+
+            let scrollInterval = null;
+            let currentPosition = 0;
+
+            // Wait for image to load to get accurate dimensions
+            if (image.complete) {
+                setupScrolling();
+            } else {
+                image.addEventListener('load', setupScrolling);
+            }
+
+            function setupScrolling() {
+                const containerHeight = container.offsetHeight;
+                const imageHeight = image.offsetHeight;
+                const maxScroll = imageHeight - containerHeight;
+
+                // Only enable scrolling if image is taller than container
+                if (maxScroll <= 0) {
+                    return;
                 }
-            });
+
+                container.addEventListener('mouseenter', function() {
+                    // Reset position when entering
+                    currentPosition = 0;
+                    image.style.top = '0px';
+                });
+
+                container.addEventListener('mousemove', function(e) {
+                    const rect = container.getBoundingClientRect();
+                    const mouseY = e.clientY - rect.top;
+                    const relativePosition = mouseY / containerHeight; // 0 to 1
+
+                    // Clear any existing interval
+                    if (scrollInterval) {
+                        clearInterval(scrollInterval);
+                    }
+
+                    // Determine scroll direction and speed based on mouse position
+                    let scrollSpeed = 0;
+                    
+                    if (relativePosition < 0.3) {
+                        // Top 30% - scroll up
+                        scrollSpeed = -2 * (1 - relativePosition / 0.3); // -2 to 0
+                    } else if (relativePosition > 0.7) {
+                        // Bottom 30% - scroll down
+                        scrollSpeed = 2 * ((relativePosition - 0.7) / 0.3); // 0 to 2
+                    } else {
+                        // Middle 40% - no scroll
+                        scrollSpeed = 0;
+                    }
+
+                    if (scrollSpeed !== 0) {
+                        scrollInterval = setInterval(function() {
+                            currentPosition += scrollSpeed;
+                            
+                            // Clamp position
+                            if (currentPosition < 0) {
+                                currentPosition = 0;
+                            } else if (currentPosition > maxScroll) {
+                                currentPosition = maxScroll;
+                            }
+
+                            image.style.top = -currentPosition + 'px';
+                        }, 16); // ~60fps
+                    }
+                });
+
+                container.addEventListener('mouseleave', function() {
+                    // Stop scrolling when mouse leaves
+                    if (scrollInterval) {
+                        clearInterval(scrollInterval);
+                        scrollInterval = null;
+                    }
+                });
+            }
         });
     }
 

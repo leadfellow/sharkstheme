@@ -1127,12 +1127,12 @@ add_action('acf/init', function() {
     // Portfolio1 Block
     acf_register_block_type([
         'name'            => 'portfolio1',
-        'title'           => __('Portfolio1 (Expandable)', 'sharks2025'),
-        'description'     => __('Expandable portfolio items with category filtering, MacBook mockups, and before/after stats', 'sharks2025'),
+        'title'           => __('Portfolio1 (Auto-scroll)', 'sharks2025'),
+        'description'     => __('Portfolio items with category filtering and auto-scrolling tall images on hover', 'sharks2025'),
         'render_template' => 'template-parts/blocks/portfolio1/portfolio1.php',
         'category'        => 'sharks-blocks',
         'icon'            => 'portfolio',
-        'keywords'        => ['portfolio', 'expandable', 'accordion', 'projects', 'case studies', 'tööd', 'filter'],
+        'keywords'        => ['portfolio', 'auto-scroll', 'scrollable', 'projects', 'case studies', 'tööd', 'filter'],
         'supports'        => [
             'align'   => ['wide', 'full'],
             'anchor'  => true,

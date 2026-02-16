@@ -247,8 +247,8 @@
     stroke: #000000;
 }
 
-/* MacBook Mockup Section */
-.portfolio1-macbook-section {
+/* Scrollable Image Section */
+.portfolio1-image-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -259,281 +259,34 @@
     background: #000000;
 }
 
-.portfolio1-macbook-wrapper {
+.portfolio1-image-wrapper {
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 120px 58px;
+    padding: 0 58px;
 }
 
-.portfolio1-macbook-container {
+.portfolio1-image-container {
     position: relative;
     width: 100%;
-    padding-bottom: 62.5%; /* 16:10 aspect ratio */
+    height: 600px;
+    overflow: hidden;
     background: #1a1a1a;
     border-radius: 12px;
-    overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
-
-.portfolio1-macbook-bezel {
-    position: absolute;
-    top: 3%;
-    left: 3%;
-    right: 3%;
-    bottom: 3%;
-    background: #000000;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.portfolio1-macbook-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Details Wrapper */
-.portfolio1-details-wrapper {
-    width: 100%;
-}
-
-/* Read More Section */
-.portfolio1-read-more-section {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 25px;
-    gap: 40px;
-    width: 100%;
-    border-bottom: 1px solid #BBBAB6;
-}
-
-.portfolio1-read-more-btn {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0;
-    gap: 10px;
-    background: transparent;
-    border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-.portfolio1-read-more-btn:hover {
-    opacity: 0.7;
-}
-
-.portfolio1-read-more-title {
-    font-family: 'Switzer', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 42px;
-    line-height: 110%;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-    color: #000000;
-    margin: 0;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-.portfolio1-toggle-icon {
-    width: 62px;
-    height: 62px;
-    position: relative;
-    border-radius: 182.986px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-}
-
-.portfolio1-toggle-icon svg {
+.portfolio1-scroll-image {
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block;
     position: absolute;
     top: 0;
     left: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: top 0.1s linear;
 }
 
-.portfolio1-toggle-icon .icon-plus {
-    opacity: 1;
-}
-
-.portfolio1-toggle-icon .icon-close {
-    opacity: 0;
-    transform: rotate(90deg);
-}
-
-.portfolio1-read-more-btn.active .portfolio1-toggle-icon .icon-plus {
-    opacity: 0;
-    transform: rotate(90deg);
-}
-
-.portfolio1-read-more-btn.active .portfolio1-toggle-icon .icon-close {
-    opacity: 1;
-    transform: rotate(0deg);
-}
-
-/* Content Section */
-.portfolio1-content-section {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease, opacity 0.3s ease;
-    opacity: 0;
-}
-
-.portfolio1-content-section.active {
-    max-height: 3000px;
-    opacity: 1;
-}
-
-.portfolio1-content-inner {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 58px 0 0;
-    gap: 132px;
-}
-
-.portfolio1-content-left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
-    gap: 42px;
-    width: 540px;
-}
-
-.portfolio1-content-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
-    gap: 30px;
-    width: 652px;
-    background: #FFFFFF;
-}
-
-.portfolio1-section-title {
-    font-family: 'Switzer', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 110%;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-    color: #000000;
-    margin: 0;
-}
-
-.portfolio1-section-text {
-    font-family: 'Helvetica', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    color: #141414;
-}
-
-.portfolio1-task-section,
-.portfolio1-solution-section {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
-    gap: 20px;
-    width: 540px;
-}
-
-.portfolio1-section-text p {
-    margin: 0;
-}
-
-/* Metrics Section */
-.portfolio1-metrics-box {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    width: 100%;
-    padding: 40px;
-    background: #FFFFFF;
-    border: 2px solid #000000;
-}
-
-.portfolio1-metrics-row {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
-}
-
-.portfolio1-metric-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-}
-
-.portfolio1-metric-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Switzer', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 1;
-    color: #FFFFFF;
-}
-
-.portfolio1-metric-circle.orange {
-    background: #FFA500;
-}
-
-.portfolio1-metric-circle.blue {
-    background: #00BFFF;
-}
-
-.portfolio1-metric-circle.red {
-    background: #FF6B6B;
-}
-
-.portfolio1-metric-circle.green {
-    background: #A4D65E;
-}
-
-.portfolio1-metric-circle.gray {
-    background: #CCCCCC;
-}
-
-.portfolio1-metric-value {
-    color: inherit;
-}
-
-.portfolio1-metric-item-label {
-    font-family: 'Helvetica', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 140%;
-    color: #000000;
-    margin: 0;
-    text-align: center;
-}
 
 /* Mobile Visibility */
 .portfolio1-block.hide-mobile {
@@ -566,10 +319,12 @@
         padding: 40px 20px;
     }
 
-    .portfolio1-macbook-section {
-        padding: 40px 20px;
-        margin-left: -20px;
-        margin-right: -20px;
+    .portfolio1-image-wrapper {
+        padding: 0 20px;
+    }
+
+    .portfolio1-image-container {
+        height: 400px;
     }
 
     .portfolio1-filter {
@@ -618,23 +373,6 @@
     .portfolio1-arrow-icon {
         width: 22px;
         height: 22px;
-    }
-
-    .portfolio1-section-title {
-        font-size: 20px;
-    }
-
-    .portfolio1-section-text {
-        font-size: 14px;
-    }
-
-    .portfolio1-stats-chart {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .portfolio1-stat-value {
-        font-size: 24px;
     }
 
     .portfolio1-block.hide-mobile {

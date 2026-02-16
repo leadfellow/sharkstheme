@@ -901,12 +901,57 @@
     return hash;
   }
 
+  function isMouseOverHeroBanner(clientX, clientY) {
+    // Find hero banner elements
+    const heroBanner = document.querySelector('.block-frontpage-hero-banner');
+    const heroBlock = document.querySelector('.block-hero');
+    
+    // Check if mouse is over frontpage hero banner
+    if (heroBanner) {
+      const rect = heroBanner.getBoundingClientRect();
+      if (clientX >= rect.left && clientX <= rect.right &&
+          clientY >= rect.top && clientY <= rect.bottom) {
+        return true;
+      }
+    }
+    
+    // Check if mouse is over hero block (but not the labels bar at bottom)
+    if (heroBlock) {
+      const rect = heroBlock.getBoundingClientRect();
+      const labelsBar = document.querySelector('.block-hero__labels-wrapper');
+      
+      // If mouse is within hero block
+      if (clientX >= rect.left && clientX <= rect.right &&
+          clientY >= rect.top && clientY <= rect.bottom) {
+        
+        // But exclude the labels bar at the bottom
+        if (labelsBar) {
+          const labelsRect = labelsBar.getBoundingClientRect();
+          if (clientY >= labelsRect.top && clientY <= labelsRect.bottom) {
+            return false; // Mouse is over labels bar, don't show trail
+          }
+        }
+        
+        return true;
+      }
+    }
+    
+    return false;
+  }
+
   function bindEvents() {
     window.addEventListener('mousemove', e => {
       let pointer = pointers[0];
-      let posX = scaleByPixelRatio(e.clientX);
-      let posY = scaleByPixelRatio(e.clientY);
-      updatePointerMoveData(pointer, posX, posY);
+      
+      // Only update pointer if mouse is over hero banner
+      if (isMouseOverHeroBanner(e.clientX, e.clientY)) {
+        let posX = scaleByPixelRatio(e.clientX);
+        let posY = scaleByPixelRatio(e.clientY);
+        updatePointerMoveData(pointer, posX, posY);
+      } else {
+        // Reset pointer movement when outside hero banner
+        pointer.moved = false;
+      }
     });
   }
 

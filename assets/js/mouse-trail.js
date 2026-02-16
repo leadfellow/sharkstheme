@@ -9,17 +9,17 @@
 
   const config = {
     SIM_RESOLUTION: 128,
-    DYE_RESOLUTION: 1024,
+    DYE_RESOLUTION: 512,
     CAPTURE_RESOLUTION: 512,
-    DENSITY_DISSIPATION: 2.0,
-    VELOCITY_DISSIPATION: 1.5,
-    PRESSURE: 0.2,
-    PRESSURE_ITERATIONS: 25,
-    CURL: 6,
-    SPLAT_RADIUS: 0.18,
-    SPLAT_FORCE: 4500,
+    DENSITY_DISSIPATION: 0.93,
+    VELOCITY_DISSIPATION: 0.9,
+    PRESSURE: 0.8,
+    PRESSURE_ITERATIONS: 3,
+    CURL: 20,
+    SPLAT_RADIUS: 0.3,
+    SPLAT_FORCE: 6000,
     SHADING: true,
-    COLOR_UPDATE_SPEED: 6,
+    COLOR_UPDATE_SPEED: 10,
     PAUSED: false,
     BACK_COLOR: { r: 0, g: 0, b: 0 },
     TRANSPARENT: true
@@ -878,14 +878,14 @@
   }
 
   function generateColor() {
-    // Vibrant but elegant color palette
+    // Professional color palette - Luis Bizarro style
     const hue = Math.random();
-    let c = HSVtoRGB(hue, 0.75, 1.0);
+    let c = HSVtoRGB(hue, 0.8, 1.0);
     
-    // Good visibility with professional look
-    c.r *= 0.28;
-    c.g *= 0.28;
-    c.b *= 0.28;
+    // Balanced intensity
+    c.r *= 0.2;
+    c.g *= 0.2;
+    c.b *= 0.2;
     
     return c;
   }

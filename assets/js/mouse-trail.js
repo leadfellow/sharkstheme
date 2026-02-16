@@ -53,6 +53,17 @@
   let baseVertexShader;
 
   function init() {
+    // Detect Safari specifically
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    
+    // For Safari, use Canvas trail directly
+    if (isSafari) {
+      console.log('Safari detected, using Canvas trail');
+      initSafariTrail();
+      return;
+    }
+    
+    // For other browsers, try WebGL
     try {
       createCanvas();
       const webglSupported = initWebGL();
@@ -1013,8 +1024,16 @@
 
   // Safari-specific fluid-like trail implementation
   function initSafariTrail() {
+    console.log('Initializing Safari trail...');
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
+    
+    if (!ctx) {
+      console.error('Failed to get 2D context');
+      return;
+    }
+    
+    console.log('Safari trail canvas created');
     
     canvas.id = 'safari-trail';
     canvas.style.cssText = `
@@ -1156,6 +1175,8 @@
     });
     
     function animate() {
+      if (!ctx) return;
+      
       // Very subtle fade for long-lasting trail
       ctx.fillStyle = 'rgba(0, 0, 0, 0.02)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -1172,12 +1193,15 @@
       requestAnimationFrame(animate);
     }
     
+    console.log('Starting Safari trail animation');
     animate();
     
     window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
+    
+    console.log('Safari trail initialized successfully');
   }
 
   // Initialize on DOM ready - only on desktop devices (no touch support)

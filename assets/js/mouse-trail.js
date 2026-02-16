@@ -9,19 +9,19 @@
 
   const config = {
     SIM_RESOLUTION: 128,
-    DYE_RESOLUTION: 1440,
+    DYE_RESOLUTION: 1024,
     CAPTURE_RESOLUTION: 512,
-    DENSITY_DISSIPATION: 3.5,
-    VELOCITY_DISSIPATION: 2,
-    PRESSURE: 0.1,
-    PRESSURE_ITERATIONS: 20,
-    CURL: 3,
-    SPLAT_RADIUS: 0.1,
-    SPLAT_FORCE: 3000,
+    DENSITY_DISSIPATION: 2.5,
+    VELOCITY_DISSIPATION: 1.5,
+    PRESSURE: 0.15,
+    PRESSURE_ITERATIONS: 25,
+    CURL: 5,
+    SPLAT_RADIUS: 0.15,
+    SPLAT_FORCE: 4000,
     SHADING: true,
-    COLOR_UPDATE_SPEED: 10,
+    COLOR_UPDATE_SPEED: 8,
     PAUSED: false,
-    BACK_COLOR: { r: 0.5, g: 0, b: 0 },
+    BACK_COLOR: { r: 0, g: 0, b: 0 },
     TRANSPARENT: true
   };
 
@@ -839,10 +839,30 @@
   }
 
   function generateColor() {
-    let c = HSVtoRGB(Math.random(), 1.0, 1.0);
-    c.r *= 0.08;
-    c.g *= 0.08;
-    c.b *= 0.08;
+    // Generate more vibrant, professional colors inspired by high-end portfolios
+    const hue = Math.random();
+    let c = HSVtoRGB(hue, 0.95, 1.0);
+    
+    // Boost specific color ranges for more appealing palette
+    // Blues, purples, and cyans (more professional look)
+    if (hue > 0.5 && hue < 0.75) {
+      c.r *= 0.15;
+      c.g *= 0.15;
+      c.b *= 0.2;
+    } 
+    // Reds and magentas
+    else if (hue < 0.15 || hue > 0.85) {
+      c.r *= 0.18;
+      c.g *= 0.08;
+      c.b *= 0.12;
+    }
+    // Greens and teals
+    else {
+      c.r *= 0.1;
+      c.g *= 0.15;
+      c.b *= 0.15;
+    }
+    
     return c;
   }
 

@@ -125,28 +125,26 @@
                 const relativePosition = mouseY / containerHeight; // 0 to 1
                 let scrollSpeed = 0;
                 
-                if (relativePosition < 0.3) {
-                    // Top 30% - scroll up
-                    scrollSpeed = -3 * (1 - relativePosition / 0.3); // -3 to 0
-                } else if (relativePosition > 0.7) {
-                    // Bottom 30% - scroll down
-                    scrollSpeed = 3 * ((relativePosition - 0.7) / 0.3); // 0 to 3
+                if (relativePosition < 0.2) {
+                    // Top 20% - scroll up (faster at top)
+                    scrollSpeed = -8 * (1 - relativePosition / 0.2); // -8 to 0
+                } else {
+                    // Bottom 80% - scroll down (faster at bottom)
+                    scrollSpeed = 5 + (relativePosition - 0.2) * 7.5; // 5 to 11
                 }
 
-                if (scrollSpeed !== 0) {
-                    scrollInterval = setInterval(function() {
-                        currentPosition += scrollSpeed;
-                        
-                        // Clamp position
-                        if (currentPosition < 0) {
-                            currentPosition = 0;
-                        } else if (currentPosition > maxScroll) {
-                            currentPosition = maxScroll;
-                        }
+                scrollInterval = setInterval(function() {
+                    currentPosition += scrollSpeed;
+                    
+                    // Clamp position
+                    if (currentPosition < 0) {
+                        currentPosition = 0;
+                    } else if (currentPosition > maxScroll) {
+                        currentPosition = maxScroll;
+                    }
 
-                        image.style.top = -currentPosition + 'px';
-                    }, 16); // ~60fps
-                }
+                    image.style.top = -currentPosition + 'px';
+                }, 16); // ~60fps
             }
 
             // Wait for image to load

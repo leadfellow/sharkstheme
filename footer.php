@@ -152,7 +152,7 @@ if (!defined('ABSPATH')) {
 
 <?php wp_footer(); ?>
 
-<!-- Modal for Header CTA -->
+<!-- Modals for Header CTA -->
 <?php
 $cta_type = get_field('header_cta_type', 'option') ?: 'link';
 if ($cta_type === 'modal'):
@@ -179,9 +179,7 @@ if ($cta_type === 'modal'):
 </div>
 <?php endif; ?>
 
-<!-- Contact Form 7 Modal -->
-<?php
-if ($cta_type === 'contact_form'):
+<?php if ($cta_type === 'contact_form'):
     $cf7_shortcode = get_field('header_cta_cf7_shortcode', 'option');
     $cf7_title = get_field('header_cta_cf7_title', 'option');
 ?>
@@ -211,9 +209,7 @@ if ($cta_type === 'contact_form'):
 </div>
 <?php endif; ?>
 
-<!-- Calendly Modal -->
-<?php
-if ($cta_type === 'calendly'):
+<?php if ($cta_type === 'calendly'):
     $calendly_url = get_field('header_cta_calendly_url', 'option');
     $calendly_inline = get_field('header_cta_calendly_inline', 'option');
     if ($calendly_inline && $calendly_url):
@@ -233,7 +229,6 @@ if ($cta_type === 'calendly'):
         </div>
     </div>
 </div>
-<!-- Calendly widget script -->
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <?php endif; endif; ?>
 

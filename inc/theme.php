@@ -65,6 +65,7 @@ add_action('after_setup_theme', function() {
         'assets/css/30-components/block-styles.css',
         'assets/css/30-components/mouse-trail.css',
         'assets/css/30-components/modal.css',
+        'assets/css/30-components/modal-legacy.css',
         'assets/css/40-layout/grid.css',
         'assets/css/40-layout/header.css',
         'assets/css/40-layout/footer.css',

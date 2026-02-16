@@ -268,7 +268,7 @@
 
 .portfolio1-image-container {
     position: relative;
-    width: 1028px;
+    width: 1208px;
     max-width: 100%;
     height: 600px;
     overflow: hidden;
@@ -280,7 +280,7 @@
 }
 
 .portfolio1-scroll-image {
-    width: 1028px;
+    width: 1208px;
     max-width: 100%;
     height: auto;
     display: block;

@@ -131,23 +131,19 @@ wp_enqueue_script(
                         <!-- Scrollable Image Section -->
                         <?php if (!empty($item['main_image'])): 
                             $image_id = $item['main_image']['ID'];
-                            $image_full = wp_get_attachment_image_url($image_id, 'full');
+                            
+                            // Try to get 1208px width image, fallback to full
+                            $image_1208 = wp_get_attachment_image_url($image_id, [1208, 9999]);
+                            $image_url = $image_1208 ? $image_1208 : wp_get_attachment_image_url($image_id, 'full');
+                            
                             $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true) ?: $item['title'];
-                            $image_srcset = wp_get_attachment_image_srcset($image_id, 'full');
-                            $image_sizes = wp_get_attachment_image_sizes($image_id, 'full');
-                            $image_meta = wp_get_attachment_metadata($image_id);
-                            $image_width = isset($image_meta['width']) ? $image_meta['width'] : '';
-                            $image_height = isset($image_meta['height']) ? $image_meta['height'] : '';
                         ?>
                             <div class="portfolio1-image-section">
                                 <div class="portfolio1-image-wrapper">
                                     <div class="portfolio1-image-container" data-item-id="<?php echo esc_attr($item_id); ?>">
                                         <img 
-                                            src="<?php echo esc_url($image_full); ?>" 
-                                            srcset="<?php echo esc_attr($image_srcset); ?>"
-                                            sizes="<?php echo esc_attr($image_sizes); ?>"
-                                            width="<?php echo esc_attr($image_width); ?>"
-                                            height="<?php echo esc_attr($image_height); ?>"
+                                            src="<?php echo esc_url($image_url); ?>" 
+                                            width="1208"
                                             alt="<?php echo esc_attr($image_alt); ?>" 
                                             class="portfolio1-scroll-image"
                                             loading="eager"

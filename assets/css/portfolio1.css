@@ -252,94 +252,67 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 60px 0;
+    padding: 0;
     gap: 0;
     isolation: isolate;
     width: 100%;
-    background: #000000;
+    background: transparent;
 }
 
 .portfolio1-image-wrapper {
     width: 100%;
-    max-width: 1440px;
+    max-width: 1536px;
     margin: 0 auto;
-    padding: 0 58px;
+    padding: 0;
 }
 
 .portfolio1-image-container {
     position: relative;
     width: 100%;
-    max-width: 1208px;
-    margin: 0 auto;
-    cursor: pointer;
+    aspect-ratio: 4096 / 3444;
 }
 
-/* MacBook Mockup Frame */
+/* MacBook Mockup Frame - hidden, only wrapper used */
 .portfolio1-macbook-frame {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    aspect-ratio: 16 / 10;
-    background: #2c2c2c;
-    border-radius: 8px 8px 0 0;
-    padding: 12px 12px 0 12px;
-    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+    height: 100%;
 }
 
 /* Screen area with thin bezel */
 .portfolio1-screen-bezel {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: transparent;
-    border-radius: 6px 6px 0 0;
-    padding: 0;
-    overflow: hidden;
-    box-shadow: none;
 }
 
 /* Actual screen content area */
 .portfolio1-screen-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: transparent;
-    border-radius: 3px;
-}
-
-.portfolio1-scroll-image {
-    width: 100%;
-    height: auto;
-    display: block;
     position: absolute;
     top: 0;
     left: 0;
-    transition: none;
-    pointer-events: none;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-}
-
-/* MacBook Base (keyboard area) */
-.portfolio1-macbook-base {
-    position: relative;
     width: 100%;
-    height: 16px;
-    background: linear-gradient(180deg, #3a3a3a 0%, #2a2a2a 100%);
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    height: 100%;
 }
 
-.portfolio1-macbook-base::before {
-    content: '';
+.portfolio1-scroll-image {
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: #1a1a1a;
-    border-radius: 0 0 4px 4px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    display: block;
+}
+
+/* MacBook Base (keyboard area) - hidden */
+.portfolio1-macbook-base {
+    display: none;
 }
 
 
@@ -368,14 +341,6 @@
     .portfolio1-main-title {
         font-size: 48px;
     }
-
-    .portfolio1-macbook-frame {
-        padding: 6px 6px 0 6px;
-    }
-
-    .portfolio1-macbook-base {
-        height: 16px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -389,24 +354,6 @@
 
     .portfolio1-image-wrapper {
         padding: 0 20px;
-    }
-
-    .portfolio1-macbook-frame {
-        padding: 4px 4px 0 4px;
-    }
-
-    .portfolio1-screen-bezel {
-        padding: 0;
-        background: transparent;
-    }
-
-    .portfolio1-macbook-base {
-        height: 12px;
-    }
-
-    .portfolio1-macbook-base::before {
-        width: 40px;
-        height: 2px;
     }
 
     .portfolio1-filter {

@@ -84,8 +84,9 @@
         const imageContainers = document.querySelectorAll('.portfolio1-image-container');
         
         imageContainers.forEach(container => {
+            const screenContent = container.querySelector('.portfolio1-screen-content');
             const image = container.querySelector('.portfolio1-scroll-image');
-            if (!image) return;
+            if (!image || !screenContent) return;
 
             let scrollInterval = null;
             let currentPosition = 0;
@@ -96,7 +97,7 @@
 
             // Setup function that recalculates dimensions
             function setupScrolling() {
-                containerHeight = container.offsetHeight;
+                containerHeight = screenContent.offsetHeight;
                 const imageHeight = image.naturalHeight || image.offsetHeight;
                 maxScroll = imageHeight - containerHeight;
 
@@ -151,7 +152,7 @@
             }
 
             // Mouse enter - reset to top and start scrolling
-            container.addEventListener('mouseenter', function(e) {
+            screenContent.addEventListener('mouseenter', function(e) {
                 // Recalculate dimensions on enter
                 if (!setupScrolling()) return;
                 
@@ -160,23 +161,23 @@
                 image.style.top = '0px';
 
                 // Get initial mouse position and start scrolling
-                const rect = container.getBoundingClientRect();
+                const rect = screenContent.getBoundingClientRect();
                 lastMouseY = e.clientY - rect.top;
                 startScrolling(lastMouseY);
             });
 
             // Mouse move - update scroll based on position
-            container.addEventListener('mousemove', function(e) {
+            screenContent.addEventListener('mousemove', function(e) {
                 // Make sure we have valid dimensions
                 if (maxScroll <= 0 || !isHovering) return;
 
-                const rect = container.getBoundingClientRect();
+                const rect = screenContent.getBoundingClientRect();
                 lastMouseY = e.clientY - rect.top;
                 startScrolling(lastMouseY);
             });
 
             // Mouse leave - stop scrolling
-            container.addEventListener('mouseleave', function() {
+            screenContent.addEventListener('mouseleave', function() {
                 isHovering = false;
                 if (scrollInterval) {
                     clearInterval(scrollInterval);

@@ -268,31 +268,97 @@
 
 .portfolio1-image-container {
     position: relative;
-    width: 1208px;
-    max-width: 100%;
-    height: 600px;
-    overflow: hidden;
-    background: #1a1a1a;
-    border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
+    width: 100%;
+    max-width: 1208px;
     margin: 0 auto;
+    cursor: pointer;
+}
+
+/* iMac Mockup Frame */
+.portfolio1-imac-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: linear-gradient(180deg, #E8E8E8 0%, #C5C5C5 100%);
+    border-radius: 12px 12px 0 0;
+    padding: 20px 20px 60px 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Screen area with black bezel */
+.portfolio1-screen-bezel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Actual screen content area */
+.portfolio1-screen-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000000;
+    border-radius: 4px;
 }
 
 .portfolio1-scroll-image {
-    width: 1208px;
-    max-width: 100%;
+    width: 100%;
     height: auto;
     display: block;
     position: absolute;
     top: 0;
-    left: 50%;
-    margin-left: -604px;
+    left: 0;
     transition: none;
     pointer-events: none;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-    -ms-interpolation-mode: nearest-neighbor;
+}
+
+/* iMac Stand */
+.portfolio1-imac-stand {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portfolio1-stand-neck {
+    width: 180px;
+    height: 80px;
+    background: linear-gradient(180deg, #C5C5C5 0%, #A8A8A8 100%);
+    clip-path: polygon(40% 0%, 60% 0%, 70% 100%, 30% 100%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio1-stand-base {
+    width: 280px;
+    height: 12px;
+    background: linear-gradient(180deg, #A8A8A8 0%, #8C8C8C 100%);
+    border-radius: 100px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Apple logo on chin */
+.portfolio1-apple-logo {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 24px;
+    opacity: 0.4;
+}
+
+.portfolio1-apple-logo svg {
+    width: 100%;
+    height: 100%;
+    fill: #1a1a1a;
 }
 
 
@@ -308,13 +374,32 @@
         gap: 30px;
     }
 
+    .portfolio1-header-left,
+    .portfolio1-header-right {
+        width: 100%;
+    }
+
     .portfolio1-content-inner {
         flex-direction: column;
         gap: 40px;
     }
 
     .portfolio1-main-title {
-        font-size: 36px;
+        font-size: 48px;
+    }
+
+    .portfolio1-imac-frame {
+        padding: 16px 16px 50px 16px;
+    }
+
+    .portfolio1-stand-neck {
+        width: 140px;
+        height: 60px;
+    }
+
+    .portfolio1-stand-base {
+        width: 220px;
+        height: 11px;
     }
 }
 
@@ -331,8 +416,28 @@
         padding: 0 20px;
     }
 
-    .portfolio1-image-container {
-        height: 400px;
+    .portfolio1-imac-frame {
+        padding: 12px 12px 40px 12px;
+    }
+
+    .portfolio1-screen-bezel {
+        padding: 6px;
+    }
+
+    .portfolio1-stand-neck {
+        width: 120px;
+        height: 50px;
+    }
+
+    .portfolio1-stand-base {
+        width: 180px;
+        height: 10px;
+    }
+
+    .portfolio1-apple-logo {
+        width: 18px;
+        height: 18px;
+        bottom: 10px;
     }
 
     .portfolio1-filter {

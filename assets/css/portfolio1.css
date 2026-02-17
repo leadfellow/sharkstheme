@@ -256,7 +256,6 @@
     gap: 0;
     isolation: isolate;
     width: 100%;
-    background: #000000;
 }
 
 .portfolio1-image-wrapper {
@@ -274,42 +273,37 @@
     cursor: pointer;
 }
 
-/* iMac Mockup Frame */
-.portfolio1-macbook-frame {
+/* iMac Mockup Container */
+.portfolio1-imac-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 4096 / 2860;
+    aspect-ratio: 4096 / 3444;
 }
 
-/* iMac Frame Image (overlay on top) */
+/* iMac Frame Image (on top, with transparent screen) */
 .portfolio1-imac-frame-img {
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     pointer-events: none;
     z-index: 2;
 }
 
-/* Screen area - positioned to match iMac screen */
-.portfolio1-screen-bezel {
+/* Screen area - positioned to match iMac screen cutout in SVG */
+/* SVG screen: (200,110) to (3896,2350) on 4096x3444 canvas */
+.portfolio1-screen-content {
     position: absolute;
-    top: 5.03%;
-    left: 3.52%;
-    width: 93%;
-    height: 78.7%;
+    top: 3.0%;
+    left: 4.6%;
+    width: 90.8%;
+    height: 65.8%;
     overflow: hidden;
     z-index: 1;
-}
-
-/* Actual screen content area */
-.portfolio1-screen-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
     background: #000000;
 }
 
@@ -326,7 +320,9 @@
     image-rendering: crisp-edges;
 }
 
-/* iMac Base - hidden as it's part of the frame image */
+/* Old MacBook elements - hidden */
+.portfolio1-macbook-frame,
+.portfolio1-screen-bezel,
 .portfolio1-macbook-base {
     display: none;
 }
@@ -358,13 +354,6 @@
         font-size: 48px;
     }
 
-    .portfolio1-macbook-frame {
-        padding: 6px 6px 0 6px;
-    }
-
-    .portfolio1-macbook-base {
-        height: 16px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -380,23 +369,6 @@
         padding: 0 20px;
     }
 
-    .portfolio1-macbook-frame {
-        padding: 4px 4px 0 4px;
-    }
-
-    .portfolio1-screen-bezel {
-        padding: 0;
-        background: transparent;
-    }
-
-    .portfolio1-macbook-base {
-        height: 12px;
-    }
-
-    .portfolio1-macbook-base::before {
-        width: 40px;
-        height: 2px;
-    }
 
     .portfolio1-filter {
         margin-bottom: 40px;

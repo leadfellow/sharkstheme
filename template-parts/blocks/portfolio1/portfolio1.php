@@ -151,30 +151,26 @@ wp_enqueue_script(
                             <div class="portfolio1-image-section">
                                 <div class="portfolio1-image-wrapper">
                                     <div class="portfolio1-image-container" data-item-id="<?php echo esc_attr($item_id); ?>">
-                                        <!-- iMac Mockup Wrapper -->
-                                        <div class="portfolio1-macbook-frame">
+                                        <!-- iMac Mockup -->
+                                        <div class="portfolio1-imac-wrapper">
                                             <!-- Screen Content (behind the frame) -->
-                                            <div class="portfolio1-screen-bezel">
-                                                <div class="portfolio1-screen-content">
-                                                    <img 
-                                                        src="<?php echo esc_url($image_url); ?>" 
-                                                        alt="<?php echo esc_attr($image_alt); ?>" 
-                                                        class="portfolio1-scroll-image"
-                                                        loading="eager"
-                                                        decoding="sync"
-                                                        fetchpriority="high"
-                                                    >
-                                                </div>
+                                            <div class="portfolio1-screen-content">
+                                                <img 
+                                                    src="<?php echo esc_url($image_url); ?>" 
+                                                    alt="<?php echo esc_attr($image_alt); ?>" 
+                                                    class="portfolio1-scroll-image"
+                                                    loading="eager"
+                                                    decoding="sync"
+                                                    fetchpriority="high"
+                                                >
                                             </div>
-                                            <!-- iMac Frame Image (on top) -->
+                                            <!-- iMac Frame (on top, transparent screen area) -->
                                             <img 
                                                 src="<?php echo get_template_directory_uri(); ?>/assets/images/imac-frame.svg" 
-                                                alt="iMac Frame" 
+                                                alt="" 
                                                 class="portfolio1-imac-frame-img"
                                             >
                                         </div>
-                                        <!-- Base hidden for iMac -->
-                                        <div class="portfolio1-macbook-base"></div>
                                     </div>
                                 </div>
                             </div>

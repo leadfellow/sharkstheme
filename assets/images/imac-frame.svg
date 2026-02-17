@@ -1,29 +1,73 @@
-<svg width="4096" height="3444" viewBox="0 0 4096 3444" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- iMac Screen Bezel (thin border around screen) -->
-  <path d="M0 120C0 53.7258 53.7258 0 120 0H3976C4042.27 0 4096 53.7258 4096 120V2420C4096 2486.27 4042.27 2540 3976 2540H120C53.7258 2540 0 2486.27 0 2420V120Z" fill="#1A1A1A"/>
-  
-  <!-- Screen cutout (transparent area for content) -->
-  <path d="M144 144C144 144 144 144 144 144H3952C3952 144 3952 144 3952 144V2396C3952 2396 3952 2396 3952 2396H144C144 2396 144 2396 144 2396V144Z" fill="black" fill-opacity="0"/>
-  
-  <!-- Bottom bezel (chin) -->
-  <path d="M0 2540H4096V2740C4096 2806.27 4042.27 2860 3976 2860H120C53.7258 2860 0 2806.27 0 2740V2540Z" fill="#2A2A2A"/>
-  
-  <!-- Stand neck -->
-  <path d="M1848 2860H2248V3100H1848V2860Z" fill="#3A3A3A"/>
-  
-  <!-- Stand base -->
-  <ellipse cx="2048" cy="3300" rx="600" ry="144" fill="#4A4A4A"/>
-  
-  <!-- Glossy effect on bezel -->
-  <path d="M120 0H3976C4042.27 0 4096 53.7258 4096 120V200C4096 200 4096 200 4096 200H0V120C0 53.7258 53.7258 0 120 0Z" fill="url(#glossy)" fill-opacity="0.1"/>
-  
-  <!-- Subtle shadow on chin -->
-  <path d="M0 2540H4096V2600H0V2540Z" fill="black" fill-opacity="0.2"/>
-  
+<svg xmlns="http://www.w3.org/2000/svg" width="4096" height="3444" viewBox="0 0 4096 3444" fill="none">
   <defs>
-    <linearGradient id="glossy" x1="2048" y1="0" x2="2048" y2="200" gradientUnits="userSpaceOnUse">
-      <stop stop-color="white" stop-opacity="0.3"/>
-      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    <linearGradient id="body" x1="2048" y1="35" x2="2048" y2="2655" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e3e4e6"/>
+      <stop offset="0.5" stop-color="#d5d6d8"/>
+      <stop offset="1" stop-color="#c5c6c8"/>
+    </linearGradient>
+    <linearGradient id="bodyEdge" x1="2048" y1="35" x2="2048" y2="55" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="neck" x1="2048" y1="2655" x2="2048" y2="3165" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#cbccce"/>
+      <stop offset="1" stop-color="#aaabac"/>
+    </linearGradient>
+    <linearGradient id="neckEdge" x1="1928" y1="2900" x2="1960" y2="2900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="base" x1="2048" y1="3145" x2="2048" y2="3435" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d0d1d3"/>
+      <stop offset="0.4" stop-color="#c0c1c3"/>
+      <stop offset="1" stop-color="#a0a1a3"/>
+    </linearGradient>
+    <linearGradient id="baseTop" x1="2048" y1="3160" x2="2048" y2="3210" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="chinLine" x1="155" y1="2392" x2="3941" y2="2392" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b8b9bb" stop-opacity="0"/>
+      <stop offset="0.1" stop-color="#b8b9bb"/>
+      <stop offset="0.9" stop-color="#b8b9bb"/>
+      <stop offset="1" stop-color="#b8b9bb" stop-opacity="0"/>
     </linearGradient>
   </defs>
+
+  <!-- Shadow under base -->
+  <ellipse cx="2048" cy="3340" rx="620" ry="80" fill="#000000" opacity="0.08"/>
+
+  <!-- Stand base -->
+  <ellipse cx="2048" cy="3290" rx="580" ry="145" fill="url(#base)"/>
+  <ellipse cx="2048" cy="3255" rx="500" ry="25" fill="url(#baseTop)"/>
+
+  <!-- Stand neck -->
+  <path d="M1928,2655 L1918,3158 C1918,3170 1926,3178 1938,3178 L2158,3178 C2170,3178 2178,3170 2178,3158 L2168,2655 Z" fill="url(#neck)"/>
+  <path d="M1928,2655 L1920,3060 L1960,3060 L1968,2655 Z" fill="url(#neckEdge)"/>
+
+  <!-- Shadow under monitor -->
+  <rect x="180" y="2640" width="3736" height="30" rx="15" fill="#000000" opacity="0.06"/>
+
+  <!-- Monitor body (silver aluminum shell) -->
+  <rect x="130" y="35" width="3836" height="2620" rx="40" fill="url(#body)"/>
+
+  <!-- Top edge highlight -->
+  <rect x="130" y="35" width="3836" height="20" rx="40" fill="url(#bodyEdge)"/>
+
+  <!-- Dark bezel with transparent screen cutout -->
+  <path fill-rule="evenodd" d="
+    M183,60 L3913,60 C3928,60 3941,73 3941,88 L3941,2362 C3941,2377 3928,2390 3913,2390 L183,2390 C168,2390 155,2377 155,2362 L155,88 C155,73 168,60 183,60 Z
+    M208,110 L3888,110 C3892.4,110 3896,113.6 3896,118 L3896,2342 C3896,2346.4 3892.4,2350 3888,2350 L208,2350 C203.6,2350 200,2346.4 200,2342 L200,118 C200,113.6 203.6,110 208,110 Z
+  " fill="#1a1a1c"/>
+
+  <!-- Subtle bezel inner edge (screen border glow) -->
+  <rect x="198" y="108" width="3700" height="2244" rx="10" fill="none" stroke="#000000" stroke-width="1" opacity="0.3"/>
+
+  <!-- Camera dot -->
+  <circle cx="2048" cy="84" r="5.5" fill="#0d0d0f"/>
+  <circle cx="2048" cy="84" r="3" fill="#1a1a2c" opacity="0.5"/>
+  <circle cx="2047" cy="83" r="1.2" fill="#ffffff" opacity="0.08"/>
+
+  <!-- Chin divider line -->
+  <line x1="200" y1="2392" x2="3896" y2="2392" stroke="url(#chinLine)" stroke-width="0.5"/>
 </svg>

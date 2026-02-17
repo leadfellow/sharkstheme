@@ -290,11 +290,11 @@
     position: relative;
     width: 100%;
     height: 100%;
-    background: #000000;
+    background: transparent;
     border-radius: 6px 6px 0 0;
-    padding: 10px;
+    padding: 0;
     overflow: hidden;
-    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+    box-shadow: none;
 }
 
 /* Actual screen content area */
@@ -303,7 +303,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: #000000;
+    background: transparent;
     border-radius: 3px;
 }
 
@@ -397,6 +397,7 @@
 
     .portfolio1-screen-bezel {
         padding: 0;
+        background: transparent;
     }
 
     .portfolio1-macbook-base {

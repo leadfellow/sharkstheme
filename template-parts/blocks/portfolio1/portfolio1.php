@@ -151,11 +151,10 @@ wp_enqueue_script(
                             <div class="portfolio1-image-section">
                                 <div class="portfolio1-image-wrapper">
                                     <div class="portfolio1-image-container" data-item-id="<?php echo esc_attr($item_id); ?>">
-                                        <!-- MacBook Frame -->
+                                        <!-- iMac Mockup Wrapper -->
                                         <div class="portfolio1-macbook-frame">
-                                            <!-- Screen Bezel -->
+                                            <!-- Screen Content (behind the frame) -->
                                             <div class="portfolio1-screen-bezel">
-                                                <!-- Screen Content -->
                                                 <div class="portfolio1-screen-content">
                                                     <img 
                                                         src="<?php echo esc_url($image_url); ?>" 
@@ -167,8 +166,14 @@ wp_enqueue_script(
                                                     >
                                                 </div>
                                             </div>
+                                            <!-- iMac Frame Image (on top) -->
+                                            <img 
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/imac-frame.svg" 
+                                                alt="iMac Frame" 
+                                                class="portfolio1-imac-frame-img"
+                                            >
                                         </div>
-                                        <!-- MacBook Base (keyboard area) -->
+                                        <!-- Base hidden for iMac -->
                                         <div class="portfolio1-macbook-base"></div>
                                     </div>
                                 </div>

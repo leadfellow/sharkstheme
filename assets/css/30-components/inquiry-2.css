@@ -652,8 +652,23 @@ span.wpcf7-form-control-wrap + .wpcf7-response-output.wpcf7-validation-errors,
         width: 100%;
     }
     
+    /* Textarea wrapper - make taller on mobile */
     .block-inquiry-2__form-fields .inquiry-full {
         width: 100%;
+        height: auto;
+        min-height: 100px;
+        padding: 15px 10px;
+    }
+    
+    /* Textarea field - allow 3 rows */
+    .block-inquiry-2__form-fields textarea,
+    .block-inquiry-2__form-fields .wpcf7-textarea {
+        height: 70px !important;
+        min-height: 70px !important;
+        max-height: 200px !important;
+        resize: vertical !important;
+        overflow: auto !important;
+        line-height: 1.5 !important;
     }
 
     .block-inquiry-2__submit-section {
@@ -755,6 +770,19 @@ span.wpcf7-form-control-wrap + .wpcf7-response-output.wpcf7-validation-errors,
     .block-inquiry-2__form-content {
         padding: 24px;
     }
+    
+    /* Textarea wrapper */
+    .block-inquiry-2__form-fields .inquiry-full {
+        min-height: 95px;
+        padding: 14px 10px;
+    }
+    
+    /* Textarea field */
+    .block-inquiry-2__form-fields textarea,
+    .block-inquiry-2__form-fields .wpcf7-textarea {
+        height: 65px !important;
+        min-height: 65px !important;
+    }
 
     .block-inquiry-2__submit-content {
         padding: 22px;
@@ -799,7 +827,7 @@ span.wpcf7-form-control-wrap + .wpcf7-response-output.wpcf7-validation-errors,
         width: 28px;
         height: 28px;
     }
-    
+
     .block-inquiry-2__form-content {
         padding: 20px;
     }
@@ -815,6 +843,19 @@ span.wpcf7-form-control-wrap + .wpcf7-response-output.wpcf7-validation-errors,
     .block-inquiry-2__form-fields input,
     .block-inquiry-2__form-fields textarea {
         font-size: 16px !important;
+    }
+    
+    /* Textarea wrapper */
+    .block-inquiry-2__form-fields .inquiry-full {
+        min-height: 90px;
+        padding: 14px 10px;
+    }
+    
+    /* Textarea field */
+    .block-inquiry-2__form-fields textarea,
+    .block-inquiry-2__form-fields .wpcf7-textarea {
+        height: 60px !important;
+        min-height: 60px !important;
     }
     
     .block-inquiry-2__submit-content {
@@ -887,6 +928,19 @@ span.wpcf7-form-control-wrap + .wpcf7-response-output.wpcf7-validation-errors,
         font-size: 15px !important;
     }
     
+    /* Textarea wrapper */
+    .block-inquiry-2__form-fields .inquiry-full {
+        min-height: 88px;
+        padding: 13px 10px;
+    }
+    
+    /* Textarea field */
+    .block-inquiry-2__form-fields textarea,
+    .block-inquiry-2__form-fields .wpcf7-textarea {
+        height: 60px !important;
+        min-height: 60px !important;
+    }
+    
     .block-inquiry-2__submit-content {
         padding: 18px;
         min-height: 85px;
@@ -955,6 +1009,19 @@ span.wpcf7-form-control-wrap + .wpcf7-response-output.wpcf7-validation-errors,
     .block-inquiry-2__form-fields input,
     .block-inquiry-2__form-fields textarea {
         font-size: 14px !important;
+    }
+    
+    /* Textarea wrapper */
+    .block-inquiry-2__form-fields .inquiry-full {
+        min-height: 85px;
+        padding: 12px 10px;
+    }
+    
+    /* Textarea field */
+    .block-inquiry-2__form-fields textarea,
+    .block-inquiry-2__form-fields .wpcf7-textarea {
+        height: 58px !important;
+        min-height: 58px !important;
     }
     
     .block-inquiry-2__submit-content {

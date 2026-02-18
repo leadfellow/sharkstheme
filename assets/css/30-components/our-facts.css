@@ -10,12 +10,10 @@
 .block-our-facts__container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 100px 58px;
+  padding: 100px 58px 50px 58px;
   display: flex;
   flex-direction: column;
   gap: 62px;
-  height: 832px;
-  box-sizing: border-box;
 }
 
 /* Hero Section */

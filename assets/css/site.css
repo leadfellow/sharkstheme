@@ -282,3 +282,10 @@ img {
 .container--wide {
   width: min(1440px, 92vw);
 }
+
+/* Mobile visibility utility */
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}

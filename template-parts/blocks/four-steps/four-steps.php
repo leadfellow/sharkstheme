@@ -13,14 +13,12 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Get block attributes
-$block_id = 'four-steps-' . $block['id'];
-if (!empty($block['anchor'])) {
-    $block_id = $block['anchor'];
-}
+// Block attributes
+$anchor = sharks_get_block_anchor($block, 'four-steps');
+$class_name = sharks_get_block_class($block, 'block-four-steps');
 
 // Get alignment class
-$align_class = !empty($block['align']) ? 'align' . $block['align'] : '';
+$align_class = !empty($block['align']) ? ' align' . $block['align'] : '';
 
 // Get fields
 $header_icon_left = get_field('header_icon_left');
@@ -59,7 +57,7 @@ if (!$header_title && !$steps) {
 }
 ?>
 
-<section id="<?php echo esc_attr($block_id); ?>" class="block-four-steps <?php echo esc_attr($align_class); ?>">
+<section id="<?php echo esc_attr($anchor); ?>" class="<?php echo esc_attr($class_name . $align_class); ?>">
     <div class="four-steps__container">
         
         <!-- Header Section -->

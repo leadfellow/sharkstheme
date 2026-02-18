@@ -44,6 +44,7 @@ add_action('after_setup_theme', function() {
         'assets/css/30-components/tech-platforms.css',
         'assets/css/30-components/button.css',
         'assets/css/30-components/hero.css',
+        'assets/css/30-components/frontpage-hero-banner.css',
         'assets/css/30-components/card.css',
         'assets/css/30-components/services.css',
         'assets/css/30-components/pricing.css',

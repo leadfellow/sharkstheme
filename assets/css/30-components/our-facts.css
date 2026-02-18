@@ -5,7 +5,7 @@
 .block-our-facts {
   width: 100%;
   background-color: #f7f7f5;
-  min-height: 100vh;
+  height: 832px;
 }
 
 .block-our-facts__container {
@@ -26,7 +26,7 @@
   gap: 22px;
   isolation: isolate;
   width: 1324px;
-  height: 832px;
+  height: 0;
   position: relative;
   flex: none;
   order: 0;

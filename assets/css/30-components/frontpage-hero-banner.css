@@ -475,6 +475,7 @@
     line-height: 1.4;
   }
   
+  /* Portfolio section on mobile - show image, hide button */
   .block-frontpage-hero-banner__portfolio {
     width: 100%;
     max-width: 100%;
@@ -488,15 +489,7 @@
   }
   
   .block-frontpage-hero-banner__portfolio-button {
-    width: 100%;
-    padding: 18px 24px;
-  }
-  
-  .block-frontpage-hero-banner__portfolio-text {
-    width: auto;
-    height: auto;
-    font-size: 18px;
-    line-height: 1.4;
+    display: none !important;
   }
 }
 
@@ -561,40 +554,21 @@
     line-height: 1.4;
   }
   
-  .block-frontpage-hero-banner__cta-icon,
-  .block-frontpage-hero-banner__portfolio-icon {
+  .block-frontpage-hero-banner__cta-icon {
     width: 20px;
     height: 20px;
   }
   
+  /* Portfolio section - image visible, button hidden (inherited from 768px) */
   .block-frontpage-hero-banner__portfolio {
     width: 100%;
     max-width: 100%;
-    height: auto;
   }
   
   .block-frontpage-hero-banner__portfolio-image {
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 10;
-  }
-  
-  .block-frontpage-hero-banner__portfolio-image img {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .block-frontpage-hero-banner__portfolio-button {
-    width: 100%;
-    height: auto;
-    padding: 16px 20px;
-  }
-  
-  .block-frontpage-hero-banner__portfolio-text {
-    width: auto;
-    height: auto;
-    font-size: 16px;
-    line-height: 1.4;
   }
 }
 
@@ -629,12 +603,6 @@
     font-size: 15px;
   }
   
-  .block-frontpage-hero-banner__portfolio-button {
-    padding: 14px 18px;
-  }
-  
-  .block-frontpage-hero-banner__portfolio-text {
-    font-size: 15px;
-  }
+  /* Portfolio section - image visible, button hidden (inherited from 768px) */
 }
 

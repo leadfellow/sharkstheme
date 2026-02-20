@@ -8,7 +8,7 @@
 .how-to-start__container {
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  height: 744px;
 }
 
 /* Left Section (Light) */
@@ -33,7 +33,6 @@
   justify-content: space-between;
   padding: 120px 58px;
   height: 100%;
-  min-height: 100vh;
 }
 
 .how-to-start__hero-text {
@@ -105,7 +104,6 @@
   align-items: center;
   padding: 120px 58px;
   height: 100%;
-  min-height: 100vh;
 }
 
 .how-to-start__top-icon {

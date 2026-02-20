@@ -283,6 +283,12 @@
 
   .ten-steps__card-description {
     width: 100%;
+    max-width: 100%;
+  }
+  
+  .ten-steps__card:hover .ten-steps__card-description {
+    opacity: 1;
+    visibility: visible;
   }
 
   .ten-steps__navigation {
@@ -330,6 +336,12 @@
   
   .ten-steps__card-description {
     font-size: 16px;
+    max-width: 100%;
+  }
+  
+  .ten-steps__card:hover .ten-steps__card-description {
+    opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -353,6 +365,12 @@
   
   .ten-steps__card-description {
     font-size: 15px;
+    max-width: 100%;
+  }
+  
+  .ten-steps__card:hover .ten-steps__card-description {
+    opacity: 1;
+    visibility: visible;
   }
 }
 

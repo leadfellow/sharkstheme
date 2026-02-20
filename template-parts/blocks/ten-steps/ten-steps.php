@@ -62,13 +62,13 @@ if (!$steps || empty($steps)) {
 
         <div class="ten-steps__carousel-wrapper">
             <div class="ten-steps__carousel" data-steps-count="<?php echo count($steps); ?>">
-                <?php foreach ($steps as $index => $step) : 
-                    $number = sprintf('%02d', $index + 1);
-                    $heading = isset($step['heading']) ? $step['heading'] : '';
-                    $description = isset($step['description']) ? $step['description'] : '';
-                    
-                    // Debug: uncomment to see what data is available
-                    // error_log('Step ' . $number . ': ' . print_r($step, true));
+                <?php 
+                if (have_rows('steps')) :
+                    $index = 0;
+                    while (have_rows('steps')) : the_row();
+                        $number = sprintf('%02d', $index + 1);
+                        $heading = get_sub_field('heading');
+                        $description = get_sub_field('description');
                 ?>
                     <article class="ten-steps__card" data-step="<?php echo $index; ?>">
                         <div class="ten-steps__card-inner">
@@ -80,13 +80,16 @@ if (!$steps || empty($steps)) {
                                 if ($description) {
                                     echo esc_html($description);
                                 } else {
-                                    // Debug: show if description is empty
                                     echo '<!-- Description is empty or not set -->';
                                 }
                             ?></p>
                         </div>
                     </article>
-                <?php endforeach; ?>
+                <?php 
+                        $index++;
+                    endwhile;
+                endif;
+                ?>
             </div>
         </div>
     </div>

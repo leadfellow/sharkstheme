@@ -193,7 +193,7 @@ $variant_class = $style_variant !== 'default' ? ' block-cta--' . $style_variant 
     <!-- Marquee Bar -->
     <div class="block-cta__marquee" style="background-color: <?php echo esc_attr($marquee_bg_color); ?>;">
       <div class="block-cta__marquee-track">
-        <?php for ($i = 0; $i < 4; $i++): ?>
+        <?php for ($i = 0; $i < 20; $i++): ?>
           <div class="block-cta__marquee-item">
             <span class="block-cta__marquee-text"><?php echo esc_html($marquee_text); ?></span>
             <svg class="block-cta__marquee-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

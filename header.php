@@ -418,20 +418,10 @@ if (!defined('ABSPATH')) {
                     }
                 }, { passive: true });
                 
-                // Link click - navigate to page (mobile: allow navigation)
+                // Link click - navigate to page (mobile and desktop)
                 link.addEventListener('click', function(e) {
                     // On mobile, allow navigation when clicking the link text
                     if (window.innerWidth <= 900) {
-                        // Check if click is on the link itself (not on chevron area)
-                        const rect = link.getBoundingClientRect();
-                        const clickX = e.clientX;
-                        
-                        // If click is in the rightmost 50px, it might be chevron
-                        if (clickX > rect.right - 50) {
-                            // This is likely the chevron area, don't navigate
-                            return;
-                        }
-                        
                         // Allow navigation and close menu
                         setTimeout(function() {
                             const nav = document.querySelector('.site-nav');

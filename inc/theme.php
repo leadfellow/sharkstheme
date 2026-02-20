@@ -93,10 +93,10 @@ add_action('wp_enqueue_scripts', function() {
         null
     );
     
-    // Switzer font from CDN
+    // Switzer font from alternative CDN
     wp_enqueue_style(
         'sharks-switzer-font',
-        'https://cdn.jsdelivr.net/npm/@fontsource/switzer@5.0.18/index.min.css',
+        'https://fonts.cdnfonts.com/css/switzer',
         [],
         null
     );

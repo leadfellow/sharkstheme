@@ -85,10 +85,10 @@ add_action('after_setup_theme', function() {
  * Enqueue styles and scripts
  */
 add_action('wp_enqueue_scripts', function() {
-    // Google Fonts - Switzer, Inter and Manrope
+    // Google Fonts - Inter, Manrope, and Outfit
     wp_enqueue_style(
         'sharks-fonts',
-        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap',
         [],
         null
     );

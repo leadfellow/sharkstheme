@@ -511,6 +511,12 @@ add_action('acf/init', function() {
         ],
         'mode'            => 'preview',
         'enqueue_assets'  => function() {
+            wp_enqueue_style(
+                'ten-steps-css',
+                get_template_directory_uri() . '/assets/css/30-components/ten-steps.css',
+                [],
+                filemtime(get_template_directory() . '/assets/css/30-components/ten-steps.css')
+            );
             wp_enqueue_script(
                 'ten-steps-js',
                 get_template_directory_uri() . '/assets/js/ten-steps.js',

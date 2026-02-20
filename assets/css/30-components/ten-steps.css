@@ -96,8 +96,8 @@
 
 .ten-steps__card:hover .ten-steps__card-description {
   color: #000000;
-  max-height: 500px;
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* Card Inner */
@@ -106,7 +106,7 @@
   flex-direction: column;
   gap: 30px;
   height: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   padding: 0;
 }
@@ -171,9 +171,12 @@
   flex: none;
   order: 1;
   z-index: 1;
-  max-height: 0;
-  overflow: hidden;
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
   opacity: 0;
+  pointer-events: none;
 }
 
 /* Navigation */

@@ -73,9 +73,7 @@ if (!$steps || empty($steps)) {
                             <?php if ($heading) : ?>
                                 <h3 class="ten-steps__card-heading"><?php echo esc_html($heading); ?></h3>
                             <?php endif; ?>
-                            <?php if ($description) : ?>
-                                <p class="ten-steps__card-description"><?php echo esc_html($description); ?></p>
-                            <?php endif; ?>
+                            <p class="ten-steps__card-description"><?php echo $description ? esc_html($description) : ''; ?></p>
                         </div>
                     </article>
                 <?php endforeach; ?>

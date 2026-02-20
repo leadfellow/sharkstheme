@@ -75,7 +75,7 @@
   cursor: pointer;
   position: relative;
   width: 428px;
-  min-height: 320px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

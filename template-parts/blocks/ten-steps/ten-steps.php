@@ -75,8 +75,20 @@ if (have_rows('steps')) {
                     $index = 0;
                     while (have_rows('steps')) : the_row();
                         $number = sprintf('%02d', $index + 1);
+                        
+                        // Get all row data to check structure
+                        $row_data = get_row();
+                        
+                        // Try to get fields by name first, then by key
                         $heading = get_sub_field('heading');
+                        if (!$heading && isset($row_data['field_step_heading'])) {
+                            $heading = $row_data['field_step_heading'];
+                        }
+                        
                         $description = get_sub_field('description');
+                        if (!$description && isset($row_data['field_step_description'])) {
+                            $description = $row_data['field_step_description'];
+                        }
                 ?>
                     <article class="ten-steps__card" data-step="<?php echo $index; ?>">
                         <div class="ten-steps__card-inner">
@@ -85,17 +97,7 @@ if (have_rows('steps')) {
                                 <h3 class="ten-steps__card-heading"><?php echo esc_html($heading); ?></h3>
                             <?php endif; ?>
                             <p class="ten-steps__card-description"><?php 
-                                if ($description) {
-                                    echo esc_html($description);
-                                } else {
-                                    // Debug output
-                                    echo '<!-- Description is empty. Raw value: ';
-                                    echo esc_html(var_export($description, true));
-                                    echo ' | All step data: ';
-                                    $all_fields = get_row();
-                                    echo esc_html(var_export($all_fields, true));
-                                    echo ' -->';
-                                }
+                                echo $description ? esc_html($description) : '';
                             ?></p>
                         </div>
                     </article>

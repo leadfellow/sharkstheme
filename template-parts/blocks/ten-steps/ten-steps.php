@@ -23,16 +23,24 @@ $align_class = !empty($block['align']) ? 'align' . $block['align'] : '';
 
 // Get fields
 $section_heading = get_field('section_heading');
-$steps = get_field('steps');
 
-// Check if we have steps
-if (!$steps || empty($steps)) {
+// Check if we have steps using have_rows
+if (!have_rows('steps')) {
     if (is_admin()) {
         echo '<div style="padding: 2rem; background: #f0f0f0; text-align: center;">';
         echo '<p>⚠️ Lisa 10 Steps blokile samme</p>';
         echo '</div>';
     }
     return;
+}
+
+// Count steps for carousel
+$steps_count = 0;
+if (have_rows('steps')) {
+    while (have_rows('steps')) {
+        the_row();
+        $steps_count++;
+    }
 }
 ?>
 
@@ -61,7 +69,7 @@ if (!$steps || empty($steps)) {
         </div>
 
         <div class="ten-steps__carousel-wrapper">
-            <div class="ten-steps__carousel" data-steps-count="<?php echo count($steps); ?>">
+            <div class="ten-steps__carousel" data-steps-count="<?php echo $steps_count; ?>">
                 <?php 
                 if (have_rows('steps')) :
                     $index = 0;
@@ -80,7 +88,13 @@ if (!$steps || empty($steps)) {
                                 if ($description) {
                                     echo esc_html($description);
                                 } else {
-                                    echo '<!-- Description is empty or not set -->';
+                                    // Debug output
+                                    echo '<!-- Description is empty. Raw value: ';
+                                    echo esc_html(var_export($description, true));
+                                    echo ' | All step data: ';
+                                    $all_fields = get_row();
+                                    echo esc_html(var_export($all_fields, true));
+                                    echo ' -->';
                                 }
                             ?></p>
                         </div>

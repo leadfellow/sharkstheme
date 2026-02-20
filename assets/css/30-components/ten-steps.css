@@ -96,8 +96,7 @@
 
 .ten-steps__card:hover .ten-steps__card-description {
   color: #000000;
-  opacity: 1;
-  visibility: visible;
+  display: block;
 }
 
 /* Card Inner */
@@ -171,8 +170,7 @@
   flex: none;
   order: 1;
   z-index: 1;
-  opacity: 0;
-  visibility: hidden;
+  display: none;
 }
 
 /* Navigation */
@@ -287,8 +285,7 @@
   }
   
   .ten-steps__card:hover .ten-steps__card-description {
-    opacity: 1;
-    visibility: visible;
+    display: block;
   }
 
   .ten-steps__navigation {
@@ -340,8 +337,7 @@
   }
   
   .ten-steps__card:hover .ten-steps__card-description {
-    opacity: 1;
-    visibility: visible;
+    display: block;
   }
 }
 
@@ -369,8 +365,7 @@
   }
   
   .ten-steps__card:hover .ten-steps__card-description {
-    opacity: 1;
-    visibility: visible;
+    display: block;
   }
 }
 

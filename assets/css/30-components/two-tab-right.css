@@ -50,6 +50,7 @@
 .block-two-tab-right__content {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 22px;
   width: 100%;
 }
@@ -63,7 +64,9 @@
   text-transform: uppercase;
   color: #000;
   margin: 0;
+  padding: 0;
   text-align: left;
+  width: 100%;
   white-space: pre-wrap;
 }
 
@@ -201,7 +204,6 @@
 /* Responsive adjustments */
 @media (max-width: 1400px) {
   .block-two-tab-right__left {
-    width: 600px;
     padding: 80px 40px;
   }
 

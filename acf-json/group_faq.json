@@ -27,6 +27,41 @@
             "placeholder": "KORDUMA KIPPUVAD KÜSIMUSED"
         },
         {
+            "key": "field_faq_subtitle",
+            "label": "Subtitle",
+            "name": "subtitle",
+            "type": "text",
+            "instructions": "Subtitle shown in top right (e.g., KKK)",
+            "required": 0,
+            "default_value": "(KKK)",
+            "placeholder": "(KKK)"
+        },
+        {
+            "key": "field_faq_description",
+            "label": "Description",
+            "name": "description",
+            "type": "textarea",
+            "instructions": "Description text shown below the title",
+            "required": 0,
+            "rows": 3,
+            "placeholder": "Vastame levinumatele küsimustele..."
+        },
+        {
+            "key": "field_faq_display_mode",
+            "label": "Display Mode Toggle",
+            "name": "display_mode",
+            "type": "select",
+            "instructions": "Choose default display mode (users can toggle between text and icons)",
+            "required": 0,
+            "choices": {
+                "text": "Text",
+                "icons": "Icons"
+            },
+            "default_value": "text",
+            "allow_null": 0,
+            "multiple": 0
+        },
+        {
             "key": "field_faq_image",
             "label": "Image (Optional)",
             "name": "image",

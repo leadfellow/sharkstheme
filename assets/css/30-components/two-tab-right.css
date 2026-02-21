@@ -22,11 +22,12 @@
 .block-two-tab-right__left {
   background-color: #f7f7f5;
   width: 720px;
-  padding: 80px 58px;
+  padding: 100px 58px 80px 58px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 50px;
   flex-shrink: 0;
+  justify-content: flex-start;
 }
 
 .block-two-tab-right__icon-wrapper {
@@ -45,7 +46,7 @@
 .block-two-tab-right__content {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 22px;
   width: 100%;
 }
 

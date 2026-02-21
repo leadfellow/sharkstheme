@@ -59,6 +59,7 @@
   color: #000;
   margin: 0;
   white-space: pre-wrap;
+  flex-shrink: 0;
 }
 
 .block-two-tab-right__text {
@@ -67,6 +68,7 @@
   line-height: 1.4;
   color: #000;
   white-space: pre-wrap;
+  flex-shrink: 0;
 }
 
 .block-two-tab-right__text p {

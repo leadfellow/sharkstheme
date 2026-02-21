@@ -42,11 +42,16 @@
   height: 100%;
 }
 
+.block-two-tab-right__icon path {
+  fill: #000 !important;
+  stroke: none !important;
+}
+
 .block-two-tab-right__content {
   display: flex;
   flex-direction: column;
-  gap: 22px;
   width: 100%;
+  min-height: 0;
 }
 
 .block-two-tab-right__title {
@@ -57,9 +62,8 @@
   letter-spacing: -4.1px;
   text-transform: uppercase;
   color: #000;
-  margin: 0;
+  margin: 0 0 22px 0;
   white-space: pre-wrap;
-  flex-shrink: 0;
 }
 
 .block-two-tab-right__text {
@@ -68,7 +72,6 @@
   line-height: 1.4;
   color: #000;
   white-space: pre-wrap;
-  flex-shrink: 0;
 }
 
 .block-two-tab-right__text p {

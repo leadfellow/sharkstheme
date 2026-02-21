@@ -1,23 +1,5 @@
 @import url('./00-settings/variables.css');
 @import url('./20-elements/typography.css');
-
-/* Critical: Roll Process spacing - must load first to prevent FOUC */
-.block-roll-process {
-  margin: 0 !important;
-  padding: 0 !important;
-  background-color: #ffffff !important;
-}
-.block-roll-process .roll-process__container {
-  padding: 120px 58px !important;
-}
-.block-roll-process .roll-process__content > * {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-.block-roll-process .roll-process__content > * + * {
-  margin-top: 20px !important;
-}
-
 @import url('./30-components/1vs2.css');
 @import url('./30-components/tech-platforms.css');
 @import url('./30-components/button.css');

@@ -1,9 +1,12 @@
 /* Roll Process Component */
 /* Process/timeline section with hover effects that transform text to uppercase */
 
-.block-roll-process {
+/* CRITICAL: Block level styles */
+.block-roll-process,
+section.block-roll-process,
+.entry-content > .block-roll-process {
   margin: 0 !important;
-  padding: 0;
+  padding: 0 !important;
   width: 100%;
   min-height: 876px;
   background-color: #ffffff !important;
@@ -34,6 +37,7 @@
   max-width: 1192px;
   white-space: pre-wrap;
   margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Content Area */
@@ -44,20 +48,22 @@
   width: 100%;
   position: relative;
   gap: 0 !important;
-}
-
-/* Force zero margin on all direct children */
-.block-roll-process .roll-process__content > .roll-process__divider,
-.block-roll-process .roll-process__content > .roll-process__text,
-.block-roll-process .roll-process__content > p {
   margin: 0 !important;
   padding: 0 !important;
 }
 
-/* Then apply consistent 20px spacing */
-.block-roll-process .roll-process__content > .roll-process__divider + .roll-process__text,
-.block-roll-process .roll-process__content > .roll-process__text + .roll-process__divider {
-  margin-top: 20px !important;
+/* CRITICAL SPACING - must come after general rules */
+/* First child has no top margin */
+.block-roll-process .roll-process__content > .roll-process__divider:first-child {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* All other children get 20px top margin */
+.block-roll-process .roll-process__content > .roll-process__divider:not(:first-child),
+.block-roll-process .roll-process__content > .roll-process__text {
+  margin: 20px 0 0 0 !important;
+  padding: 0 !important;
 }
 
 /* Divider Lines */

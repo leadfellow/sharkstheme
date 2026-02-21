@@ -5,11 +5,15 @@
   padding: 0;
   margin: 0;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .block-two-tab-right__container {
   display: flex;
   width: 100%;
+  max-width: 1440px;
   height: 100%;
   position: relative;
 }

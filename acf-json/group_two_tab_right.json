@@ -1,0 +1,168 @@
+{
+    "key": "group_two_tab_right",
+    "title": "Two Tab Right Block",
+    "fields": [
+        {
+            "key": "field_two_tab_right_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"eelarve\"). Kasuta ainult väiketähti, numbreid ja kriipse.",
+            "required": 0,
+            "placeholder": "nt. eelarve",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_two_tab_right_icon_left",
+            "label": "Left Icon (Optional)",
+            "name": "icon_left",
+            "type": "image",
+            "instructions": "Upload custom icon for left panel (42x42px recommended, leave empty for default star)",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all"
+        },
+        {
+            "key": "field_two_tab_right_title",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "Main title in left panel",
+            "required": 1,
+            "default_value": "E-POE EELARVE",
+            "placeholder": "E-POE EELARVE"
+        },
+        {
+            "key": "field_two_tab_right_default_text",
+            "label": "Default Text",
+            "name": "default_text",
+            "type": "wysiwyg",
+            "instructions": "Text shown by default (when no tab is hovered)",
+            "required": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_two_tab_right_tab1_heading",
+            "label": "Tab 1 Settings",
+            "name": "",
+            "type": "message",
+            "message": "<h3>First Tab (Middle Panel)</h3><p>Configure the first tab (middle panel) appearance and content.</p>",
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_two_tab_right_tab1_bg_color",
+            "label": "Tab 1 Background Color",
+            "name": "tab1_bg_color",
+            "type": "color_picker",
+            "instructions": "Background color for first tab",
+            "default_value": "#e1ff04",
+            "enable_opacity": false
+        },
+        {
+            "key": "field_two_tab_right_tab1_icon",
+            "label": "Tab 1 Icon (Optional)",
+            "name": "tab1_icon",
+            "type": "image",
+            "instructions": "Upload custom icon (42x42px recommended, leave empty for default star)",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all"
+        },
+        {
+            "key": "field_two_tab_right_tab1_title",
+            "label": "Tab 1 Title",
+            "name": "tab1_title",
+            "type": "text",
+            "instructions": "Title shown in first tab",
+            "required": 1,
+            "default_value": "Struktuur",
+            "placeholder": "Struktuur"
+        },
+        {
+            "key": "field_two_tab_right_tab1_text",
+            "label": "Tab 1 Text Content",
+            "name": "tab1_text",
+            "type": "wysiwyg",
+            "instructions": "Text shown in left panel when hovering over first tab",
+            "required": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_two_tab_right_tab2_heading",
+            "label": "Tab 2 Settings",
+            "name": "",
+            "type": "message",
+            "message": "<h3>Second Tab (Right Panel)</h3><p>Configure the second tab (right panel) appearance and content.</p>",
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_two_tab_right_tab2_bg_color",
+            "label": "Tab 2 Background Color",
+            "name": "tab2_bg_color",
+            "type": "color_picker",
+            "instructions": "Background color for second tab",
+            "default_value": "#000000",
+            "enable_opacity": false
+        },
+        {
+            "key": "field_two_tab_right_tab2_icon",
+            "label": "Tab 2 Icon (Optional)",
+            "name": "tab2_icon",
+            "type": "image",
+            "instructions": "Upload custom icon (42x42px recommended, leave empty for default star)",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all"
+        },
+        {
+            "key": "field_two_tab_right_tab2_title",
+            "label": "Tab 2 Title",
+            "name": "tab2_title",
+            "type": "text",
+            "instructions": "Title shown in second tab",
+            "required": 1,
+            "default_value": "Sisu",
+            "placeholder": "Sisu"
+        },
+        {
+            "key": "field_two_tab_right_tab2_text",
+            "label": "Tab 2 Text Content",
+            "name": "tab2_text",
+            "type": "wysiwyg",
+            "instructions": "Text shown in left panel when hovering over second tab",
+            "required": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/two-tab-right"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

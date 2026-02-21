@@ -1,0 +1,227 @@
+/* Two Tab Right Block */
+.block-two-tab-right {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.block-two-tab-right__container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Left Panel */
+.block-two-tab-right__left {
+  background-color: #f7f7f5;
+  width: 720px;
+  padding: 100px 58px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  flex-shrink: 0;
+}
+
+.block-two-tab-right__icon-wrapper {
+  width: 42px;
+  height: 42px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.block-two-tab-right__icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.block-two-tab-right__content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+.block-two-tab-right__title {
+  font-family: 'Switzer', sans-serif;
+  font-weight: 500;
+  font-size: 82px;
+  line-height: 1.1;
+  letter-spacing: -4.1px;
+  text-transform: uppercase;
+  color: #000;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.block-two-tab-right__text {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #000;
+  white-space: pre-wrap;
+}
+
+.block-two-tab-right__text p {
+  margin: 0 0 1rem 0;
+}
+
+.block-two-tab-right__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Right Tabs */
+.block-two-tab-right__tab {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.block-two-tab-right__tab-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 120px 58px;
+  gap: 42px;
+}
+
+.block-two-tab-right__tab-icon-wrapper {
+  width: 42px;
+  height: 42px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.block-two-tab-right__tab-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.block-two-tab-right__tab-title {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+  text-align: center;
+  color: #000;
+  white-space: pre-wrap;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Tab 2 (black background) inactive title color */
+.block-two-tab-right__tab[data-tab="tab2"]:not(.is-active) .block-two-tab-right__tab-title {
+  color: #757472;
+}
+
+/* Tab 2 (black background) active title color */
+.block-two-tab-right__tab[data-tab="tab2"].is-active .block-two-tab-right__tab-title {
+  color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+  .block-two-tab-right__left {
+    width: 600px;
+    padding: 80px 40px;
+  }
+
+  .block-two-tab-right__title {
+    font-size: 64px;
+    letter-spacing: -3.2px;
+  }
+
+  .block-two-tab-right__text {
+    font-size: 16px;
+  }
+
+  .block-two-tab-right__tab-title {
+    font-size: 32px;
+    letter-spacing: -1.6px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .block-two-tab-right {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .block-two-tab-right__container {
+    flex-direction: column;
+  }
+
+  .block-two-tab-right__left {
+    width: 100%;
+    padding: 60px 40px;
+  }
+
+  .block-two-tab-right__tab {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .block-two-tab-right__left {
+    padding: 40px 24px;
+  }
+
+  .block-two-tab-right__title {
+    font-size: 48px;
+    letter-spacing: -2.4px;
+  }
+
+  .block-two-tab-right__text {
+    font-size: 14px;
+  }
+
+  .block-two-tab-right__tab-content {
+    padding: 80px 24px;
+  }
+
+  .block-two-tab-right__tab-title {
+    font-size: 28px;
+    letter-spacing: -1.4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .block-two-tab-right__left {
+    padding: 30px 20px;
+    gap: 30px;
+  }
+
+  .block-two-tab-right__title {
+    font-size: 36px;
+    letter-spacing: -1.8px;
+  }
+
+  .block-two-tab-right__text {
+    font-size: 14px;
+  }
+
+  .block-two-tab-right__icon-wrapper,
+  .block-two-tab-right__tab-icon-wrapper {
+    width: 32px;
+    height: 32px;
+  }
+
+  .block-two-tab-right__tab-content {
+    padding: 60px 20px;
+    gap: 30px;
+  }
+
+  .block-two-tab-right__tab-title {
+    font-size: 24px;
+    letter-spacing: -1.2px;
+  }
+}

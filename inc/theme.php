@@ -63,6 +63,7 @@ add_action('after_setup_theme', function() {
         'assets/css/30-components/works5.css',
         'assets/css/30-components/works3.css',
         'assets/css/30-components/works1.css',
+        'assets/css/30-components/two-tab-right.css',
         'assets/css/30-components/block-styles.css',
         'assets/css/30-components/mouse-trail.css',
         'assets/css/30-components/modal.css',

@@ -685,6 +685,22 @@ add_action('acf/init', function() {
         'mode'            => 'preview'
     ]);
 
+    // Two Tab Right Block
+    acf_register_block_type([
+        'name'            => 'two-tab-right',
+        'title'           => __('Two Tab Right', 'sharks2025'),
+        'description'     => __('Interactive layout with left content panel and two hoverable tabs on right', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/two-tab-right/two-tab-right.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'layout',
+        'keywords'        => ['two', 'tab', 'tabs', 'hover', 'interactive', 'panels'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true
+        ],
+        'mode'            => 'preview'
+    ]);
+
     // Who We Are Block
     acf_register_block_type([
         'name'            => 'who-we-are',

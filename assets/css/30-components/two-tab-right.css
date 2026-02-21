@@ -1,7 +1,7 @@
 /* Two Tab Right Block */
 .block-two-tab-right {
   width: 100%;
-  height: 100vh;
+  height: 720px;
   padding: 0;
   margin: 0;
   overflow: hidden;
@@ -157,7 +157,7 @@
 @media (max-width: 1024px) {
   .block-two-tab-right {
     height: auto;
-    min-height: 100vh;
+    min-height: 600px;
   }
   
   .block-two-tab-right__container {

@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Theme version
-define('SHARKS_VERSION', '2.5.8');
+define('SHARKS_VERSION', '2.5.9');
 
 // Theme directory path
 define('SHARKS_DIR', get_stylesheet_directory());

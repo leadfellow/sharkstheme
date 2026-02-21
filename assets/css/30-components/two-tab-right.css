@@ -87,35 +87,35 @@
   cursor: pointer;
 }
 
-/* Tab 1 - default state: black background with white text */
+/* Tab 1 - default state: yellow background with black text */
 .block-two-tab-right__tab[data-tab="tab1"] {
-  background-color: #000000;
+  background-color: #e1ff04;
 }
 
 .block-two-tab-right__tab[data-tab="tab1"] .block-two-tab-right__tab-title {
-  color: #fff;
+  color: #000;
 }
 
 .block-two-tab-right__tab[data-tab="tab1"] .block-two-tab-right__tab-icon svg path {
-  stroke: #fff;
+  stroke: #000;
 }
 
-/* Tab 1 - hover: stays black */
-.block-two-tab-right__tab[data-tab="tab1"]:hover {
+/* Tab 2 - default: black background with grey text (inactive) */
+.block-two-tab-right__tab[data-tab="tab2"] {
   background-color: #000000;
 }
 
-.block-two-tab-right__tab[data-tab="tab1"]:hover .block-two-tab-right__tab-title {
+/* When Tab 2 is hovered: Tab 1 changes to black, Tab 2 changes to yellow */
+.block-two-tab-right__container:has([data-tab="tab2"]:hover) .block-two-tab-right__tab[data-tab="tab1"] {
+  background-color: #000000;
+}
+
+.block-two-tab-right__container:has([data-tab="tab2"]:hover) .block-two-tab-right__tab[data-tab="tab1"] .block-two-tab-right__tab-title {
   color: #fff;
 }
 
-.block-two-tab-right__tab[data-tab="tab1"]:hover .block-two-tab-right__tab-icon svg path {
+.block-two-tab-right__container:has([data-tab="tab2"]:hover) .block-two-tab-right__tab[data-tab="tab1"] .block-two-tab-right__tab-icon svg path {
   stroke: #fff;
-}
-
-/* Tab 2 - default: black background with grey text */
-.block-two-tab-right__tab[data-tab="tab2"] {
-  background-color: #000000;
 }
 
 /* Tab 2 - hover: changes to yellow with black text */
@@ -164,13 +164,17 @@
   line-height: 1.1;
   letter-spacing: -1.8px;
   text-align: center;
-  color: #000;
   white-space: pre-wrap;
   margin: 0;
   transition: color 0.3s ease;
 }
 
-/* Tab 2 (black background) default title color - grey/inactive */
+/* Tab 1 - default title color: black (on yellow background) */
+.block-two-tab-right__tab[data-tab="tab1"] .block-two-tab-right__tab-title {
+  color: #000;
+}
+
+/* Tab 2 - default title color: grey/inactive (on black background) */
 .block-two-tab-right__tab[data-tab="tab2"] .block-two-tab-right__tab-title {
   color: #757472;
 }

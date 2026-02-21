@@ -70,32 +70,36 @@ $variant_class = $style_variant !== 'default' ? ' block-faq--' . $style_variant 
       
       <!-- FAQ Items -->
       <?php if ($faq_items): ?>
-        <div class="block-faq__list-container">
-          <div class="block-faq__list">
-            <?php foreach ($faq_items as $index => $item): ?>
-              <div class="block-faq__item" data-faq-item>
-                <button class="block-faq__question" 
-                        aria-expanded="false"
-                        aria-controls="faq-answer-<?php echo esc_attr($anchor . '-' . $index); ?>"
-                        data-faq-toggle>
-                  <span><?php echo esc_html($item['question']); ?></span>
-                  <div class="block-faq__icon">
-                    <svg fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                      <path d="M30.4738 14.4739H17.5262V1.52627H14.4738V14.4739H1.52617L1.52618 17.5263L14.4738 17.5263L14.4738 30.4739H17.5262L17.5262 17.5263L30.4738 17.5263L30.4738 14.4739Z" fill="black" />
-                    </svg>
-                  </div>
-                </button>
-                
-                <div class="block-faq__answer" 
-                     id="faq-answer-<?php echo esc_attr($anchor . '-' . $index); ?>"
-                     data-faq-content>
-                  <div class="block-faq__answer-inner">
-                    <?php echo wp_kses_post(wpautop($item['answer'])); ?>
-                  </div>
+        <div class="accordion">
+          <?php foreach ($faq_items as $index => $item): 
+            $number = str_pad($index + 1, 2, '0', STR_PAD_LEFT);
+            $item_id = $anchor . '-item-' . $index;
+          ?>
+            <div class="accordion__item" data-accordion-item>
+              <button class="accordion__header accordion__header--transparent" 
+                      aria-expanded="false"
+                      aria-controls="<?php echo esc_attr($item_id); ?>"
+                      data-accordion-trigger>
+                <div class="accordion__title-wrapper">
+                  <span class="accordion__number">(<?php echo esc_html($number); ?>)</span>
+                  <h3 class="accordion__title"><?php echo esc_html($item['question']); ?></h3>
+                </div>
+                <div class="accordion__icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5L12 19M5 12L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </button>
+              <div class="accordion__content" 
+                   id="<?php echo esc_attr($item_id); ?>"
+                   role="region"
+                   style="display: none;">
+                <div class="accordion__content-inner">
+                  <?php echo wp_kses_post(wpautop($item['answer'])); ?>
                 </div>
               </div>
-            <?php endforeach; ?>
-          </div>
+            </div>
+          <?php endforeach; ?>
         </div>
       <?php else: ?>
         <p class="block-faq__empty">No FAQ items added yet. Add some in the block settings.</p>
@@ -108,77 +112,82 @@ $variant_class = $style_variant !== 'default' ? ' block-faq--' . $style_variant 
 <script>
 // FAQ Accordion functionality
 (function() {
-  const faqSection = document.querySelector('[data-display-mode]');
-  if (!faqSection) return;
-  
-  const faqItems = faqSection.querySelectorAll('[data-faq-item]');
-  const displayToggle = faqSection.querySelector('[data-faq-display-toggle]');
-  
-  // Accordion functionality
-  faqItems.forEach(item => {
-    const toggle = item.querySelector('[data-faq-toggle]');
-    const content = item.querySelector('[data-faq-content]');
+  function initAccordion() {
+    const faqSection = document.querySelector('#<?php echo esc_js($anchor); ?>');
+    if (!faqSection) return;
     
-    if (toggle && content) {
-      toggle.addEventListener('click', function() {
-        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-        
-        // Close all other items
-        faqItems.forEach(otherItem => {
-          if (otherItem !== item) {
-            const otherToggle = otherItem.querySelector('[data-faq-toggle]');
-            const otherContent = otherItem.querySelector('[data-faq-content]');
-            if (otherToggle && otherContent) {
-              otherToggle.setAttribute('aria-expanded', 'false');
-              otherContent.style.maxHeight = null;
-              otherItem.classList.remove('is-open');
-            }
-          }
-        });
+    const accordionItems = faqSection.querySelectorAll('[data-accordion-item]');
+    
+    accordionItems.forEach(item => {
+      const trigger = item.querySelector('[data-accordion-trigger]');
+      const content = item.querySelector('.accordion__content');
+      
+      if (!trigger || !content) return;
+      
+      // Remove existing listeners by cloning
+      const newTrigger = trigger.cloneNode(true);
+      trigger.parentNode.replaceChild(newTrigger, trigger);
+      
+      newTrigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        const isOpen = item.classList.contains('is-open');
         
         // Toggle current item
-        if (isExpanded) {
-          toggle.setAttribute('aria-expanded', 'false');
-          content.style.maxHeight = null;
+        if (isOpen) {
           item.classList.remove('is-open');
+          newTrigger.setAttribute('aria-expanded', 'false');
+          content.style.display = 'none';
         } else {
-          toggle.setAttribute('aria-expanded', 'true');
-          content.style.maxHeight = content.scrollHeight + 'px';
           item.classList.add('is-open');
+          newTrigger.setAttribute('aria-expanded', 'true');
+          content.style.display = 'block';
+        }
+      });
+    });
+    
+    // Display mode toggle functionality
+    const displayToggle = faqSection.querySelector('[data-faq-display-toggle]');
+    if (displayToggle) {
+      const currentMode = faqSection.getAttribute('data-display-mode') || 'text';
+      const textOption = displayToggle.querySelector('[data-mode="text"]');
+      const iconsOption = displayToggle.querySelector('[data-mode="icons"]');
+      
+      // Set initial active state
+      if (currentMode === 'text' && textOption) {
+        textOption.classList.add('is-active');
+      } else if (currentMode === 'icons' && iconsOption) {
+        iconsOption.classList.add('is-active');
+      }
+      
+      displayToggle.addEventListener('click', function() {
+        const currentMode = faqSection.getAttribute('data-display-mode');
+        const newMode = currentMode === 'text' ? 'icons' : 'text';
+        
+        // Update data attribute
+        faqSection.setAttribute('data-display-mode', newMode);
+        
+        // Update active states
+        if (newMode === 'text') {
+          textOption?.classList.add('is-active');
+          iconsOption?.classList.remove('is-active');
+        } else {
+          textOption?.classList.remove('is-active');
+          iconsOption?.classList.add('is-active');
         }
       });
     }
-  });
+  }
   
-  // Display mode toggle functionality
-  if (displayToggle) {
-    const currentMode = faqSection.getAttribute('data-display-mode') || 'text';
-    const textOption = displayToggle.querySelector('[data-mode="text"]');
-    const iconsOption = displayToggle.querySelector('[data-mode="icons"]');
-    
-    // Set initial active state
-    if (currentMode === 'text' && textOption) {
-      textOption.classList.add('is-active');
-    } else if (currentMode === 'icons' && iconsOption) {
-      iconsOption.classList.add('is-active');
-    }
-    
-    displayToggle.addEventListener('click', function() {
-      const currentMode = faqSection.getAttribute('data-display-mode');
-      const newMode = currentMode === 'text' ? 'icons' : 'text';
-      
-      // Update data attribute
-      faqSection.setAttribute('data-display-mode', newMode);
-      
-      // Update active states
-      if (newMode === 'text') {
-        textOption?.classList.add('is-active');
-        iconsOption?.classList.remove('is-active');
-      } else {
-        textOption?.classList.remove('is-active');
-        iconsOption?.classList.add('is-active');
-      }
-    });
+  // Initialize on load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAccordion);
+  } else {
+    initAccordion();
+  }
+  
+  // Re-initialize for Gutenberg editor
+  if (window.acf) {
+    window.acf.addAction('render_block_preview/type=faq', initAccordion);
   }
 })();
 </script>

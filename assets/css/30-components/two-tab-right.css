@@ -63,10 +63,11 @@
   letter-spacing: -4.1px;
   text-transform: uppercase;
   color: #000;
-  margin: 0;
-  padding: 0;
-  text-align: left;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
   width: 100%;
+  align-self: flex-start;
   white-space: pre-wrap;
 }
 
@@ -75,6 +76,8 @@
   font-size: 18px;
   line-height: 1.4;
   color: #000;
+  text-align: left;
+  width: 100%;
   white-space: pre-wrap;
 }
 

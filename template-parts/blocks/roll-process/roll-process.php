@@ -37,6 +37,20 @@ if (!$main_title && !$process_items) {
 }
 ?>
 
+<style>
+/* Critical CSS loaded inline to prevent FOUC */
+.block-roll-process .roll-process__content > * {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.block-roll-process .roll-process__content > * + * {
+    margin-top: 20px !important;
+}
+.block-roll-process .roll-process__container {
+    gap: 70px !important;
+}
+</style>
+
 <section id="<?php echo esc_attr($anchor); ?>" class="<?php echo esc_attr($class_name . $align_class); ?>" style="background-color: <?php echo esc_attr($background_color); ?> !important; margin: 0 !important; padding: 0 !important;">
     <div class="roll-process__container" style="padding: 120px 58px !important; gap: 70px !important;">
         

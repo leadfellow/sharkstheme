@@ -56,17 +56,13 @@ $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
             <!-- Content -->
             <div class="block-two-tab-right__content">
                 <?php
-                $heading_style = 'font-family: Switzer, Arial Black, sans-serif; font-weight: 500; font-size: 82px; line-height: 1.1; letter-spacing: -4.1px; text-transform: uppercase; color: #000; margin: 0; padding: 0; text-align: left; white-space: pre-wrap;';
+                $heading_style = 'font-family: Switzer, Arial Black, sans-serif; font-weight: 500; font-size: 82px; line-height: 1.1; letter-spacing: -4.1px; text-transform: uppercase; color: #000; margin: 0; padding: 0; text-align: left; white-space: normal;';
                 ?>
                 <!-- Tab 1 Heading - shown by default -->
-                <h1 class="block-two-tab-right__title" data-tab-heading="tab1" style="<?php echo esc_attr($heading_style); ?>">
-                    <?php echo esc_html($tab1_heading); ?>
-                </h1>
+                <h1 class="block-two-tab-right__title" data-tab-heading="tab1" style="<?php echo esc_attr($heading_style); ?>"><?php echo esc_html(trim($tab1_heading)); ?></h1>
                 
                 <!-- Tab 2 Heading - hidden by default -->
-                <h1 class="block-two-tab-right__title" data-tab-heading="tab2" style="display: none; <?php echo esc_attr($heading_style); ?>">
-                    <?php echo esc_html($tab2_heading); ?>
-                </h1>
+                <h1 class="block-two-tab-right__title" data-tab-heading="tab2" style="display: none; <?php echo esc_attr($heading_style); ?>"><?php echo esc_html(trim($tab2_heading)); ?></h1>
                 
                 <!-- Tab 1 Text - shown by default -->
                 <?php if ($tab1_text): ?>

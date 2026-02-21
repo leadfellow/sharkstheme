@@ -134,6 +134,7 @@
 
 .block-two-tab-right__tab[data-tab="tab1"] .block-two-tab-right__tab-icon svg path {
   stroke: #000;
+  fill: none;
 }
 
 /* Tab 1 - when hovering itself: stays yellow */
@@ -147,11 +148,21 @@
 
 .block-two-tab-right__tab[data-tab="tab1"]:hover .block-two-tab-right__tab-icon svg path {
   stroke: #000;
+  fill: none;
 }
 
 /* Tab 2 - default: black background with grey text (inactive) */
 .block-two-tab-right__tab[data-tab="tab2"] {
   background-color: #000000;
+}
+
+.block-two-tab-right__tab[data-tab="tab2"] .block-two-tab-right__tab-title {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.block-two-tab-right__tab[data-tab="tab2"] .block-two-tab-right__tab-icon svg path {
+  stroke: rgba(255, 255, 255, 0.5);
+  fill: none;
 }
 
 /* When Tab 2 is hovered: Tab 1 changes to black, Tab 2 changes to yellow */
@@ -165,6 +176,7 @@
 
 .block-two-tab-right__container:has([data-tab="tab2"]:hover) .block-two-tab-right__tab[data-tab="tab1"] .block-two-tab-right__tab-icon svg path {
   stroke: #fff;
+  fill: none;
 }
 
 /* Tab 2 - hover: changes to yellow with black text */
@@ -178,6 +190,7 @@
 
 .block-two-tab-right__tab[data-tab="tab2"]:hover .block-two-tab-right__tab-icon svg path {
   stroke: #000;
+  fill: none;
 }
 
 .block-two-tab-right__tab-content {
@@ -221,11 +234,6 @@
 /* Tab 1 - default title color: black (on yellow background) */
 .block-two-tab-right__tab[data-tab="tab1"] .block-two-tab-right__tab-title {
   color: #000;
-}
-
-/* Tab 2 - default title color: grey/inactive (on black background) */
-.block-two-tab-right__tab[data-tab="tab2"] .block-two-tab-right__tab-title {
-  color: #757472;
 }
 
 /* Responsive adjustments */

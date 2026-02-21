@@ -100,6 +100,19 @@
   stroke: #000;
 }
 
+/* Tab 1 - when hovering itself: stays yellow */
+.block-two-tab-right__tab[data-tab="tab1"]:hover {
+  background-color: #e1ff04;
+}
+
+.block-two-tab-right__tab[data-tab="tab1"]:hover .block-two-tab-right__tab-title {
+  color: #000;
+}
+
+.block-two-tab-right__tab[data-tab="tab1"]:hover .block-two-tab-right__tab-icon svg path {
+  stroke: #000;
+}
+
 /* Tab 2 - default: black background with grey text (inactive) */
 .block-two-tab-right__tab[data-tab="tab2"] {
   background-color: #000000;

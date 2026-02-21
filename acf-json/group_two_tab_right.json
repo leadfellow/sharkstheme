@@ -66,6 +66,15 @@
             "library": "all"
         },
         {
+            "key": "field_two_tab_right_tab1_heading",
+            "label": "Tab 1 Main Heading (Optional)",
+            "name": "tab1_heading",
+            "type": "text",
+            "instructions": "Large heading shown on left when Tab 1 is active/default (leave empty to use main Title above)",
+            "required": 0,
+            "placeholder": "Leave empty to use main Title"
+        },
+        {
             "key": "field_two_tab_right_tab1_title",
             "label": "Tab 1 Title",
             "name": "tab1_title",
@@ -114,6 +123,15 @@
             "return_format": "array",
             "preview_size": "thumbnail",
             "library": "all"
+        },
+        {
+            "key": "field_two_tab_right_tab2_heading",
+            "label": "Tab 2 Main Heading (Optional)",
+            "name": "tab2_heading",
+            "type": "text",
+            "instructions": "Large heading shown on left when Tab 2 is active/hovered (leave empty to use default title)",
+            "required": 0,
+            "placeholder": "E-POE SISU"
         },
         {
             "key": "field_two_tab_right_tab2_title",

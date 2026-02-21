@@ -17,12 +17,14 @@ $title = get_field('title') ?: 'E-POE EELARVE';
 // Tab 1 (Middle)
 $tab1_bg_color = get_field('tab1_bg_color') ?: '#e1ff04';
 $tab1_icon = get_field('tab1_icon');
+$tab1_heading = get_field('tab1_heading') ?: $title;
 $tab1_title = get_field('tab1_title') ?: 'Struktuur';
 $tab1_text = get_field('tab1_text');
 
 // Tab 2 (Right)
 $tab2_bg_color = get_field('tab2_bg_color') ?: '#000000';
 $tab2_icon = get_field('tab2_icon');
+$tab2_heading = get_field('tab2_heading') ?: $title;
 $tab2_title = get_field('tab2_title') ?: 'Sisu';
 $tab2_text = get_field('tab2_text');
 
@@ -53,7 +55,15 @@ $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
             <!-- Content -->
             <div class="block-two-tab-right__content">
-                <h1 class="block-two-tab-right__title"><?php echo esc_html($title); ?></h1>
+                <!-- Tab 1 Heading - shown by default -->
+                <h1 class="block-two-tab-right__title" data-tab-heading="tab1">
+                    <?php echo esc_html($tab1_heading); ?>
+                </h1>
+                
+                <!-- Tab 2 Heading - hidden by default -->
+                <h1 class="block-two-tab-right__title" data-tab-heading="tab2" style="display: none;">
+                    <?php echo esc_html($tab2_heading); ?>
+                </h1>
                 
                 <!-- Tab 1 Text - shown by default -->
                 <?php if ($tab1_text): ?>
@@ -73,8 +83,7 @@ $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
         <!-- Tab 1 (Middle Panel) -->
         <div class="block-two-tab-right__tab" 
-             data-tab="tab1" 
-             style="background-color: <?php echo esc_attr($tab1_bg_color); ?>;">
+             data-tab="tab1">
             <div class="block-two-tab-right__tab-content">
                 <!-- Icon -->
                 <?php if ($tab1_icon): ?>
@@ -97,8 +106,7 @@ $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
 
         <!-- Tab 2 (Right Panel) -->
         <div class="block-two-tab-right__tab" 
-             data-tab="tab2" 
-             style="background-color: <?php echo esc_attr($tab2_bg_color); ?>;">
+             data-tab="tab2">
             <div class="block-two-tab-right__tab-content">
                 <!-- Icon -->
                 <?php if ($tab2_icon): ?>
@@ -128,6 +136,8 @@ $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
         if (!section) return;
         
         const tabs = section.querySelectorAll('[data-tab]');
+        const tab1Heading = section.querySelector('[data-tab-heading="tab1"]');
+        const tab2Heading = section.querySelector('[data-tab-heading="tab2"]');
         const tab1Content = section.querySelector('[data-tab-content="tab1"]');
         const tab2Content = section.querySelector('[data-tab-content="tab2"]');
         
@@ -135,20 +145,26 @@ $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
             const tabName = tab.getAttribute('data-tab');
             
             tab.addEventListener('mouseenter', function() {
-                // Hide all content
+                // Hide all headings and content
+                if (tab1Heading) tab1Heading.style.display = 'none';
+                if (tab2Heading) tab2Heading.style.display = 'none';
                 if (tab1Content) tab1Content.style.display = 'none';
                 if (tab2Content) tab2Content.style.display = 'none';
                 
-                // Show corresponding content
-                if (tabName === 'tab1' && tab1Content) {
-                    tab1Content.style.display = 'block';
-                } else if (tabName === 'tab2' && tab2Content) {
-                    tab2Content.style.display = 'block';
+                // Show corresponding heading and content
+                if (tabName === 'tab1') {
+                    if (tab1Heading) tab1Heading.style.display = 'block';
+                    if (tab1Content) tab1Content.style.display = 'block';
+                } else if (tabName === 'tab2') {
+                    if (tab2Heading) tab2Heading.style.display = 'block';
+                    if (tab2Content) tab2Content.style.display = 'block';
                 }
             });
             
             tab.addEventListener('mouseleave', function() {
-                // Reset to default (show tab1 content)
+                // Reset to default (show tab1 heading and content)
+                if (tab1Heading) tab1Heading.style.display = 'block';
+                if (tab2Heading) tab2Heading.style.display = 'none';
                 if (tab1Content) tab1Content.style.display = 'block';
                 if (tab2Content) tab2Content.style.display = 'none';
             });

@@ -45,6 +45,7 @@ section.block-roll-process,
   flex-direction: column;
   align-items: center;
   width: 100%;
+  max-width: 1180px;
   position: relative;
   margin-top: 70px !important;
   margin-bottom: 0 !important;
@@ -67,8 +68,7 @@ section.block-roll-process,
 
 /* Divider Lines */
 .roll-process__divider {
-  width: 1324px;
-  max-width: 100%;
+  width: 100%;
   height: 1px;
   background-color: #BBBAB6;
   position: relative;

@@ -43,16 +43,20 @@
   align-items: center;
   width: 100%;
   position: relative;
+  gap: 0 !important;
 }
 
-/* Reset all default margins first */
-.roll-process__content > * {
+/* Force zero margin on all direct children */
+.block-roll-process .roll-process__content > .roll-process__divider,
+.block-roll-process .roll-process__content > .roll-process__text,
+.block-roll-process .roll-process__content > p {
   margin: 0 !important;
   padding: 0 !important;
 }
 
-/* Then apply consistent spacing */
-.roll-process__content > * + * {
+/* Then apply consistent 20px spacing */
+.block-roll-process .roll-process__content > .roll-process__divider + .roll-process__text,
+.block-roll-process .roll-process__content > .roll-process__text + .roll-process__divider {
   margin-top: 20px !important;
 }
 
@@ -73,9 +77,13 @@
   text-align: center;
   max-width: 100%;
   white-space: pre-wrap;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
   position: relative;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              font-weight 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              letter-spacing 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              font-family 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .roll-process__text--gray {

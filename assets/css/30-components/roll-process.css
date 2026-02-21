@@ -74,7 +74,7 @@ section.block-roll-process,
 .roll-process__text {
   width: 1324px;
   max-width: 100%;
-  line-height: 60%;
+  line-height: 40%;
   text-align: center;
   white-space: pre-wrap;
   cursor: default;

@@ -111,7 +111,8 @@
             "instructions": "Choose a style variation",
             "required": 0,
             "choices": {
-                "default": "Default",
+                "default": "Default (White, no toggle)",
+                "with-toggle": "With Toggle (White, icon toggle)",
                 "dark": "Dark Background",
                 "two-column": "Two Column (Marketing Sharks)"
             },

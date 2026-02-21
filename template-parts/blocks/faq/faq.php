@@ -45,13 +45,12 @@ $variant_class = $style_variant !== 'default' ? ' block-faq--' . $style_variant 
             </figure>
           <?php endif; ?>
         </div>
-      <?php else: ?>
-        <!-- Header with title and toggle -->
+      <?php elseif ($style_variant === 'with-toggle'): ?>
+        <!-- Header with title and toggle (without KKK subtitle) -->
         <div class="block-faq__header">
           <h1 class="block-faq__title"><?php echo esc_html($title); ?></h1>
           
           <div class="block-faq__toggle-wrapper">
-            <p class="block-faq__subtitle"><?php echo esc_html($subtitle); ?></p>
             <button class="block-faq__toggle" data-faq-display-toggle aria-label="Toggle display mode">
               <span class="block-faq__toggle-option" data-mode="text">TEKST</span>
               <span class="block-faq__toggle-option" data-mode="icons">
@@ -61,6 +60,18 @@ $variant_class = $style_variant !== 'default' ? ' block-faq--' . $style_variant 
               </span>
             </button>
           </div>
+        </div>
+        
+        <?php if ($description): ?>
+          <p class="block-faq__description"><?php echo esc_html($description); ?></p>
+        <?php endif; ?>
+      <?php else: ?>
+        <!-- Default: Simple header without toggle -->
+        <div class="block-faq__header block-faq__header--simple">
+          <h1 class="block-faq__title"><?php echo esc_html($title); ?></h1>
+          <?php if ($subtitle): ?>
+            <p class="block-faq__subtitle"><?php echo esc_html($subtitle); ?></p>
+          <?php endif; ?>
         </div>
         
         <?php if ($description): ?>

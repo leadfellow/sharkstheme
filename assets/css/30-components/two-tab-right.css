@@ -22,10 +22,10 @@
 .block-two-tab-right__left {
   background-color: #f7f7f5;
   width: 720px;
-  padding: 100px 58px;
+  padding: 80px 58px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 40px;
   flex-shrink: 0;
 }
 
@@ -42,27 +42,22 @@
   height: 100%;
 }
 
-.block-two-tab-right__icon path {
-  fill: #000 !important;
-  stroke: none !important;
-}
-
 .block-two-tab-right__content {
   display: flex;
   flex-direction: column;
+  gap: 30px;
   width: 100%;
-  min-height: 0;
 }
 
 .block-two-tab-right__title {
   font-family: 'Switzer', sans-serif;
   font-weight: 500;
   font-size: 82px;
-  line-height: 1.1;
+  line-height: 0.95;
   letter-spacing: -4.1px;
   text-transform: uppercase;
   color: #000;
-  margin: 0 0 22px 0;
+  margin: 0;
   white-space: pre-wrap;
 }
 
@@ -92,7 +87,7 @@
   cursor: pointer;
 }
 
-/* Tab 1 - default state: yellow background with black text and icon */
+/* Tab 1 - default state: yellow background with black text */
 .block-two-tab-right__tab[data-tab="tab1"] {
   background-color: #e1ff04;
 }
@@ -103,10 +98,9 @@
 
 .block-two-tab-right__tab[data-tab="tab1"] .block-two-tab-right__tab-icon svg path {
   stroke: #000;
-  fill: transparent;
 }
 
-/* Tab 1 - when hovering itself: stays yellow with black icon/text */
+/* Tab 1 - when hovering itself: stays yellow */
 .block-two-tab-right__tab[data-tab="tab1"]:hover {
   background-color: #e1ff04;
 }
@@ -117,20 +111,14 @@
 
 .block-two-tab-right__tab[data-tab="tab1"]:hover .block-two-tab-right__tab-icon svg path {
   stroke: #000;
-  fill: transparent;
 }
 
-/* Tab 2 - default: black background with grey text and white icon */
+/* Tab 2 - default: black background with grey text (inactive) */
 .block-two-tab-right__tab[data-tab="tab2"] {
   background-color: #000000;
 }
 
-.block-two-tab-right__tab[data-tab="tab2"] .block-two-tab-right__tab-icon svg path {
-  stroke: #fff;
-  fill: transparent;
-}
-
-/* When Tab 2 is hovered: Tab 1 changes to black with white icon/text, Tab 2 changes to yellow with black icon/text */
+/* When Tab 2 is hovered: Tab 1 changes to black, Tab 2 changes to yellow */
 .block-two-tab-right__container:has([data-tab="tab2"]:hover) .block-two-tab-right__tab[data-tab="tab1"] {
   background-color: #000000;
 }
@@ -141,10 +129,9 @@
 
 .block-two-tab-right__container:has([data-tab="tab2"]:hover) .block-two-tab-right__tab[data-tab="tab1"] .block-two-tab-right__tab-icon svg path {
   stroke: #fff;
-  fill: transparent;
 }
 
-/* Tab 2 - hover: changes to yellow with black text and icon */
+/* Tab 2 - hover: changes to yellow with black text */
 .block-two-tab-right__tab[data-tab="tab2"]:hover {
   background-color: #e1ff04 !important;
 }
@@ -155,7 +142,6 @@
 
 .block-two-tab-right__tab[data-tab="tab2"]:hover .block-two-tab-right__tab-icon svg path {
   stroke: #000;
-  fill: transparent;
 }
 
 .block-two-tab-right__tab-content {

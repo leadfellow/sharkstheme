@@ -54,12 +54,15 @@ $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
             <?php endif; ?>
 
             <!-- Content -->
-            <div class="block-two-tab-right__content" 
-                 data-tab1-heading="<?php echo esc_attr($tab1_heading); ?>"
-                 data-tab2-heading="<?php echo esc_attr($tab2_heading); ?>">
-                <!-- Single Heading that changes -->
-                <h1 class="block-two-tab-right__title" data-dynamic-heading>
+            <div class="block-two-tab-right__content">
+                <!-- Tab 1 Heading - shown by default -->
+                <h1 class="block-two-tab-right__title" data-tab-heading="tab1">
                     <?php echo esc_html($tab1_heading); ?>
+                </h1>
+                
+                <!-- Tab 2 Heading - hidden by default -->
+                <h1 class="block-two-tab-right__title" data-tab-heading="tab2" style="display: none;">
+                    <?php echo esc_html($tab2_heading); ?>
                 </h1>
                 
                 <!-- Tab 1 Text - shown by default -->
@@ -133,46 +136,35 @@ $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
         if (!section) return;
         
         const tabs = section.querySelectorAll('[data-tab]');
-        const content = section.querySelector('.block-two-tab-right__content');
-        const dynamicHeading = section.querySelector('[data-dynamic-heading]');
+        const tab1Heading = section.querySelector('[data-tab-heading="tab1"]');
+        const tab2Heading = section.querySelector('[data-tab-heading="tab2"]');
         const tab1Content = section.querySelector('[data-tab-content="tab1"]');
         const tab2Content = section.querySelector('[data-tab-content="tab2"]');
-        
-        if (!content) return;
-        
-        const tab1Heading = content.getAttribute('data-tab1-heading');
-        const tab2Heading = content.getAttribute('data-tab2-heading');
         
         tabs.forEach(tab => {
             const tabName = tab.getAttribute('data-tab');
             
             tab.addEventListener('mouseenter', function() {
-                // Update heading text
-                if (dynamicHeading) {
-                    if (tabName === 'tab1') {
-                        dynamicHeading.textContent = tab1Heading;
-                    } else if (tabName === 'tab2') {
-                        dynamicHeading.textContent = tab2Heading;
-                    }
-                }
-                
-                // Hide all content
+                // Hide all headings and content
+                if (tab1Heading) tab1Heading.style.display = 'none';
+                if (tab2Heading) tab2Heading.style.display = 'none';
                 if (tab1Content) tab1Content.style.display = 'none';
                 if (tab2Content) tab2Content.style.display = 'none';
                 
-                // Show corresponding content
-                if (tabName === 'tab1' && tab1Content) {
-                    tab1Content.style.display = 'block';
-                } else if (tabName === 'tab2' && tab2Content) {
-                    tab2Content.style.display = 'block';
+                // Show corresponding heading and content
+                if (tabName === 'tab1') {
+                    if (tab1Heading) tab1Heading.style.display = 'block';
+                    if (tab1Content) tab1Content.style.display = 'block';
+                } else if (tabName === 'tab2') {
+                    if (tab2Heading) tab2Heading.style.display = 'block';
+                    if (tab2Content) tab2Content.style.display = 'block';
                 }
             });
             
             tab.addEventListener('mouseleave', function() {
-                // Reset to default
-                if (dynamicHeading) {
-                    dynamicHeading.textContent = tab1Heading;
-                }
+                // Reset to default (show tab1 heading and content)
+                if (tab1Heading) tab1Heading.style.display = 'block';
+                if (tab2Heading) tab2Heading.style.display = 'none';
                 if (tab1Content) tab1Content.style.display = 'block';
                 if (tab2Content) tab2Content.style.display = 'none';
             });

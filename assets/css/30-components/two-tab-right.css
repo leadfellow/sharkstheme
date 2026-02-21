@@ -59,6 +59,7 @@
   text-transform: uppercase;
   color: #000;
   margin: 0;
+  text-align: left;
   white-space: pre-wrap;
 }
 

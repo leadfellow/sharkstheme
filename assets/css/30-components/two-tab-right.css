@@ -120,6 +120,14 @@
   background-color: #000000;
 }
 
+.block-two-tab-right__tab[data-tab="tab2"] .block-two-tab-right__tab-icon svg path {
+  stroke: #fff;
+}
+
+.block-two-tab-right__tab[data-tab="tab2"] .block-two-tab-right__tab-title {
+  color: #757472;
+}
+
 /* When Tab 2 is hovered: Tab 1 changes to black, Tab 2 changes to yellow */
 .block-two-tab-right__container:has([data-tab="tab2"]:hover) .block-two-tab-right__tab[data-tab="tab1"] {
   background-color: #000000;

@@ -85,6 +85,10 @@ section.block-roll-process,
   cursor: default;
   position: relative;
   transition: color 0.2s ease, text-transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
 }
 
 .roll-process__text--gray {
@@ -136,16 +140,17 @@ section.block-roll-process,
   }
   
   .roll-process__text--black:hover {
-    letter-spacing: -2px;
+    letter-spacing: -1.6px;
   }
   
   .roll-process__text--gray {
     font-size: 28px;
     letter-spacing: -1.4px;
+    min-height: 32px;
   }
   
   .roll-process__text--gray:hover {
-    letter-spacing: -1.6px;
+    letter-spacing: -1.4px;
   }
   
   .roll-process__cursor-icon {
@@ -170,19 +175,21 @@ section.block-roll-process,
   .roll-process__text--black {
     font-size: 24px;
     letter-spacing: -1.2px;
+    min-height: 26px;
   }
   
   .roll-process__text--black:hover {
-    letter-spacing: -1.4px;
+    letter-spacing: -1.2px;
   }
   
   .roll-process__text--gray {
     font-size: 20px;
     letter-spacing: -1px;
+    min-height: 22px;
   }
   
   .roll-process__text--gray:hover {
-    letter-spacing: -1.2px;
+    letter-spacing: -1px;
   }
   
   .roll-process__content > * + * {

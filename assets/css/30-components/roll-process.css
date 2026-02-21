@@ -16,7 +16,6 @@ section.block-roll-process,
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 70px !important;
   padding: 120px 58px 120px 58px !important;
   width: 100%;
   min-height: 876px;
@@ -40,15 +39,15 @@ section.block-roll-process,
   padding: 0 !important;
 }
 
-/* Content Area */
+/* Content Area - 70px spacing from title */
 .roll-process__content {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   position: relative;
-  gap: 0 !important;
-  margin: 0 !important;
+  margin-top: 70px !important;
+  margin-bottom: 0 !important;
   padding: 0 !important;
 }
 
@@ -165,7 +164,10 @@ section.block-roll-process,
 @media (max-width: 768px) {
   .roll-process__container {
     padding: 60px 24px !important;
-    gap: 40px !important;
+  }
+  
+  .roll-process__content {
+    margin-top: 40px !important;
   }
   
   .roll-process__main-title {

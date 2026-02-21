@@ -153,20 +153,20 @@ $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
                 } else if (tabName === 'tab2' && tab2Content) {
                     tab2Content.style.display = 'block';
                 }
-                
-                // Add active state to tab
-                tabs.forEach(t => t.classList.remove('is-active'));
-                tab.classList.add('is-active');
             });
         });
         
-        // Reset to default when mouse leaves the section
-        section.addEventListener('mouseleave', function() {
-            if (defaultContent) defaultContent.style.display = 'block';
-            if (tab1Content) tab1Content.style.display = 'none';
-            if (tab2Content) tab2Content.style.display = 'none';
-            tabs.forEach(t => t.classList.remove('is-active'));
-        });
+        // Reset to default when mouse leaves tabs (not entire section, just the right side)
+        const container = section.querySelector('.block-two-tab-right__container');
+        if (container) {
+            tabs.forEach(tab => {
+                tab.addEventListener('mouseleave', function() {
+                    if (defaultContent) defaultContent.style.display = 'block';
+                    if (tab1Content) tab1Content.style.display = 'none';
+                    if (tab2Content) tab2Content.style.display = 'none';
+                });
+            });
+        }
     }
     
     // Initialize on load

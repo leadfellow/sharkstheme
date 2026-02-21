@@ -83,8 +83,26 @@
   min-width: 0;
   min-height: 0;
   position: relative;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
   cursor: pointer;
+}
+
+/* Hover effect - Tab 1 (yellow to black) */
+.block-two-tab-right__tab[data-tab="tab1"]:hover {
+  background-color: #000000 !important;
+}
+
+.block-two-tab-right__tab[data-tab="tab1"]:hover .block-two-tab-right__tab-title {
+  color: #fff;
+}
+
+.block-two-tab-right__tab[data-tab="tab1"]:hover .block-two-tab-right__tab-icon svg path {
+  stroke: #fff;
+}
+
+/* Hover effect - Tab 2 (black stays black, but brightens title) */
+.block-two-tab-right__tab[data-tab="tab2"]:hover .block-two-tab-right__tab-title {
+  color: #fff;
 }
 
 .block-two-tab-right__tab-content {
@@ -110,6 +128,10 @@
   height: 100%;
 }
 
+.block-two-tab-right__tab-icon svg path {
+  transition: stroke 0.3s ease;
+}
+
 .block-two-tab-right__tab-title {
   font-family: 'Helvetica', Arial, sans-serif;
   font-size: 36px;
@@ -122,14 +144,9 @@
   transition: color 0.3s ease;
 }
 
-/* Tab 2 (black background) inactive title color */
-.block-two-tab-right__tab[data-tab="tab2"]:not(.is-active) .block-two-tab-right__tab-title {
+/* Tab 2 (black background) default title color - grey/inactive */
+.block-two-tab-right__tab[data-tab="tab2"] .block-two-tab-right__tab-title {
   color: #757472;
-}
-
-/* Tab 2 (black background) active title color */
-.block-two-tab-right__tab[data-tab="tab2"].is-active .block-two-tab-right__tab-title {
-  color: #fff;
 }
 
 /* Responsive adjustments */

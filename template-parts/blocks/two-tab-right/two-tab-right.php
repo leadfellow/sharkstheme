@@ -13,7 +13,6 @@ if (!defined('ABSPATH')) {
 // Get ACF fields
 $icon_left = get_field('icon_left');
 $title = get_field('title') ?: 'E-POE EELARVE';
-$default_text = get_field('default_text');
 
 // Tab 1 (Middle)
 $tab1_bg_color = get_field('tab1_bg_color') ?: '#e1ff04';
@@ -56,14 +55,9 @@ $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
             <div class="block-two-tab-right__content">
                 <h1 class="block-two-tab-right__title"><?php echo esc_html($title); ?></h1>
                 
-                <!-- Default Text -->
-                <div class="block-two-tab-right__text" data-tab-content="default">
-                    <?php echo wp_kses_post(wpautop($default_text)); ?>
-                </div>
-                
-                <!-- Tab 1 Text -->
+                <!-- Tab 1 Text - shown by default -->
                 <?php if ($tab1_text): ?>
-                    <div class="block-two-tab-right__text" data-tab-content="tab1" style="display: none;">
+                    <div class="block-two-tab-right__text" data-tab-content="tab1">
                         <?php echo wp_kses_post(wpautop($tab1_text)); ?>
                     </div>
                 <?php endif; ?>
@@ -134,7 +128,6 @@ $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
         if (!section) return;
         
         const tabs = section.querySelectorAll('[data-tab]');
-        const defaultContent = section.querySelector('[data-tab-content="default"]');
         const tab1Content = section.querySelector('[data-tab-content="tab1"]');
         const tab2Content = section.querySelector('[data-tab-content="tab2"]');
         
@@ -143,7 +136,6 @@ $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
             
             tab.addEventListener('mouseenter', function() {
                 // Hide all content
-                if (defaultContent) defaultContent.style.display = 'none';
                 if (tab1Content) tab1Content.style.display = 'none';
                 if (tab2Content) tab2Content.style.display = 'none';
                 
@@ -154,19 +146,13 @@ $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
                     tab2Content.style.display = 'block';
                 }
             });
-        });
-        
-        // Reset to default when mouse leaves tabs (not entire section, just the right side)
-        const container = section.querySelector('.block-two-tab-right__container');
-        if (container) {
-            tabs.forEach(tab => {
-                tab.addEventListener('mouseleave', function() {
-                    if (defaultContent) defaultContent.style.display = 'block';
-                    if (tab1Content) tab1Content.style.display = 'none';
-                    if (tab2Content) tab2Content.style.display = 'none';
-                });
+            
+            tab.addEventListener('mouseleave', function() {
+                // Reset to default (show tab1 content)
+                if (tab1Content) tab1Content.style.display = 'block';
+                if (tab2Content) tab2Content.style.display = 'none';
             });
-        }
+        });
     }
     
     // Initialize on load

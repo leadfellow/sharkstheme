@@ -87,20 +87,33 @@
   cursor: pointer;
 }
 
-/* Hover effect - Tab 1 (yellow to black) */
-.block-two-tab-right__tab[data-tab="tab1"]:hover {
-  background-color: #000000 !important;
+/* Tab 1 - default state: black background */
+.block-two-tab-right__tab[data-tab="tab1"] {
+  background-color: #000000;
 }
 
-.block-two-tab-right__tab[data-tab="tab1"]:hover .block-two-tab-right__tab-title {
+.block-two-tab-right__tab[data-tab="tab1"] .block-two-tab-right__tab-title {
   color: #fff;
 }
 
-.block-two-tab-right__tab[data-tab="tab1"]:hover .block-two-tab-right__tab-icon svg path {
+.block-two-tab-right__tab[data-tab="tab1"] .block-two-tab-right__tab-icon svg path {
   stroke: #fff;
 }
 
-/* Hover effect - Tab 2 (black stays black, but brightens title) */
+/* Tab 1 - hover: yellow background */
+.block-two-tab-right__tab[data-tab="tab1"]:hover {
+  background-color: #e1ff04 !important;
+}
+
+.block-two-tab-right__tab[data-tab="tab1"]:hover .block-two-tab-right__tab-title {
+  color: #000;
+}
+
+.block-two-tab-right__tab[data-tab="tab1"]:hover .block-two-tab-right__tab-icon svg path {
+  stroke: #000;
+}
+
+/* Tab 2 - stays black, hover changes text color */
 .block-two-tab-right__tab[data-tab="tab2"]:hover .block-two-tab-right__tab-title {
   color: #fff;
 }

@@ -38,18 +38,6 @@
             "placeholder": "E-POE EELARVE"
         },
         {
-            "key": "field_two_tab_right_default_text",
-            "label": "Default Text",
-            "name": "default_text",
-            "type": "wysiwyg",
-            "instructions": "Text shown by default (when no tab is hovered)",
-            "required": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
             "key": "field_two_tab_right_tab1_heading",
             "label": "Tab 1 Settings",
             "name": "",
@@ -92,7 +80,7 @@
             "label": "Tab 1 Text Content",
             "name": "tab1_text",
             "type": "wysiwyg",
-            "instructions": "Text shown in left panel when hovering over first tab",
+            "instructions": "Text shown in left panel by default and when hovering over first tab (this tab is active by default)",
             "required": 0,
             "tabs": "all",
             "toolbar": "full",

@@ -44,66 +44,64 @@ section.block-roll-process,
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 1180px;
+  padding: 0;
+  gap: 20px;
+  isolation: isolate;
+  width: 1324px;
+  max-width: 100%;
   position: relative;
   margin-top: 70px !important;
   margin-bottom: 0 !important;
-  padding: 0 !important;
 }
 
-/* CRITICAL SPACING - must come after general rules */
-/* First child has no top margin */
-.block-roll-process .roll-process__content > .roll-process__divider:first-child {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* All other children get 20px top margin */
-.block-roll-process .roll-process__content > .roll-process__divider:not(:first-child),
+/* Remove default margins so flex gap controls spacing exactly */
+.block-roll-process .roll-process__content > .roll-process__divider,
 .block-roll-process .roll-process__content > .roll-process__text {
-  margin: 20px 0 0 0 !important;
+  margin: 0 !important;
   padding: 0 !important;
 }
 
 /* Divider Lines */
 .roll-process__divider {
-  width: 100%;
-  height: 1px;
-  background-color: #BBBAB6;
+  width: 1324px;
+  max-width: 100%;
+  height: 0;
+  border-top: 1px solid #BBBAB6;
   position: relative;
 }
 
 /* Text Styles */
 .roll-process__text {
-  font-size: 36px;
-  line-height: 1.1;
-  letter-spacing: -1.8px;
-  text-align: center;
+  width: 1324px;
   max-width: 100%;
+  line-height: 110%;
+  text-align: center;
   white-space: pre-wrap;
   cursor: default;
   position: relative;
   transition: color 0.2s ease, text-transform 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 40px;
+  align-self: stretch;
 }
 
 .roll-process__text--gray {
-  font-family: 'Switzer', var(--font-heading);
-  font-weight: 500;
-  letter-spacing: -2.1px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  letter-spacing: -0.05em;
   color: #BBBAB6;
+  min-height: 40px;
 }
 
 .roll-process__text--black {
-  font-family: 'Inter', 'Switzer', var(--font-heading);
+  font-family: 'Switzer', var(--font-heading);
+  font-style: normal;
   font-weight: 500;
-  letter-spacing: -2.1px;
+  font-size: 42px;
+  letter-spacing: -0.05em;
   text-transform: uppercase;
   color: #000000;
+  min-height: 46px;
 }
 
 /* Hover Effects */
@@ -120,7 +118,7 @@ section.block-roll-process,
 /* Cursor Icon */
 .roll-process__cursor-icon {
   position: absolute;
-  right: 197px;
+  left: 1127px;
   top: 100px;
   width: 23px;
   height: 35px;
@@ -137,6 +135,7 @@ section.block-roll-process,
   .roll-process__text--black {
     font-size: 32px;
     letter-spacing: -1.6px;
+    min-height: 35px;
   }
   
   .roll-process__text--black:hover {
@@ -146,7 +145,7 @@ section.block-roll-process,
   .roll-process__text--gray {
     font-size: 28px;
     letter-spacing: -1.4px;
-    min-height: 32px;
+    min-height: 31px;
   }
   
   .roll-process__text--gray:hover {
@@ -165,6 +164,7 @@ section.block-roll-process,
   
   .roll-process__content {
     margin-top: 40px !important;
+    gap: 15px;
   }
   
   .roll-process__main-title {
@@ -192,11 +192,8 @@ section.block-roll-process,
     letter-spacing: -1px;
   }
   
-  .roll-process__content > * + * {
-    margin-top: 15px !important;
-  }
-  
   .roll-process__cursor-icon {
+    left: auto;
     right: 24px;
     top: 60px;
     width: 18px;

@@ -56,7 +56,6 @@ if (!$main_title && !$process_items) {
                         <?php echo esc_html($text); ?>
                     </p>
                 <?php endforeach; ?>
-                <div class="roll-process__divider"></div>
             <?php endif; ?>
             
             <?php if ($show_cursor_icon): ?>

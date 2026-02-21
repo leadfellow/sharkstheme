@@ -89,7 +89,7 @@
   cursor: pointer;
 }
 
-/* Tab 1 - default state: yellow background with black text */
+/* Tab 1 - default state: yellow background with black text and icon */
 .block-two-tab-right__tab[data-tab="tab1"] {
   background-color: #e1ff04;
 }
@@ -100,9 +100,10 @@
 
 .block-two-tab-right__tab[data-tab="tab1"] .block-two-tab-right__tab-icon svg path {
   stroke: #000;
+  fill: transparent;
 }
 
-/* Tab 1 - when hovering itself: stays yellow */
+/* Tab 1 - when hovering itself: stays yellow with black icon/text */
 .block-two-tab-right__tab[data-tab="tab1"]:hover {
   background-color: #e1ff04;
 }
@@ -113,22 +114,20 @@
 
 .block-two-tab-right__tab[data-tab="tab1"]:hover .block-two-tab-right__tab-icon svg path {
   stroke: #000;
+  fill: transparent;
 }
 
-/* Tab 2 - default: black background with grey text (inactive) */
+/* Tab 2 - default: black background with grey text and white icon */
 .block-two-tab-right__tab[data-tab="tab2"] {
   background-color: #000000;
 }
 
 .block-two-tab-right__tab[data-tab="tab2"] .block-two-tab-right__tab-icon svg path {
   stroke: #fff;
+  fill: transparent;
 }
 
-.block-two-tab-right__tab[data-tab="tab2"] .block-two-tab-right__tab-title {
-  color: #757472;
-}
-
-/* When Tab 2 is hovered: Tab 1 changes to black, Tab 2 changes to yellow */
+/* When Tab 2 is hovered: Tab 1 changes to black with white icon/text, Tab 2 changes to yellow with black icon/text */
 .block-two-tab-right__container:has([data-tab="tab2"]:hover) .block-two-tab-right__tab[data-tab="tab1"] {
   background-color: #000000;
 }
@@ -139,9 +138,10 @@
 
 .block-two-tab-right__container:has([data-tab="tab2"]:hover) .block-two-tab-right__tab[data-tab="tab1"] .block-two-tab-right__tab-icon svg path {
   stroke: #fff;
+  fill: transparent;
 }
 
-/* Tab 2 - hover: changes to yellow with black text */
+/* Tab 2 - hover: changes to yellow with black text and icon */
 .block-two-tab-right__tab[data-tab="tab2"]:hover {
   background-color: #e1ff04 !important;
 }
@@ -152,6 +152,7 @@
 
 .block-two-tab-right__tab[data-tab="tab2"]:hover .block-two-tab-right__tab-icon svg path {
   stroke: #000;
+  fill: transparent;
 }
 
 .block-two-tab-right__tab-content {

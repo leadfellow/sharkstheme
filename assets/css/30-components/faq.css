@@ -2,11 +2,7 @@
 .block-faq {
   background: #ffffff;
   position: relative;
-}
-
-.block-faq > .container {
   padding: clamp(60px, 10vw, 120px) clamp(24px, 4vw, 58px);
-  max-width: 100%;
 }
 
 .block-faq__inner {
@@ -299,7 +295,7 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .block-faq > .container {
+  .block-faq {
     padding: 60px 24px;
   }
   
@@ -373,7 +369,7 @@
 }
 
 @media (max-width: 600px) {
-  .block-faq > .container {
+  .block-faq {
     padding: 40px 20px;
   }
   
@@ -423,7 +419,7 @@
 }
 
 @media (max-width: 480px) {
-  .block-faq > .container {
+  .block-faq {
     padding: 30px 16px;
   }
   

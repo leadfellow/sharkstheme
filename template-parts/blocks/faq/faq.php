@@ -29,7 +29,6 @@ $variant_class = $style_variant !== 'default' ? ' block-faq--' . $style_variant 
 ?>
 
 <section id="<?php echo esc_attr($anchor); ?>" class="block-faq<?php echo esc_attr($align_class . $variant_class . $class_name); ?>" data-display-mode="<?php echo esc_attr($display_mode); ?>">
-  <div class="container">
     <div class="block-faq__inner">
       
       <?php if ($style_variant === 'two-column'): ?>
@@ -117,7 +116,6 @@ $variant_class = $style_variant !== 'default' ? ' block-faq--' . $style_variant 
       <?php endif; ?>
       
     </div>
-  </div>
 </section>
 
 <script>

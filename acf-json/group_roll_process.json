@@ -1,0 +1,124 @@
+{
+    "key": "group_roll_process",
+    "title": "Roll Process",
+    "fields": [
+        {
+            "key": "field_roll_process_anchor",
+            "label": "Anchor (ID)",
+            "name": "block_anchor",
+            "type": "text",
+            "instructions": "Sisesta ankru nimi sisemiste linkide jaoks (nt. \"process\", \"protsess\"). Kasuta ainult väiketähti, numbreid ja kriipse. Seejärel saad linkida: #process",
+            "required": 0,
+            "placeholder": "nt. process, protsess",
+            "prepend": "#",
+            "maxlength": 50,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_roll_process_main_title",
+            "label": "Main Title",
+            "name": "main_title",
+            "type": "text",
+            "instructions": "Large title at the top of the section",
+            "required": 1,
+            "placeholder": "Disainiprotsessi lõpuks jõuab sinuni",
+            "maxlength": "",
+            "wrapper": {
+                "width": ""
+            }
+        },
+        {
+            "key": "field_roll_process_items",
+            "label": "Process Items",
+            "name": "process_items",
+            "type": "repeater",
+            "instructions": "Add process items - each item will have a divider line above it",
+            "required": 0,
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Item",
+            "collapsed": "field_roll_process_item_text",
+            "sub_fields": [
+                {
+                    "key": "field_roll_process_item_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "Enter the text for this item",
+                    "required": 1,
+                    "placeholder": "Logo ja selle erinevad versioonid",
+                    "wrapper": {
+                        "width": "70"
+                    }
+                },
+                {
+                    "key": "field_roll_process_item_style",
+                    "label": "Style",
+                    "name": "style",
+                    "type": "select",
+                    "instructions": "Choose text style",
+                    "required": 1,
+                    "choices": {
+                        "gray": "Gray (Light)",
+                        "black": "Black (Bold, Uppercase)"
+                    },
+                    "default_value": "gray",
+                    "allow_null": 0,
+                    "ui": 1,
+                    "return_format": "value",
+                    "wrapper": {
+                        "width": "30"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_roll_process_show_cursor",
+            "label": "Show Cursor Icon",
+            "name": "show_cursor_icon",
+            "type": "true_false",
+            "instructions": "Display decorative cursor icon",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_roll_process_background_color",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "color_picker",
+            "instructions": "Choose the background color for the section",
+            "default_value": "#ffffff",
+            "enable_opacity": 1,
+            "return_format": "string",
+            "wrapper": {
+                "width": "50"
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/roll-process"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

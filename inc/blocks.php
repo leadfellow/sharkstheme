@@ -1178,6 +1178,39 @@ add_action('acf/init', function() {
             );
         }
     ]);
+
+    // Roll Process Block
+    acf_register_block_type([
+        'name'            => 'roll-process',
+        'title'           => __('Roll Process', 'sharks2025'),
+        'description'     => __('Process section with main title, dividers, and hover effects that transform text to uppercase', 'sharks2025'),
+        'render_template' => 'template-parts/blocks/roll-process/roll-process.php',
+        'category'        => 'sharks-blocks',
+        'icon'            => 'editor-ol',
+        'keywords'        => ['process', 'roll', 'protsess', 'steps', 'timeline', 'divider', 'hover'],
+        'supports'        => [
+            'align'   => ['wide', 'full'],
+            'anchor'  => true,
+            'spacing' => ['padding', 'margin'],
+            'color'   => ['background']
+        ],
+        'mode'            => 'preview',
+        'enqueue_assets'  => function() {
+            wp_enqueue_style(
+                'roll-process-css',
+                get_template_directory_uri() . '/assets/css/30-components/roll-process.css',
+                [],
+                filemtime(get_template_directory() . '/assets/css/30-components/roll-process.css')
+            );
+            wp_enqueue_script(
+                'roll-process-js',
+                get_template_directory_uri() . '/assets/js/roll-process.js',
+                [],
+                filemtime(get_template_directory() . '/assets/js/roll-process.js'),
+                true
+            );
+        }
+    ]);
 });
 
 /**

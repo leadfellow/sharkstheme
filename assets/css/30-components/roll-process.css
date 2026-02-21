@@ -1,0 +1,181 @@
+/* Roll Process Component */
+/* Process/timeline section with hover effects that transform text to uppercase */
+
+.block-roll-process {
+  margin: 0 !important;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.roll-process__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+  padding: 120px 58px;
+  width: 100%;
+  min-height: 100vh;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Main Title */
+.roll-process__main-title {
+  font-family: 'Inter', 'Switzer', var(--font-heading);
+  font-weight: 500;
+  font-size: 82px;
+  line-height: 1.1;
+  letter-spacing: -4.1px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #000000;
+  max-width: 1192px;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+/* Content Area */
+.roll-process__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  position: relative;
+}
+
+/* Divider Lines */
+.roll-process__divider {
+  width: 1324px;
+  max-width: 100%;
+  height: 1px;
+  background-color: #BBBAB6;
+  position: relative;
+}
+
+/* Text Styles */
+.roll-process__text {
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+  text-align: center;
+  max-width: 100%;
+  white-space: pre-wrap;
+  margin: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+  position: relative;
+}
+
+.roll-process__text--gray {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #BBBAB6;
+}
+
+.roll-process__text--black {
+  font-family: 'Inter', 'Switzer', var(--font-heading);
+  font-weight: 500;
+  letter-spacing: -2.1px;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+/* Hover Effects */
+.roll-process__text:hover {
+  transform: scale(1.02);
+  color: #000000;
+  font-weight: 500;
+}
+
+.roll-process__text--gray:hover {
+  text-transform: uppercase;
+  font-family: 'Inter', 'Switzer', var(--font-heading);
+  letter-spacing: -2.1px;
+}
+
+.roll-process__text--black:hover {
+  letter-spacing: -2.5px;
+}
+
+/* Cursor Icon */
+.roll-process__cursor-icon {
+  position: absolute;
+  right: 197px;
+  top: 100px;
+  width: 23px;
+  height: 35px;
+  pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+  .roll-process__main-title {
+    font-size: 62px;
+    letter-spacing: -3.1px;
+  }
+  
+  .roll-process__text--black {
+    font-size: 32px;
+    letter-spacing: -1.6px;
+  }
+  
+  .roll-process__text--black:hover {
+    letter-spacing: -2px;
+  }
+  
+  .roll-process__text--gray {
+    font-size: 28px;
+    letter-spacing: -1.4px;
+  }
+  
+  .roll-process__text--gray:hover {
+    letter-spacing: -1.6px;
+  }
+  
+  .roll-process__cursor-icon {
+    right: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .roll-process__container {
+    padding: 60px 24px;
+    gap: 40px;
+  }
+  
+  .roll-process__main-title {
+    font-size: 42px;
+    letter-spacing: -2.1px;
+  }
+  
+  .roll-process__text--black {
+    font-size: 24px;
+    letter-spacing: -1.2px;
+  }
+  
+  .roll-process__text--black:hover {
+    letter-spacing: -1.4px;
+  }
+  
+  .roll-process__text--gray {
+    font-size: 20px;
+    letter-spacing: -1px;
+  }
+  
+  .roll-process__text--gray:hover {
+    letter-spacing: -1.2px;
+  }
+  
+  .roll-process__content {
+    gap: 15px;
+  }
+  
+  .roll-process__cursor-icon {
+    right: 24px;
+    top: 60px;
+    width: 18px;
+    height: 28px;
+  }
+}

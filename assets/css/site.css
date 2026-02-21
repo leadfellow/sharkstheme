@@ -8,6 +8,7 @@
 @import url('./30-components/card.css');
 @import url('./30-components/services.css');
 @import url('./30-components/pricing.css');
+@import url('./30-components/roll-process.css');
 @import url('./30-components/cta.css');
 @import url('./30-components/contact-form.css');
 @import url('./30-components/case-study.css');
@@ -163,7 +164,8 @@ img {
 .entry-content>.block-works3,
 .entry-content>.block-works1,
 .entry-content>.block-wide-picture,
-.entry-content>.block-four-steps {
+.entry-content>.block-four-steps,
+.entry-content>.block-roll-process {
   margin: 0 !important;
 }
 
@@ -205,7 +207,8 @@ img {
 .entry-content>.block-works3,
 .entry-content>.block-works1,
 .entry-content>.block-wide-picture,
-.entry-content>.block-four-steps {
+.entry-content>.block-four-steps,
+.entry-content>.block-roll-process {
   padding-inline: 0 !important;
   margin-left: auto !important;
   margin-right: auto !important;

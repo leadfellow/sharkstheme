@@ -1196,13 +1196,6 @@ add_action('acf/init', function() {
         ],
         'mode'            => 'preview',
         'enqueue_assets'  => function() {
-            wp_enqueue_script(
-                'roll-process-js',
-                get_template_directory_uri() . '/assets/js/roll-process.js',
-                [],
-                filemtime(get_template_directory() . '/assets/js/roll-process.js'),
-                true
-            );
         }
     ]);
 });

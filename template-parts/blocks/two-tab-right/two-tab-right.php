@@ -56,12 +56,12 @@ $class_name = !empty($block['className']) ? ' ' . $block['className'] : '';
             <!-- Content -->
             <div class="block-two-tab-right__content">
                 <!-- Tab 1 Heading - shown by default -->
-                <h1 class="block-two-tab-right__title" data-tab-heading="tab1">
+                <h1 class="block-two-tab-right__title" data-tab-heading="tab1" style="text-align: left;">
                     <?php echo esc_html($tab1_heading); ?>
                 </h1>
                 
                 <!-- Tab 2 Heading - hidden by default -->
-                <h1 class="block-two-tab-right__title" data-tab-heading="tab2" style="display: none;">
+                <h1 class="block-two-tab-right__title" data-tab-heading="tab2" style="display: none; text-align: left;">
                     <?php echo esc_html($tab2_heading); ?>
                 </h1>
                 

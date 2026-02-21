@@ -9,7 +9,7 @@
 .block-what-includes__container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 120px 58px;
+  padding: 120px 58px 120px 58px;
   width: 100%;
 }
 
@@ -78,7 +78,7 @@
 /* Responsive */
 @media (max-width: 1200px) {
   .block-what-includes__container {
-    padding: 80px 40px;
+    padding: 80px 40px 120px 40px;
   }
   
   .block-what-includes__heading {
@@ -94,7 +94,7 @@
 
 @media (max-width: 768px) {
   .block-what-includes__container {
-    padding: 60px 24px;
+    padding: 60px 24px 80px 24px;
   }
   
   .block-what-includes__heading {
@@ -120,7 +120,7 @@
 
 @media (max-width: 480px) {
   .block-what-includes__container {
-    padding: 40px 20px;
+    padding: 40px 20px 60px 20px;
   }
   
   .block-what-includes__heading {
@@ -148,7 +148,7 @@
 
 @media (max-width: 375px) {
   .block-what-includes__container {
-    padding: 30px 15px;
+    padding: 30px 15px 50px 15px;
   }
   
   .block-what-includes__heading {

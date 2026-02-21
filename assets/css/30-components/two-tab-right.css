@@ -55,20 +55,24 @@
   width: 100%;
 }
 
-.block-two-tab-right__title {
-  font-family: 'Switzer', sans-serif;
-  font-weight: 500;
-  font-size: 82px;
-  line-height: 0.95;
-  letter-spacing: -4.1px;
-  text-transform: uppercase;
-  color: #000;
+.block-two-tab-right__content .block-two-tab-right__title,
+.block-two-tab-right__left h1.block-two-tab-right__title,
+.block-two-tab-right h1[data-tab-heading] {
+  font-family: 'Switzer', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 82px !important;
+  line-height: 0.95 !important;
+  letter-spacing: -4.1px !important;
+  text-transform: uppercase !important;
+  color: #000 !important;
   margin: 0 !important;
   padding: 0 !important;
   text-align: left !important;
-  width: 100%;
-  align-self: flex-start;
-  white-space: pre-wrap;
+  width: 100% !important;
+  max-width: 100% !important;
+  align-self: flex-start !important;
+  white-space: pre-wrap !important;
+  display: block !important;
 }
 
 .block-two-tab-right__text {

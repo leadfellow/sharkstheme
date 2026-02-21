@@ -54,19 +54,9 @@
   text-align: left;
 }
 
+/* Title styles applied inline in PHP to prevent WP/Gutenberg overrides */
 .block-two-tab-right h1[data-tab-heading] {
-  font-family: 'Switzer', sans-serif !important;
-  font-weight: 500 !important;
-  font-size: 82px !important;
-  line-height: 1.1 !important;
-  letter-spacing: -4.1px !important;
-  text-transform: uppercase !important;
-  color: #000 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  text-align: left !important;
-  width: 100% !important;
-  white-space: pre-wrap !important;
+  width: 100%;
 }
 
 

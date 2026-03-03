@@ -297,7 +297,7 @@ if (!defined('ABSPATH')) {
         });
         
         // Desktop: add/remove submenu-open class on hover
-        if (window.innerWidth > 900) {
+        if (window.innerWidth > 992) {
             let hoverTimeout;
             const nav = document.querySelector('.site-nav');
             const logo = document.querySelector('.site-logo');
@@ -389,7 +389,7 @@ if (!defined('ABSPATH')) {
                 
                 // Chevron click - toggle submenu (mobile only)
                 chevronArea.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 900) {
+                    if (window.innerWidth <= 992) {
                         e.preventDefault();
                         e.stopPropagation();
                         
@@ -407,13 +407,13 @@ if (!defined('ABSPATH')) {
                 
                 // Prevent touch events on chevron from bubbling to link
                 chevronArea.addEventListener('touchstart', function(e) {
-                    if (window.innerWidth <= 900) {
+                    if (window.innerWidth <= 992) {
                         e.stopPropagation();
                     }
                 }, { passive: true });
                 
                 chevronArea.addEventListener('touchend', function(e) {
-                    if (window.innerWidth <= 900) {
+                    if (window.innerWidth <= 992) {
                         e.stopPropagation();
                     }
                 }, { passive: true });
@@ -421,7 +421,7 @@ if (!defined('ABSPATH')) {
                 // Link click - navigate to page (mobile and desktop)
                 link.addEventListener('click', function(e) {
                     // On mobile, allow navigation when clicking the link text
-                    if (window.innerWidth <= 900) {
+                    if (window.innerWidth <= 992) {
                         // Allow navigation and close menu
                         setTimeout(function() {
                             const nav = document.querySelector('.site-nav');
@@ -442,7 +442,7 @@ if (!defined('ABSPATH')) {
         
         // Close dropdown when clicking outside (mobile only)
         document.addEventListener('click', function(e) {
-            if (window.innerWidth <= 900 && !e.target.closest('.menu-item-has-children')) {
+            if (window.innerWidth <= 992 && !e.target.closest('.menu-item-has-children')) {
                 menuItems.forEach(function(item) {
                     item.classList.remove('is-open');
                 });
